@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>huebee.js Color Picker Example</title>
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/4.3.1/flatly/bootstrap.min.css">
+    <link href="dist/huebee.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="jquery-script-menu">
+        <div class="jquery-script-center">
+            <ul>
+                <li><a href="https://www.jqueryscript.net/other/color-picker-huebee.html">Download This Plugin</a></li>
+                <li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+            </ul>
+            <div id="carbon-block"></div>
+
+
+            <script type="text/javascript" src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+            </script>
+        </div>
+        <div class="jquery-script-clear"></div>
+    </div>
+    </div>
+
+    <div class="container" style="margin:150px auto">
+        <h1>huebee.js Color Picker Example</h1>
+        <p class="mt-5 mb-5 lead">huebee.js is a highly-customizable, user-friendly color picker that allows the user to
+            select a color from a predefined/restricted palette.</p>
+        <input type="text" id="demo" class="form-control" value="#08F">
+    </div>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js">
+    </script>
+    <script src="dist/huebee.pkgd.min.js"></script>
+    <script>
+        var elem = $('.form-control')[0];
+        var hueb = new Huebee(elem, {
+            notation: 'hex',
+            saturations: 2
+        });
+
+    </script>
+    
+</body>
+
+</html>

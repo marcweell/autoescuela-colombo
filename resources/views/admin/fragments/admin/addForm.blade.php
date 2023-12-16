@@ -1,0 +1,70 @@
+<div class="card">
+
+    <div class="card-body">
+        <h4 class="header-title">{{ __('Cadastro de Administrador') }}</h4>
+
+        <form action="{{ route('web.admin.admin.add.do') }}" class="form_ parent-load row" method="post">
+
+            <div class="col-md-4 mb-3">
+                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <input type="text" name="name" required id="name" class="form-control"
+                    placeholder="{{ __('Digite o nome...') }}">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="last_name" class="form-label">{{ __('Apelido') }}</label>
+                <input type="text" name="last_name" id="last_name" class="form-control"
+                    placeholder="{{ __('Digite o Apelido...') }}">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="code" class="form-label">{{ __('Nome de Usuario') }}</label>
+                <input type="text" name="code" id="code" class="form-control"
+                    placeholder="{{ __('Digite o nome de usuario...') }}" required
+                    pattern="{{ regex()->userName()->pattern() }}">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="email" class="form-label">{{ __('Email') }}</label>
+                <input type="text" name="email" id="email" class="form-control"
+                    placeholder="{{ __('Digite o Email...') }}">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="phone" class="form-label">{{ __('Telefone') }}</label>
+                <div class="input-group">
+                    <select class="form-control w-25" style="width: 25%" name="idd_country_id">
+                        @foreach ($country as $item)
+                            <option value="{{ $item->id }}" {{ strtolower($item->code) =="br" ? 'selected' : '' }}>
+                                {{ $item->idd . '     (' . $item->name . ' - ' . $item->native_name . ')' }}</option>
+                        @endforeach
+                    </select>
+                    <input type="text" class="form-control w-75" placeholder="" aria-label=""
+                        aria-describedby="basic-addon1" name="phone" value="">
+                </div>
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="type" class="form-label">{{ __('Grupo') }}</label>
+                <select name="role" class="form-control">
+                    @foreach ($role as $item)
+                        <option value="{{ $item->id }}">
+                            {{  $item->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </div>
+            
+            <div class="col-md-4 mb-3">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="active" class="form-check-input" id="customCheck3">
+                    <label class="form-check-label" for="customCheck3">Ativo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" name="send-auth" class="form-check-input" id="customCheck4">
+                    <label class="form-check-label" for="customCheck4">Enviar Email de Autenticacao</label>
+                </div>
+            </div>
+            <div class="col-12 pt-2">
+                <button type="submit" class="btn btn-secondary  chl_loader"><i
+                        class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
+            </div>
+        </form>
+
+    </div> <!-- end card-body -->
+</div>

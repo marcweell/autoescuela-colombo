@@ -1,0 +1,16 @@
+/node_modules
+/trash
+/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+/.idea
+/.vscode  
+public/assets/app/webapi-original.js
+public/assets/app/inits-original.js
+/storage
