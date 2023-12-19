@@ -19,9 +19,6 @@ Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("we
 
     Route::get("/contact", [App\Http\Controllers\IndexController::class, 'contactIndex'])->name("contact.index");
     Route::get("/about", [App\Http\Controllers\IndexController::class, 'aboutIndex'])->name("about.index");
-    Route::get("/faq", [App\Http\Controllers\IndexController::class, 'faqIndex'])->name("faq.index");
-    Route::get("/privacy", [App\Http\Controllers\IndexController::class, 'privacyIndex'])->name("privacy.index");
-    Route::get("/terms", [App\Http\Controllers\IndexController::class, 'termsIndex'])->name("terms.index");
 
 
     /**

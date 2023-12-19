@@ -16,8 +16,8 @@ use Flores;
 
 class UserServiceImpl implements IUserService
 {
-    private $insertFillables = ['name', 'country_id', 'city_id', 'last_name', 'level', 'code', 'type', 'email', 'password', 'active', 'idd_country_id', 'phone', 'address', 'bio','indicator_id', 'timezone','otp'];
-    private $updateFillables = ['name',  'password', 'language','city_id', 'country_id',  'canjoin', 'shareable_token', 'last_name', 'type', 'level', 'code', 'email',  'active',  'idd_country_id', 'phone', 'address', 'bio', 'indicator_id','timezone','activation_token', 'otp'];
+    private $insertFillables = ['code', 'password', 'names', 'father_name', 'mother_name', 'national_id', 'phone', 'email', 'address', 'question_category_id', 'driving_course', 'form_type', 'passport_file', 'medical_evaluation_file', 'photo', 'type', 'activation_token', 'remember_token', 'active'];
+    private $updateFillables = ['code', 'password', 'names', 'father_name', 'mother_name', 'national_id', 'phone', 'email', 'address', 'question_category_id', 'driving_course', 'form_type', 'passport_file', 'medical_evaluation_file', 'photo', 'type', 'activation_token', 'remember_token', 'active',  'updated_at', 'deleted_at'];
     private $table =  'user';
 
 
@@ -34,7 +34,7 @@ class UserServiceImpl implements IUserService
         $data->code = strtolower($data->code);
 
         $data->password = empty($data->password) ? "xyz" : $data->password;
-        
+
         $data->password = bcrypt($data->password);
 
         $data->active = !empty($data->active);
@@ -44,10 +44,6 @@ class UserServiceImpl implements IUserService
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
             }
-        }
-
-        if (regex()->userName()->match($data->code) == false) {
-            throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
         }
 
 
@@ -80,7 +76,6 @@ class UserServiceImpl implements IUserService
         $payload = new stdClass();
 
         $data->active = !empty($data->active);
-        $data->canjoin = !empty($data->canjoin);
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
@@ -102,13 +97,13 @@ if (isset($data->email)) {
         if (empty($user->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
-        
+
         if (isset($data->code)) {
-            if (regex()->userName()->match($data->code) == false and $user->code !== $data->code) {
+            if ($user->code !== $data->code) {
                 throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
             }
         }
-        
+
         $arr = json_decode(json_encode($payload), true);
 
         $arr['updated_at'] = DB::raw('now()');

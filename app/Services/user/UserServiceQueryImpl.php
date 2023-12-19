@@ -18,25 +18,8 @@ class UserServiceQueryImpl implements IUserServiceQuery
         $this->query = DB::table($this->table)
             ->select(
                 $this->table . '.*',
-                'country.name as country_name',
-                'idd_country.name as idd_country_name',
-                'idd_country.idd as idd',
-                'indicator.code as indicator_code',
-                'indicator.name as indicator_name',
-                'indicator.last_name as indicator_last_name',
-                'indicator.email as indicator_email', 
-                'indicator.profile_picture as indicator_profile_picture',
-                DB::raw('concat(indicator.name," ",indicator.last_name) as indicator_full_name'),
-                DB::raw('concat(user.name," ",user.last_name) as full_name'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.created_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as created_at'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.updated_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as updated_at'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.deleted_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as deleted_at'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.advance_date,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as advance_date'),
             )
-            ->leftJoin('user as indicator', 'indicator.id', $this->table . '.indicator_id')
-            ->leftJoin('country as idd_country', 'idd_country.id', $this->table . '.idd_country_id')
-            ->leftJoin('country', 'country.id', $this->table . '.country_id');
-    }
+;    }
 
     public function exclude($ids = [])
     {

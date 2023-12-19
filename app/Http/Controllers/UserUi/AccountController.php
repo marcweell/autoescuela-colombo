@@ -4,7 +4,6 @@ namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
-use App\Services\country\CountryServiceQueryImpl;
 use App\Services\session_history\Session_historyServiceQueryImpl;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
@@ -25,11 +24,11 @@ class AccountController extends Controller
     function __construct()
     {
         $this->authService = new AuthServiceImpl();
-        $this->userService = new UserServiceImpl(); 
+        $this->userService = new UserServiceImpl();
     }
     public function reAuth(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -37,7 +36,7 @@ class AccountController extends Controller
         try {
             $this->authService->login($data);
             return (new WebApi())->setSuccess()->notify(__('Sessao Iniciada com Sucesso'))->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -46,7 +45,7 @@ class AccountController extends Controller
         try {
             $this->authService->logout();
             return  redirect()->route('web.account.auth.index');
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return  redirect()->route('web.public.index');
         }
     }
@@ -72,49 +71,43 @@ class AccountController extends Controller
         DB::table('user')
             ->where('id', Auth::user()->id)
             ->update([
-                'profile_picture' => $filename,
+                'photo' => $filename,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        if (!empty(Auth::user()->profile_picture) & !str_starts_with(Auth::user()->profile_picture, "default")) {
-            File::delete(storage_path("profile-pic/" . Auth::user()->profile_picture));
+        if (!empty(Auth::user()->photo) & !str_starts_with(Auth::user()->photo, "default")) {
+            File::delete(storage_path("profile-pic/" . Auth::user()->photo));
         }
         return (new WebApi())->notify(__('Foto de perfil alterada com sucesso'))->close_modal(0, true)->setAttr(url('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
     }
     public function index(Request $request)
-    { 
+    {
         try {
             $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
             $view = view('main.fragments.account.index', [
                 'user' => $user,
                 'session_history'=>(new Session_historyServiceQueryImpl())->byUserId($user->id)->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view) 
+            return (new WebApi())->setSuccess()->print($view)
             ->save()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
 
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
     public function updateIndex(Request $request)
-    { 
+    {
         try {
-            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id); 
+            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
             $timezones = tools()->getJsonObj(base_path('database/json/timezones.json'));
-            $country = (new CountryServiceQueryImpl())->findAll();
-            $social = (new User_social_mediaServiceQueryImpl())->byUserId($user->id)->findAll();
-            $pm = (new User_payment_methodServiceQueryImpl())->byUserId($user->id)->findAll();
 
 
             $view = view('main.fragments.account.update', [
-                'user' => $user, 
+                'user' => $user,
                 'timezones'=>$timezones,
-                'country'=>$country,
-                'user_social_media'=>$social,
-                'user_payment_method'=>$pm,
             ])->render();
-            return (new WebApi())->setSuccess()->print($view) 
+            return (new WebApi())->setSuccess()->print($view)
             ->save()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -122,7 +115,7 @@ class AccountController extends Controller
     {
         return view('main.pages.login', []);
     }
- 
+
     public function update(Request $request)
     {
         $request->request->add([
@@ -132,7 +125,7 @@ class AccountController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        
+
 
         try {
 
@@ -147,13 +140,13 @@ class AccountController extends Controller
             if (empty($request->has("change_user"))) {
                 unset($data->code);
             }
-            
+
             unset($data->email);
-            
-            
+
+
             $this->userService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -169,7 +162,7 @@ class AccountController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        
+
 
         try {
 
@@ -178,7 +171,7 @@ class AccountController extends Controller
             $user->language = $request->get("locale");
             $this->userService->update($user);
             return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->reload()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }

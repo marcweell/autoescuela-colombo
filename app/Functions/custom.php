@@ -87,3 +87,45 @@ function isDate($value)
         return false;
     }
 }
+
+function getSystemTzOffset($user = null)
+{
+    $timezone = SERVER_TIMEZONE;
+
+    $currentDateTime = Carbon::now($timezone);
+    $offset = $currentDateTime->offsetHours;
+    $signal = "-";
+
+    if ($offset > 0) {
+        $signal = "+";
+    }
+
+    $offset = abs($offset);
+
+    $offset = $signal . str_pad($offset, 2, '0', STR_PAD_LEFT) . ":00";
+
+    return $offset;
+}
+
+function getTzOffset()
+{
+    $offset = null;
+
+
+    if ($offset == null) {
+        $currentDateTime = Carbon::now(date_default_timezone_get());
+        $offset = $currentDateTime->offsetHours;
+    }
+
+
+    $signal = "-";
+
+    if ($offset > 0) {
+        $signal = "+";
+    }
+
+    $offset = abs($offset);
+    $offset = $signal . str_pad($offset, 2, '0', STR_PAD_LEFT) . ":00";
+
+    return $offset;
+}

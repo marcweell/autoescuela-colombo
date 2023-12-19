@@ -7,8 +7,6 @@ use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
 use App\Services\auth\AuthServiceImpl;
 use App\Services\bulk_message\EmailServiceImpl;
-use App\Services\country\CountryServiceQueryImpl;
-use App\Services\role\RoleServiceQueryImpl;
 
 use Flores\Validator;
 use Flores\WebApi;

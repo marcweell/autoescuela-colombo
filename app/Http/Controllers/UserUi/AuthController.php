@@ -5,17 +5,9 @@ namespace App\Http\Controllers\UserUi;
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
 use App\Services\bulk_message\EmailServiceImpl;
-use App\Services\country\CountryServiceQueryImpl;
-use App\Services\currency\CurrencyServiceQueryImpl;
-use App\Services\mandala_participant\Mandala_participantServiceImpl;
 use App\Services\notification\NotificationServiceImpl;
-use App\Services\plan\PlanServiceQueryImpl;
-use App\Services\transaction\TransactionServiceQueryImpl;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
-use App\Services\user_payment_method\User_payment_methodServiceImpl;
-use App\Services\user_social_media\User_social_mediaServiceImpl;
-
 use Flores\Tools;
 use Flores\WebApi;
 use Illuminate\Http\RedirectResponse;
@@ -110,7 +102,6 @@ class AuthController extends Controller
         $view = 'main.pages.login';
 
         return response()->view($view, [
-            'plan' => (new PlanServiceQueryImpl())->active()->findAll()
         ]);
     }
 
@@ -174,10 +165,6 @@ class AuthController extends Controller
 
         return view($view, [
             'request' => $request,
-            'inviter' => $inviter,
-            'connect_to' => $request->get('connect_to'),
-            "invite_token" => $request->get('invite_token'),
-            'country' => (new CountryServiceQueryImpl())->findAll(),
         ]);
     }
 
@@ -216,47 +203,12 @@ class AuthController extends Controller
             }
 
 
-
-
-            if (!empty($request->get('connect_to')) and !empty($request->get('invite_token'))) {
-
-                $payload['connect_to'] = $request->get('connect_to');
-
-                $i_token = $request->get('invite_token');
-
-                $inviter = (new UserServiceQueryImpl())->byShareableToken($i_token)->findByCode($request->get('connect_to'));
-
-                if (empty($inviter->id)) {
-                    throw new \Exception(__("Link de referencia invalido!"));
-                }
-
-                if ($inviter->type == 'user' and $inviter->level <= 1) {
-                    $donate = (new TransactionServiceQueryImpl())->debt()->paid()->byUserId($inviter->id)->find();
-
-                    if (empty($donate->id)) {
-                        throw new \Exception(__("Link de referencia invalido! Indicador nao esta ativo"));
-                    }
-                }
-
-                if (empty($inviter->id)) {
-                    throw new \Exception(__("Cadastre-se a partir de um link de convite valido!"));
-                }
-            } else {
-                throw new \Exception(__("Cadastre-se a partir de um link de convite valido!"));
-            }
-
-            $data->indicator_id = $inviter->id;
-            (new UserServiceImpl())->add($data);
+       (new UserServiceImpl())->add($data);
 
             $data->type = "user";
             $this->authService->validate($data);
 
             $user = (new UserServiceQueryImpl())->findByCode($data->code);
-
-
-            (new Mandala_participantServiceImpl())->convidarDoador($user->id, $inviter->id);
-
-
 
 
             $otplink = route('web.account.activation.otp.index', [
@@ -350,18 +302,12 @@ class AuthController extends Controller
 
         return view($view, [
             'request' => $request,
-            'plan' => (new PlanServiceQueryImpl())->active()->findAll()
         ]);
     }
 
     public function otpIndex(Request $request)
     {
         $view = 'main.pages.otp';
-        $regex = new Regex();
-
-        if (!$regex->email()->match($request->get("email"))) {
-            return redirect()->route('web.app.index');
-        }
         $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
         if (empty($user->id)) {
@@ -372,18 +318,11 @@ class AuthController extends Controller
             'request' => $request,
             'email' => $request->get("email"),
             '' => $request->get("token"),
-            'plan' => (new PlanServiceQueryImpl())->active()->findAll()
         ]);
     }
     public function activationIndex(Request $request)
     {
         $view = 'main.pages.activation';
-        $regex = new Regex();
-
-        if (!$regex->email()->match($request->get("email"))) {
-
-            return redirect()->route('web.app.index');
-        }
         $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
 
@@ -398,11 +337,8 @@ class AuthController extends Controller
 
         return view($view, [
             'request' => $request,
-            'connect_to' => $request->get('connect_to'),
-            'invite_token' => $request->get('invite_token'),
             'email' => $request->get("email"),
             'token' => $request->get("token"),
-            'plan' => (new PlanServiceQueryImpl())->active()->findAll()
         ]);
     }
     public function otpAuth(Request $request)
@@ -411,11 +347,6 @@ class AuthController extends Controller
 
         try {
 
-            $regex = new Regex();
-
-            if (!$regex->email()->match($request->get("email"))) {
-                return redirect()->route('web.app.index');
-            }
             $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
             if (empty($user->id)) {
@@ -440,11 +371,6 @@ class AuthController extends Controller
     {
         try {
 
-            $regex = new Regex();
-
-            if (!$regex->email()->match($request->get("email"))) {
-                return redirect()->route('web.app.index');
-            }
             $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
             if (empty($user->id)) {

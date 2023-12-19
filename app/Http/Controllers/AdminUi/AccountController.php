@@ -6,8 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
 use App\Services\auth\AuthServiceImpl;
-use App\Services\country\CountryServiceQueryImpl;
-use App\Services\session_history\Session_historyServiceQueryImpl;
 use Flores\Tools;
 use Flores\WebApi;
 use Illuminate\Http\Request;
@@ -85,11 +83,11 @@ class AccountController extends Controller
         DB::table('user')
             ->where('id', $this->authService->getUser()->id)
             ->update([
-                'profile_picture' => $filename,
+                'photo' => $filename,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        if (!empty($this->authService->getUser()->profile_picture) & !str_starts_with($this->authService->getUser()->profile_picture, "default")) {
-            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->profile_picture));
+        if (!empty($this->authService->getUser()->photo) & !str_starts_with($this->authService->getUser()->photo, "default")) {
+            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->photo));
         }
         return (new WebApi())->notify(__('Foto de perfil alterada com sucesso'))->close_modal(0, true)->setAttr(Tools::fileTobase64('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
     }

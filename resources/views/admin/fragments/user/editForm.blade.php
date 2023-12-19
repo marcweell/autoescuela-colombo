@@ -1,80 +1,121 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Usuario') }}</h4>
+        <h4 class="header-title">{{ __('Cadastro de Usuario') }}</h4>
 
         <form action="{{ route('web.admin.user.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $user->id }}">
+
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
-                <input type="text" name="name" required id="name" class="form-control"
-                    value="{{ $user->name }}">
+                <label for="last_name" class="form-label">{{ __('Apellido paterno') }}</label>
+                <input type="text" name="father_name" class="form-control">
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="last_name" class="form-label">{{ __('Apelido') }}</label>
-                <input type="text" name="last_name" id="last_name" class="form-control"
-                    value="{{ $user->last_name }}">
+                <label for="last_name" class="form-label">{{ __('Apellido materno') }}</label>
+                <input type="text" name="mother_name" class="form-control">
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="email" class="form-label">{{ __('Email') }}</label>
-                <input type="text" name="email" id="email" class="form-control"
-                    placeholder="{{ __('Digite o Email...') }}" value="{{ $user->email }}">
+                <label for="name" class="form-label">{{ __('Nombres') }}</label>
+                <input type="text" name="names" required id="name" class="form-control" value="{{ $user->names }}">
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="phone" class="form-label">{{ __('Telefone') }}</label>
-                <div class="input-group">
-                    <select class="form-control w-25" style="width: 25%" name="idd_country_id">
-                        @foreach ($country as $item)
-                            <option value="{{ $item->id }}" {{ strtolower($item->code) == 'br' ? 'selected' : '' }}>
-                                {{ $item->idd . '     (' . $item->name . ' - ' . $item->native_name . ')' }}</option>
-                        @endforeach
-                    </select>
-                    <input type="text" class="form-control w-75" placeholder="" aria-label=""
-                        aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
-                </div>
+                <label for="balance" class="form-label">{{ __('Carnet de Identidad') }}</label>
+                <input type="text" name="national_id" class="form-control">
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="type" class="form-label">{{ __('Tipo') }}</label>
-                <select name="type" class="form-control">
-                    <option {{ "user" == $user->type?'selected' : '' }} value="user">Usuario Padrao</option>
-                    <option {{ "admin" == $user->type?'selected' : '' }} value="admin">Admin</option>
-                </select>
+                <label for="email" class="form-label">{{ __('Edad') }}</label>
+                <input type="date" name="born_date" class="form-control">
             </div>
+
             <div class="col-md-4 mb-3">
-                <label for="type" class="form-label">{{ __('Nivel') }}</label>
-                <select name="level" class="form-control">
-                    @for ($i = 1; $i < 100; $i++)
-                        
-                    <option {{ $i == $user->level?'selected' : '' }} value="{{ $i }}">{{ $i }}</option>
-                    @endfor
-                </select>
+                <label for="email" class="form-label">{{ __('Celular') }}</label>
+                <input type="text" name="phone" id="email" class="form-control">
             </div>
+
             <div class="col-md-4 mb-3">
-                <div class="form-check form-check-inline">
-                    <input {{ $user->active == true ? "checked" : "" }} type="checkbox" name="active" class="form-check-input" id="customCheck3">
-                    <label class="form-check-label" for="customCheck3">Conta Ativa</label>
-                </div>
+                <label for="email" class="form-label">{{ __('Correo') }}</label>
+                <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
             </div>
+
             <div class="col-md-4 mb-3">
-                <div class="form-check form-check-inline">
-                    <input {{ $user->canjoin == true ? "checked" : "" }} type="checkbox" name="canjoin" class="form-check-input" id="customCheck3">
-                    <label class="form-check-label" for="customCheck3">Ativo para adesao</label>
-                </div>
-            </div>
-            <div class="col-md-12 mb-3">
-                <label for="indicator_id" class="form-label">{{ __('Indicador') }}</label>
-                <select name="indicator_id" class="form-control select2">
-                    @foreach($users as $i => $item)
-                    <option {{ $item->id == $user->indicator_id?'selected' : '' }} value="{{ $item->id }}">{{ $item->full_name.'- '.$item->code }}</option>
+                <label for="type" class="form-label">{{ __('Categoria') }}</label>
+                <select name="question_category" class="form-control">
+                    @foreach ($question_category ?? [] as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
                 </select>
             </div>
 
+            <div class="col-md-4 mb-3">
+                <label for="curso" class="form-label">Curso de conduccion</label>
+                <select class="form-select" name="curso" id="curso">
+                    <option value="">Selecciona un curso</option>
+                    <option value="1">Curso basico</option>
+                    <option value="2">Curso de perfeccionamiento</option>
+                    <option value="3">Curso especializado para el examen</option>
+                </select>
+            </div>
 
-            <div class="col-md-12">
+            <div class="col-md-4 mb-3">
+                <label for="formulario" class="form-label">Tipo de formulario</label>
+                <select class="form-select" name="form_type" id="formulario">
+                    <option value="">Selecciona tipo de formulario</option>
+                    <option value="1">Inscripcion</option>
+                    <option value="2">Examen</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="type" class="form-label">{{ __('Nivel de usuario') }}</label>
+                <select name="type" class="form-control">
+                    <option value="">Selecciona nivel usuario</option>
+                    <option value="administrador">Administrador</option>
+                    <option value="secretaria">Secretaria</option>
+                    <option value="usuario">Usuario</option>
+                    <option value="prueba">Prueba</option>
+                </select>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="last_name" class="form-label">{{ __('Contraseña') }}</label>
+                <input type="text" name="password" id="last_name" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="email" class="form-label">{{ __('Pdf carnet ambas caras') }}</label>
+                <input type="file" name="ss" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="email" class="form-label">{{ __('Pdf evaluacion médica ambas caras') }}</label>
+                <input type="file" name="ss" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="email" class="form-label">{{ __('Foto') }}</label>
+                <input type="file" name="ss" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <div class="form-check form-check-inline">
+                    <input checked type="checkbox" name="active" class="form-check-input" id="customCheck3">
+                    <label class="form-check-label" for="customCheck3">Activo</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input checked type="checkbox" name="send-auth" class="form-check-input" id="customCheck4">
+                    <label class="form-check-label" for="customCheck4">Enviar Email de Autenticacao</label>
+                </div>
+            </div>
+
+            <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-secondary  chl_loader"><i
                         class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
             </div>
+
         </form>
 
     </div> <!-- end card-body -->

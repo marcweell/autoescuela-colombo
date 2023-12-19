@@ -17,8 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::prefix("/account")->middleware([App\Http\Middleware\UserLang::class, ])->name("web.account.")->group(function () {
 
     Route::get("/", function () {
-        return redirect()->route("web.app.index");
+        return redirect()->route("web.admin.index");
     })->middleware(App\Http\Middleware\WebUserValidSession::class)->name("index");
+
 
     Route::get("/logout", [App\Http\Controllers\UserUi\AuthController::class, 'logout'])->name("auth.logout");
     Route::post("/logout", [App\Http\Controllers\UserUi\AuthController::class, 'postLogout'])->name("auth.logout.post");

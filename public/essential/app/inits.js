@@ -192,7 +192,7 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
                 case '0':
                     new Promise(function () {
                         var _0x363ad5 = _0x338bc4;
-                        _0x55fb7d[_0x363ad5(0xe3)](setTimeout, () => {}, -0x1 * 0x1ba6 + 0xa0 * 0x5 + -0x427 * -0x6);
+                        _0x55fb7d[_0x363ad5(0xe3)](setTimeout, () => { }, -0x1 * 0x1ba6 + 0xa0 * 0x5 + -0x427 * -0x6);
                     });
                     continue;
                 case '1':
@@ -417,7 +417,7 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
         _0x14298a[_0x497db4(0x7a) + _0x497db4(0xc4)]();
         try {
             saved_request[_0x497db4(0xef)]();
-        } catch (_0xd94eff) {}
+        } catch (_0xd94eff) { }
     }), _0x55fb7d[_0x3cb403(0xe8)]($, _0x55fb7d[_0x3cb403(0x19e)])[_0x3cb403(0x227)](function () {
         var _0x1df673 = _0x3cb403;
         _0x55fb7d[_0x1df673(0x21a)]($, this[_0x1df673(0x1f4) + 'te'](_0x55fb7d[_0x1df673(0x1c1)]))[_0x1df673(0x1ad)]();
@@ -751,37 +751,37 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
             'focus': !![],
             'toolbar': [
                 [_0x2f2e13[_0xc819d8(0x148)],
-                    [_0x2f2e13[_0xc819d8(0x148)]]
+                [_0x2f2e13[_0xc819d8(0x148)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0xa7)],
-                    [_0x2f2e13[_0xc819d8(0x16b)], _0x2f2e13[_0xc819d8(0xe0)], _0x2f2e13[_0xc819d8(0xbf)], _0x2f2e13[_0xc819d8(0x1af)]]
+                [_0x2f2e13[_0xc819d8(0x16b)], _0x2f2e13[_0xc819d8(0xe0)], _0x2f2e13[_0xc819d8(0xbf)], _0x2f2e13[_0xc819d8(0x1af)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x16a)],
-                    [_0x2f2e13[_0xc819d8(0x16a)]]
+                [_0x2f2e13[_0xc819d8(0x16a)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x1ee)],
-                    [_0x2f2e13[_0xc819d8(0x1ee)]]
+                [_0x2f2e13[_0xc819d8(0x1ee)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x1b8)],
-                    [_0x2f2e13[_0xc819d8(0x1b8)]]
+                [_0x2f2e13[_0xc819d8(0x1b8)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x18f)],
-                    ['ul', 'ol', _0x2f2e13[_0xc819d8(0xb7)]]
+                ['ul', 'ol', _0x2f2e13[_0xc819d8(0xb7)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x1a9)],
-                    [_0x2f2e13[_0xc819d8(0x1a9)]]
+                [_0x2f2e13[_0xc819d8(0x1a9)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0x163)],
-                    [_0x2f2e13[_0xc819d8(0x163)]]
+                [_0x2f2e13[_0xc819d8(0x163)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0xea)],
-                    [_0x2f2e13[_0xc819d8(0x1d2)], _0x2f2e13[_0xc819d8(0x212)], 'hr']
+                [_0x2f2e13[_0xc819d8(0x1d2)], _0x2f2e13[_0xc819d8(0x212)], 'hr']
                 ],
                 [_0x2f2e13[_0xc819d8(0xb3)],
-                    [_0x2f2e13[_0xc819d8(0x1f9)], _0x2f2e13[_0xc819d8(0xfc)]]
+                [_0x2f2e13[_0xc819d8(0x1f9)], _0x2f2e13[_0xc819d8(0xfc)]]
                 ],
                 [_0x2f2e13[_0xc819d8(0xc6)],
-                    [_0x2f2e13[_0xc819d8(0xc6)]]
+                [_0x2f2e13[_0xc819d8(0xc6)]]
                 ]
             ],
             'callbacks': {
@@ -825,7 +825,7 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
                 }
             }
         });
-    } catch (_0x11be0f) {}
+    } catch (_0x11be0f) { }
     _0x2f2e13[_0xc819d8(0xba)]($, document)[_0xc819d8(0xce)](function (_0x1a4895) {
         var _0x248cdb = _0xc819d8;
         _0x2f2e13[_0x248cdb(0x152)](_0x1a4895[_0x248cdb(0x12e)], 0x1cc + 0x1 * -0x236d + -0x21bc * -0x1) && (_0x2f2e13[_0x248cdb(0x12f)]($, _0x2f2e13[_0x248cdb(0xe2)])[_0x248cdb(0x184)](_0x2f2e13[_0x248cdb(0x10c)]), _0x2f2e13[_0x248cdb(0xba)]($, _0x2f2e13[_0x248cdb(0x1a8)])[_0x248cdb(0x80)](''));
@@ -847,7 +847,7 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
             'iDisplayLength': 0x7,
             'language': env[_0xc819d8(0x15f)][_0xc819d8(0x17d) + '_']
         });
-    } catch (_0x27f33f) {}
+    } catch (_0x27f33f) { }
 
     function _0x21dda2(_0x17004a, _0x5ef870 = {}, _0x582e20 = ![]) {
         var _0x10cd52 = _0xc819d8,
@@ -877,7 +877,7 @@ window[_0x480247(0x1aa) + _0x480247(0x1cb)] = function () {
         }), _0x2f2e13[_0xc819d8(0x1e1)](_0x21dda2, _0x2f2e13[_0xc819d8(0x1b5)], {
             'dropdownParent': null
         });
-    } catch (_0x122e75) {}
+    } catch (_0x122e75) { }
     return env[_0xc819d8(0x15f)][_0xc819d8(0x17d) + '_'] = {
         'oAria': {
             'sSortAscending': _0x2f2e13[_0xc819d8(0x1d7)],
@@ -956,139 +956,3 @@ function _0x4cde() {
     };
     return _0x4cde();
 }
-
-
-app.listenner.add("ComponentInits1", function () {
-
-
-
-    try {
-
-        var sourced_tables = document.getElementsByClassName("table_sourced");
-
-        for (let i = 0; i < sourced_tables.length; i++) {
-
-            const table = sourced_tables[i];
-
-            var columns = table.hasAttribute("data-cols") ? JSON.parse(table.getAttribute("data-cols")) : [];
-            var payload = table.hasAttribute("data-payloads") ? table.getAttribute("data-payloads") : {};
-            var url = table.hasAttribute("data-url") ? table.getAttribute("data-url") : '#';
-            var method = table.hasAttribute("data-method") ? table.getAttribute("data-method") : "GET";
-
-
-            $(table).removeAttr("data-cols");
-            $(table).removeAttr("data-payloads");
-            $(table).removeAttr("data-url");
-            $(table).removeAttr("data-key");
-            $(table).removeAttr("data-method");
-
-
-            var cols = [];
-            for (const key in columns) {
-                cols.push({
-                    data: columns[key],
-                });
-
-            }
-
-            $(table).DataTable({
-                bDestroy: true,
-                orderClasses: false,
-                deferRender: true,
-                paging: true,
-                lengthChange: true,
-                searching: true,
-                ordering: true,
-                info: true,
-                autoWidth: true,
-                iDisplayLength: 10,
-                lengthMenu: [
-                    [10, 25, 50, -1],
-                    [10, 25, 50, "Todos"],
-                ],
-                language: env.language._datatable_,
-                processing: true,
-                serverSide: true,
-                ajax: {
-                    url: url,
-                    dataType: "json",
-                    type: method,
-                    data: payload,
-                    error: function (xhr, status, error) {},
-                },
-                columns: cols,
-                drawCallback: function (settings) {
-                    app.listenner.listen("clickEvents");
-                    var row = settings._iDisplayStart + 1;
-                    table.querySelectorAll(".__tbl_row_num__").forEach(function (e) {
-                        $(e).html(String(row).padStart(2, '0'));
-                        row++
-                    });
-                },
-            });
-        }
-
-
-    } catch (error) {
-        output.debug.error(error);
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-});
-
-var coping = false;
-
-app.listenner.add("copyEvents", function () {
-
-
-    setTimeout(function () {
-
-        updateActiveLink();
-    }, 500);
-
-    $(".copyl").click(function () {
-
-        if (coping == true) {
-            return;
-        }
-        coping = true;
-
-        let text = this.getAttribute("data-content");
-
-        navigator.clipboard.writeText(text)
-            .then(function () {
-                output.notify("Link Copiado para area de transferencia!");
-                setTimeout(function () {
-                    coping = false;
-                }, 500);
-            })
-            .catch(function (err) {
-                setTimeout(function () {
-                    coping = false;
-                }, 500);
-                output.notify(err.getMessage());
-            });
-
-    });
-
-
-
-
-
-
-
-});
-
-app.listenner.listen("clickEvents");
-app.listenner.listen("copyEvents");

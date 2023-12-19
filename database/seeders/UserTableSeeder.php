@@ -14,8 +14,9 @@ class UserTableSeeder extends Seeder
             [
                 'code' => 'sandbox',
                 'email'=>'sandbox@colombo.com',
-                'name' => 'Mary',
-                'last_name' => 'Doe',
+                'names' => 'Mary',
+                'father_name' => 'John',
+                'mother_name' => 'John',
                 'type' => 'admin',
                 'password' => bcrypt('sandbox'),
                 'active' => true,
@@ -23,8 +24,9 @@ class UserTableSeeder extends Seeder
             [
                 'code' => 'sandbox-1',
                 'email'=>'sandbox-1@colombo.com',
-                'name' => 'John',
-                'last_name' => 'John',
+                'names' => 'John',
+                'father_name' => 'John',
+                'mother_name' => 'John',
                 'type' => 'user',
                 'password' => bcrypt('sandbox'),
                 'active' => true,

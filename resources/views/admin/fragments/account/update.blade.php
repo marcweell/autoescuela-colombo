@@ -10,7 +10,7 @@
                 <form action="{{ route('web.admin.profile.update.do') }}" class="parent-load form_ prompt">
                     <div class="row gutters">
                         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                            <img src="{{ tools()->photo($user->profile_picture) }}"
+                            <img src="{{ tools()->photo($user->photo) }}"
                                 class="img-fluid change-img-avatar nf_picture" alt="Image">
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
@@ -19,12 +19,12 @@
                                 <button type="button" class="btn btn-info btn-sm btnpp"><i
                                         class="fa fa-image p-2"></i>Alterar Foto de
                                     Perfil</button>
-                            </div> 
+                            </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
                             <div class="field-wrapper">
-                                <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                                <input type="text" class="form-control" name="name" value="{{ $user->names }}">
                                 <div class="field-placeholder">Nome</div>
                             </div>
                             <!-- Field wrapper end -->
@@ -33,7 +33,7 @@
                             <!-- Field wrapper start -->
                             <div class="field-wrapper">
                                 <input type="text" class="form-control" name="last_name"
-                                    value="{{ $user->last_name }}">
+                                    value="{{ $user->father_name }}">
                                 <div class="field-placeholder">Apelido</div>
                             </div>
                             <!-- Field wrapper end -->
@@ -46,18 +46,6 @@
                             </div>
                             <!-- Field wrapper end -->
                         </div>
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12"> 
-                                <label for="phone" class="form-label">{{ __('Telefone') }}</label>
-                                <div class="input-group">
-                                    <select class="form-control w-25" style="width: 25%" name="idd_country_id">
-                                        @foreach ($country as $item)
-                                            <option value="{{ $item->id }}" {{ (strtolower($item->code)=="br")?"selected":"" }}>{{ $item->idd . "     (".$item->name." - ".$item->native_name.")" }}</option>
-                                        @endforeach
-                                    </select>
-                                    <input type="text" class="form-control w-75" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
-                                </div>
-                            </div>  
                         <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
                                     class="fa fa-save p-2"></i>{{ __("Guardar") }}</button>
@@ -76,13 +64,7 @@
                         <div class="settings-block-title">Mais Definicoes</div>
                         <div class="settings-block-body">
                             <div class="list-group">
-                                <div class="list-group-item d-flex justify-content-between align-items-center">
-                                    <div>Receber Notificacoes por Email</div>
-                                    <div class="form-switch">
-                                        <input class="form-check-input" type="checkbox" checked>
-                                        <label class="form-check-label"></label>
-                                    </div>
-                                </div> 
+
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
