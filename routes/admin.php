@@ -55,7 +55,7 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
     #---------------------------------------------------------------------------------------------------------------
 
     Route::prefix("/profile")->middleware([])->name("profile.")->group(function () {
-        Route::post("/", [App\Http\Controllers\AdminUi\AccountController::class, 'index'])->middleware([])->name("index");
+        Route::post("/", [App\Http\Controllers\AdminUi\AccountController::class, 'updateIndex'])->middleware([])->name("index");
 
         Route::prefix("/password")->middleware([])->name("password.update.")->group(function () {
             Route::post("/", [App\Http\Controllers\AdminUi\Password_changeController::class, 'changeIndex'])->middleware([])->name("index");
