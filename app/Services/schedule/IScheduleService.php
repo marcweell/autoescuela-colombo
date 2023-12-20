@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\schedule;
 
 use stdClass;
 use Flores;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageService {
+interface IScheduleService {
 
     /**
     * @throws \Exception

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\schedule;
 
 use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
@@ -14,11 +14,11 @@ use Flores;
 
 
 
-class PageServiceImpl implements IPageService
+class ScheduleServiceImpl implements IScheduleService
 {
     private $insertFillables = ['code', 'name',];
     private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
-    private $table = 'page';
+    private $table = 'schedule';
 
 
     public function add($data)
@@ -36,9 +36,9 @@ class PageServiceImpl implements IPageService
             }
         }
 
-        $page = (new PageServiceQueryImpl())->findByCode($data->code);
+        $schedule = (new ScheduleServiceQueryImpl())->findByCode($data->code);
 
-        if (!empty($page->id)) {
+        if (!empty($schedule->id)) {
             throw new \Exception(__('Nome de Usuario invalido'), 400);
         }
 
@@ -65,14 +65,14 @@ class PageServiceImpl implements IPageService
         }
 
 
-        $page = (new PageServiceQueryImpl())->findById($data->id);
+        $schedule = (new ScheduleServiceQueryImpl())->findById($data->id);
 
-        if (empty($page->id)) {
+        if (empty($schedule->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
         if (isset($data->code)) {
-            if ($page->code !== $data->code) {
+            if ($schedule->code !== $data->code) {
                 throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
             }
         }

@@ -5,21 +5,21 @@ namespace App\Http\Controllers\AdminUi;
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
 use App\Services\bulk_message\EmailServiceImpl;
-use App\Services\user\UserServiceImpl;
-use App\Services\user\UserServiceQueryImpl;
+use App\Services\page\PageServiceImpl;
+use App\Services\page\PageServiceQueryImpl;
 use Flores\WebApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use stdClass;
 
-class UserController extends Controller
+class PageController extends Controller
 {
-    private $userService;
-    private $userServiceQuery;
+    private $pageService;
+    private $pageServiceQuery;
     function __construct()
     {
-        $this->userService = new UserServiceImpl();
-        $this->userServiceQuery = new UserServiceQueryImpl();
+        $this->pageService = new PageServiceImpl();
+        $this->pageServiceQuery = new PageServiceQueryImpl();
     }
     public function add(Request $request)
     {
@@ -30,38 +30,7 @@ class UserController extends Controller
 
         try {
 
-            $otp = pinCode();
-            $token = base64_encode(sha1(md5(time() . $otp)));
-            $data->otp = $otp;
-            $data->token = $token;
-            $data->activation_token = $token;
-
-            $this->userService->add($data);
-
-            (new AuthServiceImpl())->validate($data);
-
-            $user = (new UserServiceQueryImpl())->findByCode($data->code);
-
-            $otplink = route('web.account.activation.otp.index', [
-                "email" => $data->email,
-            ]);
-
-            $payload = [];
-            $payload["email"] = $data->email;
-            $payload["token"] = $data->token;
-
-            $link = route('web.account.activation.index', $payload);
-
-            $emailBody = view("email.activation", [
-                'link' => $link,
-                'more' => "OU utilize o codigo OTP: <b>{$otp}</b>"
-            ])->render();
-
-
-            if ($request->has("send-auth")) {
-                (new EmailServiceImpl("Ativacao de Conta"))->addRecipient($data->email)->setBody($emailBody)->send();
-            }
-
+            $this->pageService->add($data); 
             return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))
                 ->close_modal()->get();
         } catch (\Exception $e) {
@@ -76,12 +45,9 @@ class UserController extends Controller
         }
 
         try {
-            $user = $this->userServiceQuery->findById($data->id);
+            $page = $this->pageServiceQuery->findById($data->id);
 
-            $this->userService->update($data);
-
-
-
+            $this->pageService->update($data);
 
             return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
@@ -91,7 +57,7 @@ class UserController extends Controller
     public function remove(Request $request)
     {
         try {
-            $this->userService->delete($request->get('id'));
+            $this->pageService->delete($request->get('id'));
             return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
@@ -101,8 +67,8 @@ class UserController extends Controller
     public function index(Request $request)
     {
         try {
-            $view = view('admin.fragments.user.listForm', [
-                'user' =>$this->userServiceQuery->orderDesc()->findAll()
+            $view = view('admin.fragments.page.listForm', [
+                'page' =>$this->pageServiceQuery->orderDesc()->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {
@@ -112,10 +78,9 @@ class UserController extends Controller
     public function addIndex(Request $request)
     {
         try {
-            $view = view('admin.fragments.user.addForm', [
-               // 'question_category'=>(new Question_ UserServiceQueryImpl())->findAll(),
+            $view = view('admin.fragments.page.addForm', [ 
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -124,11 +89,11 @@ class UserController extends Controller
     {
 
         try {
-            $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
-            $view = view('admin.fragments.user.editForm', [
-                'user' => $user,
+            $page = $this->pageServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+            $view = view('admin.fragments.page.editForm', [
+                'page' => $page,
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

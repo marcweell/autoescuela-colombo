@@ -130,22 +130,83 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
     });
 
     #---------------------------------------------------------------------------------------------------------------
-    Route::prefix("/pages")->middleware([])->name("pages.")->group(function () {
-        Route::post("/", [App\Http\Controllers\AdminUi\PagesController::class, 'index'])->middleware([])->name("index");
+    Route::prefix("/pages")->middleware([])->name("page.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'index'])->middleware([])->name("index");
         Route::prefix("/add")->middleware([])->name("add.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\PagesController::class, 'addIndex'])->middleware([])->name("index");
-            Route::post("/do", [App\Http\Controllers\AdminUi\PagesController::class, 'add'])->middleware([])->name("do");
+            Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'addIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'add'])->middleware([])->name("do");
         });
         Route::prefix("/update")->middleware([])->name("update.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\PagesController::class, 'updateIndex'])->middleware([])->name("index");
-            Route::post("/do", [App\Http\Controllers\AdminUi\PagesController::class, 'update'])->middleware([])->name("do");
+            Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'updateIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'update'])->middleware([])->name("do");
         });
         Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
 
-            Route::post("/do", [App\Http\Controllers\AdminUi\PagesController::class, 'remove'])->middleware([])->name("do");
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'remove'])->middleware([])->name("do");
         });
 
         #----------------------------------------------
+
+    #---------------------------------------------------------------------------------------------------------------
+    Route::prefix("/category")->middleware([])->name("category.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'index'])->middleware([])->name("index");
+        Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'addIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'add'])->middleware([])->name("do");
+        });
+        Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'updateIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'update'])->middleware([])->name("do");
+        });
+        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
+
+            Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'remove'])->middleware([])->name("do");
+        });
+
+        #----------------------------------------------
+
+    });
+
+
+    });
+    #---------------------------------------------------------------------------------------------------------------
+    Route::prefix("/questions")->middleware([])->name("question.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'index'])->middleware([])->name("index");
+        Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'addIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'add'])->middleware([])->name("do");
+        });
+        Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'updateIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'update'])->middleware([])->name("do");
+        });
+        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
+
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'remove'])->middleware([])->name("do");
+        });
+
+        #----------------------------------------------
+
+    #---------------------------------------------------------------------------------------------------------------
+    Route::prefix("/category")->middleware([])->name("category.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'index'])->middleware([])->name("index");
+        Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'addIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'add'])->middleware([])->name("do");
+        });
+        Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'updateIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'update'])->middleware([])->name("do");
+        });
+        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
+
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question_categoryController::class, 'remove'])->middleware([])->name("do");
+        });
+
+        #----------------------------------------------
+
+    });
+
 
     });
 

@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\personal_access_tokens;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class PageServiceQueryImpl implements IPageServiceQuery
+class Personal_access_tokensServiceQueryImpl implements IPersonal_access_tokensServiceQuery
 {
 
-    private $table = 'page';
+    private $table = 'personal_access_tokens';
     private $query;
 
     public function __construct()
@@ -106,12 +106,12 @@ class PageServiceQueryImpl implements IPageServiceQuery
 
     public function findById($id)
     {
-        $page = $this->query->where($this->table . '.id', $id)->first();
-        return $page;
+        $personal_access_tokens = $this->query->where($this->table . '.id', $id)->first();
+        return $personal_access_tokens;
     }
     public function findByCode($id)
     {
-        $page = $this->query->where($this->table . '.code', $id)->first();
-        return $page;
+        $personal_access_tokens = $this->query->where($this->table . '.code', $id)->first();
+        return $personal_access_tokens;
     } 
 }

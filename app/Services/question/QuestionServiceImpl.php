@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\question;
 
 use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
@@ -14,11 +14,11 @@ use Flores;
 
 
 
-class PageServiceImpl implements IPageService
+class QuestionServiceImpl implements IQuestionService
 {
     private $insertFillables = ['code', 'name',];
     private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
-    private $table = 'page';
+    private $table = 'question';
 
 
     public function add($data)
@@ -36,9 +36,9 @@ class PageServiceImpl implements IPageService
             }
         }
 
-        $page = (new PageServiceQueryImpl())->findByCode($data->code);
+        $question = (new QuestionServiceQueryImpl())->findByCode($data->code);
 
-        if (!empty($page->id)) {
+        if (!empty($question->id)) {
             throw new \Exception(__('Nome de Usuario invalido'), 400);
         }
 
@@ -65,14 +65,14 @@ class PageServiceImpl implements IPageService
         }
 
 
-        $page = (new PageServiceQueryImpl())->findById($data->id);
+        $question = (new QuestionServiceQueryImpl())->findById($data->id);
 
-        if (empty($page->id)) {
+        if (empty($question->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
         if (isset($data->code)) {
-            if ($page->code !== $data->code) {
+            if ($question->code !== $data->code) {
                 throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
             }
         }

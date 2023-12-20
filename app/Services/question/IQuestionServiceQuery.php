@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\question;
 
 
 use stdClass;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageServiceQuery {
+interface IQuestionServiceQuery {
 
     /**
      * @return \Illuminate\Support\Collection | null | stdClass

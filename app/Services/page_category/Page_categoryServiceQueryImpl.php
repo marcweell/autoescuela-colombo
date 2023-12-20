@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\page_category;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class PageServiceQueryImpl implements IPageServiceQuery
+class Page_categoryServiceQueryImpl implements IPage_categoryServiceQuery
 {
 
-    private $table = 'page';
+    private $table = 'page_category';
     private $query;
 
     public function __construct()
@@ -106,12 +106,12 @@ class PageServiceQueryImpl implements IPageServiceQuery
 
     public function findById($id)
     {
-        $page = $this->query->where($this->table . '.id', $id)->first();
-        return $page;
+        $page_category = $this->query->where($this->table . '.id', $id)->first();
+        return $page_category;
     }
     public function findByCode($id)
     {
-        $page = $this->query->where($this->table . '.code', $id)->first();
-        return $page;
+        $page_category = $this->query->where($this->table . '.code', $id)->first();
+        return $page_category;
     } 
 }

@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\page_subcategory_course;
 
 use stdClass;
 use Flores;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageService {
+interface IPage_subcategory_courseService {
 
     /**
     * @throws \Exception

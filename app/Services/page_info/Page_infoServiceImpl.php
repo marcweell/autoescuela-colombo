@@ -15,12 +15,13 @@ class Page_infoServiceImpl implements IPage_infoService
 {
     private $insertFillables = ["name", "code","content_type","child_index","content",'parent_id'];
     private $updateFillables = ["content","content_type","child_index",'parent_id'];
-    private $table =  'page_info';
+    private $table =  'settings';
 
 
 
     function update($data)
     {
+
         if (empty($data->id)) {
             throw new \Exception(__('Dados Invalidos'));
         }
@@ -52,8 +53,9 @@ class Page_infoServiceImpl implements IPage_infoService
         $arr = [];
         $payload = new \stdClass();
 
-        foreach ($arr as $i => $value) {
-            if (!in_array($i, $this->updateFillables)) {
+      
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
             }
         }
@@ -64,38 +66,5 @@ class Page_infoServiceImpl implements IPage_infoService
 
         DB::table($this->table)->where('id', $data->id)->update($arr);
     }
-    function add($data)
-    { 
-        $payload = new \stdClass();
-
-        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-
-      
-        if ($data->content_type == "file") {
-            
-            if (!empty($data->content['file']) and !empty($data->content['filename'])) {
-                if (!str_ends_with($data->content['file'], ':')) {
-                    $data->content = Flores\Tools::upload_base64($data->content['file'], md5(time() . $data->content['filename']), 'storage/files');
-                } else {
-                    $data->content = null;
-                }
-            } else {
-                $data->content = null;
-            }
-
-        }
-        
-        $arr = [];
-
-        foreach ($data as $i => $value) {
-            if (in_array($i, $this->insertFillables)) {
-                $payload->{$i} = $value;
-            }
-        }
-
-
-        $arr = json_decode(json_encode($payload), true);
-
-        DB::table($this->table)->insert($arr);
-    }
+  
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\personal_access_tokens;
 
 use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
@@ -14,11 +14,11 @@ use Flores;
 
 
 
-class PageServiceImpl implements IPageService
+class Personal_access_tokensServiceImpl implements IPersonal_access_tokensService
 {
     private $insertFillables = ['code', 'name',];
     private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
-    private $table = 'page';
+    private $table = 'personal_access_tokens';
 
 
     public function add($data)
@@ -36,9 +36,9 @@ class PageServiceImpl implements IPageService
             }
         }
 
-        $page = (new PageServiceQueryImpl())->findByCode($data->code);
+        $personal_access_tokens = (new Personal_access_tokensServiceQueryImpl())->findByCode($data->code);
 
-        if (!empty($page->id)) {
+        if (!empty($personal_access_tokens->id)) {
             throw new \Exception(__('Nome de Usuario invalido'), 400);
         }
 
@@ -65,14 +65,14 @@ class PageServiceImpl implements IPageService
         }
 
 
-        $page = (new PageServiceQueryImpl())->findById($data->id);
+        $personal_access_tokens = (new Personal_access_tokensServiceQueryImpl())->findById($data->id);
 
-        if (empty($page->id)) {
+        if (empty($personal_access_tokens->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
         if (isset($data->code)) {
-            if ($page->code !== $data->code) {
+            if ($personal_access_tokens->code !== $data->code) {
                 throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
             }
         }

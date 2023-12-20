@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\question;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class PageServiceQueryImpl implements IPageServiceQuery
+class QuestionServiceQueryImpl implements IQuestionServiceQuery
 {
 
-    private $table = 'page';
+    private $table = 'question';
     private $query;
 
     public function __construct()
@@ -106,12 +106,12 @@ class PageServiceQueryImpl implements IPageServiceQuery
 
     public function findById($id)
     {
-        $page = $this->query->where($this->table . '.id', $id)->first();
-        return $page;
+        $question = $this->query->where($this->table . '.id', $id)->first();
+        return $question;
     }
     public function findByCode($id)
     {
-        $page = $this->query->where($this->table . '.code', $id)->first();
-        return $page;
+        $question = $this->query->where($this->table . '.code', $id)->first();
+        return $question;
     } 
 }

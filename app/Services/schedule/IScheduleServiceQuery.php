@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\schedule;
 
 
 use stdClass;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageServiceQuery {
+interface IScheduleServiceQuery {
 
     /**
      * @return \Illuminate\Support\Collection | null | stdClass

@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\question;
 
 use stdClass;
 use Flores;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageService {
+interface IQuestionService {
 
     /**
     * @throws \Exception

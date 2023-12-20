@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\personal_access_tokens;
 
 use stdClass;
 use Flores;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageService {
+interface IPersonal_access_tokensService {
 
     /**
     * @throws \Exception

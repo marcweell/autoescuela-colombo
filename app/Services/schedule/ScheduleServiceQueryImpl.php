@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\schedule;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class PageServiceQueryImpl implements IPageServiceQuery
+class ScheduleServiceQueryImpl implements IScheduleServiceQuery
 {
 
-    private $table = 'page';
+    private $table = 'schedule';
     private $query;
 
     public function __construct()
@@ -106,12 +106,12 @@ class PageServiceQueryImpl implements IPageServiceQuery
 
     public function findById($id)
     {
-        $page = $this->query->where($this->table . '.id', $id)->first();
-        return $page;
+        $schedule = $this->query->where($this->table . '.id', $id)->first();
+        return $schedule;
     }
     public function findByCode($id)
     {
-        $page = $this->query->where($this->table . '.code', $id)->first();
-        return $page;
+        $schedule = $this->query->where($this->table . '.code', $id)->first();
+        return $schedule;
     } 
 }

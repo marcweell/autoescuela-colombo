@@ -1,16 +1,16 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\page_subcategory_course;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class PageServiceQueryImpl implements IPageServiceQuery
+class Page_subcategory_courseServiceQueryImpl implements IPage_subcategory_courseServiceQuery
 {
 
-    private $table = 'page';
+    private $table = 'page_subcategory_course';
     private $query;
 
     public function __construct()
@@ -106,12 +106,12 @@ class PageServiceQueryImpl implements IPageServiceQuery
 
     public function findById($id)
     {
-        $page = $this->query->where($this->table . '.id', $id)->first();
-        return $page;
+        $page_subcategory_course = $this->query->where($this->table . '.id', $id)->first();
+        return $page_subcategory_course;
     }
     public function findByCode($id)
     {
-        $page = $this->query->where($this->table . '.code', $id)->first();
-        return $page;
+        $page_subcategory_course = $this->query->where($this->table . '.code', $id)->first();
+        return $page_subcategory_course;
     } 
 }

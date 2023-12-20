@@ -66,9 +66,9 @@ function pinCode($size = 5, $chars = '012OPQRSTUV34ABCDZ56EFGHIJKLMN789WXY')
 
     return $code;
 }
+ 
 
-
-function page_info($key)
+function _info($key)
 {
     return HomePageInfo::getInstance()->get($key);
 }

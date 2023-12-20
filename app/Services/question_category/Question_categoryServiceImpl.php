@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\page;
+namespace App\Services\question_category;
 
 use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
@@ -14,17 +14,17 @@ use Flores;
 
 
 
-class PageServiceImpl implements IPageService
+class Question_categoryServiceImpl implements IQuestion_categoryService
 {
     private $insertFillables = ['code', 'name',];
     private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
-    private $table = 'page';
+    private $table = 'question_category';
 
 
     public function add($data)
     {
-        if (empty($data->email)) {
-            throw new \Exception(__('Email invalido'), 400);
+        if (empty($data->name)) {
+            throw new \Exception(__('Name invalido'), 400);
         }
         $payload = new stdClass();
 
@@ -36,9 +36,9 @@ class PageServiceImpl implements IPageService
             }
         }
 
-        $page = (new PageServiceQueryImpl())->findByCode($data->code);
+        $question_category = (new Question_categoryServiceQueryImpl())->findByCode($data->code);
 
-        if (!empty($page->id)) {
+        if (!empty($question_category->id)) {
             throw new \Exception(__('Nome de Usuario invalido'), 400);
         }
 
@@ -65,14 +65,14 @@ class PageServiceImpl implements IPageService
         }
 
 
-        $page = (new PageServiceQueryImpl())->findById($data->id);
+        $question_category = (new Question_categoryServiceQueryImpl())->findById($data->id);
 
-        if (empty($page->id)) {
+        if (empty($question_category->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
         if (isset($data->code)) {
-            if ($page->code !== $data->code) {
+            if ($question_category->code !== $data->code) {
                 throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
             }
         }

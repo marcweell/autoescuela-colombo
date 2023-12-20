@@ -54,12 +54,12 @@
 
            <!-- Navbar-->
            <header class="app-header"><a class="app-header__logo" href="{{ route('web.public.index') }}">Vali</a>
-               <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="#" data-toggle="sidebar"
+               <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="javascript:void()" data-toggle="sidebar"
                    aria-label="Hide Sidebar"></a>
                <!-- Navbar Right Menu-->
                <ul class="app-nav">
                    <!--Notification Menu-->
-                   <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"
+                   <li class="dropdown"><a class="app-nav__item" href="javascript:void()" data-bs-toggle="dropdown"
                            aria-label="Show notifications"><i class="bi bi-bell fs-5"></i></a>
                        <ul class="app-notification dropdown-menu dropdown-menu-right">
                            <li class="app-notification__title">You have 4 new notifications.</li>
@@ -73,11 +73,11 @@
                                        </div>
                                    </a></li>
                            </div>
-                           <li class="app-notification__footer"><a href="#">See all notifications.</a></li>
+                           <li class="app-notification__footer"><a href="javascript:void()">See all notifications.</a></li>
                        </ul>
                    </li>
                    <!-- User Menu-->
-                   <li class="dropdown"><a class="app-nav__item" href="#" data-bs-toggle="dropdown"
+                   <li class="dropdown"><a class="app-nav__item" href="javascript:void()" data-bs-toggle="dropdown"
                            aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                        <ul class="dropdown-menu settings-menu dropdown-menu-right">
                            <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-gear me-2 fs-5"></i>
@@ -101,50 +101,59 @@
                    </div>
                </div>
                <ul class="app-menu">
-                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.index') }}" href="#"><i class="app-menu__icon bi bi-speedometer"></i><span class="app-menu__label">Dashboard</span></a></li>
-                   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.index') }}" href="javascript:void()"><i
+                               class="app-menu__icon bi bi-speedometer"></i><span
+                               class="app-menu__label">Dashboard</span></a></li>
+                   <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
                                class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Usuarios</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.index') }}" href="#" target="_blank" rel="noopener"><i class="icon bi bi-circle-fill"></i> Lista</a></li>
-                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.add.index') }}" href="#"><i class="icon bi bi-circle-fill"></i> crea</a></li>
+                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.index') }}"
+                                   href="javascript:void()" target="_blank" rel="noopener"><i
+                                       class="icon bi bi-circle-fill"></i> Lista</a></li>
+                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.add.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i> Agregar</a></li>
                        </ul>
                    </li>
-                   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
-                               class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Paginas</span><i
+                   <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
+                               class="app-menu__icon fa fa-newspaper"></i><span
+                               class="app-menu__label">Paginas</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                           <li><a class="treeview-item" href="bootstrap-components.html"><i
-                                       class="icon bi bi-circle-fill"></i> Bootstrap Elements</a></li>
-                           <li><a class="treeview-item" href="https://icons.getbootstrap.com/" target="_blank"
-                                   rel="noopener"><i class="icon bi bi-circle-fill"></i> Font Icons</a></li>
-                           <li><a class="treeview-item" href="ui-cards.html"><i class="icon bi bi-circle-fill"></i>
-                                   Cards</a></li>
-                           <li><a class="treeview-item" href="widgets.html"><i class="icon bi bi-circle-fill"></i>
-                                   Widgets</a></li>
+                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.category.index") }}" href="javascript:void()" ><i
+                                       class="icon bi bi-circle-fill"></i>Categorias</a></li>
+                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.add.index") }}" href="javascript:void()"><i
+                                       class="icon bi bi-circle-fill"></i>Agregar</a></li>
+                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.index") }}" href="javascript:void()"><i
+                                       class="icon bi bi-circle-fill"></i> Lista</a></li>
                        </ul>
                    </li>
-                   <li class="treeview"><a class="app-menu__item" href="#" data-toggle="treeview"><i
+                   <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
                                class="app-menu__icon bi bi-ui-checks"></i><span
                                class="app-menu__label">Perguntas</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                           <li><a class="treeview-item" href="form-components.html"><i
-                                       class="icon bi bi-circle-fill"></i> Form Components</a></li>
-                           <li><a class="treeview-item" href="form-samples.html"><i
-                                       class="icon bi bi-circle-fill"></i> Form Samples</a></li>
+                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.category.index") }}" href="javascript:void()" ><i
+                                    class="icon bi bi-circle-fill"></i>Categorias</a></li>
+                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.add.index") }}" href="javascript:void()"><i
+                                    class="icon bi bi-circle-fill"></i>Agregar</a></li>
+                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.index") }}" href="javascript:void()"><i
+                                    class="icon bi bi-circle-fill"></i> Lista</a></li>
                        </ul>
                    </li>
-                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.page_info.index') }}" href="#" target="_blank" ><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Configuracion</span></a></li>
+                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.page_info.index') }}"
+                           href="javascript:void()" target="_blank"><i class="app-menu__icon fa fa-cog"></i><span
+                               class="app-menu__label">Configuracion</span></a></li>
                </ul>
            </aside>
            <main class="app-content">
                <div class="app-title">
                    <div>
-                       <h1>{{ config("app.name") }}</h1>
+                       <h1>{{ config('app.name') }}</h1>
                    </div>
                    <ul class="app-breadcrumb breadcrumb">
-                       <li class="breadcrumb-item"><a href="{{ route('web.public.index') }}"><i class="bi bi-house-door fs-6"></i></a></li>
+                       <li class="breadcrumb-item"><a href="{{ route('web.public.index') }}"><i
+                                   class="bi bi-house-door fs-6"></i></a></li>
                    </ul>
                </div>
                <div class="row">

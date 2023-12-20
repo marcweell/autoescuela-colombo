@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\page;
+namespace App\Services\personal_access_tokens;
 
 
 use stdClass;
@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IPageServiceQuery {
+interface IPersonal_access_tokensServiceQuery {
 
     /**
      * @return \Illuminate\Support\Collection | null | stdClass
