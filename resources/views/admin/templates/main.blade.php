@@ -135,7 +135,7 @@
                                        class="icon bi bi-circle-fill"></i> Form Samples</a></li>
                        </ul>
                    </li>
-                   <li><a class="app-menu__item"  href="#"><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Configuracion</span></a></li>
+                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.page_info.index') }}" href="#" target="_blank" ><i class="app-menu__icon fa fa-cog"></i><span class="app-menu__label">Configuracion</span></a></li>
                </ul>
            </aside>
            <main class="app-content">

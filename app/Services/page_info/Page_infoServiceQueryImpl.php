@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 class Page_infoServiceQueryImpl implements IPage_infoServiceQuery
 {
 
-    private $table =  'page_info';
+    private $table =  'settings';
     
     private $query;
 

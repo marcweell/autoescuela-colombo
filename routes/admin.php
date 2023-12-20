@@ -65,10 +65,7 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
             Route::post("/", [App\Http\Controllers\AdminUi\AccountController::class, 'updateIndex'])->middleware([])->name("index");
             Route::post("/do", [App\Http\Controllers\AdminUi\AccountController::class, 'update'])->middleware([])->name("do");
         });
-        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
 
-            Route::post("/do", [App\Http\Controllers\AdminUi\AccountController::class, 'remove'])->middleware([])->name("do");
-        });
         Route::post("/change_picture", [App\Http\Controllers\AdminUi\AccountController::class, 'change_picture'])->middleware([])->name("change_picture");
 
     });
@@ -118,19 +115,14 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
     });
 
     #---------------------------------------------------------------------------------------------------------------
-    Route::prefix("/settings")->middleware([])->name("settings.")->group(function () {
+    Route::prefix("/settings")->middleware([])->name("page_info.")->group(function () {
         Route::post("/", [App\Http\Controllers\AdminUi\Page_infoController::class, 'index'])->middleware([])->name("index");
-        Route::prefix("/add")->middleware([])->name("add.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Page_infoController::class, 'addIndex'])->middleware([])->name("index");
-            Route::post("/do", [App\Http\Controllers\AdminUi\Page_infoController::class, 'add'])->middleware([])->name("do");
-        });
         Route::prefix("/update")->middleware([])->name("update.")->group(function () {
             Route::post("/", [App\Http\Controllers\AdminUi\Page_infoController::class, 'updateIndex'])->middleware([])->name("index");
             Route::post("/do", [App\Http\Controllers\AdminUi\Page_infoController::class, 'update'])->middleware([])->name("do");
         });
-        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
-
-            Route::post("/do", [App\Http\Controllers\AdminUi\Page_infoController::class, 'remove'])->middleware([])->name("do");
+        Route::prefix("/detail")->middleware([])->name("detail.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Page_infoController::class, 'detailIndex'])->middleware([])->name("index");
         });
 
         #----------------------------------------------
