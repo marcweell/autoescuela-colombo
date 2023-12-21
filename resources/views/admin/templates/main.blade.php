@@ -17,8 +17,7 @@
            <meta name="viewport" content="width=device-width, initial-scale=1">
            <!-- Add the slick-theme.css if you want default styling -->
            <link rel="stylesheet" href="{{ url('public/essential/plugins/pace/flash.css') }}">
-           <link rel="stylesheet"
-               href="{{ url('public/essential/plugins/lobibox-master/dist/css/lobibox.min.css') }}" />
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/toast-master/css/jquery.toast.css') }}" />
            <link rel="stylesheet"
                href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
            <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/all.min.css') }}" />
@@ -187,7 +186,7 @@
            <script src="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/js/bootstrapicon-iconpicker.min.js') }}"></script>
            <script src="{{ url('public/essential/plugins/pace/pace.min.js') }}"></script>
            <script src="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.js') }}"></script>
-           <script src="{{ url('public/essential/plugins/lobibox-master/dist/js/lobibox.min.js') }}"></script>
+           <script src="{{ url('public/essential/plugins/toast-master/js/jquery.toast.js') }}"></script>
            <script src="{{ url('public/essential/app/custom.js') }}"></script>
            <script src="{{ url('public/essential/app/webapi.js') }}"></script>
            <script src="{{ url('public/essential/app/inits.js') }}"></script>

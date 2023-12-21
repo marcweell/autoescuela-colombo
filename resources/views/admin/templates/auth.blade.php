@@ -8,7 +8,7 @@
     <title>Conta | {{ config("app.name") }}</title>
     <link rel="stylesheet" href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
     <link rel="stylesheet" href="{{ url('public/essential/plugins/pace/flash.css') }}">
-    <link rel="stylesheet" href="{{ url('public/essential/plugins/lobibox-master/dist/css/lobibox.min.css') }}" />
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/toast-master/css/jquery.toast.css') }}" />
     <link rel="stylesheet" href="{{ url('public/essential/plugins/jquery-ui-1.13.2/jquery-ui.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/loader/loader.css') }}">
 
