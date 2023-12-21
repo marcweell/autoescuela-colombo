@@ -87,7 +87,7 @@
 
     <script src="{{ url('public/essential/plugins/pace/pace.min.js') }}"></script>
     <script src="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.js') }}"></script>
-    <script src="{{ url('public/essential/plugins/lobibox-master/dist/js/lobibox.min.js') }}"></script>
+    <script src="{{ url('public/essential/plugins/toast-master/js/jquery.toast.js') }}"></script>
     <script src="{{ url('public/essential/app/custom.js') }}"></script>
     <script src="{{ url('public/essential/app/webapi.js') }}"></script>
     <script src="{{ url('public/essential/app/inits.js') }}"></script>
@@ -112,6 +112,7 @@
 
 
 
+    <link rel="stylesheet" href="{{ url('') }}" />
 
 
 
