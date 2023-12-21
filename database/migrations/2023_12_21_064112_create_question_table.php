@@ -23,6 +23,7 @@ return new class extends Migration
             $table->text('opt_c')->nullable();
             $table->text('opt_d')->nullable();
             $table->text('opt_e')->nullable();
+            $table->text('color');
             $table->string('icon', 191)->nullable();
             $table->string('image', 191)->nullable();
             $table->string('course', 191)->nullable();
