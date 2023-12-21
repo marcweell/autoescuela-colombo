@@ -29,6 +29,18 @@ class Page_subcategoryServiceImpl implements IPage_subcategoryService
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->image->file) and !empty($data->image->filename)) {
+            if (!str_ends_with($data->image->file, ':')) {
+                $data->image = tools()->upload_base64($data->image->file, md5(Auth::user()->id . $data->image->filename), 'storage/files');
+            } else {
+                $data->image = null;
+            }
+        } else {
+            $data->image = null;
+        }
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

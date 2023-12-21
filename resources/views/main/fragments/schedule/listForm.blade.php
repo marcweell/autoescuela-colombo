@@ -9,7 +9,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.schedule.add.index') }}" data-id="-1"
-                    class="btn btn-secondary  mb-2 l14k"><i class="fa fa-plus-circle me-2"></i>
+                    class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
                     {{ __('Adicionar Usuario') }}</a>
             </div>
             <div class="col-sm-7">
@@ -34,17 +34,17 @@
                 <tbody>
                     @for ($i = 0, $n = 1; $i < count($schedule ?? []), ($item = @$schedule[$i]); $i++, $n++)
                         <tr>
-                            <td> {{ $n }} </td> 
+                            <td> {{ $n }} </td>
                             <td>
                                 {{ $item->name }}
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.schedule.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k"><i
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.schedule.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm l14k prompt" data-title="Remover schedule"><i
+                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover schedule"><i
                                         class="fa fa-trash"></i></a>
 
                             </td>

@@ -10,7 +10,4 @@ Homestead.yaml
 npm-debug.log
 yarn-error.log
 /.idea
-/.vscode  
-public/assets/app/webapi-original.js
-public/assets/app/inits-original.js
-/storage
+/.vscode

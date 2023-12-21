@@ -1,6 +1,6 @@
 <!-- card start -->
 <div class="card">
-    <div class="card-header-lg">
+    <div class="card-header">
         <h4>Account Settings</h4>
     </div>
     <div class="card-body">
@@ -49,7 +49,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
                                     class="fa fa-save p-2"></i>{{ __("Guardar") }}</button>
-                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark mb-3 l14k"><i
+                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark mb-3 _link_"><i
                                     class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
 
                         </div>
@@ -68,7 +68,7 @@
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
-                                        class="btn btn-secondary w-100 l14k"><i class="fa fa-key p-2"></i> Alterar
+                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i> Alterar
                                         Senha</button>
                                 </div>
                             </div>

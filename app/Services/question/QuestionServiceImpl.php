@@ -16,10 +16,9 @@ use Flores;
 
 class QuestionServiceImpl implements IQuestionService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = [ 'code', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id',];
+    private $updateFillables = [ 'code', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id', 'updated_at', 'deleted_at'];
     private $table = 'question';
-
 
     public function add($data)
     {
@@ -29,6 +28,20 @@ class QuestionServiceImpl implements IQuestionService
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->image->file) and !empty($data->image->filename)) {
+            if (!str_ends_with($data->image->file, ':')) {
+                $data->image = tools()->upload_base64($data->image->file, md5(Auth::user()->id . $data->image->filename), 'storage/files');
+            } else {
+                $data->image = null;
+            }
+        } else {
+            $data->image = null;
+        }
+
+
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

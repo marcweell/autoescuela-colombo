@@ -2,15 +2,15 @@
 <div class="card">
     <div class="card-header">
         <div class="card-title">
-            <h5>{!! __('Usuarios') !!}<h5>
+            <h5>{!! __('Categoría de página') !!}<h5>
         </div>
     </div>
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.category.add.index') }}" data-id="-1"
-                    class="btn btn-secondary  mb-2 l14k"><i class="fa fa-plus-circle me-2"></i>
-                    {{ __('Adicionar Usuario') }}</a>
+                    class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
+                    {{ __('Agregar Categoría de página') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -34,17 +34,17 @@
                 <tbody>
                     @for ($i = 0, $n = 1; $i < count($page_category ?? []), ($item = @$page_category[$i]); $i++, $n++)
                         <tr>
-                            <td> {{ $n }} </td> 
+                            <td> {{ $n }} </td>
                             <td>
                                 {{ $item->name }}
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.page.category.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k"><i
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.page.category.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm l14k prompt" data-title="Remover page_category"><i
+                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover page_category"><i
                                         class="fa fa-trash"></i></a>
 
                             </td>

@@ -30,7 +30,7 @@ class Question_categoryController extends Controller
 
         try {
 
-            $this->question_categoryService->add($data); 
+            $this->question_categoryService->add($data);
             return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))
                 ->close_modal()->get();
         } catch (\Exception $e) {
@@ -78,9 +78,9 @@ class Question_categoryController extends Controller
     public function addIndex(Request $request)
     {
         try {
-            $view = view('admin.fragments.question_category.addForm', [ 
+            $view = view('admin.fragments.question_category.addForm', [
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -93,7 +93,7 @@ class Question_categoryController extends Controller
             $view = view('admin.fragments.question_category.editForm', [
                 'question_category' => $question_category,
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

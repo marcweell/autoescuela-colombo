@@ -16,8 +16,8 @@ use Flores;
 
 class Question_categoryServiceImpl implements IQuestion_categoryService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'traffic_question', 'traffic_question_corrects', 'mechanics_question', 'mechanics_question_corrects', 'time_minute', 'active',];
+    private $updateFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'traffic_question', 'traffic_question_corrects', 'mechanics_question', 'mechanics_question_corrects', 'time_minute', 'active', 'updated_at', 'deleted_at'];
     private $table = 'question_category';
 
 
@@ -29,6 +29,18 @@ class Question_categoryServiceImpl implements IQuestion_categoryService
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->icon_file->file) and !empty($data->icon_file->filename)) {
+            if (!str_ends_with($data->icon_file->file, ':')) {
+                $data->icon_file = tools()->upload_base64($data->icon_file->file, md5(Auth::user()->id . $data->icon_file->filename), 'storage/files');
+            } else {
+                $data->icon_file = null;
+            }
+        } else {
+            $data->icon_file = null;
+        }
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

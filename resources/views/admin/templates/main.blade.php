@@ -47,6 +47,16 @@
            <!-- Font-icon css-->
            <link rel="stylesheet" type="text/css"
                href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+
+
+
+
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/Croppie/croppie.css') }}">
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/color-picker-huebee/huebee.css') }}">
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/css/bootstrapicons-iconpicker.min.css') }}">
+
+
+
        </head>
 
        <body class="app sidebar-mini">
@@ -54,8 +64,8 @@
 
            <!-- Navbar-->
            <header class="app-header"><a class="app-header__logo" href="{{ route('web.public.index') }}">Vali</a>
-               <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="javascript:void()" data-toggle="sidebar"
-                   aria-label="Hide Sidebar"></a>
+               <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="javascript:void()"
+                   data-toggle="sidebar" aria-label="Hide Sidebar"></a>
                <!-- Navbar Right Menu-->
                <ul class="app-nav">
                    <!--Notification Menu-->
@@ -73,16 +83,17 @@
                                        </div>
                                    </a></li>
                            </div>
-                           <li class="app-notification__footer"><a href="javascript:void()">See all notifications.</a></li>
+                           <li class="app-notification__footer"><a href="javascript:void()">See all notifications.</a>
+                           </li>
                        </ul>
                    </li>
                    <!-- User Menu-->
                    <li class="dropdown"><a class="app-nav__item" href="javascript:void()" data-bs-toggle="dropdown"
                            aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                        <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                           <li><a class="dropdown-item" href="page-user.html"><i class="bi bi-gear me-2 fs-5"></i>
+                           <li><a class="dropdown-item _link_" data-href="{{ route('web.admin.profile.update.index') }}" href="#"><i class="bi bi-gear me-2 fs-5"></i>
                                    Settings</a></li>
-                           <li><a class="dropdown-item" href="page-login.html"><i
+                           <li><a class="dropdown-item _link_ prompt"  data-href="{{ route('web.admin.account.auth.logout') }}" data-title="{{ __("Terminar Sessao") }}" href="#"><i
                                        class="bi bi-box-arrow-right me-2 fs-5"></i> Logout</a></li>
                        </ul>
                    </li>
@@ -93,25 +104,25 @@
            <!-- Sidebar menu-->
            <div class="app-sidebar__overlay" data-toggle="sidebar"></div>
            <aside class="app-sidebar">
-               <div class="app-sidebar__user"><img class="app-sidebar__user-avatar"
-                       src="https://randomuser.me/api/portraits/men/1.jpg" alt="User Image">
+               <div class="app-sidebar__user"><img class="app-sidebar__user-avatar nf_picture"
+                       src="{{ tools()->photo($user->photo) }}" alt="User Image">
                    <div>
                        <p class="app-sidebar__user-name">{{ $user->name }}</p>
                        <p class="app-sidebar__user-designation">{{ $user->type }}</p>
                    </div>
                </div>
                <ul class="app-menu">
-                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.index') }}" href="javascript:void()"><i
-                               class="app-menu__icon bi bi-speedometer"></i><span
+                   <li><a class="app-menu__item _link_" data-href="{{ route('web.admin.index') }}"
+                           href="javascript:void()"><i class="app-menu__icon bi bi-speedometer"></i><span
                                class="app-menu__label">Dashboard</span></a></li>
                    <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
                                class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Usuarios</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.index') }}"
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.index') }}"
                                    href="javascript:void()" target="_blank" rel="noopener"><i
                                        class="icon bi bi-circle-fill"></i> Lista</a></li>
-                           <li><a class="treeview-item l14k" data-href="{{ route('web.admin.user.add.index') }}"
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.add.index') }}"
                                    href="javascript:void()"><i class="icon bi bi-circle-fill"></i> Agregar</a></li>
                        </ul>
                    </li>
@@ -120,12 +131,12 @@
                                class="app-menu__label">Paginas</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.category.index") }}" href="javascript:void()" ><i
-                                       class="icon bi bi-circle-fill"></i>Categorias</a></li>
-                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.add.index") }}" href="javascript:void()"><i
-                                       class="icon bi bi-circle-fill"></i>Agregar</a></li>
-                           <li><a class="treeview-item l14k" data-href="{{ route("web.admin.page.index") }}" href="javascript:void()"><i
-                                       class="icon bi bi-circle-fill"></i> Lista</a></li>
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.category.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i>Categorias</a></li>
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.add.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i>Agregar</a></li>
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i> Lista</a></li>
                        </ul>
                    </li>
                    <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
@@ -133,15 +144,16 @@
                                class="app-menu__label">Perguntas</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
-                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.category.index") }}" href="javascript:void()" ><i
-                                    class="icon bi bi-circle-fill"></i>Categorias</a></li>
-                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.add.index") }}" href="javascript:void()"><i
-                                    class="icon bi bi-circle-fill"></i>Agregar</a></li>
-                        <li><a class="treeview-item l14k" data-href="{{ route("web.admin.question.index") }}" href="javascript:void()"><i
-                                    class="icon bi bi-circle-fill"></i> Lista</a></li>
+                           <li><a class="treeview-item _link_"
+                                   data-href="{{ route('web.admin.question.category.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i>Categorias</a></li>
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question.add.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i>Agregar</a></li>
+                           <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question.index') }}"
+                                   href="javascript:void()"><i class="icon bi bi-circle-fill"></i> Lista</a></li>
                        </ul>
                    </li>
-                   <li><a class="app-menu__item l14k" data-href="{{ route('web.admin.page_info.index') }}"
+                   <li><a class="app-menu__item _link_" data-href="{{ route('web.admin.page_info.index') }}"
                            href="javascript:void()" target="_blank"><i class="app-menu__icon fa fa-cog"></i><span
                                class="app-menu__label">Configuracion</span></a></li>
                </ul>
@@ -170,6 +182,9 @@
            <script src="{{ url('public/dashboard/js/bootstrap.min.js') }}"></script>
            <script src="{{ url('public/dashboard/js/main.js') }}"></script>
 
+           <script src="{{ url('public/essential/plugins/color-picker-huebee/huebee.js') }}"></script>
+           <script src="{{ url('public/essential/plugins/Croppie/croppie.min.js') }}"></script>
+           <script src="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/js/bootstrapicon-iconpicker.min.js') }}"></script>
            <script src="{{ url('public/essential/plugins/pace/pace.min.js') }}"></script>
            <script src="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.js') }}"></script>
            <script src="{{ url('public/essential/plugins/lobibox-master/dist/js/lobibox.min.js') }}"></script>
@@ -186,12 +201,18 @@
                        }]
                    };
                    app.init(options);
-                   setTimeout(function() {
-                       setInterval(function() {
+
+
+                   function lic() {
+                       setTimeout(function() {
                            app.listenner.listen("clickEvents");
-                           app.listenner.listen("copyEvents");
-                       }, 200);
-                   }, 500);
+                           lic();
+                       }, 500);
+                   };
+
+                   lic();
+
+
                })
            </script>
 

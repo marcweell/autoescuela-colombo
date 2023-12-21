@@ -29,6 +29,7 @@ class PageServiceImpl implements IPageService
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->active = !empty($data->active);
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

@@ -4,7 +4,7 @@
  */
 "use strict";
 
-const chart_colors = [  
+const chart_colors = [
     "#000080", "#2d5a27", "#169509", "#bc6e06", "#ff8ae5", "#ffbcec", "#f8caef", "#f4a5c4",
     "#dccbe7", "#FF0000", "#00FF00", "#0000FF", "#FFFF00", "#00FFFF", "#FF00FF", "#C0C0C0",
     "#f3bdd7", "#8b5e9e", "#dd90ee", "#b48487", "#8463f6", "#a7515b", "#848e00", "#301b30",
@@ -87,21 +87,3 @@ const _ChartJs = {
 
 
 
-function updateActiveLink(){
-
-    $(".menu a, .settings-menu a").removeClass('active');
-    for (var nk = window.location,
-        o = $(".menu a, .settings-menu a").filter(function () {
-            return this.href == nk;
-        })
-            .addClass("active")
-            .parent()
-            .addClass("active"); ;) {
-        // console.log(o)
-        if (!o.is("li")) break;
-        o = o.parent()
-            .addClass("show")
-            .parent()
-            .addClass("active");
-    }
-}

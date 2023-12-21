@@ -3,7 +3,7 @@
          <div class="card-title">
              <h5>Informacoes de Pagina<h5>
          </div>
-     </div> 
+     </div>
  </div><!-- end card-->
 
 
@@ -33,10 +33,10 @@
                              </div>
                              <div class="col text-center mt-2">
                                  <a data-href="{{ route('web.admin.page_info.detail.index') }}"
-                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k"><i
+                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-eye"></i></a>
                                  <a data-href="{{ route('web.admin.page_info.update.index') }}"
-                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k"><i
+                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-pen-nib"></i></a>
                              </div>
                          </div> <!-- end row -->
@@ -73,7 +73,7 @@
                  pause: 0,
                  clickStop: false,
                  delay: 0,
-                 direction: "forward", // backwards || auto || random || 
+                 direction: "forward", // backwards || auto || random ||
                  fallback: 400,
                  callback: function() {
                      // $([document.documentElement, document.body]).animate({

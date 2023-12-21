@@ -1,19 +1,19 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Usuario') }}</h4>
+        <h4 class="header-title">{{ __('Agregar Categoría de página') }}</h4>
 
         <form action="{{ route('web.admin.page.category.add.do') }}" class="form_ parent-load row" method="post">
 
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icono Color') }}</label>
-                <input type="text" name="name" class="form-control">
+                <label for="name" class="form-label">{{ __('Icona Color') }}</label>
+                <input type="text" name="icon_hex_color" class="form-control hex_color">
             </div>
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icono') }}</label>
-                <input type="file" name="name" class="form-control">
+                <input type="file" name="icon_file" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">

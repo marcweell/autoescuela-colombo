@@ -27,7 +27,7 @@
                         <button type="submit" class="btn btn-secondary chl_loader"><i
                                 class="fa fa-save p-2"></i>{{ __('Confirmar') }}</button>
 
-                        <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark l14k"><i
+                        <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark _link_"><i
                                 class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
                     </div>
                 </form>

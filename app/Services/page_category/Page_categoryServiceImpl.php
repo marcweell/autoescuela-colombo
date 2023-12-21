@@ -16,8 +16,8 @@ use Flores;
 
 class Page_categoryServiceImpl implements IPage_categoryService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'active',];
+    private $updateFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'active', 'updated_at', 'deleted_at'];
     private $table = 'page_category';
 
 
@@ -29,6 +29,19 @@ class Page_categoryServiceImpl implements IPage_categoryService
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->icon_file->file) and !empty($data->icon_file->filename)) {
+            if (!str_ends_with($data->icon_file->file, ':')) {
+                $data->icon_file = tools()->upload_base64($data->icon_file->file, md5(Auth::user()->id . $data->icon_file->filename), 'storage/files');
+            } else {
+                $data->icon_file = null;
+            }
+        } else {
+            $data->icon_file = null;
+        }
+
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

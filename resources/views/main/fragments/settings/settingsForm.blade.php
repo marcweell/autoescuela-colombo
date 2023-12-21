@@ -11,7 +11,7 @@
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.page_info.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -27,13 +27,13 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
-  
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.faq.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -49,13 +49,13 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.gender.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -71,14 +71,14 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
-        
+            </div> <!-- end col-->
+
 
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.currency.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -96,13 +96,13 @@
                 </div> <!-- end col -->
             </div> <!-- end col-->
 
- 
- 
+
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.payment_method.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -119,15 +119,15 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
-  
 
- 
- 
+
+
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.plan.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -144,12 +144,12 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
- 
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.social_media.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -166,7 +166,7 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
-  
+
 
 
             <!-------------------------------------------------------------------------------------------------------->
@@ -178,7 +178,7 @@
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.geo.country.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -200,7 +200,7 @@
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
                         <a data-href="{{ route('web.admin.settings.geo.city.index') }}"
-                            class="text-muted fw-bold l14k">
+                            class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
                                     <div class="avatar-sm">
@@ -217,10 +217,10 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
- 
- 
+
+
             <!-------------------------------------------------------------------------------------------------------->
- 
+
 
 
         </div>

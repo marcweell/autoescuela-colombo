@@ -41,7 +41,7 @@
                                                         </div>
                                                     </li>
                                                     <li class="m-0">
-                                                        <button data-href="{{ route("web.admin.profile.update.index") }}" class="btn btn-dark w-100 l14k"><i class="fa fa-arrow-right p-2"></i> Definicoes de Conta</button>
+                                                        <button data-href="{{ route("web.admin.profile.update.index") }}" class="btn btn-dark w-100 _link_"><i class="fa fa-arrow-right p-2"></i> Definicoes de Conta</button>
                                                     </li>
                                                 </ul>
                                             </div>
