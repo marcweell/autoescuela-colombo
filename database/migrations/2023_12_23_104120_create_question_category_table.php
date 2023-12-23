@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('question_category', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+            $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
             $table->string('name', 191);
             $table->string('icon_hex_color', 191)->nullable();

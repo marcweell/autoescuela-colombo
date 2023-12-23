@@ -9,7 +9,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icona') }}</label>
-                <input type="text" name="icon_file" class="form-control iconpicker" value="{{ $question->icon }}">
+                <input type="text" name="icon" class="form-control iconpicker" value="{{ $question->icon }}">
             </div>
 
             <div class="col-md-4 mb-3">

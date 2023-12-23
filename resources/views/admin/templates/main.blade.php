@@ -106,7 +106,7 @@
                <div class="app-sidebar__user"><img class="app-sidebar__user-avatar nf_picture"
                        src="{{ tools()->photo($user->photo) }}" alt="User Image">
                    <div>
-                       <p class="app-sidebar__user-name">{{ $user->name }}</p>
+                       <p class="app-sidebar__user-name">{{ $user->names }}</p>
                        <p class="app-sidebar__user-designation">{{ $user->type }}</p>
                    </div>
                </div>

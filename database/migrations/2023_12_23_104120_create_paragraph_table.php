@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notification', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+        Schema::create('paragraph', function (Blueprint $table) {
+            $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
-            $table->string('title', 100)->nullable();
-            $table->text('message')->nullable();
-            $table->bigInteger('user_id')->index('user_id');
-            $table->boolean('isread')->default(true);
+            $table->text('title');
+            $table->longText('description');
+            $table->string('icon', 191)->nullable();
+            $table->string('image', 191)->nullable();
+            $table->bigInteger('page_id')->index('page_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notification');
+        Schema::dropIfExists('paragraph');
     }
 };

@@ -13,12 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('paragraph', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+        Schema::create('page_subcategory', function (Blueprint $table) {
+            $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
             $table->text('title');
             $table->longText('description');
-            $table->string('icon', 191)->nullable();
             $table->string('image', 191)->nullable();
             $table->bigInteger('page_id')->index('page_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('paragraph');
+        Schema::dropIfExists('page_subcategory');
     }
 };

@@ -13,13 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('page_subcategory', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+        Schema::create('page_subcategory_course', function (Blueprint $table) {
+            $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
-            $table->text('title');
+            $table->string('link_pdf', 191)->nullable();
+            $table->string('num_course', 191)->nullable();
+            $table->string('course_category', 191)->nullable();
             $table->longText('description');
-            $table->string('image', 191)->nullable();
-            $table->bigInteger('page_id')->index('page_id');
+            $table->bigInteger('page_subcategory_id')->index('page_subcategory_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -33,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_subcategory');
+        Schema::dropIfExists('page_subcategory_course');
     }
 };

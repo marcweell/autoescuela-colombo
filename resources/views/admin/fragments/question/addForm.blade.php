@@ -7,7 +7,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icona') }}</label>
-                <input type="text" name="icon_file" class="form-control iconpicker">
+                <input type="text" name="icon" class="form-control iconpicker">
             </div>
 
             <div class="col-md-4 mb-3">

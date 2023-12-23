@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('question', function (Blueprint $table) {
-            $table->bigInteger('id', true);
+            $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
             $table->text('question');
             $table->text('answer');
@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('course', 191)->nullable();
             $table->string('general_course', 191)->nullable();
             $table->string('type', 191)->nullable();
+            $table->tinyInteger('active')->default(1);
             $table->bigInteger('question_category_id')->index('question_category_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();

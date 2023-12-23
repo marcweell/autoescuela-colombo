@@ -2,7 +2,7 @@
 <div class="card">
     <div class="card-header">
         <div class="card-title">
-            <h5>{!! __('Usuarios') !!}<h5>
+            <h5>{!! __('Páginas') !!}<h5>
         </div>
     </div>
     <div class="card-body">
@@ -10,7 +10,7 @@
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.add.index') }}" data-id="-1"
                     class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
-                    {{ __('Adicionar Usuario') }}</a>
+                    {{ __('Agregar página') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -44,7 +44,7 @@
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.page.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover page"><i
+                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar página"><i
                                         class="fa fa-trash"></i></a>
 
                             </td>

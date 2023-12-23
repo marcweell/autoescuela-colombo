@@ -21,7 +21,7 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             UserTableSeeder::class,
-          //  SettingsTableSeeder::class,
+            SettingsTableSeeder::class,
         ]);
 
     }
