@@ -42,6 +42,8 @@ class Question_categoryServiceImpl implements IQuestion_categoryService
             $data->icon_file = null;
         }
 
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
@@ -51,7 +53,7 @@ class Question_categoryServiceImpl implements IQuestion_categoryService
         $question_category = (new Question_categoryServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($question_category->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -99,7 +101,7 @@ class Question_categoryServiceImpl implements IQuestion_categoryService
 
         if (isset($data->code)) {
             if ($question_category->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

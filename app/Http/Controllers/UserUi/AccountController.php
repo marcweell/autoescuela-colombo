@@ -145,7 +145,7 @@ class AccountController extends Controller
 
 
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -170,7 +170,7 @@ class AccountController extends Controller
             $user = (new UserServiceQueryImpl())->findById($_user->id);
             $user->language = $request->get("locale");
             $this->userService->update($user);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->reload()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->reload()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

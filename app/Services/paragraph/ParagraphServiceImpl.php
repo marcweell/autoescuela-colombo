@@ -39,7 +39,7 @@ class ParagraphServiceImpl implements IParagraphService
         $paragraph = (new ParagraphServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($paragraph->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -73,7 +73,7 @@ class ParagraphServiceImpl implements IParagraphService
 
         if (isset($data->code)) {
             if ($paragraph->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

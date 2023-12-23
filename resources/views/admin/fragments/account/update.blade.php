@@ -15,7 +15,6 @@
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
                             <div class="col-12">
-
                                 <button type="button" class="btn btn-info btn-sm btnpp"><i
                                         class="fa fa-image p-2"></i>Alterar Foto de
                                     Perfil</button>
@@ -23,35 +22,32 @@
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="field-wrapper">
+                            <div class="form-group">
+                                <div class="form-label">Nombres</div>
                                 <input type="text" class="form-control" name="name" value="{{ $user->names }}">
-                                <div class="field-placeholder">Nome</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="field-wrapper">
-                                <input type="text" class="form-control" name="last_name"
-                                    value="{{ $user->father_name }}">
-                                <div class="field-placeholder">Apelido</div>
+                            <div class="form-group">
+                                <div class="form-label">Telefono</div>
+                                <input type="number" class="form-control" name="last_name"
+                                    value="{{ $user->phone }}">
                             </div>
                             <!-- Field wrapper end -->
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="field-wrapper">
+                            <div class="form-group">
+                                <div class="form-label">Email</div>
                                 <input type="email" class="form-control" name="email" value="{{ $user->email }}">
-                                <div class="field-placeholder">Email</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
-                        <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
+                        <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12 pt-3">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
-                                    class="fa fa-save p-2"></i>{{ __("Guardar") }}</button>
-                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark mb-3 _link_"><i
-                                    class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
-
+                                    class="fa fa-save p-2"></i>{{ __("Salvar") }}</button>
                         </div>
                     </div>
                 </form>
@@ -61,7 +57,7 @@
                 <div class="account-settings-block">
 
                     <div class="settings-block">
-                        <div class="settings-block-title">Mais Definicoes</div>
+                        <div class="settings-block-title">Más definiciones</div>
                         <div class="settings-block-body">
                             <div class="list-group">
 

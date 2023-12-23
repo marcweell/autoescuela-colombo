@@ -18,6 +18,33 @@ class Page_infoServiceImpl implements IPage_infoService
     private $table =  'settings';
 
 
+    public function add($data)
+    {
+        if (empty($data->name)) {
+            throw new \Exception(__('Email invalido'), 400);
+        }
+        $payload = new \stdClass();
+
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->insertFillables)) {
+                $payload->{$i} = $value;
+            }
+        }
+
+        $page_info = (new Page_infoServiceQueryImpl())->findByCode($data->code);
+
+        if (!empty($page_info->id)) {
+            throw new \Exception(__('Configuraccion invalida'), 400);
+        }
+
+        $arr = json_decode(json_encode($payload), true);
+
+
+        DB::table($this->table)->insert($arr);
+    }
+
 
     function update($data)
     {
@@ -26,15 +53,15 @@ class Page_infoServiceImpl implements IPage_infoService
             throw new \Exception(__('Dados Invalidos'));
         }
           $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         $page_info = DB::table($this->table)->where('id', $data->id)->first();
         if (empty($page_info->id)) {
             throw new \Exception(__('Conteudo nao encontrado'));
         }
 
         if ($page_info->content_type == "file") {
-            
+
             if (!empty($data->content['file']) and !empty($data->content['filename'])) {
                 if (!str_ends_with($data->content['file'], ':')) {
                     $data->content = Flores\Tools::upload_base64($data->content['file'], md5(time() . $data->content['filename']), 'storage/files');
@@ -53,7 +80,7 @@ class Page_infoServiceImpl implements IPage_infoService
         $arr = [];
         $payload = new \stdClass();
 
-      
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -66,5 +93,5 @@ class Page_infoServiceImpl implements IPage_infoService
 
         DB::table($this->table)->where('id', $data->id)->update($arr);
     }
-  
+
 }

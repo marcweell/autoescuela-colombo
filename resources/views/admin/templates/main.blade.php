@@ -18,6 +18,7 @@
            <!-- Add the slick-theme.css if you want default styling -->
            <link rel="stylesheet" href="{{ url('public/essential/plugins/pace/flash.css') }}">
            <link rel="stylesheet" href="{{ url('public/essential/plugins/toast-master/css/jquery.toast.css') }}" />
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.css') }}">
            <link rel="stylesheet"
                href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
            <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/all.min.css') }}" />
@@ -91,9 +92,9 @@
                            aria-label="Open Profile Menu"><i class="bi bi-person fs-4"></i></a>
                        <ul class="dropdown-menu settings-menu dropdown-menu-right">
                            <li><a class="dropdown-item _link_" data-href="{{ route('web.admin.profile.update.index') }}" href="#"><i class="bi bi-gear me-2 fs-5"></i>
-                                   Settings</a></li>
-                           <li><a class="dropdown-item _link_ prompt"  data-href="{{ route('web.admin.account.auth.logout') }}" data-title="{{ __("Terminar Sessao") }}" href="#"><i
-                                       class="bi bi-box-arrow-right me-2 fs-5"></i> Logout</a></li>
+                                   {{ __("Perfil") }}</a></li>
+                           <li><a class="dropdown-item _link_ prompt"  data-href="{{ route('web.admin.account.auth.logout') }}" data-title="{{ __("Cerrar sesión") }}" href="#"><i
+                                       class="bi bi-box-arrow-right me-2 fs-5"></i> {{ __("Cerrar sesión") }}</a></li>
                        </ul>
                    </li>
                </ul>
@@ -180,6 +181,8 @@
            <script src="{{ url('public/dashboard/js/jquery-3.7.0.min.js') }}"></script>
            <script src="{{ url('public/dashboard/js/bootstrap.min.js') }}"></script>
            <script src="{{ url('public/dashboard/js/main.js') }}"></script>
+           <script src="{{ url('public/essential/plugins/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.js') }}"></script>
+
 
            <script src="{{ url('public/essential/plugins/color-picker-huebee/huebee.js') }}"></script>
            <script src="{{ url('public/essential/plugins/Croppie/croppie.min.js') }}"></script>

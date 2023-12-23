@@ -124,7 +124,7 @@ class AccountController extends Controller
         try {
 
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -141,7 +141,7 @@ class AccountController extends Controller
         $data->user_id = $this->authService->getUser()->id;
         try {
             $this->reminderService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -156,7 +156,7 @@ class AccountController extends Controller
         $data->user_id = $this->authService->getUser()->id;
         try {
             $this->reminderService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

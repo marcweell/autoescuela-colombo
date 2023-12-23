@@ -1,7 +1,7 @@
  <div class="card">
      <div class="card-header">
          <div class="card-title">
-             <h5>Informacoes de Pagina<h5>
+             <h5>Configuracion<h5>
          </div>
      </div>
  </div><!-- end card-->
@@ -26,7 +26,7 @@
                                     <div class="col ps-0">
                                         <h5>{{ $item->name }}</h5>
                                         <small class="mb-0 font-10">
-                                            {{ empty($item->content) ? '[' . __('Nao Definido') . ']' : ($item->content_type !== 'rich_text' ? (strlen($item->content) > 10 ? '['.__("Ver Detalhes").']' : $item->content) : '['.__("Ver Detalhes").']') }}
+                                            {{ empty($item->content) ? '[' . __('No definido') . ']' : ($item->content_type !== 'rich_text' ? (strlen($item->content) > 10 ? '['.__("Ver detalles").']' : $item->content) : '['.__("Ver detalles").']') }}
                                         </small>
                                     </div>
                                 </div>

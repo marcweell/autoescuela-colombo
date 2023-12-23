@@ -39,7 +39,7 @@ class Page_subcategory_courseServiceImpl implements IPage_subcategory_courseServ
         $page_subcategory_course = (new Page_subcategory_courseServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($page_subcategory_course->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -73,7 +73,7 @@ class Page_subcategory_courseServiceImpl implements IPage_subcategory_courseServ
 
         if (isset($data->code)) {
             if ($page_subcategory_course->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

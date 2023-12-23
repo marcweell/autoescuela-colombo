@@ -99,7 +99,7 @@ class Page_categoryServiceImpl implements IPage_categoryService
 
         if (isset($data->code)) {
             if ($page_category->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

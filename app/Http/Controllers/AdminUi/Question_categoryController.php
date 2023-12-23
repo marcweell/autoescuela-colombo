@@ -31,7 +31,7 @@ class Question_categoryController extends Controller
         try {
 
             $this->question_categoryService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))
+            return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))
                 ->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
@@ -49,7 +49,7 @@ class Question_categoryController extends Controller
 
             $this->question_categoryService->update($data);
 
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

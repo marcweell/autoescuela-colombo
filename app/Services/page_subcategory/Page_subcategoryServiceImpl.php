@@ -51,7 +51,7 @@ class Page_subcategoryServiceImpl implements IPage_subcategoryService
         $page_subcategory = (new Page_subcategoryServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($page_subcategory->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -85,7 +85,7 @@ class Page_subcategoryServiceImpl implements IPage_subcategoryService
 
         if (isset($data->code)) {
             if ($page_subcategory->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

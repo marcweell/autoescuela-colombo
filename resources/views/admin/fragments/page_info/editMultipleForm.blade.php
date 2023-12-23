@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Informacoes de Pagina') }}</h4>
+        <h4 class="header-title">{{ __('Editar Configuracion') }}</h4>
 
         <form action="{{ route('web.admin.page_info.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $page_info->id }}">
@@ -28,7 +28,7 @@
                                 value="{!! $item->content !!}">
                         @break
 
-                        @case('file') 
+                        @case('file')
                                                     <div class="row">
                                 <div class="col-12">
                                     <a href="{{ url('storage/files/' . $item->content) }}">{{ empty($item->child_index) ? 'BAIXAR' : $item->child_index }}</a>
@@ -70,7 +70,7 @@
             <div class="col-md-3">
 
                 <button type="submit" class="btn btn-secondary chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
+                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>
 

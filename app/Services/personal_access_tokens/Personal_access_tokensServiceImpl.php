@@ -39,7 +39,7 @@ class Personal_access_tokensServiceImpl implements IPersonal_access_tokensServic
         $personal_access_tokens = (new Personal_access_tokensServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($personal_access_tokens->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -73,7 +73,7 @@ class Personal_access_tokensServiceImpl implements IPersonal_access_tokensServic
 
         if (isset($data->code)) {
             if ($personal_access_tokens->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

@@ -1,5 +1,5 @@
 <div class="card">
-    
+
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Pais') }}</h4>
 
@@ -13,11 +13,11 @@
                 <label for="code" class="form-label">{{ __('Codigo') }}</label>
                 <input type="text" name="code" id="code" class="form-control" value="{{  $notification->code }}">
             </div>
-            
-            
+
+
 <div class="col-md-12">
-    <button type="submit" class="btn btn-secondary  chl_loader"><i class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
-</div> 
+    <button type="submit" class="btn btn-secondary  chl_loader"><i class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
+</div>
         </form>
 
     </div> <!-- end card-body -->

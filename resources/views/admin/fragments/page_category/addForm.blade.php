@@ -30,7 +30,7 @@
 
             <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-secondary  chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
+                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
 
         </form>

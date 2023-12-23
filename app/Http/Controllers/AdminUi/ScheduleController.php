@@ -30,8 +30,8 @@ class ScheduleController extends Controller
 
         try {
 
-            $this->scheduleService->add($data); 
-            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))
+            $this->scheduleService->add($data);
+            return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))
                 ->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
@@ -49,7 +49,7 @@ class ScheduleController extends Controller
 
             $this->scheduleService->update($data);
 
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -78,7 +78,7 @@ class ScheduleController extends Controller
     public function addIndex(Request $request)
     {
         try {
-            $view = view('admin.fragments.schedule.addForm', [ 
+            $view = view('admin.fragments.schedule.addForm', [
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->get();
         } catch (\Exception $e) {

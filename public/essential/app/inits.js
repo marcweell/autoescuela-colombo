@@ -501,15 +501,7 @@ app.listenner.add("ComponentInits", function () {
 
 
 
-
-
-
-
-
-
-
-
-
+    $(".touchspin").TouchSpin();
 
 
 

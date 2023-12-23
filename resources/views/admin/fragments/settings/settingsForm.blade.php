@@ -20,7 +20,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Informacoes de Pagina
+                                <div class="col ps-0">Configuracion
                                     <!--p class="mb-0 font-13">2.3 MB</p-->
                                 </div>
                             </div> <!-- end row -->

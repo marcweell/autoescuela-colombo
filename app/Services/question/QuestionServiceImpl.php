@@ -52,7 +52,7 @@ class QuestionServiceImpl implements IQuestionService
         $question = (new QuestionServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($question->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -99,7 +99,7 @@ class QuestionServiceImpl implements IQuestionService
 
         if (isset($data->code)) {
             if ($question->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

@@ -40,7 +40,7 @@ class PageServiceImpl implements IPageService
         $page = (new PageServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($page->id)) {
-            throw new \Exception(__('Nome de Usuario invalido'), 400);
+            throw new \Exception(__('Nombre de usuario no válido'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
@@ -74,7 +74,7 @@ class PageServiceImpl implements IPageService
 
         if (isset($data->code)) {
             if ($page->code !== $data->code) {
-                throw new \Exception(__('Nome de Usuario invalido, tente outro'), 400);
+                throw new \Exception(__('Nombre de usuario no válido, tente outro'), 400);
             }
         }
 

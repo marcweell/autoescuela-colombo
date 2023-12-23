@@ -401,7 +401,7 @@ const Tool = {
                 title: title,
                 content: (message !== null && typeof message !== "undefined") ? message : "¿Estás seguro de que quieres realizar esta operación?",
                 buttons: {
-                    "Sim": function () {
+                    "Sí": function () {
                         handle();
                         pp.prompt_shown = false;
                     },

@@ -37,7 +37,7 @@ class Page_infoController extends Controller
             if ($page_info->multiple == false) {
                 $this->page_infoService->update($data);
             } else {
- 
+
 
 
                 $arr = ["content", "child_index"];
@@ -93,7 +93,7 @@ class Page_infoController extends Controller
 
                     $content = $data->content[$i];
                     $index = !empty($data->child_index[$i]) ? $data->child_index[$i] : "";
- 
+
 
                     $_data = new stdClass();
                     $_data->child_index = $index;
@@ -109,7 +109,7 @@ class Page_infoController extends Controller
 
 
 
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
