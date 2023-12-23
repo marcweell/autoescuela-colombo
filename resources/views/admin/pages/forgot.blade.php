@@ -1,38 +1,24 @@
- 
+
 
 @extends("main.templates.auth")
 
 @section('content')
-      
 
-
-<div class="row justify-content-center h-100 align-items-center">
-    <div class="col-xl-5 col-md-6">
-        <div class="mini-logo text-center my-4"><a href="{{ route('web.public.index') }}"><img class="img-fluid" src="{{ url('public/assets/images/logo.png') }}" alt=""></a>
-            <h4 class="card-title mt-5">Recuperar Conta - ADMIN</h4>
-        </div>
-        <div class="auth-form card">
-            <div class="card-body">
-           
-                <form method="post" action="{{ route('web.admin.account.forgot.auth') }}" method="post" class="form_ parent-load">
-
-                    <div class="form-group">
-                        <label>Digite o seu email</label>
-                        <input type="email" class="form-control" name="email">
-                    </div>
-     
-                    <div class="mt-3 d-grid gap-2"><button type="submit" class="btn btn-primary mr-2 chl_loader">Enviar</button></div>
-                </form>
-                </p>
-            </div>
-        </div>
-        <div class="privacy-link d-inline w-100">
-            <a class="text-primary p-2" href="{{ route('web.public.index') }}">Pagina Inicial</a>
-            <a class="text-primary p-2" target="_blank" href="{{ route('web.public.terms.index') }}">Termos de Uso</a>
-            <a class="text-primary p-2" target="_blank" href="{{ route('web.public.privacy.index') }}">Politicas</a>
-    </div>
-</div>
-
+<div class="logo">
+    <img height="45px" src="{{ url("public/essential/img/logo.png") }}" alt="">
+  </div>
+  <div class="login-box">
+    <form class="login-form form_" action="{{ route("web.admin.account.forgot.auth") }}">
+      <h3 class="login-head"><i class="bi bi-person me-2"></i>Recuperar cuenta</h3>
+      <div class="mb-3">
+        <label class="form-label">EMAIL</label>
+        <input class="form-control" name="user" type="text" placeholder="" autofocus>
+      </div>
+      <div class="mb-3 btn-container d-grid">
+        <button type="submit" class="btn btn-primary btn-block"><i class="bi bi-box-arrow-in-right me-2 fs-5"></i>Mandar</button>
+      </div>
+    </form>
+  </div>
 
 
 @endsection

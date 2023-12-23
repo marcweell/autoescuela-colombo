@@ -67,7 +67,10 @@
            @include('loader')
 
            <!-- Navbar-->
-           <header class="app-header"><a class="app-header__logo" href="{{ route('web.public.index') }}">Vali</a>
+           <header class="app-header">
+            <a class="app-header__logo" href="{{ route('web.public.index') }}">
+                <img height="25px" src="{{ url("public/essential/img/logo.png") }}" alt="">
+            </a>
                <!-- Sidebar toggle button--><a class="app-sidebar__toggle" href="javascript:void()"
                    data-toggle="sidebar" aria-label="Hide Sidebar"></a>
                <!-- Navbar Right Menu-->
