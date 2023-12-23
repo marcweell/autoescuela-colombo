@@ -18,11 +18,15 @@
            <!-- Add the slick-theme.css if you want default styling -->
            <link rel="stylesheet" href="{{ url('public/essential/plugins/pace/flash.css') }}">
            <link rel="stylesheet" href="{{ url('public/essential/plugins/toast-master/css/jquery.toast.css') }}" />
+
+
+
            <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.css') }}">
-           <link rel="stylesheet"
-               href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
-           <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/all.min.css') }}" />
-           <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/pro.min.css') }}" />
+           <link rel="stylesheet" href="{{ url('') }}">
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/all.min.css') }}">
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/solid.css') }}">
+           <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/pro.css') }}">
            <link rel="stylesheet" href="{{ url('public/essential/loader/loader.css') }}">
            <style>
                .menu ul li {

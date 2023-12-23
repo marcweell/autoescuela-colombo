@@ -26,7 +26,9 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nombre') }}</th>
+                        <th>{{ __('Titulo') }}</th>
+                        <th>{{ __('Imagen') }}</th>
+                        <th>{{ __('Activo') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -36,16 +38,22 @@
                         <tr>
                             <td> {{ $n }} </td>
                             <td>
-                                {{ $item->name }}
+                                {{ $item->title }}
                             </td>
+                            <td>
+                                <img height="30px" src="{{ tools()->file($item->image) }}" alt="">
+                            </td>
+                            <td> {!! $item->active == true
+                                ? '<i class="fa fa-check text-success"></i>'
+                                : '<i class="fa fa-times text-danger"></i>' !!} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.page.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
-                                <a data-href="{{ route('web.admin.page.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar página"><i
-                                        class="fa fa-trash"></i></a>
+                                <a data-href="{{ route('web.admin.page.remove.do') }}"
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
+                                    data-title="Eliminar Pregunta"><i class="fa fa-trash"></i></a>
 
                             </td>
                         </tr>

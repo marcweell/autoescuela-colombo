@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Usuario') }}</h4>
+        <h4 class="header-title">{{ __('Agregar Página') }}</h4>
 
         <form action="{{ route('web.admin.page.add.do') }}" class="form_ parent-load row" method="post">
 
@@ -55,13 +55,13 @@
             </div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Paragrafos</label>
-                <button type="button" class="btn btn-primary" onclick="addParagrafoContent();"><i class="uil-plus"
+                <button type="button" class="btn btn-primary" onclick="addParagrafoContent();"><i class="fa fa-plus"
                         aria-hidden="true"></i></button>
             </div>
             <div id="addparagrafo"></div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Subcategoria</label>
-                <button type="button" class="btn btn-primary" onclick="addSubcategoriaContent();"><i class="uil-plus"
+                <button type="button" class="btn btn-primary" onclick="addSubcategoriaContent();"><i class="fa fa-plus"
                         aria-hidden="true"></i></button>
             </div>
             <div id="addsubcategoria"></div>

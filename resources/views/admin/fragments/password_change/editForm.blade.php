@@ -28,7 +28,7 @@
                                 class="fa fa-save p-2"></i>{{ __('Confirmar') }}</button>
 
                         <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark _link_"><i
-                                class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
+                                class="fa fa-arrow-left p-2"></i> Volver al perfil</button>
                     </div>
                 </form>
 
