@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('code', 300);
             $table->longText('content')->nullable();
             $table->integer('line_height')->default(3);
-            $table->enum('content_type', ['plain_text', 'rich_text', 'color', 'number', 'date', 'time', 'file'])->nullable();
+            $table->enum('content_type', ['plain_text', 'rich_text', 'color', 'number', 'date', 'time', 'file'])->default('plain_text');
             $table->string('filetypes', 300)->nullable();;
             $table->string('regex', 300)->nullable();;
             $table->boolean('active')->default(true);

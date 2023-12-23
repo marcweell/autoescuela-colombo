@@ -22,7 +22,7 @@
                         <input class="form-control" type="text" name="content" value="{!! $page_info->content !!}">
                     @break
                     @case('file')
-                        <input class="form-control" type="file" {!! empty($page_info->filetypes)?"":'accept="'.$page_info->filetypes.'"'  !!} name="content" value="{!! $page_info->content !!}">
+                        <input class="form-control" type="file" {!! empty($page_info->filetypes)?"":'accept="'.$page_info->filetypes.'"'  !!} name="content" >
                     @break
 
                     @default

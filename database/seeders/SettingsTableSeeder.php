@@ -21,7 +21,7 @@ class SettingsTableSeeder extends Seeder
             ["name" => 'Celular', "code" => 'company.cell'],
             ["name" => 'Email', "code" => 'company.email', "content_type" => 'number'],
             ["name" => 'IVA', "code" => 'company.iva', "content_type" => 'plain_text'],
-            ["name" => 'Logo', "code" => 'company.logo',"filetypes"=>"image/*"]
+            ["name" => 'Logo', "code" => 'company.logo',"content_type"=>"file","filetypes"=>"image/*"]
        ];
 
        foreach ($arr as $key => $value) {
