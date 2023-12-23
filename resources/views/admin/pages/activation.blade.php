@@ -18,7 +18,7 @@
 
 
                         <div class="form-group">
-                            <label>{{ __('Nova senha') }}</label>
+                            <label>{{ __('Nueva contraseña') }}</label>
                             <input type="password" class="form-control" name="password">
                         </div>
 

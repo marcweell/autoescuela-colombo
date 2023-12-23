@@ -10,15 +10,15 @@
                 <form action="{{ route('web.admin.profile.password.update.do') }}" class="form_ parent-load row prompt"
                     method="post">
                     <div class="col-md-12 mb-3">
-                        <label for="password" class="form-label">{{ __('Senha Antiga') }}</label>
+                        <label for="password" class="form-label">{{ __('Contraseña anterior') }}</label>
                         <input name="old_password" type="password" class="form-control">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="password" class="form-label">{{ __('Nova Senha') }}</label>
+                        <label for="password" class="form-label">{{ __('Nueva contraseña') }}</label>
                         <input name="password" type="password" class="form-control">
                     </div>
                     <div class="col-md-6 mb-3">
-                        <label for="password" class="form-label">{{ __('Digite a nova senha novamente') }}</label>
+                        <label for="password" class="form-label">{{ __('Ingrese la nueva contraseña nuevamente') }}</label>
                         <input name="confirm_password" type="password" class="form-control">
                     </div>
                     <div class="col-12">
