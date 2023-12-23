@@ -42,7 +42,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Perguntas Frequentes
+                                <div class="col ps-0">Preguntas Frequentes
                                     <!--p class="mb-0 font-13">2.3 MB</p-->
                                 </div>
                             </div> <!-- end row -->

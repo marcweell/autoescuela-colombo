@@ -32,16 +32,15 @@ class Page_categoryServiceImpl implements IPage_categoryService
         $data->active = !empty($data->active);
 
 
-        if (!empty($data->icon_file->file) and !empty($data->icon_file->filename)) {
-            if (!str_ends_with($data->icon_file->file, ':')) {
-                $data->icon_file = tools()->upload_base64($data->icon_file->file, md5(Auth::user()->id . $data->icon_file->filename), 'storage/files');
+        if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
+            if (!str_ends_with($data->icon_file['file'], ':')) {
+                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time(). $data->icon_file['filename']), 'storage/files');
             } else {
                 $data->icon_file = null;
             }
         } else {
             $data->icon_file = null;
         }
-
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
@@ -65,6 +64,20 @@ class Page_categoryServiceImpl implements IPage_categoryService
     {
         if (empty($data->id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
+        }
+
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
+            if (!str_ends_with($data->icon_file['file'], ':')) {
+                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time(). $data->icon_file['filename']), 'storage/files');
+            }else{
+                unset( $data->icon_file);
+            }
+        }else{
+
+            unset( $data->icon_file);
         }
 
 

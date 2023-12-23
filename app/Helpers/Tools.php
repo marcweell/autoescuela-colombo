@@ -205,7 +205,7 @@ class Tools
 
         return $str;
     }
- 
+
     public static function num($num = 0, $dec = 2,$decimal=".",$thousands = ",")
     {
         if (!is_numeric($num)) {
@@ -214,7 +214,7 @@ class Tools
 
         return number_format($num, $dec,$decimal,$thousands);
     }
- 
+
 
     public static function getInt($num = 0)
     {
@@ -291,8 +291,8 @@ class Tools
 
 
     /**
-     * 
-     * 
+     *
+     *
      */
 
     //-------------------------
@@ -383,7 +383,7 @@ class Tools
             ]
         );
         if (!is_file(base_path($file_name))) {
-            $file_name = "./";
+            $file_name = "public/essential/img/logo.png";
         }
 
         return url($file_name);

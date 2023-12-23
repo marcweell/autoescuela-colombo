@@ -140,7 +140,7 @@
                    </li>
                    <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
                                class="app-menu__icon bi bi-ui-checks"></i><span
-                               class="app-menu__label">Perguntas</span><i
+                               class="app-menu__label">Preguntas</span><i
                                class="treeview-indicator bi bi-chevron-right"></i></a>
                        <ul class="treeview-menu">
                            <li><a class="treeview-item _link_"

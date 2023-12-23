@@ -1,4 +1,3 @@
-
 <div class="card">
     <div class="card-header">
         <div class="card-title">
@@ -30,6 +29,7 @@
                         <th>{{ __('Email') }}</th>
                         <th>{{ __('Telefone') }}</th>
                         <th>{{ __('Tipo') }}</th>
+                        <th>{{ __('Activo') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -56,8 +56,11 @@
                             <td>
                                 {{ $item->email }}
                             </td>
-                            <td> {{  $item->phone }}</td>
+                            <td> {{ $item->phone }}</td>
                             <td> {{ $item->type }}</td>
+                            <td> {!! $item->active == true
+                                ? '<i class="fa fa-check text-success"></i>'
+                                : '<i class="fa fa-times text-danger"></i>' !!} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.user.update.index') }}"
@@ -66,7 +69,6 @@
                                 <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
                                     class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover user"><i
                                         class="fa fa-trash"></i></a>
-
                             </td>
                         </tr>
                     @endfor
@@ -75,4 +77,3 @@
         </div>
     </div> <!-- end card-body-->
 </div> <!-- end card-->
-

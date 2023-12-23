@@ -16,13 +16,13 @@ use Flores;
 
 class QuestionServiceImpl implements IQuestionService
 {
-    private $insertFillables = [ 'code', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id',];
-    private $updateFillables = [ 'code', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id', 'updated_at', 'deleted_at'];
+    private $insertFillables = [ 'code','color', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id',];
+    private $updateFillables = [ 'code','color', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id', 'updated_at', 'deleted_at'];
     private $table = 'question';
 
     public function add($data)
     {
-        if (empty($data->email)) {
+        if (empty($data->question)) {
             throw new \Exception(__('Email invalido'), 400);
         }
         $payload = new stdClass();
@@ -65,6 +65,19 @@ class QuestionServiceImpl implements IQuestionService
     {
         if (empty($data->id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
+        }
+        $data->active = !empty($data->active);
+
+
+        if (!empty($data->image['file']) and !empty($data->image['filename'])) {
+            if (!str_ends_with($data->image['file'], ':')) {
+                $data->image = tools()->upload_base64($data->image['file'], md5(time(). $data->image['filename']), 'storage/files');
+            } else{
+                unset( $data->image);
+            }
+        }else{
+
+            unset( $data->image);
         }
 
 

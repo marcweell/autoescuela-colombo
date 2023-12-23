@@ -399,7 +399,7 @@ const Tool = {
         try {
             return $.confirm({
                 title: title,
-                content: (message !== null && typeof message !== "undefined") ? message : "Tem certeza que deseja efectuar esta opera&ccedil;&atilde;o?",
+                content: (message !== null && typeof message !== "undefined") ? message : "¿Estás seguro de que quieres realizar esta operación?",
                 buttons: {
                     "Sim": function () {
                         handle();

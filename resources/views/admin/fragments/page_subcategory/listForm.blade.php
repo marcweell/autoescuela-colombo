@@ -1,4 +1,3 @@
-
 <div class="card">
     <div class="card-header">
         <div class="card-title">
@@ -27,6 +26,8 @@
                             #
                         </th>
                         <th>{{ __('Nombre') }}</th>
+                        <th>{{ __('Color') }}</th>
+                        <th>{{ __('Icona') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -38,14 +39,22 @@
                             <td>
                                 {{ $item->name }}
                             </td>
+                            <td
+                                style="{{ empty($item->icon_hex_color) ? '' : 'background: ' . $item->icon_hex_color . ';' }}">
+                            </td>
+                            <td>
+                                @if (empty($item->icon_file))
+                                    <img src="{{ tools()->file($item->icon_file) }}" alt="">
+                                @endif
+                            </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.page_subcategory.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
-                                <a data-href="{{ route('web.admin.page_subcategory.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover page_subcategory"><i
-                                        class="fa fa-trash"></i></a>
+                                <a data-href="{{ route('web.admin.page_subcategory.remove.do') }}"
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
+                                    data-title="Remover page_subcategory"><i class="fa fa-trash"></i></a>
 
                             </td>
                         </tr>
@@ -55,4 +64,3 @@
         </div>
     </div> <!-- end card-body-->
 </div> <!-- end card-->
-
