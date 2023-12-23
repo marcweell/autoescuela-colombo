@@ -11,7 +11,7 @@ class SettingsTableSeeder extends Seeder
 {
     public function run()
     {
-        DB::table("settings")->insert(
+        DB::table("settings")->insert([
             ["name" => 'Nombre de Empresa', "code" => 'company.name'],
             ["name" => 'Direccion', "code" => 'company.address'],
             ["name" => 'Cuidad', "code" => 'company.city'],
@@ -22,6 +22,7 @@ class SettingsTableSeeder extends Seeder
             ["name" => 'Email', "code" => 'company.email', "content_type" => 'number'],
             ["name" => 'IVA', "code" => 'company.iva', "content_type" => 'plain_text'],
             ["name" => 'Logo', "code" => 'company.logo']
+            ]
         );
     }
 }
