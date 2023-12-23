@@ -1,6 +1,6 @@
 
 
-@extends("main.templates.auth")
+@extends("admin.templates.auth")
 
 @section('content')
 

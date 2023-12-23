@@ -1,4 +1,4 @@
-@extends('main.templates.auth')
+@extends('admin.templates.auth')
 
 @section('content')
     <div class="row justify-content-center h-100 align-items-center">
@@ -33,13 +33,6 @@
                     </form>
                     </p>
                 </div>
-            </div>
-            <div class="privacy-link d-inline w-100">
-                <a class="text-primary p-2" href="{{ route('web.public.index') }}">{{ __('Pagina Inicial') }}</a>
-                <a class="text-primary p-2" target="_blank"
-                    href="{{ route('web.public.terms.index') }}">{{ __('Termos de Uso') }}</a>
-                <a class="text-primary p-2" target="_blank"
-                    href="{{ route('web.public.privacy.index') }}">{{ __('Politicas') }}</a>
             </div>
         </div>
     @endsection

@@ -10,7 +10,7 @@
 
   <main id="main">
 
-   
+
     @yield('content')
 
 
@@ -22,10 +22,10 @@
   @include('main.templates.elements.footer')
   @include('main.templates.elements.scripts')
 
+  @include('loader')
   @include('modals')
 
-  @include('loader')
-  
+
 
 </body>
 
