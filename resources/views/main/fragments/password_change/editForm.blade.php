@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-header">
 
-                <h4 class="header-title">{{ __('Alterar Senha') }}</h4>
+                <h4 class="header-title">{{ __('Cambiar contraseña') }}</h4>
             </div>
             <div class="card-body">
 
