@@ -378,7 +378,7 @@ app.listenner.add("clickEvents", function () {
         setTimeout(function () {
             cloning = false;
             app.listenner.listen();
-        }, 1000);
+        }, 300);
     });
 
 }); //Listenner
@@ -503,6 +503,7 @@ app.listenner.add("ComponentInits", function () {
 
     $(".touchspin").TouchSpin();
 
+    $('.iconpicker').iconpicker();
 
 
     try {

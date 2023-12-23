@@ -34,6 +34,10 @@
                 <input class="touchspin" type="text" value="0" name="price_promo">
             </div>
             <div class="col-lg-4 mb-3">
+                <label for="imagen" class="form-label">Foto</label>
+                <input class="form-control" type="file" name="image" accept="image/*">
+            </div>
+            <div class="col-lg-12 mb-3">
                 <label for="direccionTienda" class="form-label">Titulo</label>
                 <input type="text" name="title" class="form-control">
             </div>
@@ -49,14 +53,14 @@
                 <label for="pais" class="form-label">Descripcion</label>
                 <input type="text" name="description" class="form-control">
             </div>
-            <div class="col-lg-4 mb-3">
-                <label for="imagen" class="form-label">Foto</label>
-                <input class="form-control" type="file" name="image" accept="image/*">
-            </div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Paragrafos</label>
-                <button type="button" class="btn btn-primary" onclick="addParagrafoContent();"><i class="fa fa-plus"
+                <button type="button" class="btn btn-primary clonehim"  to="#row-paragrafo" elem-target="#paragrafos"><i class="fa fa-plus"
                         aria-hidden="true"></i></button>
+            </div>
+
+            <div class="row" id="row-paragrafo">
+
             </div>
             <div id="addparagrafo"></div>
             <div class="col-lg-12 mb-3">
@@ -76,6 +80,37 @@
     </div> <!-- end card-body -->
 </div>
 
-<script>
-    $('.iconpicker').iconpicker();
-</script>
+
+<div id="paragrafos" class="d-none" style="display:none">
+ <div class="col-md-6 im_dad">
+    <div class="card bg-secondary mb-3">
+        <div class="row card-body">
+            <div class="col-lg-10">
+                <div class="row">
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">Icona</label>
+                        <input type="text" class="form-control iconpicker">
+                    </div>
+                    <div class="col-lg-6 mb-3">
+                        <label class="form-label">Titulo</label>
+                        <input type="text" id="titulo" class="form-control">
+                    </div>
+                    <div class="mb-3">
+                        <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                    <label for="imagen" class="form-label">Foto</label>
+                    <input class="form-control" type="file" name="image" id="seleccionArchivoImagenPregunta">
+                </div>
+                </div>
+            </div>
+            <div class="col-lg-2">
+                <button class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+</div>

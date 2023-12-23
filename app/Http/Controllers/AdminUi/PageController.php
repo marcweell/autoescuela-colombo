@@ -82,7 +82,7 @@ class PageController extends Controller
             $view = view('admin.fragments.page.addForm', [
             'page_category'=>(new Page_categoryServiceQueryImpl())->active()->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
+            return (new WebApi())->setSuccess()->print($view)->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -96,7 +96,7 @@ class PageController extends Controller
                 'page' => $page,
                 'page_category'=>(new Page_categoryServiceQueryImpl())->active()->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
+            return (new WebApi())->setSuccess()->print($view)->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
