@@ -16,8 +16,8 @@ use Flores;
 
 class Page_subcategoryServiceImpl implements IPage_subcategoryService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'title', 'description', 'image', 'page_id',];
+    private $updateFillables = ['code', 'title', 'description', 'image', 'page_id', 'updated_at', 'deleted_at'];
     private $table = 'page_subcategory';
 
 

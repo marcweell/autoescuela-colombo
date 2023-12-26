@@ -27,6 +27,7 @@ class UserController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
+        $data->code = code(null, __METHOD__);
 
         try {
 

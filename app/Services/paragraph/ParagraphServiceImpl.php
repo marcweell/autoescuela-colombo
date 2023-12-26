@@ -16,19 +16,30 @@ use Flores;
 
 class ParagraphServiceImpl implements IParagraphService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'title', 'description', 'icon', 'image', 'page_id',];
+    private $updateFillables = ['code', 'title', 'description', 'icon', 'image', 'page_id', 'updated_at', 'deleted_at'];
     private $table = 'paragraph';
 
 
     public function add($data)
     {
-        if (empty($data->email)) {
-            throw new \Exception(__('Email invalido'), 400);
+        if (empty($data->title)) {
+            throw new \Exception(__('Titulo invalido'), 400);
         }
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+        if (!empty($data->image->file) and !empty($data->image->filename)) {
+            if (!str_ends_with($data->image->file, ':')) {
+                $data->image = tools()->upload_base64($data->image->file, md5(time() . $data->image->filename), 'storage/files');
+            } else {
+                $data->image = null;
+            }
+        } else {
+            $data->image = null;
+        }
+
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {

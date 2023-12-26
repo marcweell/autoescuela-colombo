@@ -23,7 +23,7 @@ class Page_subcategory_courseServiceImpl implements IPage_subcategory_courseServ
 
     public function add($data)
     {
-        if (empty($data->email)) {
+        if (empty($data->title)) {
             throw new \Exception(__('Email invalido'), 400);
         }
         $payload = new stdClass();
