@@ -17,6 +17,7 @@ return new class extends Migration
             $table->bigInteger('id', true)->autoIncrement();
             $table->string('code', 191)->unique('code');
             $table->string('link_pdf', 191)->nullable();
+            $table->string('link_video', 191)->nullable();
             $table->string('num_course', 191)->nullable();
             $table->string('course_category', 191)->nullable();
             $table->longText('description');

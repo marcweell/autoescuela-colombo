@@ -91,20 +91,19 @@
                     <div class="row">
                         <div class="col-lg-6 mb-3">
                             <label class="form-label">Icona</label>
-                            <input type="text" class="form-control iconpicker">
+                            <input name="paragraph_icon[]" type="text" class="form-control iconpicker">
                         </div>
                         <div class="col-lg-6 mb-3">
                             <label class="form-label">Titulo</label>
-                            <input type="text" id="titulo" class="form-control">
+                            <input name="paragraph_title[]" type="text" id="titulo" class="form-control">
                         </div>
                         <div class="col-lg-12 mb-3">
                             <label class="form-label">Descripcion</label>
-                            <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                            <textarea class="form-control"  name="paragraph_desctiption[]" rows="5"></textarea>
                         </div>
                         <div class="col-lg-12 mb-3">
                             <label for="imagen" class="form-label">Foto</label>
-                            <input class="form-control" type="file" name="image"
-                                id="seleccionArchivoImagenPregunta">
+                            <input class="form-control" type="file" name="image"  name="paragraph_image[]">
                         </div>
                     </div>
                 </div>
@@ -135,11 +134,11 @@
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label class="form-label">Titulo</label>
-                            <input type="text" id="titulo" class="form-control">
+                            <input type="text" id="titulo" class="form-control"  name="subcategoy_titulo[__CLONE_ID__]">
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label">Titulo</label>
-                            <input type="text" id="titulo" class="form-control">
+                            <label class="form-label">Foto</label>
+                            <input type="text" id="titulo" class="form-control"  name="subcategoy_image[__CLONE_ID__]">
                         </div>
                     </div>
                 </div>
@@ -147,7 +146,7 @@
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label class="form-label">Descripcion</label>
-                            <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                            <textarea class="form-control"  name="subcategoy_description[__CLONE_ID__]" rows="5"></textarea>
                         </div>
                     </div>
                 </div>
@@ -180,15 +179,19 @@
         <div class="row card-body">
             <div class="col-md-4 mb-3">
                 <label for="imagen" class="form-label">Foto</label>
-                <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
+                <input class="form-control" name="curso[__CLONE_ID__][curso]" >
             </div>
             <div class="col-md-4 mb-3">
                 <label for="imagen" class="form-label">Foto</label>
+                <input class="form-control" name="curso[__CLONE_ID__][nr]" >
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="imagen" class="form-label">Link PDF</label>
                 <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
             </div>
             <div class="col-md-4 mb-3">
-                <label for="imagen" class="form-label">Foto</label>
-                <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
+                <label for="imagen" class="form-label">Link VIDEO</label>
+                <input class="form-control" name="curso[__CLONE_ID__][link_video]" >
             </div>
             <div class="col-lg-12 mb-3">
                 <label class="form-label">Descripcion</label>

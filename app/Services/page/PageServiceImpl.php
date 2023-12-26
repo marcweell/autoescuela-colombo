@@ -16,20 +16,30 @@ use Flores;
 
 class PageServiceImpl implements IPageService
 {
-    private $insertFillables = ['code', 'name',];
-    private $updateFillables = ['code', 'name', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'title', 'subtitle', 'preface', 'description', 'icon', 'hex_color', 'image', 'video', 'file', 'price', 'price_promo', 'page_category_id',];
+    private $updateFillables = ['code', 'title', 'subtitle', 'preface', 'description', 'icon', 'hex_color', 'image', 'video', 'file', 'price', 'price_promo', 'page_category_id', 'updated_at', 'deleted_at'];
     private $table = 'page';
 
 
     public function add($data)
     {
-        if (empty($data->email)) {
-            throw new \Exception(__('Email invalido'), 400);
+        if (empty($data->title)) {
+            throw new \Exception(__('title invalido'), 400);
         }
         $payload = new stdClass();
 
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
         $data->active = !empty($data->active);
+
+        if (!empty($data->image->file) and !empty($data->image->filename)) {
+            if (!str_ends_with($data->image->file, ':')) {
+                $data->image = tools()->upload_base64($data->image->file, md5(Auth::user()->id . $data->image->filename), 'storage/files');
+            } else {
+                $data->image = null;
+            }
+        } else {
+            $data->image = null;
+        }
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
@@ -40,7 +50,7 @@ class PageServiceImpl implements IPageService
         $page = (new PageServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($page->id)) {
-            throw new \Exception(__('Nombre de usuario no válido'), 400);
+            throw new \Exception(__('Pagina no válida'), 400);
         }
 
         $arr = json_decode(json_encode($payload), true);
