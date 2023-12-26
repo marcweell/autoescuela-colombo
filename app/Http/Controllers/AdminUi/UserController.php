@@ -40,11 +40,7 @@ class UserController extends Controller
 
             (new AuthServiceImpl())->validate($data);
 
-            $user = (new UserServiceQueryImpl())->findByCode($data->code);
-
-            $otplink = route('web.account.activation.otp.index', [
-                "email" => $data->email,
-            ]);
+           # $user = (new UserServiceQueryImpl())->findByCode($data->code);
 
             $payload = [];
             $payload["email"] = $data->email;
@@ -79,9 +75,6 @@ class UserController extends Controller
             $user = $this->userServiceQuery->findById($data->id);
 
             $this->userService->update($data);
-
-
-
 
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
@@ -126,6 +119,19 @@ class UserController extends Controller
         try {
             $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.user.editForm', [
+                'user' => $user,
+            ])->render();
+            return (new WebApi())->setSuccess()->print($view)->get();
+        } catch (\Exception $e) {
+            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        }
+    }
+    public function detailIndex(Request $request)
+    {
+
+        try {
+            $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+            $view = view('admin.fragments.user.detailForm', [
                 'user' => $user,
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->get();

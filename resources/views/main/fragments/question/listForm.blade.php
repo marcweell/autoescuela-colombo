@@ -10,7 +10,7 @@
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.question.add.index') }}" data-id="-1"
                     class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
-                    {{ __('Adicionar Usuario') }}</a>
+                    {{ __('Agregar Usuario') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">

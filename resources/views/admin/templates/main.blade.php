@@ -6,8 +6,8 @@
            <meta property="og:type" content="website">
            <meta property="og:site_name" content="Vali Admin">
            <meta property="og:title" content="Vali - Free Bootstrap 5 admin theme">
-           <meta property="og:url" content="http://pratikborsadiya.in/blog/vali-admin">
-           <meta property="og:image" content="http://pratikborsadiya.in/blog/vali-admin/hero-social.png">
+           <meta property="og:url" content="">
+           <meta property="og:image" content="">
            <meta property="og:description"
                content="Vali is a responsive and free admin theme built with Bootstrap 5, SASS and PUG.js. It's fully customizable and modular.">
 

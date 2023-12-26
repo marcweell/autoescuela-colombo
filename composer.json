@@ -50,7 +50,8 @@
         "phpmailer/phpmailer": "^6.6",
         "rebasedata/php-client": "^1.0",
         "silarhi/cfonb-parser": "^2.1",
-        "stevebauman/location": "^6.5"
+        "stevebauman/location": "^6.5",
+        "tomsgu/pdf-merger": "^0.5.0"
     },
     "require-dev": {
         "facade/ignition": "^2.5",

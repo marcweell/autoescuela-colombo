@@ -8,8 +8,8 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.user.add.index') }}" data-id="-1"
-                    class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
-                    {{ __('Adicionar Usuario') }}</a>
+                    class="btn m-1 btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
+                    {{ __('Agregar Usuario') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -63,12 +63,21 @@
                                 : '<i class="fa fa-times text-danger"></i>' !!} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
+                                <div class="d-flex">
+
                                 <a data-href="{{ route('web.admin.user.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
-                                        class="fa fa-edit"></i></a>
-                                <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover user"><i
-                                        class="fa fa-trash"></i></a>
+                                data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
+                                    class="fa fa-print"></i></a>
+                                    <a data-href="{{ route('web.admin.user.detail.index') }}"
+                                        data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
+                                            class="fa fa-eye"></i></a>
+                                            <a data-href="{{ route('web.admin.user.update.index') }}"
+                                                data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
+                                                    class="fa fa-edit"></i></a>
+                            <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
+                                class="btn m-1 btn-secondary btn-sm _link_ prompt" data-title="Remover user"><i
+                                    class="fa fa-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
                     @endfor

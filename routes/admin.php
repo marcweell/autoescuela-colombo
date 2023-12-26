@@ -105,8 +105,10 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
             Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'updateIndex'])->middleware([])->name("index");
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'update'])->middleware([])->name("do");
         });
+        Route::prefix("/detail")->middleware([])->name("detail.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'detailIndex'])->middleware([])->name("index");
+        });
         Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
-
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'remove'])->middleware([])->name("do");
         });
 

@@ -55,20 +55,22 @@
             </div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Paragrafos</label>
-                <button type="button" class="btn btn-primary clonehim"  to="#row-paragrafo" elem-target="#paragrafos"><i class="fa fa-plus"
-                        aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-primary clonehim" to="#row-paragrafo" elem-target="#paragrafos"><i
+                        class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
 
             <div class="row" id="row-paragrafo">
 
             </div>
-            <div id="addparagrafo"></div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Subcategoria</label>
-                <button type="button" class="btn btn-primary" onclick="addSubcategoriaContent();"><i class="fa fa-plus"
-                        aria-hidden="true"></i></button>
+                <button type="button" class="btn btn-primary clonehim-alt" to="#row-subcategories"
+                    elem-target="#subcategories"><i class="fa fa-plus" aria-hidden="true"></i></button>
             </div>
-            <div id="addsubcategoria"></div>
+
+            <div class="row" id="row-subcategories">
+
+            </div>
 
             <div class="col-12 pt-2">
                 <button type="submit" class="btn btn-secondary  chl_loader"><i
@@ -82,30 +84,115 @@
 
 
 <div id="paragrafos" class="d-none" style="display:none">
- <div class="col-md-6 im_dad">
-    <div class="card bg-secondary mb-3">
-        <div class="row card-body">
-            <div class="col-lg-10">
-                <div class="row">
-                    <div class="col-lg-6 mb-3">
-                        <label class="form-label">Icona</label>
-                        <input type="text" class="form-control iconpicker">
+    <div class="col-md-6 im_dad">
+        <div class="card bg-secondary mb-3">
+            <div class="row card-body">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-lg-6 mb-3">
+                            <label class="form-label">Icona</label>
+                            <input type="text" class="form-control iconpicker">
+                        </div>
+                        <div class="col-lg-6 mb-3">
+                            <label class="form-label">Titulo</label>
+                            <input type="text" id="titulo" class="form-control">
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label class="form-label">Descripcion</label>
+                            <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                        </div>
+                        <div class="col-lg-12 mb-3">
+                            <label for="imagen" class="form-label">Foto</label>
+                            <input class="form-control" type="file" name="image"
+                                id="seleccionArchivoImagenPregunta">
+                        </div>
                     </div>
-                    <div class="col-lg-6 mb-3">
-                        <label class="form-label">Titulo</label>
-                        <input type="text" id="titulo" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <textarea class="form-control" id="example-textarea" rows="5"></textarea>
-                    </div>
-                    <div class="mb-3">
-                    <label for="imagen" class="form-label">Foto</label>
-                    <input class="form-control" type="file" name="image" id="seleccionArchivoImagenPregunta">
                 </div>
+                <div class="col-lg-2">
+                    <button type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
                 </div>
+
             </div>
-            <div class="col-lg-2">
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div id="subcategories" class="d-none" style="display:none">
+    <div class="col-md-12 im_dad">
+        <div class="card bg-success mb-3">
+            <div class="row card-body">
+                <div class="col-12 text-end">
+                    <button type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
+                    <button type="button" class="btn btn-info  clonehim-alt" to="#row-cursos-__CLONE_ID__"
+                        elem-target="#cursos" data-clone-id="__CLONE_ID__"><i class="fa fa-plus"></i>
+                        Cursos</button>
+                </div>
+                <div class="col-md-4">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Titulo</label>
+                            <input type="text" id="titulo" class="form-control">
+                        </div>
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Titulo</label>
+                            <input type="text" id="titulo" class="form-control">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="row">
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Descripcion</label>
+                            <textarea class="form-control" id="example-textarea" rows="5"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row" id="row-cursos-__CLONE_ID__">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="cursos" class="d-none" style="display:none">
+    <div class="col-md-12 im_dad">
+        <div class="row card-body">
+            <div class="col-12">
+                <hr>
+            </div>
+            <div class="col-12 text-end">
                 <button class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
+            </div>
+        </div>
+
+        <div class="row card-body">
+            <div class="col-md-4 mb-3">
+                <label for="imagen" class="form-label">Foto</label>
+                <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="imagen" class="form-label">Foto</label>
+                <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="imagen" class="form-label">Foto</label>
+                <input class="form-control" name="curso[__CLONE_ID__][link_pdf]" >
+            </div>
+            <div class="col-lg-12 mb-3">
+                <label class="form-label">Descripcion</label>
+                <textarea class="form-control" id="example-textarea" rows="5"></textarea>
             </div>
 
         </div>
@@ -113,4 +200,49 @@
 </div>
 
 
-</div>
+
+
+
+
+
+
+
+
+
+<script>
+    function ll() {
+
+    $(".clonehim-alt").click(function() {
+        if (cloning == true) {
+            return;
+        }
+
+        var html = $(this.getAttribute("elem-target")).html();
+
+        if (this.hasAttribute("data-clone-id")) {
+            var id = this.getAttribute("data-clone-id");
+        } else {
+            var id = Tool.encode(Date.now(), 1);
+        }
+
+        for (let index = 0; index < 11; index++) {
+            html = html.replace("__CLONE_ID__", id);
+
+        }
+        console.log(this.getAttribute("to"));
+
+        $(this.getAttribute("to")).append(
+            html
+        );
+
+        cloning = true;
+
+        setTimeout(function() {
+            cloning = false;
+            app.listenner.listen();
+            ll();
+        }, 300);
+    });
+    }
+    ll();
+</script>
