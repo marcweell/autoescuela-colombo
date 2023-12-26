@@ -59,13 +59,11 @@ class PageController extends Controller
                     $subcategory = json_decode(json_encode($value));
                     $subcategory->code = code(null, __METHOD__);
                     $subcategory->page_id = $page->id;
-
                     (new Page_subcategoryServiceImpl())->add($subcategory);
                 }
             }
 
 
-            dd('ok');
 
             return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))
                 ->close_modal()->get();

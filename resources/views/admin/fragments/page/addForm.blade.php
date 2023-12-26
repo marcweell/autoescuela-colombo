@@ -103,7 +103,7 @@
                         </div>
                         <div class="col-lg-12 mb-3">
                             <label for="imagen" class="form-label">Foto</label>
-                            <input class="form-control" type="file"   name="paragraph[__CLONE_ID__][image]">
+                            <input class="form-control" type="file"  accept="image/*"  name="paragraph[__CLONE_ID__][image]">
                         </div>
                     </div>
                 </div>
@@ -134,11 +134,11 @@
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label class="form-label">Titulo</label>
-                            <input type="text" id="titulo" class="form-control"  name="subcategory[__CLONE_ID__][titulo]">
+                            <input type="text" id="titulo" class="form-control"  name="subcategory[__CLONE_ID__][title]">
                         </div>
                         <div class="col-12 mb-3">
                             <label class="form-label">Foto</label>
-                            <input type="text" id="titulo" class="form-control"  name="subcategory[__CLONE_ID__][image]">
+                            <input type="file" accept="image/*" class="form-control"  name="subcategory[__CLONE_ID__][image]">
                         </div>
                     </div>
                 </div>
@@ -177,19 +177,19 @@
         </div>
 
         <div class="row card-body">
-            <div class="col-md-4 mb-3">
-                <label for="imagen" class="form-label">Foto</label>
+            <div class="col-md-3 mb-3">
+                <label for="imagen" class="form-label">Categoria Curso</label>
                 <input class="form-control" name="subcategory[__CLONE_ID__][curso][curso][]" >
             </div>
-            <div class="col-md-4 mb-3">
-                <label for="imagen" class="form-label">Foto</label>
+            <div class="col-md-3 mb-3">
+                <label for="imagen" class="form-label">Numer Curso</label>
                 <input class="form-control" name="subcategory[__CLONE_ID__][curso][nr][]" >
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
                 <label for="imagen" class="form-label">Link PDF</label>
                 <input class="form-control" name="subcategory[__CLONE_ID__][curso][link_pdf][]" >
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-3 mb-3">
                 <label for="imagen" class="form-label">Link VIDEO</label>
                 <input class="form-control" name="subcategory[__CLONE_ID__][curso][link_video][]" >
             </div>
