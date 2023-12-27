@@ -10,6 +10,11 @@ use App\Services\user\UserServiceQueryImpl;
 use Flores\WebApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use setasign\Fpdi\Fpdi;
+use Tomsgu\PdfMerger\PdfCollection;
+use Tomsgu\PdfMerger\PdfFile;
+use Tomsgu\PdfMerger\PdfMerger;
+
 use stdClass;
 
 class UserController extends Controller
@@ -41,7 +46,7 @@ class UserController extends Controller
 
             (new AuthServiceImpl())->validate($data);
 
-           # $user = (new UserServiceQueryImpl())->findByCode($data->code);
+            # $user = (new UserServiceQueryImpl())->findByCode($data->code);
 
             $payload = [];
             $payload["email"] = $data->email;
@@ -96,7 +101,7 @@ class UserController extends Controller
     {
         try {
             $view = view('admin.fragments.user.listForm', [
-                'user' =>$this->userServiceQuery->orderDesc()->findAll()
+                'user' => $this->userServiceQuery->orderDesc()->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {
@@ -107,7 +112,7 @@ class UserController extends Controller
     {
         try {
             $view = view('admin.fragments.user.addForm', [
-               // 'question_category'=>(new Question_ UserServiceQueryImpl())->findAll(),
+                // 'question_category'=>(new Question_ UserServiceQueryImpl())->findAll(),
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->get();
         } catch (\Exception $e) {
@@ -135,9 +140,38 @@ class UserController extends Controller
             $view = view('admin.fragments.user.detailForm', [
                 'user' => $user,
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
+    }
+    public function export(Request $request)
+    {
+        $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+        $print = false;
+
+        $pdfCollection = new PdfCollection();
+        if (!empty($user->medical_evaluation_file) and is_file(storage_path("files/" . $user->medical_evaluation_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->medical_evaluation_file), PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
+            $print = true;
+        }
+        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
+            $print = true;
+        }
+
+        if ($print == false) {
+            return (new WebApi())->alert("Error")->get();
+        }
+
+        $fpdi = new Fpdi();
+        $merger = new PdfMerger($fpdi);
+
+        $file = code() . ".pdf";
+        $destination = storage_path('files/' . $file);
+
+        $merger->merge($pdfCollection, $destination, PdfMerger::MODE_FILE);
+
+        return (new WebApi())->setSuccess()->download(url('storage/files/' . $file))->get();
     }
 }

@@ -108,6 +108,9 @@ Route::prefix("/admin")->name("web.admin.")->middleware([App\Http\Middleware\Web
         Route::prefix("/detail")->middleware([])->name("detail.")->group(function () {
             Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'detailIndex'])->middleware([])->name("index");
         });
+        Route::prefix("/export")->middleware([])->name("export.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'export'])->middleware([])->name("do");
+        });
         Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'remove'])->middleware([])->name("do");
         });

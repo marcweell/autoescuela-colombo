@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use setasign\Fpdi\Fpdi;
+use Tomsgu\PdfMerger\PdfCollection;
+use Tomsgu\PdfMerger\PdfFile;
+use Tomsgu\PdfMerger\PdfMerger;
 
 /**
  *
@@ -13,10 +17,6 @@ class TestController extends Controller
 
     function test(Request $request)
     {
-        if ($request->has("artisan")) {
-            Artisan::call($request->get("artisan"));
-        }
-
-    }
+   }
 
 }

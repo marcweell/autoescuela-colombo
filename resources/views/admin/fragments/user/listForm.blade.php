@@ -65,7 +65,7 @@
                             <td class="table-action">
                                 <div class="d-flex">
 
-                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                <a data-href="{{ route('web.admin.user.export.do') }}"
                                 data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
                                     class="fa fa-print"></i></a>
                                     <a data-href="{{ route('web.admin.user.detail.index') }}"

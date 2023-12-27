@@ -1,9 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Usuario') }}</h4>
-
-        <form action="{{ route('web.admin.user.add.do') }}" class="form_ parent-load row" method="post">
+            <input type="hidden" name="id" value="{{ $user->id }}">
 
             <div class="col-md-4 mb-3">
                 <label for="last_name" class="form-label">{{ __('Apellido paterno') }}</label>
@@ -17,7 +15,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombres') }}</label>
-                <input type="text" name="names" required id="name" class="form-control">
+                <input type="text" name="names" required id="name" class="form-control" value="{{ $user->names }}">
             </div>
 
             <div class="col-md-4 mb-3">
@@ -37,7 +35,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Correo') }}</label>
-                <input type="text" name="email" id="email" class="form-control">
+                <input type="text" name="email" id="email" class="form-control" value="{{ $user->email }}">
             </div>
 
             <div class="col-md-4 mb-3">
@@ -86,12 +84,12 @@
 
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Pdf carnet ambas caras') }}</label>
-                <input type="file" name="passport_file" class="form-control">
+                <input type="file" name="ss" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Pdf evaluacion médica ambas caras') }}</label>
-                <input type="file" name="medical_evaluation_file" class="form-control">
+                <input type="file" name="ss" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">
@@ -109,13 +107,6 @@
                     <label class="form-check-label" for="customCheck4">Enviar Email de Autenticacao</label>
                 </div>
             </div>
-
-            <div class="col-12 pt-2">
-                <button type="submit" class="btn btn-secondary  chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
-            </div>
-
-        </form>
 
     </div> <!-- end card-body -->
 </div>
