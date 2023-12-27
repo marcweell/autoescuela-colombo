@@ -24,7 +24,7 @@
                         </th>
                         <th>{{ __('Nome') }}</th>
                         <th>{{ __('Codigo') }}</th>
-                        <th>{{ __('Data/Hora de Registo') }}</th>
+                        <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
                 </thead>

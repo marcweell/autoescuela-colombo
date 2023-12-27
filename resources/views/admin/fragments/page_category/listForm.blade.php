@@ -29,7 +29,7 @@
                         <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Color') }}</th>
                         <th>{{ __('Icona') }}</th>
-                        <th>{{ __('Data/Hora de Registo') }}</th>
+                        <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
                 </thead>

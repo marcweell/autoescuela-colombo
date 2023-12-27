@@ -28,9 +28,9 @@
                         </th>
                         <th>{{ __('Usuario') }}</th>
                         <th>{{ __('Email') }}</th>
-                        <th>{{ __('Telefone') }}</th>
+                        <th>{{ __('Telefono') }}</th>
                         <th>{{ __('Tipo') }}</th>
-                        <th>{{ __('Data/Hora de Registo') }}</th>
+                        <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
                 </thead>
