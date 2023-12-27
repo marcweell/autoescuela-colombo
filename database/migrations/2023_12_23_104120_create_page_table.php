@@ -27,6 +27,7 @@ return new class extends Migration
             $table->string('file', 191)->nullable();
             $table->float('price', 10, 0)->nullable();
             $table->float('price_promo', 10, 0)->nullable();
+            $table->boolean("active")->default(true);
             $table->bigInteger('page_category_id')->index('page_category_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
