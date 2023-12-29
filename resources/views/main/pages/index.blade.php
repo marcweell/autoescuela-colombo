@@ -1,741 +1,804 @@
 @extends('main.templates.home')
 
 @section('content')
-    
 
 
- <!-- ======= About Section ======= -->
- <section id="about" class="about">
-    <div class="container" data-aos="fade-up">
 
-      <div class="section-title">
-        <h2>About</h2>
-        <p>About Us</p>
-      </div>
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container" data-aos="fade-up">
 
-      <div class="row content">
-        <div class="col-lg-6">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-            magna aliqua.
-          </p>
-          <ul>
-            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
-            <li><i class="ri-check-double-line"></i> Duis aute irure dolor in reprehenderit in voluptate velit</li>
-            <li><i class="ri-check-double-line"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat</li>
+          <div class="container text-center">
+            <div class="section-title">
+              <h5>Nosotros</h5>
+              <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+                consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat
+                sit in iste officiis commodi quidem hic quas.</p>
+            </div>
+          </div>
+
+          <div class="row gy-4">
+            <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;"
+              data-aos="fade-up" data-aos-delay="150">
+              <div class="call-us position-absolute">
+                <h4>Auto escula Colombo</h4>
+                <p>+1 5589 55488 55</p>
+              </div>
+            </div>
+            <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
+              <div class="content ps-0 ps-lg-5">
+                <p class="fst-italic">
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                  dolore
+                  magna aliqua.
+                </p>
+                <ul>
+                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                  <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                  <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                    irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                    pariatur.</li>
+                </ul>
+                <p>
+                  Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
+                  voluptate
+                  velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident
+                </p>
+
+                <div class="position-relative mt-4">
+                  <img src="assets/img/about-2.jpg" class="img-fluid" alt="">
+                  <a href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox play-btn"></a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section><!-- End About Section -->
+
+
+
+      <!-- ======= Gallery Section ======= -->
+      <section id="gallery" class="gallery">
+        <div class="container">
+
+          <div class="section-title">
+            <h5>Galeria</h5>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+              consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+              in iste officiis commodi quidem hic quas.</p>
+          </div>
+        </div>
+
+        <div class="container-fluid  g-0">
+          <div class="row g-0">
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-5.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-6.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-7.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-4">
+              <div class="gallery-item">
+                <a href="assets/img/gallery/gallery-8.jpg" class="galelry-lightbox">
+                  <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section><!-- End Gallery Section -->
+
+      <!-- ======= Cursos ======= -->
+      <section id="cursos" class="cursos section-bg">
+        <div class="container">
+
+          <div class="section-title">
+            <h5>Cursos</h5>
+            <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
+              consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit
+              in iste officiis commodi quidem hic quas.</p>
+          </div>
+        </div>
+        <div class="container">
+          <div class="faq-list">
+            <ul>
+              <li data-aos="fade-up">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                  data-bs-target="#faq-list-1">Motocicleta - M<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                  <div class="row">
+                    <div class="col-lg-8 details">
+                      <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer
+                        a videna mareta paulona marka</p>
+                      <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa
+                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
+                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+
+                    </div>
+                    <div class="col-lg-4 text-center">
+                      <div class="portfolio-thumb">
+                        <img src="assets/img/moto_t.jpg" alt="" class="img-fluid">
+                      </div>
+
+                    </div>
+
+
+                    <div class="col-lg-12">
+                      <button type="button" class="active animate__animated animate__fadeInUp scrollto">curso 1</button>
+                      <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                        2</button>
+                      <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                        3</button>
+                      <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                        4</button>
+                      <p>Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a videna mareta
+                        paulona marka</p>
+                      <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos ipsum ipsa
+                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et quis magni
+                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                      <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto"><a
+                          href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox"><i
+                            class="bi bi-file-pdf-fill"></i> Ver video </a></button>
+                      <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto"> <i
+                          class="bi bi-journal-richtext"></i> Simulador de Examen Teórico</button>
+                    </div>
+                  </div>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="100">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2"
+                  class="collapsed">Particular - P <i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id
+                    donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
+                    ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="200">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-3"
+                  class="collapsed">Profesional – A<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
+                    integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
+                    Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi
+                    quis
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="300">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-4"
+                  class="collapsed">Profesional – B<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc
+                    vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus
+                    gravida quis blandit turpis cursus in.
+                  </p>
+                </div>
+              </li>
+
+              <li data-aos="fade-up" data-aos-delay="400">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-5"
+                  class="collapsed">Profesional – C<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
+                    nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
+                    tellus in metus vulputate eu scelerisque.
+                  </p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="500">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-6"
+                  class="collapsed">Maquinaria Pesada – T<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-6" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
+                    nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
+                    tellus in metus vulputate eu scelerisque.
+                  </p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="500">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-7"
+                  class="collapsed">Manejo Defensivo<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-7" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
+                    nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
+                    tellus in metus vulputate eu scelerisque.
+                  </p>
+                </div>
+              </li>
+              <li data-aos="fade-up" data-aos-delay="500">
+                <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-8"
+                  class="collapsed">Mantenimiento de Mecánica Automotriz<i class="bx bx-chevron-down icon-show"></i><i
+                    class="bx bx-chevron-up icon-close"></i></a>
+                <div id="faq-list-8" class="collapse" data-bs-parent=".faq-list">
+                  <p>
+                    Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer malesuada
+                    nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut venenatis
+                    tellus in metus vulputate eu scelerisque.
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section><!-- End Frequently Asked Questions Section -->
+
+
+      <section class="section-medium section-arrow--bottom-center bg" id="section-medium">
+        <div class="container" data-aos="zoom-in">
+          <div class="row">
+            <div class="col-md-12 text-center section-title">
+              <h5>Simulador de Examen Teórico</h5>
+              <p>Con este simulador podrás practicar antes de enfrentar el examen teórico real, con el fin de que llegues
+                bien preparado para rendir.
+                (Actualizado Agosto 2022)</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ======= Features Section ======= -->
+      <section id="features" class="features section-bg">
+        <div class="container" data-aos="fade-up">
+
+          <ul class="nav nav-tabs row  g-2 d-flex">
+
+            <li class="nav-item col-2">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-M">
+                <h4>M</h4>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item col-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-P">
+                <h4>P</h4>
+              </a>
+            </li>
+            <!-- End tab nav item -->
+
+            <li class="nav-item col-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-A">
+                <h4>A</h4>
+              </a>
+            </li><!-- End tab nav item -->
+
+            <li class="nav-item col-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
+                <h4>B</h4>
+              </a>
+            </li><!-- End tab nav item -->
+            <li class="nav-item col-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
+                <h4>C</h4>
+              </a>
+            </li><!-- End tab nav item -->
+            <li class="nav-item col-2">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
+                <h4>T</h4>
+              </a>
+            </li><!-- End tab nav item -->
+
           </ul>
-        </div>
-        <div class="col-lg-6 pt-4 pt-lg-0">
-          <p>
-            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-            velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-            culpa qui officia deserunt mollit anim id est laborum.
-          </p>
-          <a href="#" class="btn-learn-more">Learn More</a>
-        </div>
-      </div>
 
-    </div>
-  </section><!-- End About Section -->
+          <div class="tab-content">
 
-  <!-- ======= Counts Section ======= -->
-  <section id="counts" class="counts">
-    <div class="container" data-aos="fade-up">
+            <div class="tab-pane active show" id="tab-M">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
+                  data-aos="fade-up" data-aos-delay="100">
+                  <h3>Motocicleta -M</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                      pariatur.</li>
+                  </ul>
+                  <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto"> <i
+                      class="bi bi-journal-richtext"></i> Prueba Examen Teórico</button>
+                  <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto"> <i
+                      class="bi bi-journal-richtext"></i> Simulador de Examen Teórico completo</button>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
+                  <img src="assets/img/moto.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End tab content item -->
 
-      <div class="row no-gutters">
+            <div class="tab-pane" id="tab-P">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                  <h3>Particular - P</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
+                  </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
+                      Ipsum neque dolor voluptate nisi sed.</li>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                      pariatur.</li>
+                  </ul>
+                </div>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="assets/img/particular.jpg" alt="" class="img-fluid">
+                </div>
+              </div>
+            </div><!-- End tab content item -->
 
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="bi bi-emoji-smile"></i>
-            <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Happy Clients</strong> consequuntur quae qui deca rode</p>
-            <a href="#">Find out more &raquo;</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="bi bi-journal-richtext"></i>
-            <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Projects</strong> adipisci atque cum quia aut numquam delectus</p>
-            <a href="#">Find out more &raquo;</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="bi bi-headset"></i>
-            <span data-purecounter-start="0" data-purecounter-end="1463" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Hours Of Support</strong> aut commodi quaerat. Aliquam ratione</p>
-            <a href="#">Find out more &raquo;</a>
-          </div>
-        </div>
-
-        <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch">
-          <div class="count-box">
-            <i class="bi bi-people"></i>
-            <span data-purecounter-start="0" data-purecounter-end="15" data-purecounter-duration="1" class="purecounter"></span>
-            <p><strong>Hard Workers</strong> rerum asperiores dolor molestiae doloribu</p>
-            <a href="#">Find out more &raquo;</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Counts Section -->
-
-  <!-- ======= Why Us Section ======= -->
-  <section id="why-us" class="why-us section-bg">
-    <div class="container-fluid" data-aos="fade-up">
-
-      <div class="row">
-
-        <div class="col-lg-5 align-items-stretch video-box" style='background-image:"{{ url('assets/img/why-us.jpg') }}";' data-aos="zoom-in" data-aos-delay="100">
-          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="venobox play-btn mb-4" data-vbtype="video" data-autoplay="true"></a>
-        </div>
-
-        <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch">
-
-          <div class="content">
-            <h3>Eum ipsam laborum deleniti <strong>velit pariatur architecto</strong></h3>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
-            </p>
-          </div>
-
-          <div class="accordion-list">
-            <ul>
-              <li>
-                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Non consectetur a erat nam at lectus urna duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
-                  <p>
-                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+            <div class="tab-pane" id="tab-A">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                  <h3>Profesional – A</h3>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos qui a.
+                      Ipsum neque dolor voluptate nisi sed.</li>
+                  </ul>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
                   </p>
                 </div>
-              </li>
-
-              <li>
-                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span> Feugiat scelerisque varius morbi enim nunc? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
-                  <p>
-                    Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                  </p>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="assets/img/profesional.jpg" alt="" class="img-fluid">
                 </div>
-              </li>
+              </div>
+            </div><!-- End tab content item -->
 
-              <li>
-                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor sit amet consectetur adipiscing elit? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
-                  <p>
-                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed odio morbi quis
+            <div class="tab-pane" id="tab-d">
+              <div class="row">
+                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
+                  <h3>Omnis fugiat ea explicabo sunt</h3>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
                   </p>
+                  <ul>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
+                    <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
+                    <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
+                      aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla
+                      pariatur.</li>
+                  </ul>
                 </div>
-              </li>
-
-            </ul>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Why Us Section -->
-
-  <!-- ======= Services Section ======= -->
-  <section id="services" class="services">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Services</h2>
-        <p>Check our Services</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4><a href="#">Lorem Ipsum</a></h4>
-            <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4><a href="#">Sed ut perspiciatis</a></h4>
-            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4><a href="#">Magni Dolores</a></h4>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="100">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4><a href="#">Nemo Enim</a></h4>
-            <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="200">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-slideshow"></i></div>
-            <h4><a href="#">Dele cardo</a></h4>
-            <p>Quis consequatur saepe eligendi voluptatem consequatur dolor consequuntur</p>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4" data-aos="zoom-in" data-aos-delay="300">
-          <div class="icon-box">
-            <div class="icon"><i class="bx bx-arch"></i></div>
-            <h4><a href="#">Divera don</a></h4>
-            <p>Modi nostrum vel laborum. Porro fugit error sit minus sapiente sit aspernatur</p>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Services Section -->
-
-  <!-- ======= Testimonials Section ======= -->
-  <section id="testimonials" class="testimonials section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Testimonials</h2>
-        <p>Testimonials</p>
-      </div>
-
-      <div class="testimonials-slider swiper" data-aos="fade-up" data-aos-delay="100">
-        <div class="swiper-wrapper">
-
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <img src="{{ url('public/assets/img/testimonials/testimonials-1.jpg') }}" class="testimonial-img" alt="">
-                <h3>Saul Goodman</h3>
-                <h4>Ceo &amp; Founder</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
+                <div class="col-lg-6 order-1 order-lg-2 text-center">
+                  <img src="assets/img/features-4.jpg" alt="" class="img-fluid">
+                </div>
               </div>
-            </div>
-          </div><!-- End testimonial item -->
+            </div><!-- End tab content item -->
 
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <img src="{{ url('public/assets/img/testimonials/testimonials-2.jpg') }}" class="testimonial-img" alt="">
-                <h3>Sara Wilsson</h3>
-                <h4>Designer</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid cillum eram malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <img src="{{ url('public/assets/img/testimonials/testimonials-3.jpg') }}" class="testimonial-img" alt="">
-                <h3>Jena Karlis</h3>
-                <h4>Store Owner</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <img src="{{ url('public/assets/img/testimonials/testimonials-4.jpg') }}" class="testimonial-img" alt="">
-                <h3>Matt Brandon</h3>
-                <h4>Freelancer</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat minim velit minim dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
-
-          <div class="swiper-slide">
-            <div class="testimonial-wrap">
-              <div class="testimonial-item">
-                <img src="{{ url('public/assets/img/testimonials/testimonials-5.jpg') }}" class="testimonial-img" alt="">
-                <h3>John Larson</h3>
-                <h4>Entrepreneur</h4>
-                <p>
-                  <i class="bx bxs-quote-alt-left quote-icon-left"></i>
-                  Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam enim culpa labore duis sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.
-                  <i class="bx bxs-quote-alt-right quote-icon-right"></i>
-                </p>
-              </div>
-            </div>
-          </div><!-- End testimonial item -->
+          </div>
 
         </div>
-        <div class="swiper-pagination"></div>
-      </div>
+      </section><!-- End Features Section -->
 
-    </div>
-  </section><!-- End Testimonials Section -->
 
-  <!-- ======= Cta Section ======= -->
-  <section id="cta" class="cta">
-    <div class="container" data-aos="zoom-in">
+      <!-- ======= Features Section ======= -->
+      <section id="register" class="register section-bg">
+        <div class="container" data-aos="fade-up">
 
-      <div class="text-center">
-        <h3>Call To Action</h3>
-        <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <a class="cta-btn" href="#">Call To Action</a>
-      </div>
+          <ul class="nav nav-tabs row  g-2 d-flex">
 
-    </div>
-  </section><!-- End Cta Section -->
+            <li class="nav-item col-6">
+              <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-curso">
+                <h4>Inscripción curso de conducción</h4>
+              </a>
+            </li><!-- End tab nav item -->
 
-  <!-- ======= Portfolio Section ======= -->
-  <section id="portfolio" class="portfolio">
-    <div class="container" data-aos="fade-up">
+            <li class="nav-item col-6">
+              <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-examen">
+                <h4>Inscripción examen de conducción</h4>
+              </a>
+            </li>
+            <!-- End tab nav item -->
 
-      <div class="section-title">
-        <h2>Portfolio</h2>
-        <p>Check our Portfolio</p>
-      </div>
-
-      <div class="row" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-12 d-flex justify-content-center">
-          <ul id="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">App</li>
-            <li data-filter=".filter-card">Card</li>
-            <li data-filter=".filter-web">Web</li>
           </ul>
-        </div>
-      </div>
 
-      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+          <div class="tab-content">
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-1.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 1</h4>
-            <p>App</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-1.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
+            <div class="tab-pane active show" id="tab-curso">
+              <div class="row">
+                <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
+                  data-aos="fade-up" data-aos-delay="100">
+                  <h4>Inscripción curso</h4>
+                  <p class="fst-italic">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                    dolore
+                    magna aliqua.
+                  </p>
+                  <form>
+                    <div class="row php-email-form">
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Apellido paterno</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Apellido materno</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Carnet de Identidad</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Celular</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Correo</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Dirección</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Categoría</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Categoría M</option>
+                          <option>Categoría P</option>
+                          <option>Categoría A</option>
+                          <option>Categoría B</option>
+                          <option>Categoría C</option>
+                          <option>Categoría T</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Curso de conducción</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Básico</option>
+                          <option>Perfeccionamiento</option>
+                          <option>Especializado para el examen</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-2.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 3</h4>
-            <p>Web</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-2.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
+                    </div>
+                  </form>
+                </div>
 
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-3.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 2</h4>
-            <p>App</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-3.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-4.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 2</h4>
-            <p>Card</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-4.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-5.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 2</h4>
-            <p>Web</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-5.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-6.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>App 3</h4>
-            <p>App</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-6.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-7.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 1</h4>
-            <p>Card</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-7.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-8.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Card 3</h4>
-            <p>Card</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-8.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
-          <img src="{{ url('public/assets/img/portfolio/portfolio-9.jpg') }}" class="img-fluid" alt="">
-          <div class="portfolio-info">
-            <h4>Web 3</h4>
-            <p>Web</p>
-            <a href="{{ url('public/assets/img/portfolio/portfolio-9.jpg') }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
-            <a href="{{ url('public/portfolio-details.html') }}" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Portfolio Section -->
-
-  <!-- ======= Team Section ======= -->
-  <section id="team" class="team section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Team</h2>
-        <p>Check our Team</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-xl-3 col-lg-4 col-md-6">
-          <div class="member" data-aos="zoom-in" data-aos-delay="100">
-            <img src="{{ url('public/assets/img/team/team-1.jpg') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <div class="member-info-content">
-                <h4>Walter White</h4>
-                <span>Chief Executive Officer</span>
               </div>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
+            </div><!-- End tab content item -->
+
+            <div class="tab-pane" id="tab-examen">
+              <div class="row">
+                <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
+                  data-aos="fade-up" data-aos-delay="100">
+                  <h4>Inscripción examen</h4>
+                  <p class="fst-italic">
+                    Los días de examen Teórico y Práctico son; miércoles y viernes todas las semanas, inicio a horas
+                    08:00.
+                  </p>
+                  <p>
+                    NOTA: El proceso de inscripción al examen de conducir virtual Formulario 9.2, es válido 24 horas antes
+                    del examen, Ejm. si usted tiene en mente realizar el
+                    examen un miércoles y realizo el proceso de inscripción martes 12 horas antes NO ES VALIDO, de manera
+                    inmediata se pondrá en contacto nuestros
+                    encargados para brindarle mayor información y darle próximas fechas de examen que el alumno debera
+                    elegir.
+                  </p>
+                  <form>
+                    <div class="row php-email-form">
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Apellido paterno</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Apellido materno</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Carnet de Identidad</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Celular</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Correo</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputEmail1" class="form-label">Dirección</label>
+                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Categoría</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Categoría M</option>
+                          <option>Categoría P</option>
+                          <option>Categoría A</option>
+                          <option>Categoría B</option>
+                          <option>Categoría C</option>
+                          <option>Categoría T</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleFormControlSelect1" class="form-label">Curso de conducción</label>
+                        <select class="form-control" id="exampleFormControlSelect1">
+                          <option>Básico</option>
+                          <option>Perfeccionamiento</option>
+                          <option>Especializado para el examen</option>
+                        </select>
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Pdf carnet</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Pdf evaluación médica</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                      <div class="col-md-3">
+                        <label for="exampleInputPassword1" class="form-label">Foto fondo blanco</label>
+                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                      </div>
+                      <div class="col-md-3 form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                      </div>
+                      <div class="col-md-12">
+                        <p>Para terminar el proceso de inscripción el postulante deberá enviar los siguientes documentos:
+                        </p>
+                        <ul>
+                          <li><i class="bi bi-check2-all"></i> Pdf carnet ambas caras (Botón de carga)</li>
+                          <li><i class="bi bi-check2-all"></i> Pdf evaluación médica ambas caras (Botón de carga)</li>
+                          <li><i class="bi bi-check2-all"></i> Foto fondo blanco, sin lentes, sin aretes, sin barbijo, sin
+                            collar (Formato PNG o JPG) </li>
+                        </ul>
+                      </div>
+                      <div class="col-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                      </div>
+
+                    </div>
+                  </form>
+                </div>
+
               </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.1s">
-          <div class="member" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{{ url('public/assets/img/team/team-2.jpg') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <div class="member-info-content">
-                <h4>Sarah Jhonson</h4>
-                <span>Product Manager</span>
-              </div>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
+          </div>
+
+        </div>
+      </section><!-- End Features Section -->
+
+      <!-- ======= Frequently Asked Questions Section ======= -->
+      <section id="faq" class="faq">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h5>Preguntas frecuentes</h5>
+            <p>Te mostramos información y las respuestas a las principales preguntas frecuentes que nos suelen hacer en
+              Autoescuela Colombo.</p>
+          </div>
+
+          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+            <div class="col-lg-5">
+              <i class="bx bx-help-circle"></i>
+              <h4>Non consectetur a erat nam at lectus urna duis?</h4>
             </div>
-          </div>
-        </div>
-
-        <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.2s">
-          <div class="member" data-aos="zoom-in" data-aos-delay="300">
-            <img src="{{ url('public/assets/img/team/team-3.jpg') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <div class="member-info-content">
-                <h4>William Anderson</h4>
-                <span>CTO</span>
-              </div>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
+            <div class="col-lg-7">
+              <p>
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida.
+                Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
+              </p>
             </div>
-          </div>
-        </div>
+          </div><!-- End F.A.Q Item-->
 
-        <div class="col-xl-3 col-lg-4 col-md-6" data-wow-delay="0.3s">
-          <div class="member" data-aos="zoom-in" data-aos-delay="400">
-            <img src="{{ url('public/assets/img/team/team-4.jpg') }}" class="img-fluid" alt="">
-            <div class="member-info">
-              <div class="member-info-content">
-                <h4>Amanda Jepson</h4>
-                <span>Accountant</span>
-              </div>
-              <div class="social">
-                <a href="#"><i class="bi bi-twitter"></i></a>
-                <a href="#"><i class="bi bi-facebook"></i></a>
-                <a href="#"><i class="bi bi-instagram"></i></a>
-                <a href="#"><i class="bi bi-linkedin"></i></a>
-              </div>
+          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
+            <div class="col-lg-5">
+              <i class="bx bx-help-circle"></i>
+              <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
             </div>
+            <div class="col-lg-7">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec
+                ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
+                ullamcorper dignissim.
+              </p>
+            </div>
+          </div><!-- End F.A.Q Item-->
+
+          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
+            <div class="col-lg-5">
+              <i class="bx bx-help-circle"></i>
+              <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
+            </div>
+            <div class="col-lg-7">
+              <p>
+                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
+                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
+                Lectus urna duis convallis convallis tellus.
+              </p>
+            </div>
+          </div><!-- End F.A.Q Item-->
+
+          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
+            <div class="col-lg-5">
+              <i class="bx bx-help-circle"></i>
+              <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
+            </div>
+            <div class="col-lg-7">
+              <p>
+                Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim.
+                Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt
+                pariatur error doloribus fuga.
+              </p>
+            </div>
+          </div><!-- End F.A.Q Item-->
+
+          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
+            <div class="col-lg-5">
+              <i class="bx bx-help-circle"></i>
+              <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
+            </div>
+            <div class="col-lg-7">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel
+                risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida
+                quis blandit turpis cursus in
+              </p>
+            </div>
+          </div><!-- End F.A.Q Item-->
+
+        </div>
+      </section><!-- End Frequently Asked Questions Section -->
+
+      <!-- ======= Contact Section ======= -->
+      <section id="contact" class="contact section-bg">
+        <div class="container" data-aos="fade-up">
+
+          <div class="section-title">
+            <h5>Buzón de quejas y sugerencias</h5>
+            <p>Te mostramos información y las respuestas a las principales preguntas frecuentes que nos suelen hacer en
+              Autoescuela Colombo.</p>
           </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Team Section -->
-
-  <!-- ======= Pricing Section ======= -->
-  <section id="pricing" class="pricing">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Pricing</h2>
-        <p>Our Competing Prices</p>
-      </div>
-
-      <div class="row align-items-center">
-
-        <div class="col-lg-4">
-          <div class="box" data-aos="zoom-in" data-aos-delay="100">
-            <h3>Free</h3>
-            <h4>$0<span>per month</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li class="na"><i class="bx bx-x"></i> <span>Pharetra massa massa ultricies</span></li>
-              <li class="na"><i class="bx bx-x"></i> <span>Massa ultricies mi quis hendrerit</span></li>
-            </ul>
-            <a href="#" class="get-started-btn">Get Started</a>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-            <h3>Business</h3>
-            <h4>$29<span>per month</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-            </ul>
-            <a href="#" class="get-started-btn">Get Started</a>
-          </div>
-        </div>
-
-        <div class="col-lg-4">
-          <div class="box" data-aos="zoom-in" data-aos-delay="100">
-            <h3>Developer</h3>
-            <h4>$49<span>per month</span></h4>
-            <ul>
-              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
-              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
-              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
-              <li><i class="bx bx-check"></i> Pharetra massa massa ultricies</li>
-              <li><i class="bx bx-check"></i> Massa ultricies mi quis hendrerit</li>
-            </ul>
-            <a href="#" class="get-started-btn">Get Started</a>
-          </div>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Pricing Section -->
-
-  <!-- ======= Frequently Asked Questions Section ======= -->
-  <section id="faq" class="faq">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>F.A.Q</h2>
-        <p>Frequently Asked Questions</p>
-      </div>
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
-        <div class="col-lg-5">
-          <i class="bx bx-help-circle"></i>
-          <h4>Non consectetur a erat nam at lectus urna duis?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida. Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-        <div class="col-lg-5">
-          <i class="bx bx-help-circle"></i>
-          <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit ullamcorper dignissim.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-        <div class="col-lg-5">
-          <i class="bx bx-help-circle"></i>
-          <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt. Lectus urna duis convallis convallis tellus.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-        <div class="col-lg-5">
-          <i class="bx bx-help-circle"></i>
-          <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim. Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt pariatur error doloribus fuga.
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-      <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-        <div class="col-lg-5">
-          <i class="bx bx-help-circle"></i>
-          <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-        </div>
-        <div class="col-lg-7">
-          <p>
-            Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida quis blandit turpis cursus in
-          </p>
-        </div>
-      </div><!-- End F.A.Q Item-->
-
-    </div>
-  </section><!-- End Frequently Asked Questions Section -->
-
-  <!-- ======= Contact Section ======= -->
-  <section id="contact" class="contact section-bg">
-    <div class="container" data-aos="fade-up">
-
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Contact Us</p>
-      </div>
-
-      <div class="row">
-
-        <div class="col-lg-6">
 
           <div class="row">
-            <div class="col-md-12">
-              <div class="info-box">
-                <i class="bx bx-map"></i>
-                <h3>Our Address</h3>
-                <p>A108 Adam Street, New York, NY 535022</p>
+
+            <div class="col-lg-6">
+
+              <div class="row">
+                <div class="col-md-12">
+                  <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15231.900087568945!2d-66.1746929!3d-17.3649349!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e3755d8ef3e249%3A0xfd333fc28386138c!2sAutoescuela%20colombo!5e0!3m2!1sit!2sbo!4v1698840472547!5m2!1sit!2sbo"
+                    width="100%" height="370" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
               </div>
+
             </div>
-            <div class="col-md-6">
-              <div class="info-box mt-4">
-                <i class="bx bx-envelope"></i>
-                <h3>Email Us</h3>
-                <p>info@example.com<br>contact@example.com</p>
-              </div>
+
+            <div class="col-lg-6">
+              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                <div class="row">
+                  <div class="col-md-6 form-group">
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                  </div>
+                  <div class="col-md-6 form-group mt-3 mt-md-0">
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                  </div>
+                </div>
+                <div class="form-group mt-3">
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                </div>
+                <div class="form-group mt-3">
+                  <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
+                </div>
+                <div class="my-3">
+                  <div class="loading">Loading</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Your message has been sent. Thank you!</div>
+                </div>
+                <div class="text-center"><button type="submit">Send Message</button></div>
+              </form>
             </div>
-            <div class="col-md-6">
-              <div class="info-box mt-4">
-                <i class="bx bx-phone-call"></i>
-                <h3>Call Us</h3>
-                <p>+1 5589 55488 55<br>+1 6678 254445 41</p>
-              </div>
-            </div>
+
           </div>
 
         </div>
-
-        <div class="col-lg-6">
-          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
-            <div class="row">
-              <div class="col-md-6 form-group">
-                <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
-              </div>
-              <div class="col-md-6 form-group mt-3 mt-md-0">
-                <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
-              </div>
-            </div>
-            <div class="form-group mt-3">
-              <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
-            </div>
-            <div class="form-group mt-3">
-              <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
-            </div>
-            <div class="my-3">
-              <div class="loading">Loading</div>
-              <div class="error-message"></div>
-              <div class="sent-message">Your message has been sent. Thank you!</div>
-            </div>
-            <div class="text-center"><button type="submit">Send Message</button></div>
-          </form>
-        </div>
-
-      </div>
-
-    </div>
-  </section><!-- End Contact Section -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+      </section><!-- End Contact Section -->
 
 
 
