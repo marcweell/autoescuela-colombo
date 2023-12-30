@@ -26,6 +26,8 @@
                             #
                         </th>
                         <th>{{ __('Usuario') }}</th>
+                        <th>{{ __('Apellido paterno') }}</th>
+                        <th>{{ __('Apellido materno') }}</th>
                         <th>{{ __('Email') }}</th>
                         <th>{{ __('Telefono') }}</th>
                         <th>{{ __('Tipo') }}</th>
@@ -53,9 +55,9 @@
                                     </div>
                                 </div>
                             </td>
-                            <td>
-                                {{ $item->email }}
-                            </td>
+                            <td> {{ $item->father_name }} </td>
+                            <td> {{ $item->mother_name }} </td>
+                            <td> {{ $item->email }} </td>
                             <td> {{ $item->phone }}</td>
                             <td> {{ $item->type }}</td>
                             <td> {!! $item->active == true

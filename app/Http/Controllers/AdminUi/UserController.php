@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminUi;
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
 use App\Services\bulk_message\EmailServiceImpl;
+use App\Services\question_category\Question_categoryServiceQueryImpl;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
 use Flores\WebApi;
@@ -112,9 +113,9 @@ class UserController extends Controller
     {
         try {
             $view = view('admin.fragments.user.addForm', [
-                // 'question_category'=>(new Question_ UserServiceQueryImpl())->findAll(),
+                'question_category'=>(new Question_categoryServiceQueryImpl())->findAll(),
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -126,8 +127,9 @@ class UserController extends Controller
             $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.user.editForm', [
                 'user' => $user,
+                'question_category'=>(new Question_categoryServiceQueryImpl())->findAll(),
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -148,21 +150,16 @@ class UserController extends Controller
     public function export(Request $request)
     {
         $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
-        $print = false;
 
         $pdfCollection = new PdfCollection();
         if (!empty($user->medical_evaluation_file) and is_file(storage_path("files/" . $user->medical_evaluation_file))) {
             $pdfCollection->addPdf(storage_path("files/" . $user->medical_evaluation_file), PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
-            $print = true;
-        }
-        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
-            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
-            $print = true;
         }
 
-        if ($print == false) {
-            return (new WebApi())->alert("Error")->get();
+        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
         }
+
 
         $fpdi = new Fpdi();
         $merger = new PdfMerger($fpdi);

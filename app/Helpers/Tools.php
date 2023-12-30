@@ -17,6 +17,7 @@ class Tools
                 return true;
             }
         }
+
         $info = getimagesize($source_url);
 
         list($width, $height) = $info;

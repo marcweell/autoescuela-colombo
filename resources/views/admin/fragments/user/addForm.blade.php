@@ -51,7 +51,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="curso" class="form-label">Curso de conduccion</label>
-                <select class="form-select" name="curso" id="curso">
+                <select class="form-select" name="driving_course" id="curso">
                     <option value="">Selecciona un curso</option>
                     <option value="1">Curso basico</option>
                     <option value="2">Curso de perfeccionamiento</option>
@@ -96,7 +96,7 @@
 
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Foto') }}</label>
-                <input type="file" name="ss" class="form-control">
+                <input type="file" name="photo" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">

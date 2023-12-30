@@ -1,14 +1,19 @@
 <?php
-use App\Services\auth\AuthServiceImpl;
-use App\Services\exchange_rate\Exchange_rateServiceImpl;
 use Flores\HomePageInfo;
 use Flores\Tools;
+use Flores\FileManager;
 use Illuminate\Support\Carbon;
 
 
 function tools()
 {
-    return new Flores\Tools();
+    return new Tools();
+}
+
+
+function fileman($file = null)
+{
+    return new FileManager($file);
 }
 
 
@@ -66,7 +71,7 @@ function pinCode($size = 5, $chars = '012OPQRSTUV34ABCDZ56EFGHIJKLMN789WXY')
 
     return $code;
 }
- 
+
 
 function _info($key)
 {

@@ -65,6 +65,7 @@ class UserServiceImpl implements IUserService
         if (!empty($data->photo['file']) and !empty($data->photo['filename'])) {
             if (!str_ends_with($data->photo['file'], ':')) {
                 $data->photo = tools()->upload_base64($data->photo['file'], md5(time() . $data->photo['filename']), 'storage/files');
+                $data->photo = tools()->compress_image(storage_path('files/' . $data->photo), storage_path('files/1x1_' . $data->photo), 100, 300, 300, true);
             } else {
                 $data->photo = null;
             }
@@ -139,6 +140,7 @@ class UserServiceImpl implements IUserService
         if (!empty($data->photo['file']) and !empty($data->photo['filename'])) {
             if (!str_ends_with($data->photo['file'], ':')) {
                 $data->photo = tools()->upload_base64($data->photo['file'], md5(time() . $data->photo['filename']), 'storage/files');
+                $data->photo = tools()->compress_image(storage_path('files/' . $data->photo), storage_path('files/1x1_' . $data->photo), 100, 300, 300, true);
             } else {
                 unset($data->photo);
             }

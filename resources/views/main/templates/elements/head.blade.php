@@ -11,6 +11,7 @@
     <link href="{{ url('public/assets/img/favicon.png') }}" rel="icon">
     <link href="{{ url('public/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
+
     <!-- Vendor CSS Files -->
     <link href="{{ url('public/assets/vendor/animate.css/animate.min.css') }}" rel="stylesheet">
     <link href="{{ url('public/assets/vendor/aos/aos.css') }}" rel="stylesheet">
@@ -24,7 +25,6 @@
     <!-- Template Main CSS File -->
     <link href="{{ url('public/assets/css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.css') }}">
-    <link rel="stylesheet" href="{{ url('') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/jquery-confirm-v3.3.4/dist/jquery-confirm.min.css') }}" />
     <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/font-awesome/css/solid.css') }}">
