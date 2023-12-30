@@ -16,7 +16,11 @@
                     @break
 
                     @case('plain_text')
-                        <textarea name="content" class="w-100" rows="{{ $page_info->line_height ?? 3 }}">{!! $page_info->content !!}</textarea>
+                        @if ($page_info->line_height <= 1)
+                            <input name="content" class="w-100" value="{!! $page_info->content !!}" />
+                        @else
+                            <textarea name="content" class="w-100" rows="{{ $page_info->line_height ?? 3 }}">{!! $page_info->content !!}</textarea>
+                        @endif
                     @break
 
                     @case('number')

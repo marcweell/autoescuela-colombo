@@ -16,11 +16,16 @@
                             class="rm_dad btn rounded-0 btn-md float-end"><i class="fa fa-trash"></i></button></div>
                     @switch($item->content_type)
                         @case('rich_text')
-                            <textarea name="content[{{ Flores\Tools::encode($item->id, 1) }}]" class="w-100 textarea" rows="{{ $item->line_height ?? 3 }}">{!! $item->content !!}</textarea>
+                            <textarea name="content[{{ Flores\Tools::encode($item->id, 1) }}]" class="w-100 textarea"
+                                rows="{{ $item->line_height ?? 3 }}">{!! $item->content !!}</textarea>
                         @break
 
                         @case('plain_text')
-                            <textarea name="content[{{ Flores\Tools::encode($item->id, 1) }}]" class="w-100" rows="{{ $item->line_height ?? 3 }}">{!! $item->content !!}</textarea>
+                            @if ($page_info->line_height <= 1)
+                                <input name="content" class="w-100" value="{!! $page_info->content !!}" />
+                            @else
+                                <textarea name="content" class="w-100" rows="{{ $page_info->line_height ?? 3 }}">{!! $page_info->content !!}</textarea>
+                            @endif
                         @break
 
                         @case('number')
@@ -29,9 +34,9 @@
                         @break
 
                         @case('file')
-                                                    <div class="row">
+                            <div class="row">
                                 <div class="col-12">
-                                    <a href="{{ url('storage/files/' . $item->content) }}">{{ empty($item->child_index) ? 'BAIXAR' : $item->child_index }}</a>
+                                    <a  href="{{ url('storage/files/' . $item->content) }}">{{ empty($item->child_index) ? 'BAIXAR' : $item->child_index }}</a>
                                 </div>
                                 <div class="col-md-6">
                                     <label class="form-label">{{ __('Etiqueta') }}</label>
