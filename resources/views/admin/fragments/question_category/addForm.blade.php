@@ -7,12 +7,12 @@
 
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icona Color') }}</label>
+                <label for="name" class="form-label">{{ __('Icono Color') }}</label>
                 <input type="text" name="icon_hex_color" class="form-control hex_color">
             </div>
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icona') }}</label>
+                <label for="name" class="form-label">{{ __('Icono') }}</label>
                 <input type="file" name="icon_file" class="form-control">
             </div>
 

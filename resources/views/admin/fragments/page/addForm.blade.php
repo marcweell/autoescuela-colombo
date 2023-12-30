@@ -6,7 +6,7 @@
         <form action="{{ route('web.admin.page.add.do') }}" class="form_ parent-load row" method="post">
 
             <div class="col-lg-4 mb-3">
-                <label for="nombreTienda" class="form-label">Icona</label>
+                <label for="nombreTienda" class="form-label">Icono</label>
                 <input type="text" name="icon" class="form-control iconpicker">
             </div>
 
@@ -90,7 +90,7 @@
                 <div class="col-lg-10">
                     <div class="row">
                         <div class="col-lg-6 mb-3">
-                            <label class="form-label">Icona</label>
+                            <label class="form-label">Icono</label>
                             <input name="paragraph[__CLONE_ID__][icon]" type="text" class="form-control iconpicker">
                         </div>
                         <div class="col-lg-6 mb-3">

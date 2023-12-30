@@ -6,7 +6,7 @@
         <form action="{{ route('web.admin.question.add.do') }}" class="form_ parent-load row" method="post">
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icona') }}</label>
+                <label for="name" class="form-label">{{ __('Icono') }}</label>
                 <input type="text" name="icon" class="form-control iconpicker">
             </div>
 

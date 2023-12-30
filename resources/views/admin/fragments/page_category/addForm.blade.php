@@ -7,18 +7,24 @@
 
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icona Color') }}</label>
+                <label for="name" class="form-label">{{ __('Icono Color') }}</label>
                 <input type="text" name="icon_hex_color" class="form-control hex_color">
             </div>
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icono') }}</label>
-                <input type="file" name="icon_file" class="form-control">
+                <input type="text" name="icon" class="form-control iconpicker">
             </div>
 
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" class="form-control">
+            </div>
+
+
+            <div class="col-md-12 mb-3">
+                <label for="name" class="form-label">{{ __('Descripcion') }}</label>
+                <textarea type="text" name="description" class="form-control" rows=3></textarea>
             </div>
 
             <div class="col-md-4 mb-3">

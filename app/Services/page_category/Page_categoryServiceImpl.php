@@ -16,8 +16,8 @@ use Flores;
 
 class Page_categoryServiceImpl implements IPage_categoryService
 {
-    private $insertFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'active',];
-    private $updateFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'active', 'updated_at', 'deleted_at'];
+    private $insertFillables = ['code', 'name', 'icon_hex_color', 'icon', 'description', 'active',];
+    private $updateFillables = ['code', 'name', 'icon_hex_color', 'icon', 'description', 'active', 'updated_at', 'deleted_at'];
     private $table = 'page_category';
 
 
@@ -34,7 +34,7 @@ class Page_categoryServiceImpl implements IPage_categoryService
 
         if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
             if (!str_ends_with($data->icon_file['file'], ':')) {
-                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time(). $data->icon_file['filename']), 'storage/files');
+                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time() . $data->icon_file['filename']), 'storage/files');
             } else {
                 $data->icon_file = null;
             }
@@ -71,13 +71,13 @@ class Page_categoryServiceImpl implements IPage_categoryService
 
         if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
             if (!str_ends_with($data->icon_file['file'], ':')) {
-                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time(). $data->icon_file['filename']), 'storage/files');
-            }else{
-                unset( $data->icon_file);
+                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time() . $data->icon_file['filename']), 'storage/files');
+            } else {
+                unset($data->icon_file);
             }
-        }else{
+        } else {
 
-            unset( $data->icon_file);
+            unset($data->icon_file);
         }
 
 

@@ -8,7 +8,7 @@
             <input type="hidden" name="id" value="{{ $question->id }}">
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Icona') }}</label>
+                <label for="name" class="form-label">{{ __('Icono') }}</label>
                 <input type="text" name="icon" class="form-control iconpicker" value="{{ $question->icon }}">
             </div>
 

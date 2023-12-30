@@ -28,7 +28,7 @@
                         </th>
                         <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Color') }}</th>
-                        <th>{{ __('Icona') }}</th>
+                        <th>{{ __('Icono') }}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -44,7 +44,7 @@
                                 style="{{ empty($item->icon_hex_color) ? '' : 'background: ' . $item->icon_hex_color . ';' }}">
                             </td>
                             <td>
-                                    <img height="30px" src="{{ tools()->file($item->icon_file) }}" alt="">
+                                <i class="{{ $item->icon }}"></i>
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
