@@ -24,14 +24,14 @@
                                         </div>
                                     </div>
                                     <div class="col ps-0">
-                                        <h5>{{ $item->name }}</h5>
+                                        <h6>{{ $item->name }}</h6>
                                         <small class="mb-0 font-10">
                                             {{ empty($item->content) ? '[' . __('No definido') . ']' : ($item->content_type !== 'rich_text' ? (strlen($item->content) > 10 ? '['.__("Ver detalles").']' : $item->content) : '['.__("Ver detalles").']') }}
                                         </small>
                                     </div>
                                 </div>
                              </div>
-                             <div class="col text-center mt-2">
+                             <div class="col-5 text-center mt-2">
                                  <a data-href="{{ route('web.admin.page_info.detail.index') }}"
                                      data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-eye"></i></a>
