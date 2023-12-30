@@ -14,14 +14,14 @@ return new class extends Migration
     public function up()
     {
         Schema::create('settings', function (Blueprint $table) {
-            $table->bigInteger('id', true)->autoIncrement();
+            $table->bigInteger('id', true);
             $table->string('name', 400);
             $table->string('code', 300);
             $table->longText('content')->nullable();
             $table->integer('line_height')->default(3);
             $table->enum('content_type', ['plain_text', 'rich_text', 'color', 'number', 'date', 'time', 'file'])->default('plain_text');
-            $table->string('filetypes', 300)->nullable();;
-            $table->string('regex', 300)->nullable();;
+            $table->string('filetypes', 300)->nullable();
+            $table->string('regex', 300)->nullable();
             $table->boolean('active')->default(true);
             $table->boolean('multiple')->default(false);
             $table->string('child_index', 400)->nullable();

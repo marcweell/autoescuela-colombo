@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('notification', function (Blueprint $table) {
-            $table->bigInteger('id', true)->autoIncrement();
-            $table->string('code', 191)->unique('code');
-            $table->string('title', 100)->nullable();
-            $table->text('message')->nullable();
-            $table->bigInteger('user_id')->index('user_id');
-            $table->boolean('isread')->default(true);
+        Schema::create('schedule', function (Blueprint $table) {
+            $table->bigInteger('id', true);
+            $table->integer('date_of_week')->unique('date_of_week');
+            $table->time('open_time')->nullable();
+            $table->time('close_time')->nullable();
+            $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -33,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('notification');
+        Schema::dropIfExists('schedule');
     }
 };

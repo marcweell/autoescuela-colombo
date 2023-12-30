@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('page_subcategory_course', function (Blueprint $table) {
-            $table->bigInteger('id', true)->autoIncrement();
+            $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
             $table->string('link_pdf', 191)->nullable();
             $table->string('link_video', 191)->nullable();

@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('question', function (Blueprint $table) {
-            $table->bigInteger('id', true)->autoIncrement();
+            $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
             $table->text('question');
             $table->text('answer');
