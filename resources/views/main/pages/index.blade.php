@@ -19,8 +19,8 @@
                 <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;"
                     data-aos="fade-up" data-aos-delay="150">
                     <div class="call-us position-absolute">
-                        <h4>Auto escula Colombo</h4>
-                        <p>+1 5589 55488 55</p>
+                        <h4>{{_info("company.name")}}</h4>
+                        <p>{{ _info('company.phone') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
