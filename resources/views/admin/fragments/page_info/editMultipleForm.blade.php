@@ -41,7 +41,9 @@
                             @if ($file->isImage())
                                 <img src="{{ url('storage/files/' . $item->content) }}" class="w-100">
                             @elseif($file->isVideo())
-                                <video src="{{ url('storage/files/' . $item->content) }}" class="w-100"></video>
+                                <video controls class="w-100">
+                                <source src="{{ url('storage/files/' . $item->content) }}" >
+                                </video>
                             @endif
                         @break
 
