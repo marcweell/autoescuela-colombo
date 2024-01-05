@@ -834,7 +834,7 @@ app.listenner.add("ComponentInits", function () {
         });
         initSelect2('.select2rmt', {
             ajax: {
-                url: 'http://localhost/gestao_geral/api/company',
+                url: 'http://localhost/gestao_geral/api/course',
                 data: function (params) {
                     var query = {
                         search: {

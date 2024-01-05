@@ -46,7 +46,7 @@
                     <input type='hidden' name='md'>
                     <input name='_picture' id='_picture' style='display:none;' type='file'>
                     <div class='col-md-12' style='margin: 5px auto;'>
-                        <button type='button' class='btn btn-dark w-100 rounded-0 btnpp'>
+                        <button type='button' class='btn btn-primary w-100 rounded-0 btnpp'>
                             Selecione uma foto
                         </button>
                     </div>

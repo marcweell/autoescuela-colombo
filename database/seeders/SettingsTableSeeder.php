@@ -2,8 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Support\Facades\DB;
-
 use App\Models\Settings;
 use Illuminate\Database\Seeder;
 
@@ -11,22 +9,141 @@ class SettingsTableSeeder extends Seeder
 {
     public function run()
     {
-        $arr = [
-            ["name" => 'Nombre de Empresa', "code" => 'company.name','line_height'=>1],
-            ["name" => 'Direccion', "code" => 'company.address','line_height'=>3],
-            ["name" => 'Ciudad', "code" => 'company.city','line_height'=>1],
-            ["name" => 'Departamento', "code" => 'company.depart','line_height'=>1],
-            ["name" => 'Pais', "code" => 'company.country','line_height'=>1],
-            ["name" => 'Telefono', "code" => 'company.phone','line_height'=>1],
-            ["name" => 'Celular', "code" => 'company.cell','line_height'=>1],
-            ["name" => 'Email', "code" => 'company.email', "content_type" => 'number','line_height'=>1],
-            ["name" => 'IVA', "code" => 'company.iva', "content_type" => 'plain_text','line_height'=>1],
-            ["name" => 'Logo', "code" => 'company.logo', "content_type" => "file", "filetypes" => "image/*"]
-        ];
 
-        foreach ($arr as $i => $value) {
-            DB::table("settings")->insert($value);
-        }
+        $settingss = [
+            [
+                'code' => 'company.name',
+                'name' => 'Nombre de Empresa',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.address',
+                'name' => 'Direccion',
+                'active' => true,
+                'line_height' => 3,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.city',
+                'name' => 'Ciudad',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.depart',
+                'name' => 'Departamento',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.country',
+                'name' => 'Pais',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.phone',
+                'name' => 'Telefono',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'number',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.cell',
+                'name' => 'Celular',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'number',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.email',
+                'name' => 'Correo',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.iva',
+                'name' => 'IVA',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'company.logo',
+                'name' => 'Logo',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'file',
+                'content' => 'null',
+                'filetypes' => 'image/*',
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'home.slider',
+                'name' => 'Home Slider',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'file',
+                'content' => 'null',
+                'filetypes' => 'image/*,video/*',
+                'regex' => null,
+                'multiple' => true,
+                'child_index' => null,
+            ],
+        ];
+        Settings::insert($settingss);
     }
 }
-

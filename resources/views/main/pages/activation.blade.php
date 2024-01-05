@@ -11,7 +11,7 @@
                 <div class="card-body">
 
 
-                    <form method="post" action="{{ route('web.admin.account.activation.auth') }}" method="post"
+                    <form method="post" action="{{ route('web.account.activation.auth') }}" method="post"
                         class="form_ parent-load">
                         <input type="hidden" name="token" value="{{ $token }}">
                         <input type="hidden" name="email" value="{{ $email }}">

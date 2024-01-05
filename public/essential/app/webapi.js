@@ -1310,7 +1310,7 @@ class request {
 
                 var js = {};
 
-                var size = []; //company array sizes
+                var size = []; //course array sizes
 
 
                 for (var [key, value] of that.request_data.entries()) {

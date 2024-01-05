@@ -2,19 +2,20 @@
 
 namespace App\Http\Controllers\UserUi;
 
-use App\Http\Controllers\Controller;
-use App\Services\auth\AuthServiceImpl;
-use App\Services\bulk_message\EmailServiceImpl;
-use App\Services\notification\NotificationServiceImpl;
-use App\Services\user\UserServiceImpl;
-use App\Services\user\UserServiceQueryImpl;
+use Illuminate\Http\RedirectResponse;
+use stdClass;
 use Flores\Tools;
 use Flores\WebApi;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
-use stdClass;
+use App\Services\auth\AuthServiceImpl;
+use App\Services\user\UserServiceQueryImpl;
+use App\Services\bulk_message\EmailServiceImpl;
+use App\Services\bulk_message\SmsServiceImpl;
+use Illuminate\Support\Facades\Hash;
+use App\Services\user\UserServiceImpl;
+use Illuminate\Support\Facades\Cookie;
 
 class AuthController extends Controller
 {
@@ -37,17 +38,17 @@ class AuthController extends Controller
 
             $this->authService->login($data);
 
-            $payload = [];
+            $route = route('web.index');
 
-            if (!empty($request->get('connect_to'))) {
-                $payload['connect_to'] = $request->get('connect_to');
-                $payload["invite_token"] = (new UserServiceQueryImpl())->getShToken($this->authService->getUser()->id);
+
+            try {
+                $route   = route(uconfig('home_page_route'));
+            } catch (\Throwable $th) {
+                //throw $th;
             }
-            $route = route('web.app.index', $payload);
 
 
-
-            return (new WebApi())->setSuccess()->notify(__('Redirecionando'), 500)->redirect($route, 0, true)->get();
+            return (new WebApi())->setSuccess()->notify('redirecionando...', 500)->redirect($route, 0, true)->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -55,7 +56,7 @@ class AuthController extends Controller
 
     public function reAuth(Request $request)
     {
-        $handshake = json_decode(Tools::decode($request->get("handshake")));
+        $handshake  = json_decode(Tools::decode($request->get("handshake")));
         $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
@@ -64,7 +65,7 @@ class AuthController extends Controller
         try {
             $this->authService->login($data);
             return (new WebApi())
-                ->setSuccess()->notify(__('Sessao Iniciada com Sucesso'))
+                ->setSuccess()->notify('Sessao Iniciada com Sucesso')
                 ->close_modal(0, true)
                 ->try(route($handshake->route), $handshake->payloads)
                 ->get();
@@ -75,9 +76,19 @@ class AuthController extends Controller
 
     public function logout(Request $request)
     {
+        $response = new RedirectResponse(route('web.account.auth.index')); // new \Illuminate\Http\Response;
+
+        if ($request->has("lock") and Auth::check()) {
+            $cookie = cookie()->forever("last_user", Tools::encode(Auth::user()->id, 5));
+            $response->withCookie($cookie);
+        } else {
+            $response->withoutCookie("last_user");
+        }
+
         $this->authService->logout();
 
-        return redirect(route('web.account.auth.index'));
+        return
+            $response;
     }
 
 
@@ -86,24 +97,65 @@ class AuthController extends Controller
     public function postLogout(Request $request)
     {
 
-        try {
-            $this->authService->logout();
-
-            return (new WebApi())
-                ->notify(__("Redirecionando"))
-                ->reload(500)->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        if ($request->has("lock") and Auth::check()) {
+            $cookie = cookie()->forever("last_user", Tools::encode(Auth::user()->id, 5));
+            dd($cookie);
+        } else {
+            $cookie = cookie()->forever("last_user", null);
         }
+
+        $this->authService->logout();
+
+        return (new WebApi())
+            ->notify("Redirecionando...")
+            ->reload(500)->get()
+            ->cookie($cookie);
     }
     #indexes
     public function loginIndex(Request $request)
     {
-        $view = 'main.pages.login';
+        $user = null;
 
-        return response()->view($view, [
-        ]);
+        if ($request->has("not_me")) {
+            return (new RedirectResponse(route('web.account.auth.index')))->withoutCookie("last_user");
+        }
+
+        if (Cookie::has("last_user")) {
+
+            try {
+                $id =  Tools::decode(Cookie::get('last_user'), 5);
+                $id =  is_numeric($id) ? $id : null;
+            } catch (\Throwable $th) {
+                $id = null;
+            }
+            $user =  (new UserServiceQueryImpl())->findById($id) ?? null;
+        }
+
+
+        if ($user !== null) {
+            if (file_exists(storage_path('profile-pic/' . $user->photo)) and !empty($user->photo)) {
+                Tools::compress_image(
+                    storage_path('profile-pic/' . $user->photo),
+                    storage_path('profile-pic/' . md5($user->photo) . '.png'),
+                    100,
+                    150,
+                    150,
+                    true,
+                    false
+                );
+            }
+            $view = 'user.pages.unlock';
+        } else {
+            $view = 'user.pages.login';
+        }
+
+        return response()->view($view, ["user" => $user]);
     }
+
+
+
+
+
 
 
     public function forgot(Request $request)
@@ -114,15 +166,14 @@ class AuthController extends Controller
         }
 
 
-        $otp = pinCode();
-        $token = base64_encode(sha1(md5(time() . $otp)));
-        $data->otp = $otp;
+        $code = pinCode();
+        $token =  sha1(md5(time() . $code));
+
+        $data->otp = $code;
         $data->token = $token;
 
         try {
-
-
-            $this->authService->validate($data);
+            $this->authService->reValidate($data);
 
             $otplink = route('web.account.activation.otp.index', [
                 "email" => $data->email,
@@ -133,18 +184,15 @@ class AuthController extends Controller
                 "token" => $data->token,
             ]);
 
-            $user = (new UserServiceQueryImpl())->findByEmail($data->email);
-
             $emailBody = view("email.activation", [
-                'link' => $link,
-                'user' => $user,
-                'more' => "OU utilize o Codigo de Ativacao: <b>{$otp}</b>"
+                'link' => $link
             ])->render();
+            (new EmailServiceImpl())->addRecipient($data->email)->setBody($emailBody)->send();
+
+            //(new SmsServiceImpl())->addRecipient("258849301529")->setBody("ssss")->send();
 
 
-            (new EmailServiceImpl(__("Ativação de Conta")))->addRecipient($data->email)->setBody($emailBody)->send();
-
-            return (new WebApi())->setSuccess()->notify(('O seu OTP é:') . $otp, 500)
+            return (new WebApi())->setSuccess()->notify('O seu OTP eh:' . $code, 500)
                 ->redirect($otplink, 0, true)
                 ->get();
         } catch (\Exception $e) {
@@ -154,160 +202,26 @@ class AuthController extends Controller
 
     public function signupIndex(Request $request)
     {
-
-        $view = 'main.pages.signup';
-
-
-        $inviter = null;
-        if (!empty($request->get('connect_to'))) {
-            $inviter = (new UserServiceQueryImpl())->findByCode($request->get('connect_to'));
-        }
+        $view = 'user.pages.signup';
 
         return view($view, [
-            'request' => $request,
+            'request' => $request
         ]);
-    }
-
-
-    public function signup(Request $request)
-    {
-
-
-        $data = new \stdClass();
-
-        foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value;
-        }
-        $otp = pinCode();
-        $token = base64_encode(sha1(md5(time() . $otp)));
-        $data->otp = $otp;
-        $data->token = $token;
-        $data->activation_token = $token;
-        $data->active = false;
-
-        $payload = [];
-
-        try {
-
-            $data->email = strtolower($data->email);
-            $data->code = empty($data->code) ? null : strtolower($data->code);
-
-
-            if (empty($data->pix)) {
-                throw new \Exception(__("Forneca o seu pix"));
-            }
-
-
-            if (empty($data->whatsapp)) {
-                throw new \Exception(__("Forneca o seu whatsapp"));
-            }
-
-
-       (new UserServiceImpl())->add($data);
-
-            $data->type = "user";
-            $this->authService->validate($data);
-
-            $user = (new UserServiceQueryImpl())->findByCode($data->code);
-
-
-            $otplink = route('web.account.activation.otp.index', [
-                "email" => $data->email,
-            ]);
-
-            $payload["email"] = $data->email;
-
-
-            $success = true;
-
-            if ($success == false) {
-                (new UserServiceImpl())->delete($user->id);
-                throw new \Exception(__("Link de referencia invalido! usuario dono deste link de referencia nao esta ativo"));
-            }
-
-            $payload["token"] = $data->token;
-
-            $link = route('web.account.activation.index', $payload);
-
-
-
-            $txt1 = __("Seja bem-vindo à nossa comunidade! Estamos empolgados em tê-lo a bordo. Este é o começo de uma jornada emocionante, onde você é o autor da sua história. Lembre-se sempre de que cada passo que você der aqui tem o poder de criar um impacto duradouro.");
-            $txt2 = __("Aqui, não há limites para o que você pode conquistar. Acredite em suas habilidades, pois você possui um potencial ilimitado. Cada desafio que você enfrentar é uma oportunidade para crescer e aprender. As maiores realizações nascem da coragem de começar e da persistência para seguir em frente.");
-            $txt3 = __("Seu sucesso começa com pequenas ações e escolhas consistentes. Acredite em si mesmo, mantenha o foco naquilo que deseja alcançar e nunca subestime o valor do seu esforço. Lembre-se de que os obstáculos são apenas degraus para a sua grandeza.");
-            $txt4 = __("Estamos aqui para apoiá-lo em cada etapa do caminho. Sinta-se à vontade para explorar, aprender e se conectar com outros membros que compartilham sua paixão e determinação. Juntos, podemos criar um ambiente de crescimento e inspiração mútua.");
-            $txt5 = __("Estamos ansiosos para testemunhar suas realizações notáveis. Então, vá em frente, com confiança e determinação, e crie o futuro incrível que você merece. Você tem tudo o que é necessário para alcançar grandeza. Bem-vindo à sua jornada extraordinária!");
-
-
-            (new NotificationServiceImpl())->setUser($user)->setTitle(__("Boas Vindas"))->setMessage($txt1)->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle(__("Boas Vindas"))->setMessage($txt2)->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle(__("Boas Vindas"))->setMessage($txt3)->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle(__("Boas Vindas"))->setMessage($txt4)->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle(__("Boas Vindas"))->setMessage($txt5)->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle("Pix para doação")->setMessage(__("Por favor, verifique o seu PIX a partir das suas definicoes de conta."))->send();
-            (new NotificationServiceImpl())->setUser($user)->setTitle("Whatsapp")->setMessage(__("Por favor, verifique o seu Whatsapp a partir das suas definicoes de conta."))->send();
-
-            $emailBody = view("email.activation", [
-                'link' => $link,
-                'user' => $user,
-                'more' => __("OU utilize o Codigo de Ativacao: ") . "<b>" . $otp . "</b>"
-            ])->render();
-
-            (new EmailServiceImpl(__("Ativacao de Conta")))->addRecipient($data->email)->setBody($emailBody)->send();
-
-            /*
-            $pixData = new stdClass();
-            $whatsappData = new stdClass();
-
-
-            $pix = DB::table("payment_method")->where("name", "pix")->first();
-
-            $currency = (new CurrencyServiceQueryImpl())->findByCode("brl");
-            $whatsapp = DB::table("social_media")->where("name", "whatsapp")->first();
-
-            if (!empty($pix->id) and !empty($currency->id) and !empty($request->get("pix"))) {
-                $pixData->payment_method_id = $pix->id;
-                $pixData->user_id = $user->id;
-                $pixData->name = "#";
-                $pixData->currency_id = $currency->id;
-                $pixData->account_number = $request->get("pix");
-                (new User_payment_methodServiceImpl())->add($pixData);
-            }
-
-            if (!empty($whatsapp->id) and !empty($request->get("whatsapp"))) {
-                $whatsappData->user_id = $user->id;
-                $whatsappData->name = "#";
-                $whatsappData->social_media_id = $whatsapp->id;
-                $whatsappData->profile_id = $request->get("whatsapp");
-                (new User_social_mediaServiceImpl())->add($whatsappData);
-            }
-            */
-
-
-
-
-            return (new WebApi())->setSuccess()
-                ->notify(__('A sua conta foi criada com sucesso! verifique o seu email para validacao'))
-                ->redirect($otplink, 2200)
-                ->get();
-        } catch (\Exception $e) {
-
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
     }
 
     public function forgotIndex(Request $request)
     {
 
-        $view = 'main.pages.forgot';
+        $view = 'user.pages.forgot';
 
         return view($view, [
-            'request' => $request,
+            'request' => $request
         ]);
     }
 
     public function otpIndex(Request $request)
     {
-        $view = 'main.pages.otp';
+        $view = 'user.pages.otp';
         $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
         if (empty($user->id)) {
@@ -317,19 +231,16 @@ class AuthController extends Controller
         return view($view, [
             'request' => $request,
             'email' => $request->get("email"),
-            '' => $request->get("token"),
         ]);
     }
     public function activationIndex(Request $request)
     {
-        $view = 'main.pages.activation';
+        $view = 'user.pages.activation';
         $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
-
 
         if (empty($user->id)) {
             return redirect()->route('web.app.index');
         }
-
         if ($user->activation_token !== $request->get("token")) {
             return redirect()->route('web.app.index');
         }
@@ -343,69 +254,50 @@ class AuthController extends Controller
     }
     public function otpAuth(Request $request)
     {
+        $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
-
-        try {
-
-            $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
-
-            if (empty($user->id)) {
-                return redirect()->route('web.app.index');
-            }
-            if (strtolower($user->otp) !== strtolower($request->get("otp"))) {
-                return redirect()->route('web.app.index');
-            }
-
-
-            $view = view('main.pages.activation-modal', [
-                'email' => $request->get("email"),
-                'token' => $user->activation_token,
-            ])->render();
-
-            return (new WebApi())->print($view, "modal-sm")->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        if (empty($user->id)) {
+            return redirect()->route('web.app.index');
         }
+        if ($user->otp !== $request->get("otp")) {
+            return redirect()->route('web.app.index');
+        }
+
+
+        $view =  view('user.pages.activation-modal', [
+            'email' => $request->get("email"),
+            'token' => $request->get("token"),
+        ])->render();
+
+        return (new WebApi())->print($view, "modal-sm")->get();
     }
     public function activate(Request $request)
     {
-        try {
+        $view = 'user.pages.activation';
+        $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
 
-            $user = (new UserServiceQueryImpl())->findByEmail($request->get("email"));
-
-            if (empty($user->id)) {
-                return redirect()->route('web.app.index');
-            }
-            if ($user->activation_token !== $request->get("token")) {
-                return redirect()->route('web.app.index');
-            }
-
-            $user->password = bcrypt($request->get("password"));
-
-            $user->otp = null;
-            $user->active = true;
-            $user->activation_token = null;
-
-            (new UserServiceImpl())->update($user);
-
-
-            $data = new stdClass();
-            $data->user = $user->email;
-            $data->password = $request->get("password");
-
-            $this->authService->login($data);
-
-
-            $payload = [];
-
-            if (!empty($request->get('connect_to'))) {
-                $payload['connect_to'] = $request->get('connect_to');
-                $payload['invite_token'] = $request->get('invite_token');
-            }
-
-            return (new WebApi())->redirect(route("web.app.index", $payload))->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        if (empty($user->id)) {
+            return redirect()->route('web.app.index');
         }
+        if ($user->activation_token == $request->get("token")) {
+            return redirect()->route('web.app.index');
+        }
+
+        $user->password = Hash::make($request->get("password"));
+
+        $user->otp = null;
+        $user->activation_token = null;
+
+        (new UserServiceImpl())->update($user);
+
+
+        $data = new stdClass();
+        $data->user = $user->code;
+        $data->password = $request->get("password");
+
+        $this->authService->login($data);
+
+
+        return (new WebApi())->redirect(route("web.app.index"))->get();
     }
 }

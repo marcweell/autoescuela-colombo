@@ -1,38 +1,33 @@
 <div class="card">
     <div class="card-header">
-        <div class="card-title">
-            <h5>{!! __('Usuarios') !!}<h5>
-        </div>
+        <div class="card-title"><h5>{!! __("Usuarios") !!}<h5></div>
     </div>
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.user.add.index') }}" data-id="-1"
-                    class="btn m-1 btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
-                    {{ __('Agregar Usuario') }}</a>
+                <a data-href="{{ route('web.admin.user.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Adicionar Usuario') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-
+                   
                 </div>
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive">
-            <table class="table table_ table-centered w-100 dt-responsive">
-                <thead class="">
+        <div class="table-responsive--">
+            <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap"
+                id="products-datatable">
+                <thead class="table-light">
                     <tr>
                         <th style="width: 20px;">
                             #
                         </th>
                         <th>{{ __('Usuario') }}</th>
-                        <th>{{ __('Apellido paterno') }}</th>
-                        <th>{{ __('Apellido materno') }}</th>
                         <th>{{ __('Email') }}</th>
-                        <th>{{ __('Telefono') }}</th>
+                        <th>{{ __('Telefone') }}</th>
                         <th>{{ __('Tipo') }}</th>
-                        <th>{{ __('Activo') }}</th>
-                        <th>{{ __('Fecha/hora de registro') }}</th>
+                        <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
                 </thead>
@@ -45,41 +40,32 @@
                                 <div class="d-flex">
                                     <div class="d-flex align-items-center">
                                         <div class="flex-shrink-0">
-                                            <img src='{{ tools()->photo($item->photo) }}'
+                                            <img src='{{ Flores\Tools::photo($item->photo) }}'
                                                 class="rounded-circle avatar-xs" alt="friend">
                                         </div>
                                         <div class="flex-grow-1 ms-2">
-                                            <h5 class="my-0">{{ implode([$item->names]) }}</h5>
+                                            <h5 class="my-0">{{ implode([$item->name, ' ', $item->last_name]) }}</h5>
                                             <p class="mb-0 txt-muted">{{ $item->code }}</p>
                                         </div>
                                     </div>
                                 </div>
                             </td>
-                            <td> {{ $item->father_name }} </td>
-                            <td> {{ $item->mother_name }} </td>
-                            <td> {{ $item->email }} </td>
-                            <td> {{ $item->phone }}</td>
-                            <td> {{ $item->type }}</td>
-                            <td> {!! $item->active == true
-                                ? '<i class="fa fa-check text-success"></i>'
-                                : '<i class="fa fa-times text-danger"></i>' !!} </td>
-                            <td> {{ tools()->date_convert($item->created_at) }} </td>
+                            <td>
+                                {{ $item->email }}
+                            </td>
+                            <td> {{ "({$item->idd})".$item->phone }}</td>
+                            <td>
+                                {{ $item->type }}
+                            </td>
+                            <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <div class="d-flex">
-
-                                <a data-href="{{ route('web.admin.user.export.do') }}"
-                                data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
-                                    class="fa fa-print"></i></a>
-                                    <a data-href="{{ route('web.admin.user.detail.index') }}"
-                                        data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
-                                            class="fa fa-eye"></i></a>
-                                            <a data-href="{{ route('web.admin.user.update.index') }}"
-                                                data-id='{{ $item->id }}' class="btn m-1 btn-secondary btn-sm _link_"><i
-                                                    class="fa fa-edit"></i></a>
-                            <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
-                                class="btn m-1 btn-secondary btn-sm _link_ prompt" data-title="Remover user"><i
-                                    class="fa fa-trash"></i></a>
-                                </div>
+                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
+                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
+                                        class="fa fa-edit"></i></a>
+                                <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
+                                    class="btn btn-primary _link_ prompt" data-title="Remover usuario"><i
+                                        class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

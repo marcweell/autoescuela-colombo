@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('web.admin.account.activation.auth') }}" method="post" class="form_ parent-load">
+<form method="post" action="{{ route('web.account.activation.auth') }}" method="post" class="form_ parent-load">
     <div class="">
         <div class="login-body">
             <input type="hidden" name="token" value="{{ $token }}"> 

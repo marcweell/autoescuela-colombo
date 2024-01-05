@@ -13,46 +13,40 @@ use Illuminate\Support\Facades\DB;
 
 class Page_infoServiceImpl implements IPage_infoService
 {
-    private $insertFillables = ["name", "code","content_type","child_index","content",'parent_id'];
-    private $updateFillables = ["content","content_type","child_index",'parent_id'];
-    private $table =  'settings';
+    private $insertFillables = ["name", "code", "content", "line_height", "content_type", "filetypes", "regex", "active", "multiple", "child_index", "extra", "parent_id",];
+    private $updateFillables = ["content", "content_type", "child_index", 'parent_id', 'extra',];
+    private $table =  'page_info';
 
 
-    public function add($data)
+
+    /**
+     *
+     * @var $type = text | link | image | video
+     * @return \stdClass
+     */
+    public function getExtraTemplate()
     {
-        if (empty($data->name)) {
-            throw new \Exception(__('Email invalido'), 400);
-        }
-        $payload = new \stdClass();
-
-        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-
-        foreach ($data as $i => $value) {
-            if (in_array($i, $this->insertFillables)) {
-                $payload->{$i} = $value;
-            }
-        }
-
-        $page_info = (new Page_infoServiceQueryImpl())->findByCode($data->code);
-
-        if (!empty($page_info->id)) {
-            throw new \Exception(__('Configuraccion invalida'), 400);
-        }
-
-        $arr = json_decode(json_encode($payload), true);
-
-
-        DB::table($this->table)->insert($arr);
+        return json_decode(
+            json_encode(
+                [
+                    "name" => "Example",
+                    "code" => "example",
+                    "label" => "Text Example",
+                    "link" => "",
+                    "source" => "",
+                    "type" => "text"
+                ]
+            )
+        );
     }
 
 
     function update($data)
     {
-
         if (empty($data->id)) {
             throw new \Exception(__('Dados Invalidos'));
         }
-          $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
 
 
         $page_info = DB::table($this->table)->where('id', $data->id)->first();
@@ -71,7 +65,6 @@ class Page_infoServiceImpl implements IPage_infoService
             } else {
                 $data->content = null;
             }
-
         }
 
 
@@ -80,9 +73,8 @@ class Page_infoServiceImpl implements IPage_infoService
         $arr = [];
         $payload = new \stdClass();
 
-
-        foreach ($data as $i => $value) {
-            if (in_array($i, $this->updateFillables)) {
+        foreach ($arr as $i => $value) {
+            if (!in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
             }
         }
@@ -93,5 +85,37 @@ class Page_infoServiceImpl implements IPage_infoService
 
         DB::table($this->table)->where('id', $data->id)->update($arr);
     }
+    function add($data)
+    {
+        $payload = new \stdClass();
 
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+
+        if ($data->content_type == "file") {
+
+            if (!empty($data->content['file']) and !empty($data->content['filename'])) {
+                if (!str_ends_with($data->content['file'], ':')) {
+                    $data->content = Flores\Tools::upload_base64($data->content['file'], md5(time() . $data->content['filename']), 'storage/files');
+                } else {
+                    $data->content = null;
+                }
+            } else {
+                $data->content = null;
+            }
+        }
+
+        $arr = [];
+
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->insertFillables)) {
+                $payload->{$i} = $value;
+            }
+        }
+
+
+        $arr = json_decode(json_encode($payload), true);
+
+        DB::table($this->table)->insert($arr);
+    }
 }

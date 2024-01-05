@@ -9,7 +9,7 @@
             </div>
             <div class="auth-form card">
                 <div class="card-body">
-                    <form method="post" action="{{ route('web.admin.account.activation.otp.auth') }}" method="post"
+                    <form method="post" action="{{ route('web.account.activation.otp.auth') }}" method="post"
                         class="form_ parent-load">
                         <input type="hidden" name="email" value="{{ $email }}">
 

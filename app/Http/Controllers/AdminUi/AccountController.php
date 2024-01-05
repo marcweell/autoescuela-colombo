@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
 use App\Services\auth\AuthServiceImpl;
+use App\Services\country\CountryServiceQueryImpl;
+use App\Services\session_history\Session_historyServiceQueryImpl;
 use Flores\Tools;
 use Flores\WebApi;
 use Illuminate\Http\Request;
@@ -22,7 +24,7 @@ class AccountController extends Controller
     private $reminderServiceQuery;
     function __construct()
     {
-        $this->authService = new AuthServiceImpl("admin");
+        $this->authService = new AuthServiceImpl();
         $this->userService = new UserServiceImpl();
     }
     public function login(Request $request)
@@ -83,11 +85,11 @@ class AccountController extends Controller
         DB::table('user')
             ->where('id', $this->authService->getUser()->id)
             ->update([
-                'photo' => $filename,
+                'profile_picture' => $filename,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        if (!empty($this->authService->getUser()->photo) & !str_starts_with($this->authService->getUser()->photo, "default")) {
-            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->photo));
+        if (!empty($this->authService->getUser()->profile_picture) & !str_starts_with($this->authService->getUser()->profile_picture, "default")) {
+            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->profile_picture));
         }
         return (new WebApi())->notify(__('Foto de perfil alterada com sucesso'))->close_modal(0, true)->setAttr(Tools::fileTobase64('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
     }
@@ -100,6 +102,7 @@ class AccountController extends Controller
             $user = $this->authService->getUser();
             $view = view('admin.fragments.account.index', [
                 'user' => $user,
+               'session_history'=>(new Session_historyServiceQueryImpl("admin"))->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()
                 ->get();
@@ -124,7 +127,7 @@ class AccountController extends Controller
         try {
 
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -141,7 +144,7 @@ class AccountController extends Controller
         $data->user_id = $this->authService->getUser()->id;
         try {
             $this->reminderService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -156,7 +159,7 @@ class AccountController extends Controller
         $data->user_id = $this->authService->getUser()->id;
         try {
             $this->reminderService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -247,12 +250,24 @@ class AccountController extends Controller
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
     public function updateIndex(Request $request)
     {
         try {
             $user = (new UserServiceQueryImpl())->findById($this->authService->getuser()->id);
             $view = view('admin.fragments.account.update', [
                 'user' => $user,
+                'country'=>(new CountryServiceQueryImpl())->findAll()
             ])->render();
 
             return (new WebApi())->setSuccess()->print($view)

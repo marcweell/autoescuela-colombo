@@ -8,7 +8,7 @@
         </div>
         <div class="auth-form card">
             <div class="card-body">
-                <form action="{{ route('web.admin.account.auth.login') }}" method="post" class="form_ parent-load">
+                <form action="{{ route('web.account.auth.login') }}" method="post" class="form_ parent-load">
                     <div class="row">
                         <div class="col-12 mb-3">
                             <label class="form-label">Usuário</label>
@@ -24,7 +24,7 @@
                                 <label class="form-check-label">Salvar Sessão</label>
 							</div>
                         </div>
-                        <div class="col-6 text-end"><a href="{{ route('web.admin.account.forgot.index') }}">Esqueceu sua senha?</a></div>
+                        <div class="col-6 text-end"><a href="{{ route('web.account.forgot.index') }}">Esqueceu sua senha?</a></div>
                     </div>
                     <div class="mt-3 d-grid gap-2"><button type="submit" class="btn btn-primary mr-2 chl_loader">Entrar</button></div>
                 </form>

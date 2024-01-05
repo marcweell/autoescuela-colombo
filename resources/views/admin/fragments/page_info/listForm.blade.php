@@ -1,7 +1,7 @@
  <div class="card">
      <div class="card-header">
          <div class="card-title">
-             <h5>Configuracion<h5>
+             <h5>Variables de página<h5>
          </div>
      </div>
  </div><!-- end card-->
@@ -32,10 +32,10 @@
                                 </div>
                              </div>
                              <div class="col-5 text-center mt-2">
-                                 <a data-href="{{ route('web.admin.page_info.detail.index') }}"
+                                 <a data-href="{{ route('web.admin.page.page_info.detail.index') }}"
                                      data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-eye"></i></a>
-                                 <a data-href="{{ route('web.admin.page_info.update.index') }}"
+                                 <a data-href="{{ route('web.admin.page.page_info.update.index') }}"
                                      data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-pen-nib"></i></a>
                              </div>

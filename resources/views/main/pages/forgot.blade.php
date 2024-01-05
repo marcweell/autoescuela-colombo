@@ -14,7 +14,7 @@
         <div class="auth-form card">
             <div class="card-body">
            
-                <form method="post" action="{{ route('web.admin.account.forgot.auth') }}" method="post" class="form_ parent-load">
+                <form method="post" action="{{ route('web.account.forgot.auth') }}" method="post" class="form_ parent-load">
 
                     <div class="form-group">
                         <label>Digite o seu email</label>

@@ -15,4 +15,8 @@ interface IPassword_changeService {
     * @throws Exception
     */
     function change(stdClass $data);
+    /**
+    * @throws Exception
+    */ 
+    function delete($id);
 }

@@ -5,7 +5,7 @@ use stdClass;
 use Flores;
 
 
-
+/** @author Nelson Flores | nelson.flores@live.com */
 
 interface IUserService {
 

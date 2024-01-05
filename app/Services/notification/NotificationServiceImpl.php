@@ -6,66 +6,96 @@ use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Request as FacadesRequest;
+use Illuminate\Support\Facades\Session;
 
 use stdClass;
 use Flores;
 
 
-
+/** @author Nelson Flores | nelson.flores@live.com */
 
 class NotificationServiceImpl implements INotificationService
 {
-    private $user;
-    private $message = null;
-    private $title = null;
+    private $insertFillables = ['name','code'];
+    private $updateFillables = ['name','code'];
     private $table =  'notification';
+    private $query;
 
     public function __construct()
     {
+        $this->query = DB::table($this->table);
     }
 
 
-    public function send()
+    public function add($data)
     {
+        if (empty($data->name)) {
+            throw new \Exception(__('Nome invalido'), 400);
+        }
 
-        $code = code(null, __METHOD__);
+        
 
-        $arr = [
-            'title' => $this->title,
-            'code' => $code,
-            'isread' => false,
-            'message' => $this->message,
-            'user_id' => $this->user->id
-        ];
+        $payload = new stdClass();
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+      
+      
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->insertFillables)) {
+                $payload->{$i} = $value;
+            }
+        }
 
+        $notification = DB::table($this->table)->where('name', $data->name)->first();
+
+        if (!empty($notification->id)) {
+            throw new \Exception(__('Nome invalido'), 400);
+        }
+
+        
+        
+        $notification = DB::table($this->table)->where('code', $data->code)->first();
+
+        if (!empty($notification->id)) {
+            throw new \Exception(__('Codigo invalido'), 400);
+        }
+
+
+        
+        $arr = json_decode(json_encode($payload),true);
+        
 
         DB::table($this->table)->insert($arr);
+
+        
     }
 
-    public function setUser($user)
+    public function update($data)
     {
-        $this->user = $user;
+        if (empty($data->id)) {
+            throw new \Exception(__('Entrada Invalida'), 400);
+        }
 
+        $notification = DB::table($this->table)->where('id', $data->id)->first();
+        if (empty($notification->id)) {
+            throw new \Exception(__('Conteudo nao encontrado'), 404);
+        }
+
+       
+
+
+        
+        $arr = json_decode(json_encode($payload),true);
+
+        $arr['updated_at'] = DB::raw('now()');
+
+        DB::table($this->table)->where('id', $data->id)->update($arr);
+
+    }
+    public function byUserId($user_id){
+        $this->query->where($this->table.'.user_id',$user_id);
         return $this;
-    }
-
-    public function setTitle($title)
-    {
-        $this->title = $title;
-        return $this;
-    }
-
-    public function setMessage($message)
-    {
-
-        $this->message = $message;
-        return $this;
-    }
-
-    public function refresh()
-    {
-        DB::table($this->table)->where('user_id', $this->user->id)->update(['isread' => true]);
     }
     public function trash($id)
     {
@@ -76,7 +106,7 @@ class NotificationServiceImpl implements INotificationService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
-
+ 
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -88,7 +118,7 @@ class NotificationServiceImpl implements INotificationService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
-
+ 
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -96,11 +126,15 @@ class NotificationServiceImpl implements INotificationService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
-
+ 
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
+        $notification = $this->query->where('id', $id)->first();
 
+        if (empty($notification->id)) {
+            return;
+        }
 
         DB::table($this->table)->where('id', $id)->delete();
     }

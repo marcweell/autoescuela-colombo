@@ -20,9 +20,16 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory(10)->create();
 
         $this->call([
+            CountryTableSeeder::class,
+            CityTableSeeder::class,
+            #CurrencyTableSeeder::class,
+            #AdminTableSeeder::class,
             UserTableSeeder::class,
-            SettingsTableSeeder::class,
+           SettingsTableSeeder::class,
         ]);
+        (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Masculino"])));
+        (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Feminino"])));
+
 
     }
 }

@@ -2,7 +2,7 @@
 
 @section('login-form')
     <div class="login-wrapper">
-        <form method="post" action="{{ route('web.admin.account.auth.login') }}" method="post" class="form_ parent-load">
+        <form method="post" action="{{ route('web.account.auth.login') }}" method="post" class="form_ parent-load">
             <div class="login-screen">
                 <div class="login-body">
                     <a href="{{ url('/') }}" class="login-logo">
@@ -15,14 +15,14 @@
                     <div class="field-wrapper">
                         <input name="user" type="text" autofocus>
                         <div class="field-placeholder">Usuario/Email</div>
-                    </div> 
-                    <div class="actions"> 
+                    </div>
+                    <div class="actions">
                         <button type="submit" class="btn btn-secondary chl_loader">{{ __("Confirmar") }}</button>
                     </div>
                 </div>
-               
+
                 <div class="login-footer">
-                    <span class="additional-link">Ja possui uma conta?<a href="{{ route('web.admin.account.auth.index') }}" class="btn btn-dark">Entrar</a></span>
+                    <span class="additional-link">Ja possui uma conta?<a href="{{ route('web.account.auth.index') }}" class="btn btn-primary">Entrar</a></span>
                 </div>
             </div>
         </form>

@@ -6,13 +6,14 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use App\Jobs\EmailSender; 
 use Illuminate\Support\Facades\DB;
-use Mpdf\Tag\Th;
 use PHPMailer\PHPMailer\SMTP;
 
-
+/** @author Nelson Flores | nelson.flores@live.com */
 
 class EmailServiceImpl implements IBulk_messageService
-{ 
+{
+    private $table =  'bulk_message';
+
 
     private $provider;
     private $async = true;
@@ -30,28 +31,20 @@ class EmailServiceImpl implements IBulk_messageService
             $this->subject = $subject;
             
             $this->provider = new PHPMailer(true);
-            
-            #SMTP::DEBUG_OFF (0): Desativar o debug (você pode deixar sem preencher este valor, uma vez que esta opção é o padrão).
-            #SMTP::DEBUG_CLIENT (1): Imprimir mensagens enviadas pelo cliente.  
-            #SMTP::DEBUG_SERVER (2): similar ao 1, mais respostas recebidas dadas pelo servidor (esta é a opção mais usual).
-            #SMTP::DEBUG_CONNECTION (3): similar ao 2, mais informações sobre a conexão inicial - este nível pode auxiliar na ajuda com falhas STARTTLS.
-            #SMTP::DEBUG_LOWLEVEL (4): similar ao 3, mais informações de baixo nível, muito prolixo, não use para debugar SMTP, apenas em problemas de baixo nível.
-
+            //Server settings
             $this->provider->SMTPDebug = SMTP::DEBUG_OFF;
-            
             $this->provider->isSMTP();
             $this->provider->CharSet = 'UTF-8';
-            $this->provider->Host = 'smtp.hostinger.com';
-            $this->provider->Username = 'no-reply@behappyworld.pro';
-            $this->provider->Password = 'Iamsolomongrundy@1';
-            $this->provider->Port = 465;
+            $this->provider->Host = env('MAIL_HOST');
+            $this->provider->Username = env('MAIL_USERNAME');
+            $this->provider->Password = env('MAIL_PASSWORD');
+            $this->provider->Port = env('MAIL_PORT');
             $this->provider->SMTPAuth = true;
-            $this->provider->SMTPSecure = 'ssl';//PHPMailer::ENCRYPTION_STARTTLS;
-
+            $this->provider->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             //Recipients
-            $this->provider->setFrom('no-reply@behappyworld.pro',config('app.name'));
+            $this->provider->setFrom(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'));
         } catch (Exception $e) {
-            
+            throw $e;
         }
     }
 
@@ -90,9 +83,9 @@ class EmailServiceImpl implements IBulk_messageService
         return $this;
     }
 
-    public function sync($bool = true)
+    public function sync()
     {
-        $this->async = $bool;
+        $this->async = false;
 
         return $this;
     } 
@@ -107,7 +100,10 @@ class EmailServiceImpl implements IBulk_messageService
     }
  
     public function send()
-    { 
+    {
+        $data = [
+            ''
+        ];
         try {
             foreach ($this->recipients as $key => $value) {
                 $this->provider->addAddress($value);
@@ -127,8 +123,40 @@ class EmailServiceImpl implements IBulk_messageService
             } else {
                 $this->provider->send();
             }
-        } catch (\Exception $e) {  
+        } catch (\Exception $e) {
+            throw  $e;
         }
     }
+
+    public function save(){
+
+    }
+    public function trash($id)
+    {
+        if (empty($id)) {
+            throw new \Exception(__('Entrada Invalida'), 400);
+        }
+
+        if (!is_numeric($id)) {
+            throw new \Exception(__('Entrada Invalida'), 400);
+        }
  
+        DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
+    }
+    public function restore($id)
+    {
+        if (empty($id)) {
+            throw new \Exception(__('Entrada Invalida'), 400);
+        }
+
+        if (!is_numeric($id)) {
+            throw new \Exception(__('Entrada Invalida'), 400);
+        }
+ 
+        DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
+    }
+    public function delete($id)
+    {
+        DB::table($this->table)->where('id', $id)->delete();
+    }
 }

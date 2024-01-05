@@ -4,53 +4,45 @@ namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
-use App\Services\page\PageServiceQueryImpl;
-use App\Services\page_category\Page_categoryServiceQueryImpl;
-use App\Services\question_category\Question_categoryServiceQueryImpl;
+use Illuminate\Support\Facades\Auth;
+use App\Services\admin_menu\Admin_menuServiceQueryImpl;
+use App\Services\administrative_act_type\Administrative_act_typeServiceQueryImpl;
+use App\Services\course\CourseServiceQueryImpl;
+use App\Services\client\ClientServiceQueryImpl;
+use App\Services\notification\NotificationServiceQueryImpl;
+use App\Services\project\ProjectServiceQueryImpl;
+use App\Services\session_history\Session_historyServiceQueryImpl;
+use App\Services\transaction\TransactionServiceQueryImpl;
 use App\Services\user\UserServiceQueryImpl;
+use Flores\Tools;
 use Flores\WebApi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route;
+use stdClass;
 
 class IndexController extends Controller
 {
-    private $authService;
-
     function __construct()
     {
-        $this->authService = new AuthServiceImpl("admin");
     }
-
-
     public function index(Request $request)
     {
-        $admin = $this->authService->getUser();
 
+        $user = (new AuthServiceImpl("admin"))->getUser();
+        #$this->modules();
         return view('admin.pages.home', [
             'request' => $request,
-            'user' => $admin,
+            'user'=>$user,
+            'notification' => (new NotificationServiceQueryImpl())->byUserId($user->id)->limit(10)->deleted(false)->orderDesc()->findAll()
         ])->render();
     }
-
-
-
-
     public function postIndex(Request $request)
     {
-
-        $question_category_count = (new Question_categoryServiceQueryImpl())->count();
-        $page_category_count = (new Page_categoryServiceQueryImpl())->count();
-        $page_count = (new PageServiceQueryImpl())->count();
-        $user_count = (new UserServiceQueryImpl())->count();
-
-
+        $user = (new AuthServiceImpl("admin"))->getUser();
         $view = view('admin.fragments.dashboard.index', [
             'request' => $request,
-            'page_count' => $page_count,
-            'question_category_count' => $question_category_count,
-            'page_category_count' => $page_category_count,
-            'user_count' => $user_count
+            'user' => (new UserServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
         ])->render();
 
         return (new WebApi())

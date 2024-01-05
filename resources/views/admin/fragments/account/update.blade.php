@@ -1,6 +1,6 @@
 <!-- card start -->
 <div class="card">
-    <div class="card-header">
+    <div class="card-header-lg">
         <h4>Account Settings</h4>
     </div>
     <div class="card-body">
@@ -15,59 +15,55 @@
                         </div>
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
                             <div class="col-12">
-                                <button type="button" class="btn btn-info btn-sm btnpp"><i
-                                        class="fa fa-image p-2"></i>Alterar Foto de Perfil</button>
+
+                                <button type="button" class="btn btn-primary btn-sm btnpp"><i
+                                        class="fa fa-image p-2"></i>Alterar Foto de
+                                    Perfil</button>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="form-group">
-                                <div class="form-label">Nombres</div>
-                                <input type="text" class="form-control" name="name" value="{{ $user->names }}">
+                            <div class="field-wrapper">
+                                <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                                <div class="field-placeholder">Nome</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <label for="last_name" class="form-label">{{ __('Apellido paterno') }}</label>
-                            <input type="text" name="father_name" class="form-control" value="{{ $user->father_name }}">
-                        </div>
-
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <label for="last_name" class="form-label">{{ __('Apellido materno') }}</label>
-                            <input type="text" name="mother_name" class="form-control" value="{{ $user->mother_name }}">
-                        </div>
-
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="form-group">
-                                <div class="form-label">Telefono</div>
-                                <input type="number" class="form-control" name="phone"
-                                    value="{{ $user->phone }}">
+                            <div class="field-wrapper">
+                                <input type="text" class="form-control" name="last_name"
+                                    value="{{ $user->last_name }}">
+                                <div class="field-placeholder">Apelido</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
-                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                             <!-- Field wrapper start -->
-                            <div class="form-group">
-                                <div class="form-label">{{__('Correo')}}</div>
+                            <div class="field-wrapper">
                                 <input type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                <div class="field-placeholder">Email</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
-
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <label for="balance" class="form-label">{{ __('Carnet de Identidad') }}</label>
-                            <input type="text" name="national_id" class="form-control" value="{{ $user->national_id }}">
-                        </div>
-
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
-                            <label for="email" class="form-label">{{ __('Edad') }}</label>
-                            <input type="date" name="born_date" class="form-control" value="{{ $user->born_date }}">
-                        </div>
-
-                        <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12 pt-3">
+                                <label for="phone" class="form-label">{{ __('Telefone') }}</label>
+                                <div class="input-group">
+                                    <select class="form-control w-25" style="width: 25%" name="idd_country_id">
+                                        @foreach ($country as $item)
+                                            <option value="{{ $item->id }}" {{ (strtolower($item->code)=="br")?"selected":"" }}>{{ $item->idd . "     (".$item->name." - ".$item->native_name.")" }}</option>
+                                        @endforeach
+                                    </select>
+                                    <input type="text" class="form-control w-75" placeholder="" aria-label=""
+                                        aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
+                                </div>
+                            </div>
+                        <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
-                                    class="fa fa-save p-2"></i>{{ __("Salvar") }}</button>
+                                    class="fa fa-save p-2"></i>{{ __("Guardar") }}</button>
+                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary mb-3 _link_"><i
+                                    class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
+
                         </div>
                     </div>
                 </form>
@@ -77,14 +73,21 @@
                 <div class="account-settings-block">
 
                     <div class="settings-block">
-                        <div class="settings-block-title">Más definiciones</div>
+                        <div class="settings-block-title">Mais Definicoes</div>
                         <div class="settings-block-body">
                             <div class="list-group">
-
+                                <div class="list-group-item d-flex justify-content-between align-items-center">
+                                    <div>Receber Notificacoes por Email</div>
+                                    <div class="form-switch">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                        <label class="form-check-label"></label>
+                                    </div>
+                                </div>
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
-                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i> Cambiar contraseña</button>
+                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i> Alterar
+                                        Senha</button>
                                 </div>
                             </div>
                         </div>

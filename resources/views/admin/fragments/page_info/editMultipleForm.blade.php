@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Configuracion') }}</h4>
 
-        <form action="{{ route('web.admin.page_info.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.page.page_info.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $page_info->id }}">
             <div class="col-md-12 mb-3">
                 <output type="text" name="name" id="name"
@@ -45,7 +45,7 @@
                                 <div class="col-md-6">
 
                                     <label class="form-label">{{ __('Arquivo') }}</label>
-                                    <input type="file" class="form-control" name="content[]">
+                                    <input type="file" class="form-control" {!! empty($page_info->filetypes) ? '' : 'accept="' . $page_info->filetypes . '"' !!}  name="content[]">
                                 </div>
                             </div>
                         @break
@@ -62,7 +62,7 @@
                         {{ __('Mais') }} </div>
                     <div class="col-6 text-end">
                         <button type="button" role="button" to="#cities" elem-target="#jop_cities"
-                            class="clonehim btn btn btn-info float-right chl_loader"><i class="fa fa-plus"></i></button>
+                            class="clonehim btn btn btn-primary float-right chl_loader"><i class="fa fa-plus"></i></button>
                     </div>
                 </h4>
                 <hr>
@@ -89,7 +89,7 @@
 <div class="d-none" id="jop_cities">
     <div class="im_dad row">
         <div class="col-12 text-end">
-            <button class="btn btn-dark rm_dad" type="button"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-primary rm_dad" type="button"><i class="fa fa-trash"></i></button>
 
         </div>
         <div class="col-12">
@@ -119,7 +119,7 @@
                             <div class="col-md-6">
 
                                 <label class="form-label">{{ __('Arquivo') }}</label>
-                                <input type="file" class="form-control" name="content[]">
+                                <input type="file" {!! empty($page_info->filetypes) ? '' : 'accept="' . $page_info->filetypes . '"' !!}  class="form-control" name="content[]">
                             </div>
                         </div>
                     @break

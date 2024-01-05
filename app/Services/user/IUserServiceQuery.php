@@ -6,11 +6,11 @@ use stdClass;
 use Flores;
 
 
-
+/** @author Nelson Flores | nelson.flores@live.com */
 interface IUserServiceQuery {
 
     /**
-     * @return \Illuminate\Support\Collection | null | stdClass
+     * @return array
      * @throws \Exception
     */
 

@@ -3,19 +3,17 @@
 namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
-use App\Services\auth\AuthServiceImpl;
-use App\Services\bulk_message\EmailServiceImpl;
-use App\Services\question_category\Question_categoryServiceQueryImpl;
+use App\Services\city\CityServiceQueryImpl;
+use App\Services\country\CountryServiceQueryImpl;
+use Illuminate\Support\Facades\Auth;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
 use Flores\WebApi;
+use Flores\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use setasign\Fpdi\Fpdi;
-use Tomsgu\PdfMerger\PdfCollection;
-use Tomsgu\PdfMerger\PdfFile;
-use Tomsgu\PdfMerger\PdfMerger;
-
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
+use Illuminate\Foundation\Bus\DispatchesJobs;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 use stdClass;
 
 class UserController extends Controller
@@ -33,40 +31,11 @@ class UserController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        $data->code = code(null, __METHOD__);
 
         try {
 
-            $otp = pinCode();
-            $token = base64_encode(sha1(md5(time() . $otp)));
-            $data->otp = $otp;
-            $data->token = $token;
-            $data->activation_token = $token;
-
             $this->userService->add($data);
-
-            (new AuthServiceImpl())->validate($data);
-
-            # $user = (new UserServiceQueryImpl())->findByCode($data->code);
-
-            $payload = [];
-            $payload["email"] = $data->email;
-            $payload["token"] = $data->token;
-
-            $link = route('web.account.activation.index', $payload);
-
-            $emailBody = view("email.activation", [
-                'link' => $link,
-                'more' => "OU utilize o codigo OTP: <b>{$otp}</b>"
-            ])->render();
-
-
-            if ($request->has("send-auth")) {
-                (new EmailServiceImpl("Ativacao de Conta"))->addRecipient($data->email)->setBody($emailBody)->send();
-            }
-
-            return (new WebApi())->setSuccess()->notify(__("Registro completado con éxito"))
-                ->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -79,11 +48,8 @@ class UserController extends Controller
         }
 
         try {
-            $user = $this->userServiceQuery->findById($data->id);
-
             $this->userService->update($data);
-
-            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -92,7 +58,7 @@ class UserController extends Controller
     {
         try {
             $this->userService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -101,8 +67,9 @@ class UserController extends Controller
     public function index(Request $request)
     {
         try {
+            $user = $this->userServiceQuery->deleted(false)->orderDesc()->findAll();
             $view = view('admin.fragments.user.listForm', [
-                'user' => $this->userServiceQuery->orderDesc()->findAll()
+                'user' => $user,
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {
@@ -113,9 +80,10 @@ class UserController extends Controller
     {
         try {
             $view = view('admin.fragments.user.addForm', [
-                'question_category'=>(new Question_categoryServiceQueryImpl())->findAll(),
+                'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+                'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
+            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -127,48 +95,12 @@ class UserController extends Controller
             $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.user.editForm', [
                 'user' => $user,
-                'question_category'=>(new Question_categoryServiceQueryImpl())->findAll(),
-            ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
-    public function detailIndex(Request $request)
-    {
-
-        try {
-            $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
-            $view = view('admin.fragments.user.detailForm', [
-                'user' => $user,
+                'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+                'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
-    }
-    public function export(Request $request)
-    {
-        $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
-
-        $pdfCollection = new PdfCollection();
-        if (!empty($user->medical_evaluation_file) and is_file(storage_path("files/" . $user->medical_evaluation_file))) {
-            $pdfCollection->addPdf(storage_path("files/" . $user->medical_evaluation_file), PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
-        }
-
-        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
-            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
-        }
-
-
-        $fpdi = new Fpdi();
-        $merger = new PdfMerger($fpdi);
-
-        $file = code() . ".pdf";
-        $destination = storage_path('files/' . $file);
-
-        $merger->merge($pdfCollection, $destination, PdfMerger::MODE_FILE);
-
-        return (new WebApi())->setSuccess()->download(url('storage/files/' . $file))->get();
     }
 }

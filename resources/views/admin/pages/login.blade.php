@@ -22,7 +22,7 @@
               <input class="form-check-input" type="checkbox"><span class="label-text">Mantener sesión</span>
             </label>
           </div>
-          <p class="semibold-text mb-2"><a href="{{ route("web.admin.account.forgot.index") }}" data-toggle="flip">Has olvidado tu contraseña ?</a></p>
+          <p class="semibold-text mb-2"><a href="{{ route("web.admin.account.forgot.index") }}" data-bs-toggle="flip">Has olvidado tu contraseña ?</a></p>
         </div>
       </div>
       <div class="mb-3 btn-container d-grid">
@@ -39,7 +39,7 @@
         <button class="btn btn-primary btn-block"><i class="bi bi-unlock me-2 fs-5"></i>Mandar</button>
       </div>
       <div class="mb-3 mt-3">
-        <p class="semibold-text mb-0"><a href="#" data-toggle="flip"><i class="bi bi-chevron-left me-1"></i> Volver a iniciar sesión</a></p>
+        <p class="semibold-text mb-0"><a href="#" data-bs-toggle="flip"><i class="bi bi-chevron-left me-1"></i> Volver a iniciar sesión</a></p>
       </div>
     </form>
   </div>

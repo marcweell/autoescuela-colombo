@@ -16,7 +16,7 @@
                         <div class="col-xl-8 col-lg-8 col-md-8 col-sm-8 col-12">
                             <div class="col-12">
 
-                                <button type="button" class="btn btn-info btn-sm btnpp"><i
+                                <button type="button" class="btn btn-primary btn-sm btnpp"><i
                                         class="fa fa-image p-2"></i>Alterar Foto de
                                     Perfil</button>
                             </div>
@@ -49,7 +49,7 @@
                         <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
                                     class="fa fa-save p-2"></i>{{ __("Salvar") }}</button>
-                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-dark mb-3 _link_"><i
+                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary mb-3 _link_"><i
                                     class="fa fa-arrow-left p-2"></i> Volver al perfil</button>
 
                         </div>

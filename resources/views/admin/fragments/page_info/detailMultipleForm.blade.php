@@ -9,6 +9,19 @@
             <div class="d-block border-1 im_dad">
                 @if ($item->content_type == 'file')
                     <a href="{{ url('storage/files/' . $item->content) }}">{{ $item->child_index??$item->name }}</a>
+                    @php
+                        $file = fileman(storage_path('files/' . $item->content));
+                    @endphp
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6">
+
+                            @if ($file->isImage())
+                                <img src="{{ url('storage/files/' . $item->content) }}" class="w-100">
+                            @elseif($file->isVideo())
+                                <video src="{{ url('storage/files/' . $item->content) }}" class="w-100"></video>
+                            @endif
+                        </div>
+                    </div>
                 @else
                     {!! $item->content !!}
                 @endif

@@ -5,19 +5,19 @@
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.settings.notification.add.index') }}" data-id="-1" class="btn btn-secondary  mb-2 _link_"><i
-                        class="fa fa-plus-circle me-2"></i> {{ __('Adicionar Pais') }}</a>
+                <a data-href="{{ route('web.admin.settings.notification.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Adicionar Pais') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-
+                   
                 </div>
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive">
-            <table class="table table_ table-centered w-100 dt-responsive">
-                <thead class="">
+        <div class="table-responsive--">
+            <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap" id="products-datatable">
+                <thead class="table-light">
                     <tr>
                         <th style="width: 20px;">
                             #
@@ -35,15 +35,15 @@
                             <td> {{ $item->name }} </td>
                             <td> {{ $item->code }}
                             </td>
-                            <td> {{ tools()->date_convert($item->created_at) }} </td>
+                            <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-secondary"> <i class="fa fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.settings.notification.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary  _link_"><i
+                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.notification.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary  _link_ prompt"
-                                    data-title="Remover"><i class="fa fa-trash"></i></a>
+                                    data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
+                                    data-title="Remover Pais"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

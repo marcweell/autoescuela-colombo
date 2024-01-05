@@ -2,13 +2,14 @@
 namespace App\Services\bulk_message;
 
 
-
+/** @author Nelson Flores | nelson.flores@live.com */
 interface IBulk_messageServiceQuery {
 
     /**
      * @return Array
      * @throws Exception
     */
+
     function findAll();
 
     /**
@@ -25,5 +26,5 @@ interface IBulk_messageServiceQuery {
      * @return stdClass
      * @throws Exception
     */
-    function findAllByType(string $type);
+    public function findAllByType(string $type);
 }

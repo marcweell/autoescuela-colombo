@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/
+*/ 
 
 Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("web.public.")->group(function () {
 
@@ -19,6 +19,18 @@ Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("we
 
     Route::get("/contact", [App\Http\Controllers\IndexController::class, 'contactIndex'])->name("contact.index");
     Route::get("/about", [App\Http\Controllers\IndexController::class, 'aboutIndex'])->name("about.index");
+    Route::get("/faq", [App\Http\Controllers\IndexController::class, 'faqIndex'])->name("faq.index");
+    Route::get("/plans", [App\Http\Controllers\IndexController::class, 'planIndex'])->name("plan.index");
+    Route::get("/privacy", [App\Http\Controllers\IndexController::class, 'privacyIndex'])->name("privacy.index");
+    Route::get("/terms", [App\Http\Controllers\IndexController::class, 'termsIndex'])->name("terms.index");
+    Route::get("/invite", [App\Http\Controllers\IndexController::class, 'handleInvite'])->name("invite.index");
+
+
+
+    Route::prefix("/engine")->name("api.")->group(function () {
+        Route::post("/subscribe", [App\Http\Controllers\WebApiController::class, 'subscribe'])->name("subscribe");
+        Route::post("/message/send", [App\Http\Controllers\WebApiController::class, 'sendMessage'])->name("message.send");
+    });
 
 
     /**

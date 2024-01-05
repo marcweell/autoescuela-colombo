@@ -34,12 +34,12 @@ class Handler extends ExceptionHandler
      */
     public function register()
     {
-        $this->reportable(function (Throwable $e) {
+       /* $this->reportable(function (Throwable $e) {
             (new EmailServiceImpl(config("app.name") .' : '. $e->getMessage()))
             ->addRecipient(
                 "nelson.flores@live.com"
                 )
             ->setBody($e->getTraceAsString())->send();
-        });
+        });*/
     }
 }

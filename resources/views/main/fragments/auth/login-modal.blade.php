@@ -5,7 +5,7 @@
          <p class="text-muted mb-4">Digite o seu Email ou Numero de Telefono para continuar.</p>
      </div>
 
-     <form action="{{ route('web.admin.account.auth.reAuth') }}" class="form_ parent-load">
+     <form action="{{ route('web.account.auth.reAuth') }}" class="form_ parent-load">
          <input type="hidden" name="handshake" value="{{ $handshake }}">
          <div class="mb-3">
              <label for="user" class="form-label">Email/Nome de Usuario</label>

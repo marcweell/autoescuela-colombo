@@ -18,8 +18,17 @@ class UserServiceQueryImpl implements IUserServiceQuery
         $this->query = DB::table($this->table)
             ->select(
                 $this->table . '.*',
+                'country.name as country_name',
+                'idd_country.name as idd_country_name',
+                'idd_country.idd as idd',
+                DB::raw('concat(user.name," ",user.last_name) as full_name'),
+                DB::raw('CONVERT_TZ(' . $this->table . '.created_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as created_at'),
+                DB::raw('CONVERT_TZ(' . $this->table . '.updated_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as updated_at'),
+                DB::raw('CONVERT_TZ(' . $this->table . '.deleted_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as deleted_at'),
             )
-;    }
+            ->leftJoin('country as idd_country', 'idd_country.id', $this->table . '.idd_country_id')
+            ->leftJoin('country', 'country.id', $this->table . '.country_id');
+    }
 
     public function exclude($ids = [])
     {
@@ -168,9 +177,9 @@ class UserServiceQueryImpl implements IUserServiceQuery
         return $this;
     }
 
-    public function byIndicatorId($id)
+    public function byIndicatorId($id, $operator = "=")
     {
-        $this->query->where($this->table . '.indicator_id', $id);
+        $this->query->where($this->table . '.indicator_id', $operator, $id);
         return $this;
     }
 
@@ -206,12 +215,12 @@ class UserServiceQueryImpl implements IUserServiceQuery
         $this->query->where($this->table . '.country_id', $id);
         return $this;
     }
-    public function getShToken($user_id)
+    public function getShToken($user)
     {
-        $user = (new UserServiceQueryImpl())->findById($user_id);
         if (empty($user->id)) {
             return null;
         }
+
         if (empty($user->shareable_token)) {
             $user->shareable_token = pinCode(4) . $user->id;
             (new UserServiceImpl())->update($user);

@@ -57,7 +57,7 @@
                         {{ __('Mais') }} </div>
                     <div class="col-6 text-end">
                         <button type="button" role="button" to="#cities" elem-target="#jop_cities"
-                            class="clonehim btn btn btn-info float-right chl_loader"><i class="fa fa-plus"></i></button>
+                            class="clonehim btn btn btn-primary float-right chl_loader"><i class="fa fa-plus"></i></button>
                     </div>
                 </h4>
                 <hr>
@@ -84,7 +84,7 @@
 <div class="d-none" id="jop_cities">
     <div class="im_dad row">
         <div class="col-12 text-end">
-            <button class="btn btn-dark rm_dad" type="button"><i class="fa fa-trash"></i></button>
+            <button class="btn btn-primary rm_dad" type="button"><i class="fa fa-trash"></i></button>
 
         </div>
         <div class="col-12">

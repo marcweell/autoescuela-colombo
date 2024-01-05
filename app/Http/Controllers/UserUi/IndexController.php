@@ -3,21 +3,24 @@
 namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
-use App\Services\auth\AuthServiceImpl;
-use App\Services\language\LanguageServiceQueryImpl;
-use App\Services\mandala_participant\Mandala_participantServiceQueryImpl;
+use Illuminate\Support\Facades\Auth;
+use App\Services\administrative_act_type\Administrative_act_typeServiceQueryImpl;
+use App\Services\user_menu\user_menuServiceQueryImpl;
+use App\Services\useristrative_act_type\useristrative_act_typeServiceQueryImpl;
+use App\Services\course\CourseServiceQueryImpl;
+use App\Services\client\ClientServiceQueryImpl;
 use App\Services\notification\NotificationServiceQueryImpl;
-use App\Services\page_info\Page_infoServiceQueryImpl;
-use App\Services\plan\PlanServiceQueryImpl;
-use App\Services\ranking\RankingServiceQueryImpl;
-use App\Services\ranking_user\Ranking_userServiceQueryImpl;
+use App\Services\project\ProjectServiceQueryImpl;
 use App\Services\session_history\Session_historyServiceQueryImpl;
 use App\Services\transaction\TransactionServiceQueryImpl;
 use App\Services\user\UserServiceQueryImpl;
+use Flores\Tools;
+use Flores\UserConfig;
 use Flores\WebApi;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Route; 
+use stdClass;
 
 class IndexController extends Controller
 {
@@ -25,34 +28,72 @@ class IndexController extends Controller
     {
     }
     public function index(Request $request)
-    {
-        $user = (new AuthServiceImpl())->getUser();
+    { 
 
-        $notification = (new NotificationServiceQueryImpl())
-            ->limit(10)
-            ->byUserId($user->id)
-            ->isRead(false)
-            ->deleted(false)
-            ->orderDesc()->findAll();
 
-        return view('main.pages.appIndex', [
+        if (empty(uconfig("current_course")->id)) {
+            return view("basic.pages.nocourse");
+        }
+
+
+        return view('user.pages.home', [
             'request' => $request,
-            'user' => $user,
-            'notification' => $notification,
+            'admin_act' => (new Administrative_act_typeServiceQueryImpl())->findAll(),
+            'course' => (new CourseServiceQueryImpl())->findAll(),
+            'notification'=>(new NotificationServiceQueryImpl())->byUserId(Auth::user()->id)->limit(10)->findAll()
+
+        ])->render();
+    }
+
+    public function redirectIndex(Request $request)
+    {
+        if (!$request->has("target")) {
+            return redirect()->route("web.index");
+        }
+        try {
+            $url = route(
+                Tools::decode($request->get("target"), 15)
+            );
+        } catch (\Throwable $th) {
+            $url = route("web.index");
+        }
+
+        return view('redirect', [
+            'url' => $url,
         ])->render();
     }
     public function postIndex(Request $request)
     {
-        $wa = (new WebApi());
-        $user = (new UserServiceQueryImpl())->findById((new AuthServiceImpl())->getUser()->id);
+        $transaction = new TransactionServiceQueryImpl();
 
-        $view = view('main.fragments.dashboard.index', [
-            'user' => $user,
+        if (!empty(uconfig('current_course')->id)) {
+            $transaction->where("course.id", uconfig('current_course')->id);
+        }
+
+        $tr = [];
+
+        foreach ($transaction->findAll() as $key => $value) {
+            if (empty($tr[$value->transaction_category_name])) {
+                $tr[$value->transaction_category_name] = 0;
+            }
+            $tr[$value->transaction_category_name] += 1;
+        }
+
+        $view = view('user.fragments.dashboard.index', [
             'request' => $request,
+            'tc' => $tr,
+            'user' => (new UserServiceQueryImpl())->findAll(),
+            'session_history' => (new Session_historyServiceQueryImpl)->findAll(),
+            'credit' => $transaction->credit()->findAll(),
+            'debt' => $transaction->debt()->findAll(),
+            'transaction' => $transaction->findAll(),
+            'project' => (new ProjectServiceQueryImpl())->findAll(),
+            'client' => (new  clientServiceQueryImpl)->findAll(),
+            'course' => (new CourseServiceQueryImpl())->findAll(),
         ])->render();
 
-
-        $wa->print($view);
-        return $wa->save()->get();
+        return (new WebApi())
+            ->setSuccess()->print($view)
+            ->get();
     }
 }
