@@ -18,12 +18,18 @@ class GalleryServiceQueryImpl implements IGalleryServiceQuery
 {
 
     private $table =  'gallery';
-    
+
     private $query;
 
     public function __construct()
     {
         $this->query = DB::table($this->table)->orderByDesc('created_at');
+    }
+
+    public function limit($limit = 100)
+    {
+        $this->query->limit($limit);
+        return $this;
     }
 
     public function findAll()
@@ -48,5 +54,5 @@ class GalleryServiceQueryImpl implements IGalleryServiceQuery
     public function findByCode($id)
     {
         return $this->query->where($this->table . '.code', $id)->first();
-    } 
+    }
 }

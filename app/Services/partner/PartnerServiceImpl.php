@@ -30,7 +30,7 @@ class PartnerServiceImpl implements IPartnerService
 
         $arr = [];
 
- 
+
         $data->filename = $data->attach['file'];
        // $data->name = $data->attach['filename'];
 
@@ -67,11 +67,14 @@ class PartnerServiceImpl implements IPartnerService
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
         $arr = json_decode(json_encode($data), true);
 
+        $payload = new \stdClass();
         foreach ($arr as $i => $value) {
-            if (!in_array($i, $this->updateFillables)) {
-                //unset($arr[$i]);
+            if (in_array($i, $this->updateFillables)) {
+                $payload->{$i} = $value;
             }
         }
+
+        $arr = json_decode(json_encode($payload), true);
 
         $arr['updated_at'] = DB::raw('now()');
 

@@ -68,13 +68,11 @@ class Page_infoServiceImpl implements IPage_infoService
         }
 
 
-
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-        $arr = [];
         $payload = new \stdClass();
 
-        foreach ($arr as $i => $value) {
-            if (!in_array($i, $this->updateFillables)) {
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
             }
         }
@@ -87,11 +85,6 @@ class Page_infoServiceImpl implements IPage_infoService
     }
     function add($data)
     {
-        $payload = new \stdClass();
-
-        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-
-
         if ($data->content_type == "file") {
 
             if (!empty($data->content['file']) and !empty($data->content['filename'])) {
@@ -105,14 +98,15 @@ class Page_infoServiceImpl implements IPage_infoService
             }
         }
 
-        $arr = [];
+
+        $payload = new \stdClass();
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
             }
         }
-
 
         $arr = json_decode(json_encode($payload), true);
 

@@ -73,69 +73,17 @@
         <div class="container-fluid  g-0">
           <div class="row g-0">
 
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-1.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-1.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
+            @foreach ($gallery??[] as $item)
 
             <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-2.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-2.jpg" alt="" class="img-fluid">
-                </a>
+                <div class="gallery-item">
+                  <a href="{{ url('storage/files/gallery/original/'.$item->archive) }}" class="galelry-lightbox">
+                    <img src="{{ url('storage/files/gallery/square/'.$item->archive) }}" alt="" class="w-100">
+                  </a>
+                </div>
               </div>
-            </div>
 
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-3.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-3.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-4.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-4.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-5.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-5.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-6.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-6.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-7.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-7.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
-
-            <div class="col-lg-3 col-md-4">
-              <div class="gallery-item">
-                <a href="assets/img/gallery/gallery-8.jpg" class="galelry-lightbox">
-                  <img src="assets/img/gallery/gallery-8.jpg" alt="" class="img-fluid">
-                </a>
-              </div>
-            </div>
+            @endforeach
 
           </div>
 
@@ -663,6 +611,16 @@
         </div>
       </section><!-- End Features Section -->
 
+
+
+
+
+
+
+
+
+
+
       <!-- ======= Frequently Asked Questions Section ======= -->
       <section id="faq" class="faq">
         <div class="container" data-aos="fade-up">
@@ -673,77 +631,24 @@
               Autoescuela Colombo.</p>
           </div>
 
+
+          @foreach ($faq??[] as $item)
+
           <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
             <div class="col-lg-5">
               <i class="bx bx-help-circle"></i>
-              <h4>Non consectetur a erat nam at lectus urna duis?</h4>
+              <h4>{{ $item->title }}</h4>
             </div>
             <div class="col-lg-7">
-              <p>
-                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id volutpat lacus laoreet non curabitur gravida.
-                Venenatis lectus magna fringilla urna porttitor rhoncus dolor purus non.
-              </p>
+              {{ nl2br($item->description) }}
             </div>
           </div><!-- End F.A.Q Item-->
 
-          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200">
-            <div class="col-lg-5">
-              <i class="bx bx-help-circle"></i>
-              <h4>Feugiat scelerisque varius morbi enim nunc faucibus a pellentesque?</h4>
-            </div>
-            <div class="col-lg-7">
-              <p>
-                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec
-                ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit
-                ullamcorper dignissim.
-              </p>
-            </div>
-          </div><!-- End F.A.Q Item-->
-
-          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300">
-            <div class="col-lg-5">
-              <i class="bx bx-help-circle"></i>
-              <h4>Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi?</h4>
-            </div>
-            <div class="col-lg-7">
-              <p>
-                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar elementum
-                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu tincidunt.
-                Lectus urna duis convallis convallis tellus.
-              </p>
-            </div>
-          </div><!-- End F.A.Q Item-->
-
-          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400">
-            <div class="col-lg-5">
-              <i class="bx bx-help-circle"></i>
-              <h4>Ac odio tempor orci dapibus. Aliquam eleifend mi in nulla?</h4>
-            </div>
-            <div class="col-lg-7">
-              <p>
-                Aperiam itaque sit optio et deleniti eos nihil quidem cumque. Voluptas dolorum accusantium sunt sit enim.
-                Provident consequuntur quam aut reiciendis qui rerum dolorem sit odio. Repellat assumenda soluta sunt
-                pariatur error doloribus fuga.
-              </p>
-            </div>
-          </div><!-- End F.A.Q Item-->
-
-          <div class="row faq-item d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="500">
-            <div class="col-lg-5">
-              <i class="bx bx-help-circle"></i>
-              <h4>Tempus quam pellentesque nec nam aliquam sem et tortor consequat?</h4>
-            </div>
-            <div class="col-lg-7">
-              <p>
-                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est ante in. Nunc vel
-                risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est. Purus gravida
-                quis blandit turpis cursus in
-              </p>
-            </div>
-          </div><!-- End F.A.Q Item-->
+          @endforeach
 
         </div>
       </section><!-- End Frequently Asked Questions Section -->
+
 
       <!-- ======= Contact Section ======= -->
       <section id="contact" class="contact section-bg">
@@ -771,27 +676,22 @@
             </div>
 
             <div class="col-lg-6">
-              <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+              <form action="{{ route('web.public.api.message.send') }}" method="post" role="form" class="php-email-form form_">
                 <div class="row">
                   <div class="col-md-6 form-group">
-                    <input type="text" name="name" class="form-control" id="name" placeholder="Your Name" required>
+                    <input type="text" name="name" class="form-control" id="name" placeholder="Su Nombre" required>
                   </div>
                   <div class="col-md-6 form-group mt-3 mt-md-0">
-                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email" required>
+                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" required>
                   </div>
                 </div>
                 <div class="form-group mt-3">
-                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" required>
+                  <input type="text" class="form-control" name="subject" id="subject" placeholder="Sujeto" required>
                 </div>
                 <div class="form-group mt-3">
                   <textarea class="form-control" name="message" rows="5" placeholder="Message" required></textarea>
                 </div>
-                <div class="my-3">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
-                </div>
-                <div class="text-center"><button type="submit">Send Message</button></div>
+                <div class="text-center mt-4"><button type="submit">Send Messaje</button></div>
               </form>
             </div>
 
@@ -799,10 +699,6 @@
 
         </div>
       </section><!-- End Contact Section -->
-
-
-
-
 
 
 

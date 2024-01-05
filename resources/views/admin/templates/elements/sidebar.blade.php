@@ -60,7 +60,7 @@
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.page_info.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Variaveis de Pagina</a></li>
+                              href="javascript:void()"><i class="icon fa fa-circle"></i>Variables de página</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.site_menu.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Menus de Pagina</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.gallery.index') }}"

@@ -28,14 +28,16 @@ class ServicesServiceImpl implements IServicesService
             throw new \Exception(__('Forneca o Nome'));
         }
 
-        foreach ($data as $i => $value) {
-            if (!in_array($i,$this->insertFillables)) {
-              unset($data->{$i});
-            }
-        } 
+        $payload = new \stdClass();
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
 
-        $data->code = code(empty($data->code)?null:$data->code,__METHOD__);
-        $arr = json_decode(json_encode($data),true);
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->insertFillables)) {
+                $payload->{$i} = $value;
+            }
+        }
+
+        $arr = json_decode(json_encode($payload), true);
         unset($arr["id"]);
 
         DB::table($this->table)->insert($arr);
@@ -53,17 +55,17 @@ class ServicesServiceImpl implements IServicesService
         }
 
 
-
-
+        $payload = new \stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-        $arr = json_decode(json_encode($data), true);
 
-        foreach ($arr as $i => $value) {
-            if (!in_array($i, $this->updateFillables)) {
-           unset($arr[$i]);
+        foreach ($data as $i => $value) {
+            if (in_array($i, $this->updateFillables)) {
+                $payload->{$i} = $value;
             }
         }
 
+
+        $arr = json_decode(json_encode($payload), true);
         $arr['updated_at'] = DB::raw('now()');
 
         DB::table($this->table)->where('id', $data->id)->update($arr);

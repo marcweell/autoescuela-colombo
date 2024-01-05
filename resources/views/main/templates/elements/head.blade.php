@@ -47,6 +47,8 @@
             border: none !important;
         }
     </style>
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/pace/flash.css') }}">
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/toast-master/css/jquery.toast.css') }}" />
     <link rel="stylesheet" href="{{ url('public/essential/plugins/Croppie/croppie.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/color-picker-huebee/huebee.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/css/bootstrapicons-iconpicker.min.css') }}">

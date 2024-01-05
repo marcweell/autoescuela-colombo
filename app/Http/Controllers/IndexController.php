@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\gallery\GalleryServiceQueryImpl;
 use Illuminate\Http\Request;
 
 
@@ -14,6 +15,7 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         return view('main.pages.index', [
+            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function contactIndex(Request $request)
