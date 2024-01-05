@@ -60,7 +60,7 @@ class HomePageInfo
     public function get($key = "")
     {
         if (empty(HomePageInfo::$instance->info[$key])) {
-            return "";
+            return null;
         }
 
         return  HomePageInfo::$instance->info[$key];
