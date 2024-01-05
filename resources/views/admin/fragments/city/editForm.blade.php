@@ -6,7 +6,7 @@
         <form action="{{ route('web.admin.settings.geo.city.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $city->id }}">
             <div class="col-md-6 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control" value="{{ $city->name }}">
             </div>
             <div class="col-md-6 mb-3">
@@ -15,7 +15,7 @@
             </div>
 
             <div class="col-12 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <select name="country_id" id="country_id" class="form-select">
                     @foreach ($country as $item)
                         <option value="{{ $item->id }}" {{ $item->id == $city->country_id ? 'selected' : '' }}>
@@ -25,10 +25,10 @@
                 </select>
             </div>
 
-            
+
 <div class="col-md-12">
-    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('guardar') }}</button>
-</div> 
+    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
+</div>
         </form>
 
     </div> <!-- end card-body -->

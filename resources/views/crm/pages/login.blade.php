@@ -25,9 +25,9 @@
             'message' => 'Existe apenas um chefe. O consumidor. E ele pode demitir todos na curso, do presidente para baixo, simplesmente gastando seu dinheiro em outro lugar.',
         ],
     ];
-    
+
     shuffle($quote);
-      
+
 @endphp
 <!DOCTYPE html>
 <html lang="en">
@@ -69,7 +69,7 @@
 
                     <!-- title-->
                     <h4 class="mt-0">Entrar</h4>
-                    <p class="text-muted mb-4">Digite seu endereço de e-mail/nome e usuario e senha para aceder a sua
+                    <p class="text-muted mb-4">Digite seu endereço de e-mail/nombre e usuario e senha para aceder a sua
                         conta.</p>
 
                     <!-- form -->

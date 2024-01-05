@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Pais') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Pais') }}</h4>
 
         <form action="{{ route('web.admin.project.survey_question.add.do') }}" class="form_ parent-load row"
             method="post">
@@ -9,7 +9,7 @@
             <div class="col-md-9 mb-3">
                 <label for="name" class="form-label">{{ __('Questao') }}</label>
                 <input type="text" name="question" id="name" class="form-control"
-                    placeholder="{{ __('Digite o nome...') }}">
+                    placeholder="{{ __('Digite o nombre...') }}">
             </div>
             <div class="col-md-3">
                 <div class="form-group">
@@ -29,7 +29,7 @@
 
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('guardar') }}</button>
+                        class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
             </div>
         </form>
 
@@ -117,7 +117,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#choice-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Adicionar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
             </div>
         </h4>
         <hr class="m-1">
@@ -156,7 +156,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#radio-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Adicionar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
             </div>
         </h4>
         <hr class="m-1">

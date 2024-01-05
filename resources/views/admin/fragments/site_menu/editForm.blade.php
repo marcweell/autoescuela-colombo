@@ -7,9 +7,9 @@
             <input type="hidden" name="id" value="{{ $site_menu->id }}">
 
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nome...') }}" value="{{ $site_menu->name }}">
+                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $site_menu->name }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Rota') }}</label>
@@ -29,7 +29,7 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icone') }}</label>
-                <input type="text" name="icon_class" id="name" class="form-control iconpicker" value="{{ $site_menu->icon_class }}">
+                <input type="text" name="icon_class" id="name" class="form-control iconpicker"  autocomplete="off" value="{{ $site_menu->icon_class }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Pai') }}</label>
@@ -44,13 +44,13 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Indice') }}</label>
                 <input type="number" step="0.0001" name="_index" id="name" class="form-control"
-                    placeholder="{{ __('Digite o nome...') }}" value="{{ $site_menu->order_index }}">
+                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $site_menu->order_index }}">
             </div>
 
 
 
 <div class="col-md-12">
-    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('guardar') }}</button>
+    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
 </div>
         </form>
 

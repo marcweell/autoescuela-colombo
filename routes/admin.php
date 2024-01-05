@@ -618,6 +618,47 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
     });
 
 
+        #---------------------------------------------------------------------------------------------------------------
+
+        Route::prefix("/bulk_message")->middleware([App\Http\Middleware\Police::class])->name("bulk_message.")->group(function () {
+            Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'index'])->middleware([App\Http\Middleware\Police::class])->name("index");
+
+            Route::prefix("/sms")->middleware([App\Http\Middleware\Police::class])->name("sms.")->group(function () {
+                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'smsIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                Route::prefix("/compose")->middleware([App\Http\Middleware\Police::class])->name("compose.")->group(function () {
+                    Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'composeSmsIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                    Route::post("/send", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'sendSms'])->middleware([App\Http\Middleware\Police::class])->name("send");
+                });
+            });
+            Route::prefix("/email")->middleware([App\Http\Middleware\Police::class])->name("email.")->group(function () {
+                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'emailIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                Route::prefix("/compose")->middleware([App\Http\Middleware\Police::class])->name("compose.")->group(function () {
+                    Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'composeEmailIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                    Route::post("/send", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'sendEmail'])->middleware([App\Http\Middleware\Police::class])->name("send");
+                });
+            });
+
+
+
+            Route::prefix("/statistics")->middleware([App\Http\Middleware\Police::class])->name("statistics.")->group(function () {
+                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statisticsIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                Route::prefix("/report")->middleware([App\Http\Middleware\Police::class])->name("report.")->group(function () {
+                    Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statistisRepostIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                    Route::post("/download", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statisticsReportDownload'])->middleware([App\Http\Middleware\Police::class])->name("download");
+                });
+            });
+
+            Route::prefix("/settings")->middleware([App\Http\Middleware\Police::class])->name("settings.")->group(function () {
+                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                Route::prefix("/update")->middleware([App\Http\Middleware\Police::class])->name("update.")->group(function () {
+                    Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsUpdateIndex'])->middleware([App\Http\Middleware\Police::class])->name("index");
+                    Route::post("/do", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsUpdate'])->middleware([App\Http\Middleware\Police::class])->name("do");
+                });
+            });
+        });
+
+
+
 
     #---------------------------------------------------------------------------------------------------------------
     Route::prefix("/auditory")->middleware([App\Http\Middleware\CheckPermission::class])->name("auditory.")->group(function () {

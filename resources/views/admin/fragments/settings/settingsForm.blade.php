@@ -20,15 +20,15 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Categoria de Inquerito
+                                <div class="col ps-0">Categoria de Examen
                                     <!--p class="mb-0 font-13">2.3 MB</p-->
                                 </div>
                             </div> <!-- end row -->
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
@@ -49,8 +49,8 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
@@ -71,8 +71,8 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
@@ -93,7 +93,7 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
+            </div> <!-- end col-->
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
@@ -114,8 +114,8 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
@@ -136,8 +136,8 @@
                         </a>
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
-            </div> <!-- end col--> 
- 
+            </div> <!-- end col-->
+
 
 
             <!-------------------------------------------------------------------------------------------------------->
@@ -210,8 +210,8 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
- 
- 
+
+
 
             <!-------------------------------------------------------------------------------------------------------->
 
@@ -239,10 +239,10 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
- 
+
 
             <!-------------------------------------------------------------------------------------------------------->
- 
+
 
 
         </div>

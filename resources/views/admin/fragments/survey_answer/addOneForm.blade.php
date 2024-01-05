@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <span class="header-title text-end w-100 d-block">{{ __('Responder Inquerito') }}</span>
+        <span class="header-title text-end w-100 d-block">{{ __('Responder Examen') }}</span>
         <div class="alert alert-dark">
             <h6 class="header-title">{{ $survey->name }}</h6>
             <p>{{ $survey->description }}</p>
@@ -41,9 +41,9 @@
             @endphp
             @foreach ($question as $item)
                 <div class="col-md-12 mb-3">
-                    <label class="form-label d-block">{{ $nr }}. {{ $item->question }}</label> 
+                    <label class="form-label d-block">{{ $nr }}. {{ $item->question }}</label>
 
-                    @switch($item->question_type) 
+                    @switch($item->question_type)
                     @case('single-choice-radio')
                         <div class="form-group mb-3">
 
@@ -56,7 +56,7 @@
                                 <span class="d-inline m-1"><input type="radio" name="question[{{ $item->id }}]" value="{{$q->answer}}">
                                     {{ $q->answer }}</span>
                             @endforeach
-                        </div> 
+                        </div>
                     @break
                     @case('multiple-choice')
                         <div class="form-group mb-3">
@@ -70,15 +70,15 @@
                                 <span class="d-inline m-1"><input type="checkbox" name="question[{{ $item->id }}]" value="{{$q->answer}}">
                                     {{ $q->answer }}</span>
                             @endforeach
-                        </div> 
+                        </div>
                     @break
- 
+
                     @case('open-ended-single')
                     <div class="form-group mb-3">
                         <textarea class="form-control" cols="30" name="question[{{ $item->id }}]"></textarea>
                     </div>
                     @break
- 
+
                         @default
                             <div class="form-group mb-3">
                                 <textarea class="form-control" cols="30" name="question[{{ $item->id }}]"></textarea>

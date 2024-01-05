@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Usuario') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Usuario') }}</h4>
 
         <form action="{{ route('web.admin.page_subcategory_course.add.do') }}" class="form_ parent-load row" method="post">
 

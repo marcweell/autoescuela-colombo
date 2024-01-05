@@ -17,7 +17,7 @@
                                                         <div>
                                                             <h4 class="mt-1 mb-1 text-white">{{ $course->name }}</h4>
                                                             <p class="font-13 text-white-50">{{ $course->course_category_name }}</p>
-     
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -46,7 +46,7 @@
                                     <div class="card-body">
                                         <h4 class="header-title mt-0 mb-3">{{__("Informacoes")}}</h4>
                                         <p class="text-muted font-13">
-                                        {{ $course->description }} 
+                                        {{ $course->description }}
                                         </p>
 
                                         <hr/>
@@ -56,7 +56,7 @@
 
                                             @foreach ($course->contact as $item)
                                             <p class="text-muted"><strong>{{ __($item->contact_type_name) }} :</strong><span class="ms-2">{{ $item->contato }}</span></p>
-                                                
+
                                             @endforeach
 
                                             <p class="text-muted"><strong>Languages :</strong>
@@ -82,13 +82,13 @@
                                     </div> <!-- end card-body-->
                                 </div> <!-- end card-->
                                 <!-- End Toll free number box-->
- 
+
 
                             </div> <!-- end col-->
 
                             <div class="col-xl-8">
 
- 
+
 
                                 <div class="row">
                                     <div class="col-sm-4">
@@ -136,19 +136,19 @@
                                             <table class="table table_ table-sm table-smtable-hover table-centered mb-0">
                                                 <thead>
                                                     <tr>
-                                                        <th>Nome Completo</th>
+                                                        <th>Nombre Completo</th>
                                                         <th>Usuario</th>
                                                         <th>Stock</th>
                                                     </tr>
                                                 </thead>
                                                 <tbody>
                                                     @foreach ([1,1,1,1,11,1,11,1,1,11,11,1,1,11,11,1,1,1] as $item)
-                                                        
+
                                                     <tr>
                                                         <td>ASOS Ridley High Waist</td>
                                                         <td>$79.49</td>
                                                         <td><span class="badge bg-primary">82 Pcs</span></td>
-                                                    </tr> 
+                                                    </tr>
                                                     @endforeach
                                                 </tbody>
                                             </table>

@@ -1,5 +1,5 @@
 <div class="card">
-    
+
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Pergunta Frequente') }}</h4>
 
@@ -16,14 +16,14 @@
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Pergunta') }}</label>
                 <input type="text" name="title" id="name" class="form-control" value="{{  $faq->title }}">
-            </div> 
+            </div>
 
             <div class="col-md-12 mb-3">
                 <label for="title" class="form-label">{{ __('Resposta') }}</label>
                 <textarea name="description" class="form-control textarea" rows="10">{!! $faq->description !!}</textarea>
-            </div> 
+            </div>
 
-            <button type="submit" class="btn btn-secondary chl_loader"><i class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
+            <button type="submit" class="btn btn-secondary chl_loader"><i class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
         </form>
 
     </div> <!-- end card-body -->

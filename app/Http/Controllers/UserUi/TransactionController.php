@@ -26,7 +26,7 @@ class TransactionController extends Controller
     }
     public function addCredit(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -41,7 +41,7 @@ class TransactionController extends Controller
 
     public function addDebt(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -55,7 +55,7 @@ class TransactionController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -71,7 +71,7 @@ class TransactionController extends Controller
     {
         try {
             $this->transactionService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -126,7 +126,7 @@ class TransactionController extends Controller
     }
     public function updateCreditIndex(Request $request)
     {
-        
+
         try {
             $transaction = $this->transactionServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.transaction.credit.editForm', [
@@ -136,7 +136,7 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
-    } 
+    }
     public function debtIndex(Request $request)
     {
         try {
@@ -165,7 +165,7 @@ class TransactionController extends Controller
     }
     public function updateDebtIndex(Request $request)
     {
-        
+
         try {
             $transaction = $this->transactionServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.transaction.debt.editForm', [
@@ -175,5 +175,5 @@ class TransactionController extends Controller
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
-    } 
+    }
 }

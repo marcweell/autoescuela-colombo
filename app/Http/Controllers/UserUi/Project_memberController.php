@@ -22,7 +22,7 @@ class Project_memberController extends Controller
     }
     public function add(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -36,7 +36,7 @@ class Project_memberController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -52,7 +52,7 @@ class Project_memberController extends Controller
     {
         try {
             $this->project_memberService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Project_memberController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $project_member = $this->project_memberServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.project_member.editForm', [

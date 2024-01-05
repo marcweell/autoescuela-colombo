@@ -25,7 +25,7 @@
                             <!-- Field wrapper start -->
                             <div class="field-wrapper">
                                 <input type="text" class="form-control" name="name" value="{{ $user->names }}">
-                                <div class="field-placeholder">Nome</div>
+                                <div class="field-placeholder">Nombre</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>

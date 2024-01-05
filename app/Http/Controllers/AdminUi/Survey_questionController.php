@@ -52,7 +52,7 @@ class Survey_questionController extends Controller
                     $data->survey_question_option = array_values($data->survey_question_option);
 
                     foreach (empty($data->survey_question_option) ? [] : $data->survey_question_option as $i => $value) {
-                        $data->option = $value;
+                        $data->option_ = $value;
                         $data->code = code(null, __METHOD__ . pinCode());
                         (new Survey_question_optionServiceImpl())->add($data);
                     }
@@ -92,7 +92,7 @@ class Survey_questionController extends Controller
     {
         try {
             $this->survey_questionService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

@@ -65,6 +65,10 @@
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Menus de Pagina</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.gallery.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Galeria</a></li>
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.services.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Servicios</a></li>
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.message.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Mensajes</a></li>
                   </ul>
               </li>
 

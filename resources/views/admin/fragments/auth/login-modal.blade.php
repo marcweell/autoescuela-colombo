@@ -8,7 +8,7 @@
      <form action="{{ route('web.admin.account.auth.reAuth') }}" class="form_ parent-load">
          <input type="hidden" name="handshake" value="{{ $handshake }}">
          <div class="mb-3">
-             <label for="user" class="form-label">Email/Nome de Usuario</label>
+             <label for="user" class="form-label">Email/Nombre de Usuario</label>
              <input class="form-control" name="user" type="text" id="user" required=""
                  placeholder="Enter your email">
          </div>

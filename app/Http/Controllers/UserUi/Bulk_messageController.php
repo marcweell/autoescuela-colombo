@@ -27,7 +27,7 @@ class Bulk_messageController extends Controller
     }
     public function sendEmail(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -39,9 +39,9 @@ class Bulk_messageController extends Controller
             foreach ($request->get("recipients")??[] as $key => $value) {
                 $this->emailService->addRecipient($value);
             }
-            
-            
-            
+
+
+
             $this->emailService->send();
             return (new WebApi())->setSuccess()->notify(__("Mensagem Envida com Sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
@@ -50,13 +50,13 @@ class Bulk_messageController extends Controller
     }
     public function sendSms(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
         $data->code = code(null,__METHOD__);
         try {
-            
+
             (new Validator($request))->require(['recipients'])->intercept();
 
             $this->smsService->setBody($request->get("body"));
@@ -64,9 +64,9 @@ class Bulk_messageController extends Controller
             foreach ($request->get("recipients")??[] as $key => $value) {
                 $this->smsService->addRecipient($value);
             }
-            
-            
-            
+
+
+
             $this->smsService->send();
             return (new WebApi())->setSuccess()->notify(__("Mensagem Envida com Sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
@@ -75,7 +75,7 @@ class Bulk_messageController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -91,7 +91,7 @@ class Bulk_messageController extends Controller
     {
         try {
             $this->bulk_messageService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -165,7 +165,7 @@ class Bulk_messageController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $bulk_message = $this->bulk_messageServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.bulk_message.editForm', [

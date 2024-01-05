@@ -8,7 +8,7 @@
                 </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-                   
+
                 </div>
             </div><!-- end col-->
         </div>
@@ -21,7 +21,7 @@
                             #
                         </th>
                         <th>{{ __('Tag') }}</th>
-                        <th>{{ __('Inquerito') }}</th>
+                        <th>{{ __('Examen') }}</th>
                         <th>{{ __('Curso') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>

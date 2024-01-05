@@ -7,9 +7,8 @@
     <meta content="" name="description">
     <meta content="" name="keywords">
 
-    <!-- Favicons -->
-    <link href="{{ url('public/assets/img/favicon.png') }}" rel="icon">
-    <link href="{{ url('public/assets/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
+    <link rel="shortcut icon" href="{{ url("public/essential/img/favicon.png") }}" type="image/x-icon">
+
 
 
     <!-- Vendor CSS Files -->

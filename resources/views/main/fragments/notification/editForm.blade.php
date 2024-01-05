@@ -6,7 +6,7 @@
         <form action="{{ route('web.admin.settings.notification.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $notification->id }}">
             <div class="col-md-6 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control" value="{{  $notification->name }}">
             </div>
             <div class="col-md-6 mb-3">

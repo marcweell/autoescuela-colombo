@@ -61,7 +61,7 @@
     </style>
 </head>
 
-<body> 
+<body>
     <header>
 
         <div class="text-center" style="margin:0px 0px 20px 0px">
@@ -87,11 +87,11 @@
             </h4>
         </div>
     @endif
-    @if (!empty($descricao))
+    @if (!empty($descripcion))
         <div style="width:100%;font-size:10pt;text-align:justify;padding-bottom:10px;">
             <p>
                 @php
-                    echo $descricao;
+                    echo $descripcion;
                 @endphp
             </p>
         </div>

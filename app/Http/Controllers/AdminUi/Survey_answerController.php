@@ -34,12 +34,12 @@ class Survey_answerController extends Controller
         }
         $data->code = code(null, __METHOD__);
         try {
- 
+
             (new Survey_personServiceImpl())->add($data);
             $data->survey_person_id = (new Survey_personServiceQueryImpl())->deleted(false)->orderDesc()->findByCode($data->code)->id;
 
             foreach ($request->get("data") ?? [] as $i => $value) {
-                $data->data = $value; 
+                $data->data = $value;
                 $data->code = code(null, __METHOD__.pinCode());
                 (new Survey_person_dataServiceImpl())->add($data);
             }
@@ -50,7 +50,7 @@ class Survey_answerController extends Controller
                 $question = (new Survey_questionServiceQueryImpl())->deleted(false)->orderDesc()->findById($i);
                 $data->answer = $value;
                 $data->code = code(null, __METHOD__.pinCode());
-                $data->survey_question_id = $question->id; 
+                $data->survey_question_id = $question->id;
                 $this->survey_answerService->add($data);
             }
 
@@ -80,7 +80,7 @@ class Survey_answerController extends Controller
     {
         try {
             $this->survey_answerService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

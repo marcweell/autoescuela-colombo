@@ -13,7 +13,7 @@
     src="{{ url('public/essential/plugins/jquery-smartwizard/dist/js/jquery.smartWizard.min.js') }}"></script>
 <script src="{{ url('public/essential/plugins/summernote-0.8.20/dist/summernote-bs5.js') }}"></script>
 
-
+<script src="{{ url('public/essential/plugins/select2/select2.min.js') }}"></script>
 <script src="{{ url('public/essential/plugins/gallery/baguetteBox.js') }}"></script>
 <script src="{{ url('public/essential/plugins/gallery/plugins.js') }}"></script>
 <script src="{{ url('public/essential/plugins/jPages-master/js/highlight.pack.js') }}"></script>

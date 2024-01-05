@@ -22,7 +22,7 @@ class Employee_leave_attachmentController extends Controller
     }
     public function add(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -36,7 +36,7 @@ class Employee_leave_attachmentController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -52,7 +52,7 @@ class Employee_leave_attachmentController extends Controller
     {
         try {
             $this->employee_leave_attachmentService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Employee_leave_attachmentController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $employee_leave_attachment = $this->employee_leave_attachmentServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.employee_leave_attachment.editForm', [

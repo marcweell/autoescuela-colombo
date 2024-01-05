@@ -31,9 +31,9 @@
                 </select>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nome...') }}" value="{{ $course->name }}">
+                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $course->name }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="website" class="form-label">{{ __('Website') }}</label>
@@ -55,7 +55,7 @@
             </div>
 
             <div class="col-md-12 mb-3">
-                <label for="description" class="form-label">{{ __('Descricao') }}</label>
+                <label for="description" class="form-label">{{ __('Descripcion') }}</label>
                 <textarea name="description" class="w-100 form-control" rows="5"> {{ $course->description }}</textarea>
             </div>
             <div class="col-12">
@@ -122,7 +122,7 @@
 
 
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('guardar') }}</button>
+                <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
             </div>
         </form>
 

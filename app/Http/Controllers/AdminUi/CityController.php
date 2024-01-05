@@ -54,7 +54,7 @@ class CityController extends Controller
     {
         try {
             $this->cityService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -77,7 +77,7 @@ class CityController extends Controller
         try {
             $view = view('admin.fragments.city.addForm', [
                 'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
-            
+
             ])->render();
           return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
@@ -86,7 +86,7 @@ class CityController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $city = $this->cityServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.city.editForm', [

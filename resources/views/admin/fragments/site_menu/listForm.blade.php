@@ -6,7 +6,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.site_menu.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="mdi mdi-plus-circle me-2"></i> {{ __('Adicionar Menu') }}</a>
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Menu') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -23,7 +23,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nome') }}</th>
+                        <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Indice') }}</th>
                         <th>{{ __('Rota') }}</th>
                         <th>{{ __('Icone') }}</th>

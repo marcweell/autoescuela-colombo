@@ -1,12 +1,12 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Pais') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Pais') }}</h4>
 
         <form action="{{ route('web.admin.settings.notification.add.do') }}" class="form_ parent-load row" method="post">
 
             <div class="col-12 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control" placeholder="">
             </div>
 

@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Cadastro de Pergunta Frequente') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Pergunta Frequente') }}</h4>
 
         <form action="{{ route('web.admin.settings.faq.add.do') }}" class="form_ parent-load row" method="post">
 
@@ -17,16 +17,16 @@
                 <label for="title" class="form-label">{{ __('Pergunta') }}</label>
                 <input type="text" name="title" id="title" class="form-control"
                     placeholder="{{ __('Digite a pergunta...') }}">
-            </div> 
+            </div>
             <div class="col-md-12 mb-3">
                 <label for="title" class="form-label">{{ __('Resposta') }}</label>
                 <textarea name="description" class="form-control textarea" rows="10"></textarea>
-            </div> 
+            </div>
 
 
             <div class="col-12 pr-5">
                 <button type="submit" class="btn btn-secondary chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('Guardar') }}</button>
+                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>
 

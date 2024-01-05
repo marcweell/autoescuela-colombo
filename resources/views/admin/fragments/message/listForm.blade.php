@@ -17,7 +17,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nome') }}</th>
+                        <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Email') }}</th>
                         <th>{{ __('Assunto') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>

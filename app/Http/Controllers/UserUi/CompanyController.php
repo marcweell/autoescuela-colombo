@@ -32,7 +32,7 @@ class CourseController extends Controller
     }
     public function add(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             if ($key=="master-password" or $key=="route") {
                 continue;
@@ -41,8 +41,8 @@ class CourseController extends Controller
             $data->code = time();
         }
         $data->code = time();
-        try {  
-            $this->courseService->add($data);  
+        try {
+            $this->courseService->add($data);
             return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
@@ -50,7 +50,7 @@ class CourseController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         $contacts = [];
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
@@ -79,7 +79,7 @@ class CourseController extends Controller
     {
         try {
             $this->courseService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

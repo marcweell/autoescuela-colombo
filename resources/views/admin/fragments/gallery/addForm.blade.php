@@ -1,14 +1,14 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Carregar Fotos') }}</h4>
+        <h4 class="header-title">{{ __('Cargar fotos') }}</h4>
 
         <div id="dropzone">
             <form action="{{ route('web.admin.page.gallery.add.do') }}" class="dropzone needsclick dz-clickable"
                 id="photo-upload-form">
 
                 <div class="dz-message needsclick">
-                    <button type="button" class="dz-button">Solte os arquivos aqui ou clique para fazer o upload.</button>
+                    <button type="button" class="dz-button">Suelte los archivos aquí o haga clic para cargarlos.</button>
                 </div>
 
             </form>
@@ -22,9 +22,6 @@
 </div>
 
 
-<!-- Uploader CSS -->
-<link rel="stylesheet" href="{{ url('public/dashboard-assets/vendor/dropzone/dropzone.min.css') }}" />
-<script src="{{ url('public/dashboard-assets/vendor/dropzone/dropzone.min.js') }}"></script>
 <script>
     var dz;
     $(function() {

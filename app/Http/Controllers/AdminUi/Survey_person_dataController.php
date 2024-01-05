@@ -52,7 +52,7 @@ class Survey_person_dataController extends Controller
     {
         try {
             $this->survey_person_dataService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Survey_person_dataController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $survey_person_data = $this->survey_person_dataServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.survey_person_data.editForm', [

@@ -6,7 +6,7 @@
         <form action="{{ route('web.admin.user.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $user->id }}">
             <div class="col-md-4 mb-3">
-                <label for="name" class="form-label">{{ __('Nome') }}</label>
+                <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control" value="{{  $user->name }}">
             </div>
             <div class="col-md-4 mb-3">
@@ -50,7 +50,7 @@
 
 
 <div class="col-md-12">
-    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('guardar') }}</button>
+    <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
 </div>
         </form>
 

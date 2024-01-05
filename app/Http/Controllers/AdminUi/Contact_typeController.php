@@ -52,7 +52,7 @@ class Contact_typeController extends Controller
     {
         try {
             $this->contact_typeService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Contact_typeController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $contact_type = $this->contact_typeServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.contact_type.editForm', [

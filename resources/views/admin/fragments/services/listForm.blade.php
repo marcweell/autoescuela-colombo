@@ -3,7 +3,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.services.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="fa fa-plus-circle me-2"></i> {{ __('Adicionar Serviços') }}</a>
+                        class="fa fa-plus-circle me-2"></i> {{ __('Agregar Servicios') }}</a>
             </div>
             <div class="col-sm-7">
 
@@ -17,7 +17,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nome') }}</th>
+                        <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Icone') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class="fa fa-cog"></i></th>
@@ -28,7 +28,7 @@
                         <tr>
                             <td> {{ $n }} </td>
                             <td> {{ $item->name }} </td>
-                            <td><i class="{{ $item->fa_icon }}"></i></td>
+                            <td><i class="{{ $item->icon }}"></i></td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.page.services.update.index') }}"
@@ -36,7 +36,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.page.services.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
-                                    data-title="Remover Serviços"><i class="fa fa-trash"></i></a>
+                                    data-title="Remover Servicios"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

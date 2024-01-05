@@ -6,10 +6,10 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Services\course\CourseServiceImpl;
 use App\Services\course\CourseServiceQueryImpl;
-use App\Services\course_category\Course_categoryServiceQueryImpl; 
-use App\Services\user\UserServiceQueryImpl; 
-use Flores\WebApi; 
-use Illuminate\Http\Request; 
+use App\Services\course_category\Course_categoryServiceQueryImpl;
+use App\Services\user\UserServiceQueryImpl;
+use Flores\WebApi;
+use Illuminate\Http\Request;
 use stdClass;
 
 class CourseController extends Controller
@@ -25,7 +25,7 @@ class CourseController extends Controller
     {
         $data = new stdClass();
         foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value; 
+            $data->{$key} = $value;
         }
         try {
             $this->courseService->add($data);
@@ -65,7 +65,7 @@ class CourseController extends Controller
     {
         try {
             $this->courseService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

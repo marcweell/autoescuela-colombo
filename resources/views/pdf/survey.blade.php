@@ -126,7 +126,7 @@
                                             continue;
                                         }
                                     @endphp
-                                    <span><input type="checkbox" name=""> {{ $q->option }}</span>
+                                    <span><input type="checkbox" name=""> {{ $q->option_ }}</span>
                                 @endforeach
                             </td>
                         </tr>

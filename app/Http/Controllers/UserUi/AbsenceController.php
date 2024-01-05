@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Services\absence\AbsenceServiceImpl;
 use App\Services\absence\AbsenceServiceQueryImpl;
 use Flores\WebApi;
-use Illuminate\Http\Request; 
+use Illuminate\Http\Request;
 use stdClass;
 
 class AbsenceController extends Controller
@@ -19,7 +19,7 @@ class AbsenceController extends Controller
     }
     public function add(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -33,7 +33,7 @@ class AbsenceController extends Controller
     }
     public function update(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
@@ -49,7 +49,7 @@ class AbsenceController extends Controller
     {
         try {
             $this->absenceService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -79,7 +79,7 @@ class AbsenceController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $absence = $this->absenceServiceQuery->findById($request->get('id'));
             $view = view('user.fragments.absence.editForm', [

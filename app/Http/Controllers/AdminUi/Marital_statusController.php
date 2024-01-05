@@ -52,7 +52,7 @@ class Marital_statusController extends Controller
     {
         try {
             $this->marital_statusService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Marital_statusController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $marital_status = $this->marital_statusServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.marital_status.editForm', [

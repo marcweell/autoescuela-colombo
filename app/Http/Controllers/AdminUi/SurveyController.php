@@ -45,6 +45,13 @@ class SurveyController extends Controller
             $this->surveyService->add($data);
             $data->survey_id = $this->surveyServiceQuery->deleted(false)->orderDesc()->findByCode($data->code)->id;
 
+            if (!empty($data->person_data_type)) {
+                $data->person_data_type = array_values($data->person_data_type);
+            }
+            if (!empty($data->person_data_name)) {
+                $data->person_data_name = array_values($data->person_data_name);
+            }
+
             foreach (empty($data->person_data_type) ? [] : $data->person_data_type as $i => $value) {
                 $data->data_type = $value;
                 $data->code = code(null, __METHOD__);
@@ -74,7 +81,7 @@ class SurveyController extends Controller
     {
         try {
             $this->surveyService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -160,7 +167,7 @@ class SurveyController extends Controller
 
         try {
             $survey = $this->surveyServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
- 
+
             $view = view('pdf.survey', [
                 'survey' => $survey,
                 "data" => (new Person_dataServiceQueryImpl())->bySurveyId($survey->id)->deleted(false)->findAll(),

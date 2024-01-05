@@ -25,7 +25,7 @@
                             <!-- Field wrapper start -->
                             <div class="field-wrapper">
                                 <input type="text" class="form-control" name="name" value="{{ $user->name }}">
-                                <div class="field-placeholder">Nome</div>
+                                <div class="field-placeholder">Nombre</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
@@ -60,7 +60,7 @@
                             </div>
                         <div class="col-xl-12 col-lg-12 col-md-2 col-sm-12 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
-                                    class="fa fa-save p-2"></i>{{ __("Guardar") }}</button>
+                                    class="fa fa-save p-2"></i>{{ __("Salvar") }}</button>
                             <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary mb-3 _link_"><i
                                     class="fa fa-arrow-left p-2"></i> Voltar ao Perfil</button>
 

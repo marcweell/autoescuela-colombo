@@ -6,11 +6,11 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.settings.geo.village.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="mdi mdi-plus-circle me-2"></i> {{ __('Adicionar Vila') }}</a>
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Vila') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-                   
+
                 </div>
             </div><!-- end col-->
         </div>
@@ -22,7 +22,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nome') }}</th>
+                        <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Codigo') }}</th>
                         <th>{{ __('Cidade') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>

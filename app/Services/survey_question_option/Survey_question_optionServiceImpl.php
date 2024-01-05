@@ -19,7 +19,7 @@ use Flores;
 
 class Survey_question_optionServiceImpl implements ISurvey_question_optionService
 {
-    private $insertFillables = ['survey_question_id','option', 'code'];
+    private $insertFillables = ['survey_question_id','option_', 'code'];
     private $updateFillables = ['name', 'code'];
     private $table =  'survey_question_option';
     private $serviceQuery;
@@ -31,7 +31,7 @@ class Survey_question_optionServiceImpl implements ISurvey_question_optionServic
 
     public function add($data)
     {
-        if (empty($data->option)) {
+        if (empty($data->option_)) {
             throw new \Exception(__('Nome invalido'), 400);
         }
 

@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <span class="header-title text-end w-100 d-block">{{ __('Responder Inquerito') }}</span>
+        <span class="header-title text-end w-100 d-block">{{ __('Responder Examen') }}</span>
         <div class="alert alert-dark">
             <h6 class="header-title">{{ $survey->name }}</h6>
             <p>{{ $survey->description }}</p>
@@ -67,7 +67,7 @@
                                         }
                                     @endphp
                                     <span class="d-inline m-1"><input type="checkbox" name="question_option[{{ $item->id }}][]" value="{{$q->id}}">
-                                        {{ $q->option }}</span>
+                                        {{ $q->option_ }}</span>
                                 @endforeach
                             </div>
                         @break

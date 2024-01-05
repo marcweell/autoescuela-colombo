@@ -7,11 +7,11 @@
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.project.survey.add.index') }}" data-id="-1"
                     class="btn btn-primary mb-2 _link_"><i class="mdi mdi-plus-circle me-2"></i>
-                    {{ __('Adicionar Inquerito') }}</a>
+                    {{ __('Agregar Examen') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-                   
+
                 </div>
             </div><!-- end col-->
         </div>
@@ -39,7 +39,7 @@
                             <td> {{ $n }} </td>
                             <td> {{ $item->name }} </td>
                             <td> {{ $item->language_name }} </td>
-                            <td> {{ $item->course_name }} </td> 
+                            <td> {{ $item->course_name }} </td>
                             <td> {{ Flores\Tools::date_convert($item->start_date, 'd-m-Y') }} </td>
                             <td> {{ Flores\Tools::date_convert($item->end_date, 'd-m-Y') }} </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
@@ -55,10 +55,10 @@
                                                 class="fa fa-print"></i>Imprimir</a>
                                         <a data-href="{{ route('web.admin.project.survey.question.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
-                                                class="fa fa-question"></i>Adicionar Pergunta</a>
+                                                class="fa fa-question"></i>Agregar Pergunta</a>
                                         <a data-href="{{ route('web.admin.project.survey.answer.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
-                                                class="fa fa-reply"></i>Adicionar Resposta</a>
+                                                class="fa fa-reply"></i>Agregar Resposta</a>
                                         <a data-href="{{ route('web.admin.project.survey.update.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
                                                 class="fa fa-edit"></i>Editar</a>

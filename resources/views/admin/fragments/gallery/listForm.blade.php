@@ -4,7 +4,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.gallery.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="fa fa-plus-circle me-2"></i> {{ __('Adicionar Fotos') }}</a>
+                        class="fa fa-plus-circle me-2"></i> {{ __('Agregar Fotos') }}</a>
             </div>
         </div>
 

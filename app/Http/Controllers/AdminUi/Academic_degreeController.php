@@ -52,7 +52,7 @@ class Academic_degreeController extends Controller
     {
         try {
             $this->academic_degreeService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Remocao efectuada com sucesso")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -82,7 +82,7 @@ class Academic_degreeController extends Controller
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $academic_degree = $this->academic_degreeServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.academic_degree.editForm', [
