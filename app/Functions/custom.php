@@ -1,4 +1,5 @@
 <?php
+
 use Flores\HomePageInfo;
 use Flores\Tools;
 use Flores\FileManager;
@@ -73,9 +74,10 @@ function pinCode($size = 5, $chars = '012OPQRSTUV34ABCDZ56EFGHIJKLMN789WXY')
 }
 
 
-function _info($key)
+function _info($key, $alt = "")
 {
-    return HomePageInfo::getInstance()->get($key);
+    $val = HomePageInfo::getInstance()->get($key);
+    return empty($val) ? $alt : $val;
 }
 
 
