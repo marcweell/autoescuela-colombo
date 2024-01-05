@@ -40,9 +40,9 @@
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.project.survey.add.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar</a></li>
+                              href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Examen</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.project.survey.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Lista</a></li>
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Lista de Examen</a></li>
                       <hr class="my-1">
                       <li><a class="treeview-item _link_"
                               data-href="{{ route('web.admin.settings.survey_category.index') }}"
@@ -63,6 +63,8 @@
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Variaveis de Pagina</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.site_menu.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Menus de Pagina</a></li>
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.gallery.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Galeria</a></li>
                   </ul>
               </li>
 
@@ -72,23 +74,23 @@
 
 
               <li>
-                <a class="app-menu__item _link_" data-href="{{ route('web.admin.settings.index') }}"
-                    href="javascript:void()" target="_blank">
-                    <i class="app-menu__icon fa fa-cog"></i>
-                    <span class="app-menu__label">Configuracion</span>
-                </a>
-            </li>
+                  <a class="app-menu__item _link_" data-href="{{ route('web.admin.settings.index') }}"
+                      href="javascript:void()" target="_blank">
+                      <i class="app-menu__icon fa fa-cog"></i>
+                      <span class="app-menu__label">Configuracion</span>
+                  </a>
+              </li>
 
-            <!-- ----------- -->
+              <!-- ----------- -->
 
 
-            <li>
-                <a class="app-menu__item _link_" data-href="{{ route('web.admin.developer.index') }}"
-                    href="javascript:void()" target="_blank">
-                    <i class="app-menu__icon fa fa-code"></i>
-                    <span class="app-menu__label"> Desenvolvimento</span>
-                </a>
-            </li>
+              <li>
+                  <a class="app-menu__item _link_" data-href="{{ route('web.admin.developer.index') }}"
+                      href="javascript:void()" target="_blank">
+                      <i class="app-menu__icon fa fa-code"></i>
+                      <span class="app-menu__label"> Desarrollo</span>
+                  </a>
+              </li>
 
 
               <!-- ----------- -->

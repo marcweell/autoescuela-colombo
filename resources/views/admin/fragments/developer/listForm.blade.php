@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <div class="card-title"><h5>{!! __("conteudo") !!}<h5></div>
+        <div class="card-title"><h5>{!! __("Desarrollo") !!}<h5></div>
     </div>
     <div class="card-body">
         <div class="row mb-2">
@@ -10,7 +10,7 @@
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
-                   
+
                 </div>
             </div><!-- end col-->
         </div>

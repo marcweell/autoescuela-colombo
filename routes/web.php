@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\Route;
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 |
-*/ 
+*/
+
+Route::post("/summernote/image", [App\Http\Controllers\WebApiController::class, 'summernoteImageUpload']);
 
 Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("web.public.")->group(function () {
 

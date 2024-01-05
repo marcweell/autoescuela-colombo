@@ -52,6 +52,21 @@
     <link rel="stylesheet" href="{{ url('public/essential/plugins/Croppie/croppie.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/color-picker-huebee/huebee.css') }}">
     <link rel="stylesheet" href="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/css/bootstrapicons-iconpicker.min.css') }}">
+
+
+
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/summernote-0.8.20/dist/summernote-bs5.css') }}" />
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/jPages-master/css/jPages.css') }}">
+    <link href="{{ url('public/essential/plugins/jquery-smartwizard/dist/css/smart_wizard_all.min.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ url('public/essential/plugins/gallery/gallery.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/jquery-steps-master/demo/css/jquery.steps.css') }}">
+
+
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/dropzone/dist/basic.css') }}">
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/dropzone/dist/dropzone.css') }}">
+
+
+
 @yield('head')
 
 

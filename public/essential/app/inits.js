@@ -637,6 +637,18 @@ app.listenner.add("ComponentInits", function () {
 
 
     try {
+        var SummerNoteUpload = function (image, editor) {
+            var form = new FormData();
+            form.append("image", image);
+            var img_src = env.root + '/summernote/image';
+            new request(img_src).setData(form).quite().execute(
+                function (r) {
+                    var image = $("<img>").attr("src", r.response.image).attr("width", '200px');
+                    $(editor).summernote("insertNode", image[0]);
+                }
+            );
+        };
+
         $(".textareaI").summernote({
 
             toolbar: [
@@ -651,23 +663,11 @@ app.listenner.add("ComponentInits", function () {
 
             callbacks: {
                 onImageUpload: function (image) {
-                    editor = $(this);
-                    this.upload(image[0], editor);
+                    var editor = $(this);
+                    SummerNoteUpload(image[0], editor);
                 },
             },
 
-            img_src: env.origin + 'summernote/image',
-
-            upload: function (image, editor) {
-                var form = new FormData();
-                form.append("image", image);
-                new request(this.img_src).execute(
-                    function (r) {
-                        var image = $("<img>").attr("src", r);
-                        $(editor).summernote("insertNode", image[0]);
-                    }
-                );
-            }
         });
 
     } catch (error) {

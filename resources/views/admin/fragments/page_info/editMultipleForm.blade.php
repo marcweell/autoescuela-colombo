@@ -16,7 +16,7 @@
                             class="rm_dad btn rounded-0 btn-md float-end"><i class="fa fa-trash"></i></button></div>
                     @switch($item->content_type)
                         @case('rich_text')
-                            <textarea name="content[{{ Flores\Tools::encode($item->id, 1) }}]" class="w-100 textarea"
+                            <textarea name="content[{{ Flores\Tools::encode($item->id, 1) }}]" class="w-100 textareaI"
                                 rows="{{ $item->line_height ?? 3 }}">{!! $item->content !!}</textarea>
                         @break
 

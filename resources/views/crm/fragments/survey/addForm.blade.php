@@ -61,7 +61,7 @@
             <div class="col-md-12">
                 <h4 class="row">
                     <div class="col-6">
-                        {{ __('Dados Pessoais Exigidos') }} </div>
+                        {{ __('Datos personales requeridos') }} </div>
                     <div class="col-6 text-end">
                         <button type="button" role="button" to="#cities" elem-target="#jop_cities"
                             class="clonehim btn btn btn-primary float-right chl_loader"><i

@@ -12,7 +12,7 @@
             <div class="col-md-12 mb-3">
                 @switch($page_info->content_type)
                     @case('rich_text')
-                        <textarea name="content" class="w-100 textarea" rows="{{ $page_info->line_height ?? 3 }}">{!! $page_info->content !!}</textarea>
+                        <textarea name="content" class="w-100 textareaI" rows="{{ $page_info->line_height ?? 3 }}">{!! $page_info->content !!}</textarea>
                     @break
 
                     @case('plain_text')

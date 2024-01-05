@@ -18,7 +18,7 @@ create table if not exists site_menu(
     icon_class varchar(100),
     target enum('ajax', 'parent', '_blank') not null default 'parent',
     active boolean not null default true,
-    created_at datetime default current_timestamp,
+    created_at datetime default current_timestamp(),
     updated_at datetime default null,
     deleted_at datetime default null
 );
@@ -79,6 +79,27 @@ create table if not exists document_type(
     created_at datetime default current_timestamp(),
     updated_at datetime default null,
     deleted_at datetime
+);
+
+
+/* course */
+create table if not exists academic_degree(
+    id bigint auto_increment not null primary key,
+    code varchar(191) not null unique,
+    name varchar(60),
+    description varchar(100),
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime
+);
+
+create table if not exists course_category(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    name varchar(191) not null,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime default null
 );
 
 create table if not exists notification_model(
@@ -195,6 +216,7 @@ create table if not exists user(
     address text,
     born_date date,
     role_id bigint,
+    course_id bigint,
     type enum('admin', 'user') not null default 'user',
     active boolean not null default true,
     activation_token varchar(100),
@@ -265,19 +287,6 @@ create table if not exists faq(
     foreign key(language_id) references language(id) on delete cascade
 );
 
-create table if not exists faq_answer(
-    id bigint auto_increment not null primary key,
-    code varchar(191) not null unique,
-    description text,
-    user_id bigint,
-    language_id bigint,
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime default null,
-    foreign key(user_id) references user(id) on delete cascade,
-    foreign key(language_id) references language(id) on delete cascade
-);
-
 create table if not exists notification(
     id bigint auto_increment not null primary key,
     code varchar(191) not null unique,
@@ -290,6 +299,78 @@ create table if not exists notification(
     deleted_at datetime default null,
     foreign key(user_id) references user(id) on delete cascade
 );
+
+
+
+
+
+
+
+create table if not exists services(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    icon varchar(100) default "fa fa-circle",
+    name varchar(191) not null,
+    description longtext,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime default null
+);
+
+create table if not exists subscriber(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    email varchar(191) not null,
+    ative boolean default false,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime default null
+);
+
+create table if not exists message(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    email varchar(191) not null,
+    subject varchar(191) not null,
+    name varchar(191) not null,
+    message text not null,
+    refused boolean default false,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime default null
+);
+
+
+create table if not exists gallery(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    archive varchar(800),
+    filename varchar(400),
+    description longtext,
+    created_at datetime default current_timestamp,
+    updated_at datetime default null,
+    deleted_at datetime default null
+);
+
+
+create table if not exists partner(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    name varchar(800),
+    cover varchar(400),
+    description longtext,
+    created_at datetime default current_timestamp,
+    updated_at datetime default null,
+    deleted_at datetime default null
+);
+
+
+
+
+
+
+
+
 
 create table if not exists password_change(
     id bigint auto_increment not null primary key,
@@ -319,25 +400,6 @@ create table if not exists session_history(
     foreign key(user_id) references user(id) on delete cascade
 );
 
-/* course */
-create table if not exists academic_degree(
-    id bigint auto_increment not null primary key,
-    code varchar(191) not null unique,
-    name varchar(60),
-    description varchar(100),
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime
-);
-
-create table if not exists course_category(
-    id bigint not null auto_increment primary key,
-    code varchar(191) not null unique,
-    name varchar(191) not null,
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime default null
-);
 
 /* course */
 create table if not exists course(
@@ -366,6 +428,18 @@ create table if not exists course_attachment(
     updated_at datetime default null,
     deleted_at datetime default null,
     foreign key(course_id) references course(id) on delete cascade
+);
+
+create table if not exists course_needed_doc(
+    id bigint not null auto_increment primary key,
+    code varchar(191) not null unique,
+    course_id bigint not null,
+    document_type_id bigint not null,
+    created_at datetime default current_timestamp(),
+    updated_at datetime default null,
+    deleted_at datetime default null,
+    foreign key(course_id) references course(id) on delete cascade,
+    foreign key(document_type_id) references document_type(id) on delete cascade,
 );
 
 /** events */

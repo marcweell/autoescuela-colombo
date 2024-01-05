@@ -4,7 +4,27 @@
     </IfModule>
 
     RewriteEngine On
- 
+
+    <Files ".env">
+        Order Deny,Allow
+        Deny from all
+    </Files>
+
+    <Files "artisan">
+        Order Deny,Allow
+        Deny from all
+    </Files>
+
+    <Files "composer.json">
+        Order Deny,Allow
+        Deny from all
+    </Files>
+
+    <Files "packages.json">
+        Order Deny,Allow
+        Deny from all
+    </Files>
+
 
     # Handle Authorization Header
     RewriteCond %{HTTP:Authorization} .
