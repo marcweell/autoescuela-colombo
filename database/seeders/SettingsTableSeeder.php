@@ -274,7 +274,7 @@ class SettingsTableSeeder extends Seeder
         ];
 
         foreach ($settingss as $key => $value) {
-            (new Page_infoServiceImpl())->add($value);
+            (new Page_infoServiceImpl())->add(json_decode(json_encode($value)));
         }
     }
 }
