@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Settings;
+use App\Services\page_info\Page_infoServiceImpl;
 use Illuminate\Database\Seeder;
 
 class SettingsTableSeeder extends Seeder
@@ -271,6 +272,9 @@ class SettingsTableSeeder extends Seeder
 
 
         ];
-        Settings::insert($settingss);
+
+        foreach ($settingss as $key => $value) {
+            (new Page_infoServiceImpl())->add($value);
+        }
     }
 }
