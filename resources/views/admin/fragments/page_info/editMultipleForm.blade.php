@@ -11,7 +11,7 @@
             </div>
 
             @foreach ($page_info->children as $item)
-                <div class="col-md-12 mb-3 im_dad">
+                <div class="{{ $item->content_type == 'file' ? 'col-md-4' : 'col-md-12' }} mb-3 im_dad">
                     <div class="w-100"> <button type="button" role="button"
                             class="rm_dad btn rounded-0 btn-md float-end"><i class="fa fa-trash"></i></button></div>
                     @switch($item->content_type)
@@ -34,52 +34,49 @@
                         @break
 
                         @case('file')
-                            <div class="row">
-                                <div class="col-12">
-                                    <a  href="{{ url('storage/files/' . $item->content) }}">{{ empty($item->child_index) ? 'BAIXAR' : $item->child_index }}</a>
-                                </div>
-                                <div class="col-md-6">
-                                    <label class="form-label">{{ __('Etiqueta') }}</label>
-                                    <input type="text" class="form-control" name="child_index[]">
-                                </div>
-                                <div class="col-md-6">
-
-                                    <label class="form-label">{{ __('Arquivo') }}</label>
-                                    <input type="file" class="form-control" {!! empty($page_info->filetypes) ? '' : 'accept="' . $page_info->filetypes . '"' !!}  name="content[]">
-                                </div>
-                            </div>
+                        <input type="hidden" name="keep[]" value="{{ $item->id }}">
+                            @php
+                                $file = fileman(storage_path('files/' . $item->content));
+                            @endphp
+                            @if ($file->isImage())
+                                <img src="{{ url('storage/files/' . $item->content) }}" class="w-100">
+                            @elseif($file->isVideo())
+                                <video src="{{ url('storage/files/' . $item->content) }}" class="w-100"></video>
+                            @endif
                         @break
 
-                        @default
-                    @endswitch
-                </div>
-            @endforeach
-
-
-            <div class="col-md-12">
-                <h4 class="row">
-                    <div class="col-6">
-                        {{ __('Mais') }} </div>
-                    <div class="col-6 text-end">
-                        <button type="button" role="button" to="#cities" elem-target="#jop_cities"
-                            class="clonehim btn btn btn-primary float-right chl_loader"><i class="fa fa-plus"></i></button>
                     </div>
-                </h4>
-                <hr>
-                <div id="cities">
 
-                </div>
+                    @default
+                @endswitch
+    </div>
+    @endforeach
+
+
+    <div class="col-md-12">
+        <h4 class="row">
+            <div class="col-6">
+                {{ __('Mais') }} </div>
+            <div class="col-6 text-end">
+                <button type="button" role="button" to="#cities" elem-target="#jop_cities"
+                    class="clonehim btn btn btn-primary float-right chl_loader"><i class="fa fa-plus"></i></button>
             </div>
+        </h4>
+        <hr>
+        <div id="cities">
+
+        </div>
+    </div>
 
 
-            <div class="col-md-3">
+    <div class="col-md-3">
 
-                <button type="submit" class="btn btn-secondary chl_loader"><i
-                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
-            </div>
-        </form>
+        <button type="submit" class="btn btn-secondary chl_loader"><i
+                class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
+    </div>
+    </form>
 
-    </div> <!-- end card-body -->
+</div> <!-- end card-body -->
 </div>
 
 
@@ -112,14 +109,9 @@
 
                     @case('file')
                         <div class="row">
-                            <div class="col-md-6">
-                                <label class="form-label">{{ __('Etiqueta') }}</label>
-                                <input type="text" class="form-control" name="child_index[]">
-                            </div>
-                            <div class="col-md-6">
-
+                            <div class="col-md-12">
                                 <label class="form-label">{{ __('Arquivo') }}</label>
-                                <input type="file" {!! empty($page_info->filetypes) ? '' : 'accept="' . $page_info->filetypes . '"' !!}  class="form-control" name="content[]">
+                                <input type="file" {!! empty($page_info->filetypes) ? '' : 'accept="' . $page_info->filetypes . '"' !!} class="form-control" name="content[]">
                             </div>
                         </div>
                     @break

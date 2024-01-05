@@ -42,7 +42,6 @@ class Page_infoController extends Controller
 
                 $arr = ["content", "child_index"];
 
-                $p_ids = [];
 
 
                 foreach (!empty($data->content) ? (is_countable($data->content) ? $data->content : []) : [] as $i => $value) {
@@ -79,6 +78,11 @@ class Page_infoController extends Controller
                 }
 
 
+                if ($page_info->content_type == "file") {
+                    $p_ids = $request->get("keep") ?? [];
+                }
+
+
                 DB::table("page_info")->where("parent_id", $page_info->id)->whereNotIn("id", $p_ids)->delete();
 
 
@@ -98,7 +102,7 @@ class Page_infoController extends Controller
                     $_data = new stdClass();
                     $_data->child_index = $index;
                     $_data->content = $content;
-                    $_data->name = code(null,$i);
+                    $_data->name = code(null, $i);
                     $_data->content_type = $page_info->content_type;
                     $_data->parent_id = $page_info->id;
 

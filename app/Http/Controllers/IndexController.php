@@ -16,7 +16,11 @@ class IndexController extends Controller
     }
     public function index(Request $request)
     {
+
+        $slider = _info('home.slider');
+
         return view('main.pages.index', [
+            'slider'=>$slider,
             'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
