@@ -23,9 +23,9 @@ class Site_menuServiceImpl implements ISite_menuService
         'session_name',
         'code',
         'parent_menu_id',
-        'route_name',
+        'route',
         'uri',
-        'uri_use',
+        'prefer',
         'icon_class',
         'order_index',
         'target',
@@ -35,9 +35,9 @@ class Site_menuServiceImpl implements ISite_menuService
         'session_name',
         'code',
         'parent_menu_id',
-        'route_name',
+        'route',
         'uri',
-        'uri_use',
+        'prefer',
         'order_index',
         'icon_class',
         'target',
@@ -46,6 +46,7 @@ class Site_menuServiceImpl implements ISite_menuService
 
     public function add($data)
     {
+
         if (empty($data->name)) {
             throw new \Exception(__('Nome invalido'), 400);
         }
