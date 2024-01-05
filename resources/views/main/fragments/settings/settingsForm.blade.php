@@ -21,7 +21,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Configuracion
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -43,7 +43,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Preguntas Frequentes
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -65,7 +65,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Generos
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -88,7 +88,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Moedas
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -112,7 +112,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Metodos de Pagamento
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -137,7 +137,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Planos de Pagamento
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -159,7 +159,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Redes Sociais
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>
@@ -188,7 +188,7 @@
                                     </div>
                                 </div>
                                 <div class="col ps-0">Paises
-                                    <!--p class="mb-0 font-13">2.3 MB</p-->
+
                                 </div>
                             </div> <!-- end row -->
                         </a>

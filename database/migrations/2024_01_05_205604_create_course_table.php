@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('name', 191);
             $table->string('logo', 191)->nullable();
             $table->string('cover_photo', 191)->nullable();
+            $table->float('price', 10, 0)->nullable();
+            $table->float('price_promo', 10, 0)->nullable();
+            $table->bigInteger('currency_id')->nullable();
             $table->text('description')->nullable();
             $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();

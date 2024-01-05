@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             CountryTableSeeder::class,
             CityTableSeeder::class,
-            #CurrencyTableSeeder::class,
+            CurrencyTableSeeder::class,
             #AdminTableSeeder::class,
             UserTableSeeder::class,
            SettingsTableSeeder::class,

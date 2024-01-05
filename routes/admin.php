@@ -530,6 +530,28 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             });
         });
 
+
+
+        Route::prefix("/currency")->middleware([])->name("currency.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\CurrencyController::class, 'index'])->middleware([])->name("index");
+            Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\CurrencyController::class, 'addIndex'])->middleware([])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\CurrencyController::class, 'add'])->middleware([])->name("do");
+            });
+            Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\CurrencyController::class, 'updateIndex'])->middleware([])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\CurrencyController::class, 'update'])->middleware([])->name("do");
+            });
+            Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
+
+                Route::post("/do", [App\Http\Controllers\AdminUi\CurrencyController::class, 'remove'])->middleware([])->name("do");
+            });
+            Route::prefix("/detail")->middleware([])->name("detail.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\CurrencyController::class, 'detailIndex'])->middleware([])->name("index");
+            });
+        });
+
+
         Route::prefix("/geo")->middleware([App\Http\Middleware\CheckPermission::class])->name("geo.")->group(function () {
             Route::prefix("/country")->middleware([App\Http\Middleware\CheckPermission::class])->name("country.")->group(function () {
                 Route::post("/", [App\Http\Controllers\AdminUi\CountryController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
@@ -579,7 +601,19 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
                     Route::post("/do", [App\Http\Controllers\AdminUi\VillageController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
                 });
             });
+
         });
+
+
+
+
+
+
+
+
+
+
+
     });
 
 

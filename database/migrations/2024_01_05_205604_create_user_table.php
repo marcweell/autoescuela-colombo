@@ -30,6 +30,8 @@ return new class extends Migration
             $table->text('address')->nullable();
             $table->date('born_date')->nullable();
             $table->text('otp')->nullable();
+            $table->string('national_id', 191)->nullable();
+            $table->bigInteger('course_id')->nullable();
             $table->bigInteger('role_id')->nullable()->index('role_id');
             $table->enum('type', ['admin', 'user'])->default('user');
             $table->boolean('active')->default(true);
