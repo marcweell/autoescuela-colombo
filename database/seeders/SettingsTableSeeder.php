@@ -143,6 +143,132 @@ class SettingsTableSeeder extends Seeder
                 'multiple' => true,
                 'child_index' => null,
             ],
+
+            [
+                'code' => 'social.facebook',
+                'name' => 'Facebook',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+
+            [
+                'code' => 'social.twitter',
+                'name' => 'X(Twitter)',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+
+            [
+                'code' => 'social.linkedin',
+                'name' => 'Linkedin',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+
+            [
+                'code' => 'social.youtube',
+                'name' => 'Youtube',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+            [
+                'code' => 'social.instagram',
+                'name' => 'Instagram',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+
+            [
+                'code' => 'about',
+                'name' => 'Sobre',
+                'active' => true,
+                'line_height' => 5,
+                'content_type' => 'rich_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'about.min',
+                'name' => 'Sobre(Resumo)',
+                'active' => true,
+                'line_height' => 3,
+                'content_type' => 'plain_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'terms',
+                'name' => 'termos de uso',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'rich_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+            [
+                'code' => 'privacy',
+                'name' => 'Politicas de privacidade',
+                'active' => true,
+                'line_height' => 1,
+                'content_type' => 'rich_text',
+                'content' => 'null',
+                'filetypes' => null,
+                'regex' => null,
+                'multiple' => false,
+                'child_index' => null,
+            ],
+
+
+
         ];
         Settings::insert($settingss);
     }

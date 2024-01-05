@@ -19,7 +19,7 @@ return new class extends Migration
             $table->bigInteger('survey_question_id')->index('survey_question_id');
             $table->integer('sort_index')->nullable();
             $table->text('option_')->nullable();
-            $table->float('ponctuation', 10, 0)->nullable();
+            $table->double('ponctuation')->nullable();
             $table->boolean('correct')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();

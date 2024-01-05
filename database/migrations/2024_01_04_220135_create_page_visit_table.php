@@ -22,8 +22,8 @@ return new class extends Migration
             $table->string('device', 191)->nullable();
             $table->string('user_agent', 191)->nullable();
             $table->string('sessionid', 191)->nullable();
-            $table->float('latiutde', 10, 0)->nullable();
-            $table->float('longitude', 10, 0)->nullable();
+            $table->double('latiutde')->nullable();
+            $table->double('longitude')->nullable();
             $table->bigInteger('user_id')->nullable()->index('user_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();

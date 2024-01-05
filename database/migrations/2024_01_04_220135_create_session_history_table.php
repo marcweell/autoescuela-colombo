@@ -13,14 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey_question', function (Blueprint $table) {
+        Schema::create('session_history', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
-            $table->bigInteger('survey_id')->index('survey_id');
-            $table->text('question')->nullable();
-            $table->enum('question_type', ['single-choice-radio', 'multiple-choice', 'open-ended-single', 'best-worst'])->nullable();
-            $table->float('ponctuation', 10, 0)->nullable();
-            $table->integer('_lines')->default(3);
+            $table->string('ip', 100)->nullable();
+            $table->string('browser', 191)->nullable();
+            $table->string('device', 191)->nullable();
+            $table->string('user_agent', 191)->nullable();
+            $table->string('sessionid', 191)->nullable();
+            $table->double('latiutde')->nullable();
+            $table->double('longitude')->nullable();
+            $table->boolean('success')->default(false);
+            $table->bigInteger('user_id')->index('user_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -34,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey_question');
+        Schema::dropIfExists('session_history');
     }
 };

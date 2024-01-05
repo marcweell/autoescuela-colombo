@@ -13,13 +13,18 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('village', function (Blueprint $table) {
+        Schema::create('site_menu', function (Blueprint $table) {
             $table->bigInteger('id', true);
+            $table->string('name', 400);
             $table->string('code', 191)->unique('code');
-            $table->string('name', 50)->nullable();
-            $table->float('latitude', 10, 0)->nullable();
-            $table->float('longitude', 10, 0)->nullable();
-            $table->bigInteger('city_id')->index('city_id');
+            $table->bigInteger('parent_menu_id')->nullable();
+            $table->string('route', 400)->nullable();
+            $table->string('uri', 400)->nullable();
+            $table->integer('order_index')->nullable()->default(0);
+            $table->enum('prefer', ['route', 'uri'])->default('route');
+            $table->string('icon_class', 100)->nullable();
+            $table->enum('target', ['ajax', 'parent', '_blank'])->default('parent');
+            $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -33,6 +38,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('village');
+        Schema::dropIfExists('site_menu');
     }
 };
