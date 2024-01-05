@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('role_permission', function (Blueprint $table) {
-            $table->foreign(['role_id'], 'role_permission_ibfk_2')->references(['id'])->on('role')->onDelete('CASCADE');
             $table->foreign(['permission_id'], 'role_permission_ibfk_1')->references(['id'])->on('permission')->onDelete('CASCADE');
+            $table->foreign(['role_id'], 'role_permission_ibfk_2')->references(['id'])->on('role')->onDelete('CASCADE');
         });
     }
 
@@ -27,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('role_permission', function (Blueprint $table) {
-            $table->dropForeign('role_permission_ibfk_2');
             $table->dropForeign('role_permission_ibfk_1');
+            $table->dropForeign('role_permission_ibfk_2');
         });
     }
 };

@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('user_document', function (Blueprint $table) {
-            $table->foreign(['user_id'], 'user_document_ibfk_2')->references(['id'])->on('user')->onDelete('CASCADE');
             $table->foreign(['document_type_id'], 'user_document_ibfk_1')->references(['id'])->on('document_type')->onDelete('CASCADE');
+            $table->foreign(['user_id'], 'user_document_ibfk_2')->references(['id'])->on('user')->onDelete('CASCADE');
         });
     }
 
@@ -27,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('user_document', function (Blueprint $table) {
-            $table->dropForeign('user_document_ibfk_2');
             $table->dropForeign('user_document_ibfk_1');
+            $table->dropForeign('user_document_ibfk_2');
         });
     }
 };

@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::table('faq_answer', function (Blueprint $table) {
-            $table->foreign(['language_id'], 'faq_answer_ibfk_2')->references(['id'])->on('language')->onDelete('CASCADE');
             $table->foreign(['user_id'], 'faq_answer_ibfk_1')->references(['id'])->on('user')->onDelete('CASCADE');
+            $table->foreign(['language_id'], 'faq_answer_ibfk_2')->references(['id'])->on('language')->onDelete('CASCADE');
         });
     }
 
@@ -27,8 +27,8 @@ return new class extends Migration
     public function down()
     {
         Schema::table('faq_answer', function (Blueprint $table) {
-            $table->dropForeign('faq_answer_ibfk_2');
             $table->dropForeign('faq_answer_ibfk_1');
+            $table->dropForeign('faq_answer_ibfk_2');
         });
     }
 };

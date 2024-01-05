@@ -26,6 +26,7 @@ return new class extends Migration
             $table->boolean('multiple')->default(false);
             $table->string('child_index', 400)->nullable();
             $table->bigInteger('parent_id')->nullable();
+            $table->bigInteger('language_id')->nullable();
             $table->longText('extra')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
