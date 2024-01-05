@@ -19,18 +19,12 @@ class TestController extends Controller
 
     function test()
     {
-        $this->modules();
-
-        //return view("basic.pages.home");
+        #$this->modules();
 
         //$userIp = getIp();
-
         //$locationData = \Location::get($userIp);
-
         //dd($locationData);
 
-        //echo '<img src="data:image/png;base64,' . DNS1D::getBarcodePNG('4', 'C39+',3,33,array(1,1,1), false) . '" alt="barcode"   />';
-        //echo QrCode::size(500)->format('png')->generate('ItSolutionStuff.com', public_path('qrcode.png'));
 
     }
 

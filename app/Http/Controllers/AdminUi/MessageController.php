@@ -64,7 +64,7 @@ class MessageController extends Controller
             $view = view('admin.fragments.bulk_message.composeEmailForm', [
                 'recipients'=>$message
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -77,7 +77,7 @@ class MessageController extends Controller
             $view = view('admin.fragments.bulk_message.composeEmailForm', [
                 'recipients'=>[$message]
             ])->render();
-            return (new WebApi())->setSuccess()->print($view)->get();
+            return (new WebApi())->setSuccess()->print($view,'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
