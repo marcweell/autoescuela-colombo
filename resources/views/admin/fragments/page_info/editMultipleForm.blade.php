@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Configuracion') }}</h4>
 
-        <form action="{{ route('web.admin.page.page_info.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.page.page_info.update.do') }}" class="form_ row" method="post">
             <input type="hidden" name="id" value="{{ $page_info->id }}">
             <div class="col-md-12 mb-3">
                 <output type="text" name="name" id="name"
@@ -76,7 +76,7 @@
                                     <textarea name="extra_update[{{ $item->id }}][{{ $in->code }}][label]" class="form-control" cols="6">{!! $in->label !!}</textarea>
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 d-none">
                                 <div class="form-group">
                                     <label class="form-label">LINK</label>
                                     <input type="text"
@@ -84,7 +84,7 @@
                                         class="form-control" value="{!! $in->link !!}">
                                 </div>
                             </div>
-                            <div class="col-md-12">
+                            <div class="col-md-12 d-none">
                                 <div class="form-group">
                                     <label class="form-label">Recurso</label>
                                     <input type="text"
@@ -108,7 +108,7 @@
                         {{ __('Mais') }} </div>
                     <div class="col-6 text-end">
                         <button type="button" role="button" to="#cities" elem-target="#jop_cities"
-                            class="clonehim btn btn btn-primary float-right chl_loader"><i
+                            class="clonehim btn btn btn-primary float-right"><i
                                 class="fa fa-plus"></i></button>
                     </div>
                 </h4>
@@ -121,7 +121,7 @@
 
             <div class="col-md-3">
 
-                <button type="submit" class="btn btn-secondary chl_loader"><i
+                <button type="submit" class="btn btn-secondary"><i
                         class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>
