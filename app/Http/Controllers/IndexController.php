@@ -18,7 +18,6 @@ class IndexController extends Controller
     {
 
         $slider = _info('home.slider');
-dd($slider);
         return view('main.pages.index', [
             'slider'=>$slider,
             'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
