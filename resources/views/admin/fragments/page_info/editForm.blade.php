@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Configuracion') }}</h4>
 
-        <form action="{{ route('web.admin.page.page_info.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.page.page_info.update.do') }}" class="form_ row" method="post">
             <input type="hidden" name="id" value="{{ $page_info->id }}">
             <div class="col-md-12 mb-3">
                 <output type="text" name="name" id="name"
@@ -37,7 +37,7 @@
 
             <div class="col-md-3">
 
-                <button type="submit" class="btn btn-secondary chl_loader"><i
+                <button type="submit" class="btn btn-secondary"><i
                         class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>
