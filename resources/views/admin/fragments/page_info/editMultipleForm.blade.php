@@ -11,7 +11,7 @@
             </div>
 
             @foreach ($page_info->children as $item)
-                <div class="{{ $item->content_type == 'file' ? 'col-md-4' : 'col-md-12' }} mb-3 im_dad">
+                <div class="{{ $item->content_type == 'file' ? 'col-md-6' : 'col-md-12' }} mb-3 im_dad">
                     <div class="w-100"> <button type="button" role="button"
                             class="rm_dad btn rounded-0 btn-md float-end"><i class="fa fa-trash"></i></button></div>
                     @switch($item->content_type)
@@ -34,7 +34,7 @@
                         @break
 
                         @case('file')
-                        <input type="hidden" name="keep[]" value="{{ $item->id }}">
+                            <input type="hidden" name="keep[]" value="{{ $item->id }}">
                             @php
                                 $file = fileman(storage_path('files/' . $item->content));
                             @endphp
@@ -45,38 +45,88 @@
                             @endif
                         @break
 
+                        @default
+                    @endswitch
+
+
+
+                    @php
+                        $item->extra = $item->extra ?? $page_info->extra;
+                    @endphp
+                    @if (empty($item->extra))
+                        @continue
+                    @endif
+
+
+                    @php
+                        $obj = json_decode($item->extra);
+                    @endphp
+
+                    <div class="row">
+
+                        @foreach ($obj ?? [] as $in)
+                            <h5> {{ $in->name }} </h5>
+                            <input type="hidden" name="extra_update[{{ $item->id }}][{{ $in->code }}][type]"
+                                value="{{ $in->type }}">
+                            <input type="hidden" name="extra_update[{{ $item->id }}][{{ $in->code }}][name]"
+                                value="{{ $in->name }}">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Texto</label>
+                                    <textarea name="extra_update[{{ $item->id }}][{{ $in->code }}][label]" class="form-control" cols="6">{!! $in->label !!}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">LINK</label>
+                                    <input type="text"
+                                        name="extra_update[{{ $item->id }}][{{ $in->code }}][link]"
+                                        class="form-control" value="{!! $in->link !!}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Recurso</label>
+                                    <input type="text"
+                                        name="extra_update[{{ $item->id }}][{{ $in->code }}][source]"
+                                        class="form-control" value="{!! $in->source !!}">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-5">
+                                <hr>
+                            </div>
+                        @endforeach
                     </div>
 
-                    @default
-                @endswitch
-    </div>
-    @endforeach
+                </div>
+            @endforeach
 
 
-    <div class="col-md-12">
-        <h4 class="row">
-            <div class="col-6">
-                {{ __('Mais') }} </div>
-            <div class="col-6 text-end">
-                <button type="button" role="button" to="#cities" elem-target="#jop_cities"
-                    class="clonehim btn btn btn-primary float-right chl_loader"><i class="fa fa-plus"></i></button>
+            <div class="col-md-12">
+                <h4 class="row">
+                    <div class="col-6">
+                        {{ __('Mais') }} </div>
+                    <div class="col-6 text-end">
+                        <button type="button" role="button" to="#cities" elem-target="#jop_cities"
+                            class="clonehim btn btn btn-primary float-right chl_loader"><i
+                                class="fa fa-plus"></i></button>
+                    </div>
+                </h4>
+                <hr>
+                <div id="cities">
+
+                </div>
             </div>
-        </h4>
-        <hr>
-        <div id="cities">
-
-        </div>
-    </div>
 
 
-    <div class="col-md-3">
+            <div class="col-md-3">
 
-        <button type="submit" class="btn btn-secondary chl_loader"><i
-                class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
-    </div>
-    </form>
+                <button type="submit" class="btn btn-secondary chl_loader"><i
+                        class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
+            </div>
+        </form>
 
-</div> <!-- end card-body -->
+    </div> <!-- end card-body -->
 </div>
 
 
@@ -124,11 +174,46 @@
 
 
 
+            @php
+                $obj = json_decode($page_info->extra);
+            @endphp
 
+            <!--div class="row">
 
+                @foreach ($obj ?? [] as $i => $in)
+                    <input type="hidden" name="extra[__CONTENT_ID__][][code]" value="{{ $in->code }}">
+                    <input type="hidden" name="extra[__CONTENT_ID__][][type]" value="{{ $in->type }}">
+                    <div class="col-md-6 pt-3">
+                        <div class="row">
 
-
-
+                            <h5> {{ $in->name }} </h5>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Texto:</label>
+                                    <textarea name="extra[__CONTENT_ID__][][label]" class="form-control" cols="3">{!! $in->label !!}</textarea>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">LINK:</label>
+                                    <input type="text" name="extra[__CONTENT_ID__][][link]" class="form-control"
+                                        value="{!! $in->link !!}">
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    <label class="form-label">Recurso:</label>
+                                    <input type="text" name="extra[__CONTENT_ID__][][source]" class="form-control"
+                                        value="{!! $in->source !!}">
+                                </div>
+                            </div>
+                            <div class="col-12 mb-3">
+                                <hr>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div-->
 
 
 

@@ -369,8 +369,13 @@ app.listenner.add("clickEvents", function () {
             return;
         }
 
+        var html =  $(this.getAttribute("elem-target")).html();
+        var id = Date.now();
+
+        html = html.replaceAll("__CONTENT_ID__",id);
+
         $(this.getAttribute("to")).append(
-            $(this.getAttribute("elem-target")).html()
+           html
         );
 
         cloning = true;

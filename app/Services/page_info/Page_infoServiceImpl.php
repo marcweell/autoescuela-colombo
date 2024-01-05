@@ -83,6 +83,35 @@ class Page_infoServiceImpl implements IPage_infoService
 
         DB::table($this->table)->where('id', $data->id)->update($arr);
     }
+
+    function updateExtra($data)
+    {
+        if (empty($data->id)) {
+            throw new \Exception(__('Dados Invalidos'));
+        }
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+
+        $page_info = DB::table($this->table)->where('id', $data->id)->first();
+        if (empty($page_info->id)) {
+            throw new \Exception(__('Conteudo nao encontrado'));
+        }
+
+        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+        $payload = new \stdClass();
+
+        foreach ($data as $i => $value) {
+            if (in_array($i, ['extra'])) {
+                $payload->{$i} = $value;
+            }
+        }
+
+        $arr = json_decode(json_encode($payload), true);
+
+        $arr['updated_at'] = DB::raw('now()');
+
+        DB::table($this->table)->where('id', $data->id)->update($arr);
+    }
     function add($data)
     {
         if ($data->content_type == "file") {

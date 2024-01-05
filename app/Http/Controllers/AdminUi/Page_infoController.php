@@ -33,6 +33,23 @@ class Page_infoController extends Controller
             $page_info = $this->page_infoServiceQuery->findById($request->get('id'));
 
 
+            if (!empty($data->extra)) {
+                $data->extra = array_values($data->extra);
+            }
+            if (!empty($data->type)) {
+                $data->type = array_values($data->type);
+            }
+            if (!empty($data->source)) {
+                $data->source = array_values($data->source);
+            }
+            if (!empty($data->label)) {
+                $data->label = array_values($data->label);
+            }
+
+
+
+
+
 
             if ($page_info->multiple == false) {
                 $this->page_infoService->update($data);
@@ -111,8 +128,18 @@ class Page_infoController extends Controller
                 }
             }
 
-
-
+            if (!empty($data->extra_update)) {
+                foreach ($data->extra_update as $id => $value) {
+                    $info = (new Page_infoServiceQueryImpl())->findById($id);
+                    $arr  = [];
+                    foreach ($value as $code => $val) {
+                        $val['code'] = $code;
+                        $arr[] = $val;
+                    }
+                    $info->extra = json_encode($arr);
+                    (new Page_infoServiceImpl())->updateExtra($info);
+                }
+            }
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             throw $e;

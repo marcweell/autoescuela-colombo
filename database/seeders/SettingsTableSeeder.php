@@ -142,6 +142,7 @@ class SettingsTableSeeder extends Seeder
                 'regex' => null,
                 'multiple' => true,
                 'child_index' => null,
+                "extra"=>'[{"name":"Cabecalho","code":"header","label":"Text Example","link":"","source":"","type":"text"},{"name":"Corpo","code":"body","label":"Text Example","link":"","source":"","type":"rich_text"}]'
             ],
 
             [

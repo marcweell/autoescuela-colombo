@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Services\bulk_message\EmailServiceImpl;
+use App\Services\page_info\Page_infoServiceImpl;
 use Flores;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Request;
@@ -25,7 +26,9 @@ class TestController extends Controller
         //$locationData = \Location::get($userIp);
         //dd($locationData);
 
+        $page = _info("home.slider");
 
+        dd($page);
     }
 
     public function modules()
@@ -33,8 +36,8 @@ class TestController extends Controller
 
         $routeCollection = Route::getRoutes();
 
-      DB::table("permission")->delete();
-       DB::table("module")->delete();
+        DB::table("permission")->delete();
+        DB::table("module")->delete();
 
 
         $mods = [];
