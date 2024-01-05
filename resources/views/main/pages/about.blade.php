@@ -3,6 +3,10 @@
 @section('content')
 
 
-{!! _info('about') !!}
+<section class="inner-page">
+    <div class="container">
+        {!! _info('about') !!}
+    </div>
+  </section>
 
 @endsection

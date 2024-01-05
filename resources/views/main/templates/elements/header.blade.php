@@ -2,9 +2,9 @@
   <header id="header" class="fixed-top">
     <div class="container d-flex align-items-center justify-content-between">
 
-      <h1 class="logo"><a href="{{ url('public/index.html') }}"><img src="{{ url("public/essential/img/logo.png") }}" alt=""></a></h1>
+      <h1 class="logo"><a href="{{ route('web.public.index') }}"><img src="{{ url("public/essential/img/logo.png") }}" alt=""></a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
-      <!-- <a href="{{ url('public/index.html') }}" class="logo"><img src="{{ url('public/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
+      <!-- <a href="{{ route('web.public.index') }}" class="logo"><img src="{{ url('public/assets/img/logo.png') }}" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>

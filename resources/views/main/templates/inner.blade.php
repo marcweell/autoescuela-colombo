@@ -22,11 +22,7 @@
         </div>
       </section><!-- End Breadcrumbs -->
 
-      <section class="inner-page">
-        <div class="container">
-            @yield('content')
-        </div>
-      </section>
+      @yield('content')
 
 
 
