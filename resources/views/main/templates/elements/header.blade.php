@@ -21,7 +21,7 @@
             @else
 
             @php
-                $link = route($item->uri);
+                $link = route($item->route);
             @endphp
 
             @endif
