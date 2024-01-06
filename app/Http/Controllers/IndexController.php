@@ -20,7 +20,7 @@ class IndexController extends Controller
         $slider = _info('home.slider');
         return view('main.pages.index', [
             'slider'=>$slider,
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
@@ -28,7 +28,7 @@ class IndexController extends Controller
     public function contactIndex(Request $request)
     {
         return view('main.pages.contact', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
@@ -36,7 +36,7 @@ class IndexController extends Controller
     public function aboutIndex(Request $request)
     {
         return view('main.pages.about', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
@@ -46,7 +46,7 @@ class IndexController extends Controller
     public function faqIndex(Request $request)
     {
         return view('main.pages.faq', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
@@ -55,7 +55,7 @@ class IndexController extends Controller
     {
 
         return view('main.pages.terms', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
@@ -63,7 +63,7 @@ class IndexController extends Controller
     public function privacyIndex(Request $request)
     {
         return view('main.pages.privacy', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();

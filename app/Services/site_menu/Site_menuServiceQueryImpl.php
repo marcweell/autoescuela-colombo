@@ -26,11 +26,11 @@ class Site_menuServiceQueryImpl implements ISite_menuServiceQuery
     {
         $this->query = DB::table($this->table);
     }
-    
-    
 
- 
-     
+
+
+
+
 
     public function deleted($bool = true)
     {
@@ -40,14 +40,19 @@ class Site_menuServiceQueryImpl implements ISite_menuServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
 
+    public function orderbyId()
+    {
+        $this->query->orderBy($this->table . '.id');
+        return $this;
+    }
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
     public function findAll()
     {
         return $this->query->get();
