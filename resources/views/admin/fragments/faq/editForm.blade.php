@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Pergunta Frequente') }}</h4>
+        <h4 class="header-title">{{ __('Editar Preguntas frecuentes') }}</h4>
 
         <form action="{{ route('web.admin.settings.faq.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $faq->id }}">
@@ -14,12 +14,12 @@
                 </select>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="name" class="form-label">{{ __('Pergunta') }}</label>
+                <label for="name" class="form-label">{{ __('Pregunta') }}</label>
                 <input type="text" name="title" id="name" class="form-control" value="{{  $faq->title }}">
             </div>
 
             <div class="col-md-12 mb-3">
-                <label for="title" class="form-label">{{ __('Resposta') }}</label>
+                <label for="title" class="form-label">{{ __('Respuesta') }}</label>
                 <textarea name="description" class="form-control textarea" rows="10">{!! $faq->description !!}</textarea>
             </div>
 

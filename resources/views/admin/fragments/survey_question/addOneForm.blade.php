@@ -13,7 +13,7 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label class="form-label">{!! __('Opcoes de Resposta') !!}</label>
+                    <label class="form-label">{!! __('Opcoes de Respuesta') !!}</label>
                     <select name="question_type" class="form-control" id="qt">
                         <option value="">Selecione a opcoes</option>
                         <option value="open-ended-single">Texto Simples</option>
@@ -89,7 +89,7 @@
     <div class="im_dad row">
         <div class="col-9">
             <div class="form-group">
-                <label class="form-label">{{ __('Tipo de Resposta') }}</label>
+                <label class="form-label">{{ __('Tipo de Respuesta') }}</label>
                 <input type="hidden" name="survey_question_option[contentId][]" value="open-ended-single">
                 <input type="text" class="form-control" value="Texto Simples" disabled>
             </div>
@@ -137,7 +137,7 @@
 
 <div class="d-none" id="choice-content">
     <div class="col-md-6 im_dad ">
-        <label class="form-label">{{ __('Tipo de Resposta:') }}</label>
+        <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
             <input type="checkbox" name="correct[]"><span class="mx-2">Correcto</span>
@@ -176,7 +176,7 @@
 
 <div class="d-none" id="radio-content">
     <div class="col-md-6 im_dad ">
-        <label class="form-label">{{ __('Tipo de Resposta:') }}</label>
+        <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
             <input type="radio" class="form-radio" name="correct[]"><span class="mx-2">Correcto</span>
@@ -203,12 +203,12 @@
 <div class="d-none" id="best-worst">
     <div class="row im_dad mb-3">
         <div class="col-md-12">
-            <label class="form-label">{{ __('Tipo de Resposta') }}</label>
+            <label class="form-label">{{ __('Tipo de Respuesta') }}</label>
             <div class="input-group">
                 <input type="text" class="form-control" name="survey_question_option[]" value="Verdadeiro/Falso"
                     disabled>
                 <select name="correct" class="form-control">
-                    <option value="">Sem resposta correcta definida</option>
+                    <option value="">Sem respuesta correcta definida</option>
                     <option value="1">Verdadeiro</option>
                     <option value="0">Falso</option>
                 </select>

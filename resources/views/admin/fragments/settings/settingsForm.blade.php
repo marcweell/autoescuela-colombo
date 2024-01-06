@@ -253,7 +253,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Perguntas Frequentes
+                                <div class="col ps-0">Preguntas frecuentes
 
                                 </div>
                             </div> <!-- end row -->

@@ -6,7 +6,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.developer.permission.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Permissoes') }}</a>
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Permisos') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -45,7 +45,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.developer.permission.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
-                                    data-title="Remover Permissoes"><i class="fa fa-trash"></i></a>
+                                    data-title="Remover Permisos"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

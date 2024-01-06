@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Registro de Permissao') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Permiso') }}</h4>
 
         <form action="{{ route('web.admin.developer.permission.add.do') }}" class="form_ parent-load row" method="post">
 

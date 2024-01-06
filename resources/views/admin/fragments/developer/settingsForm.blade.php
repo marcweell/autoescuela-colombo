@@ -41,7 +41,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Permissoes
+                                <div class="col ps-0">Permisos
                                     <!--p class="mb-0 font-13">2.3 MB</p-->
                                 </div>
                             </div> <!-- end row -->

@@ -55,10 +55,10 @@
                                                 class="fa fa-print"></i>Imprimir</a>
                                         <a data-href="{{ route('web.admin.survey.survey.question.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
-                                                class="fa fa-question"></i>Agregar Pergunta</a>
+                                                class="fa fa-question"></i>Agregar Pregunta</a>
                                         <a data-href="{{ route('web.admin.survey.survey.answer.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
-                                                class="fa fa-reply"></i>Agregar Resposta</a>
+                                                class="fa fa-reply"></i>Agregar Respuesta</a>
                                         <a data-href="{{ route('web.admin.survey.survey.update.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
                                                 class="fa fa-edit"></i>Editar</a>

@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Permissao') }}</h4>
+        <h4 class="header-title">{{ __('Editar Permiso') }}</h4>
 
         <form action="{{ route('web.admin.developer.permission.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $permission->id }}">

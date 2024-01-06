@@ -684,7 +684,7 @@
                         <h4>{{ $item->title }}</h4>
                     </div>
                     <div class="col-lg-7">
-                        {{ nl2br($item->description) }}
+                        {!! $item->description !!}
                     </div>
                 </div><!-- End F.A.Q Item-->
             @endforeach
