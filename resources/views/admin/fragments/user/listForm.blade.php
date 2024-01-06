@@ -1,12 +1,15 @@
 <div class="card">
     <div class="card-header">
-        <div class="card-title"><h5>{!! __("Usuarios") !!}<h5></div>
+        <div class="card-title">
+            <h5>{!! __('Usuarios') !!}<h5>
+        </div>
     </div>
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.user.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Usuario') }}</a>
+                <a data-href="{{ route('web.admin.user.add.index') }}" data-id="-1"
+                    class="btn btn-primary mb-2 _link_"><i class="mdi mdi-plus-circle me-2"></i>
+                    {{ __('Agregar Usuario') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -53,13 +56,18 @@
                             <td>
                                 {{ $item->email }}
                             </td>
-                            <td> {{ "({$item->idd})".$item->phone }}</td>
+                            <td> {{ "({$item->idd})" . $item->phone }}</td>
                             <td>
                                 {{ $item->type }}
                             </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
+                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
+                                        class="fa fa-print"></i></a>
+                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
+                                        class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.user.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-edit"></i></a>
