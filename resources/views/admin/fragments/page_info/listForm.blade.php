@@ -13,33 +13,39 @@
          <li class="col-xxl-3 col-lg-6">
              <div class="card m-1 shadow-none border">
                  <div class="p-3">
-                         <div class="row align-items-center">
-                             <div class="col">
-                                <div class="row">
-                                    <div class="col-auto">
-                                        <div class="avatar-sm">
-                                            <span class="avatar-title bg-light text-secondary rounded">
-                                                <i class="fa fa-globe font-16"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="col ps-0">
-                                        <h6>{{ $item->name }}</h6>
-                                        <small class="mb-0 font-10">
-                                            {{ empty($item->content) ? '[' . __('No definido') . ']' : ($item->content_type !== 'rich_text' ? (strlen($item->content) > 10 ? '['.__("Ver detalles").']' : $item->content) : '['.__("Ver detalles").']') }}
-                                        </small>
-                                    </div>
-                                </div>
+                     <div class="row align-items-center">
+                         <div class="col">
+                             <div class="row">
+                                 <div class="col-auto">
+                                     <div class="avatar-sm">
+                                         <span class="avatar-title bg-light text-secondary rounded">
+                                             <i class="fa fa-globe font-16"></i>
+                                         </span>
+                                     </div>
+                                 </div>
+                                 <div class="col ps-0">
+                                     <h6>{{ $item->name }}</h6>
+                                     <small class="mb-0 font-10">
+                                         @if (empty($item->content))
+                                             {{ '[' . __('No definido') . ']' }}
+                                         @elseif($item->content_type !== 'plain_text' or strlen($item->content) > 10)
+                                             {{ '[' . __('Ver detalles') . ']' }}
+                                         @else
+                                             {{ $item->content }}
+                                         @endif
+                                     </small>
+                                 </div>
                              </div>
-                             <div class="col-5 text-center mt-2">
-                                 <a data-href="{{ route('web.admin.page.page_info.detail.index') }}"
-                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
-                                         class="fa fa-eye"></i></a>
-                                 <a data-href="{{ route('web.admin.page.page_info.update.index') }}"
-                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
-                                         class="fa fa-pen-nib"></i></a>
-                             </div>
-                         </div> <!-- end row -->
+                         </div>
+                         <div class="col-5 text-center mt-2">
+                             <a data-href="{{ route('web.admin.page.page_info.detail.index') }}"
+                                 data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                     class="fa fa-eye"></i></a>
+                             <a data-href="{{ route('web.admin.page.page_info.update.index') }}"
+                                 data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                     class="fa fa-pen-nib"></i></a>
+                         </div>
+                     </div> <!-- end row -->
                  </div> <!-- end .p-2-->
              </div> <!-- end col -->
          </li>
