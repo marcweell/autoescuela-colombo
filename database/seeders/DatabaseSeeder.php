@@ -3,10 +3,7 @@
 namespace Database\Seeders;
 
 use App\Http\Controllers\TestController;
-use App\Services\exchange_rate\Exchange_rateServiceImpl;
 use App\Services\gender\GenderServiceImpl;
-use App\Services\payment_method\Payment_methodServiceImpl;
-use App\Services\social_media\Social_mediaServiceImpl;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
