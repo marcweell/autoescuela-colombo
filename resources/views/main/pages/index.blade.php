@@ -7,16 +7,13 @@
 
             <div class="container text-center">
                 <div class="section-title">
-                    <h5>Nosotros</h5>
-                    <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
-                        consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
-                        fugiat
-                        sit in iste officiis commodi quidem hic quas.</p>
+                    <h5>Sobre</h5>
+                    <p></p>
                 </div>
             </div>
 
             <div class="row gy-4">
-                <div class="col-lg-7 position-relative about-img" style="background-image: url(assets/img/about.jpg) ;"
+                <div class="col-lg-7 position-relative about-img" style="background-image: url('{{ url('storage/files/'._info('intro.image','#')) }}') ;"
                     data-aos="fade-up" data-aos-delay="150">
                     <div class="call-us position-absolute">
                         <h4>{{_info("company.name")}}</h4>

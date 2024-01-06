@@ -4,7 +4,7 @@
           <div class="app-sidebar__user"><img class="app-sidebar__user-avatar nf_picture"
                   src="{{ tools()->photo($user->photo) }}" alt="User Image">
               <div>
-                  <p class="app-sidebar__user-name">{{ $user->name.' '.$user->last_name  }}</p>
+                  <p class="app-sidebar__user-name">{{ $user->name . ' ' . $user->last_name }}</p>
                   <p class="app-sidebar__user-designation">{{ $user->type }}</p>
               </div>
           </div>
@@ -27,6 +27,10 @@
                               Lista</a></li>
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.add.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Agregar</a></li>
+                      <hr class="my-2">
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.role.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Grupos</a></li>
+
                   </ul>
               </li>
 

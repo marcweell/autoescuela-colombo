@@ -28,7 +28,7 @@
             </div>
             <div class="privacy-link d-inline w-100">
                 <a class="text-primary p-2" href="{{ route('web.public.index') }}">Pagina Inicial</a>
-                <a class="text-primary p-2" target="_blank" href="{{ route('web.public.terms.index') }}">Termos de Uso</a>
+                <a class="text-primary p-2" target="_blank" href="{{ route('web.public.terms.index') }}">Terminos de uso</a>
                 <a class="text-primary p-2" target="_blank" href="{{ route('web.public.privacy.index') }}">Politicas</a>
             </div>
         </div>

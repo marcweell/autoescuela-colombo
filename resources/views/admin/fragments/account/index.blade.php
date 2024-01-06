@@ -65,7 +65,7 @@
                                                             <th>{{ __('IP') }}</th>
                                                             <th>{{ __('Navegador') }}</th>
                                                             <th>{{ __('Dispositivo') }}</th>
-                                                            <th>{{ __('Data/Hora de Registo') }}</th>
+                                                            <th>{{ __('Fecha/hora de registro') }}</th>
                                                             <th>{{ __('Sucesso') }}</th>
                                                         </tr>
                                                     </thead>

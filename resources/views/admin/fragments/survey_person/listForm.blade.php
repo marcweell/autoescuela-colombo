@@ -23,7 +23,7 @@
                         <th>{{ __('Tag') }}</th>
                         <th>{{ __('Examen') }}</th>
                         <th>{{ __('Curso') }}</th>
-                        <th>{{ __('Data/Hora de Registo') }}</th>
+                        <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
                 </thead>

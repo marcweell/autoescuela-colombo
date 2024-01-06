@@ -47,7 +47,7 @@
             border: none !important;
         }
     </style>
-    <!-- Main CSS-->
+    <link rel="stylesheet" href="{{ url('public/essential/plugins/DataTables/datatables.min.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url('public/dashboard/css/main.css') }}">
     <!-- Font-icon css-->
     <link rel="stylesheet" href="{{ url('public/essential/plugins/Croppie/croppie.css') }}">

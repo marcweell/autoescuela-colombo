@@ -705,7 +705,9 @@ app.listenner.add("ComponentInits", function () {
             autoWidth: true,
             iDisplayLength: 10,
             //responsive: true,
-            language: env.language._datatable_,
+            language: {
+                url: '//cdn.datatables.net/plug-ins/1.13.7/i18n/es-ES.json',
+            },
         });
     } catch (error) {
         output.debug.error(error);

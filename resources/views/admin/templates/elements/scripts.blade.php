@@ -2,6 +2,8 @@
 <script src="{{ url('public/dashboard/js/jquery-3.7.0.min.js') }}"></script>
 <script src="{{ url('public/dashboard/js/bootstrap.min.js') }}"></script>
 <script src="{{ url('public/dashboard/js/main.js') }}"></script>
+<script src="{{ url('public/essential/plugins/DataTables/datatables.min.js') }}"></script>
+
 <script src="{{ url('public/essential/plugins/bootstrap-touchspin-master/dist/jquery.bootstrap-touchspin.min.js') }}">
 </script>
 
@@ -21,7 +23,6 @@
 <script src="{{ url('public/essential/plugins/jPages-master/js/jquery.lazyload.js') }}"></script>
 <script src="{{ url('public/essential/plugins/jPages-master/js/js.js') }}"></script>
 <script src="{{ url('public/essential/plugins/jPages-master/js/tabifier.js') }}"></script>
-
 <script src="{{ url('public/essential/plugins/color-picker-huebee/huebee.js') }}"></script>
 <script src="{{ url('public/essential/plugins/Croppie/croppie.min.js') }}"></script>
 <script src="{{ url('public/essential/plugins/bootstrap-icon-picker/dist/js/bootstrapicon-iconpicker.min.js') }}">

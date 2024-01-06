@@ -245,7 +245,7 @@ class PageInfoTableSeeder extends Seeder
             ],
             [
                 'code' => 'terms',
-                'name' => 'termos de uso',
+                'name' => 'terminos de uso',
                 'active' => true,
                 'line_height' => 1,
                 'content_type' => 'rich_text',
@@ -257,7 +257,7 @@ class PageInfoTableSeeder extends Seeder
             ],
             [
                 'code' => 'privacy',
-                'name' => 'Politicas de privacidade',
+                'name' => 'Políticas de privacidad',
                 'active' => true,
                 'line_height' => 1,
                 'content_type' => 'rich_text',
