@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('currency', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->bigInteger('id', true);
             $table->string('name', 191);
             $table->string('name_plural', 191);
             $table->string('code', 191);
