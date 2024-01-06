@@ -22,7 +22,7 @@ class DatabaseSeeder extends Seeder
             CityTableSeeder::class,
             CurrencyTableSeeder::class,
             UserTableSeeder::class,
-            Page_infoTableSeeder::class,
+            PageInfoTableSeeder::class,
         ]);
         (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Masculino"])));
         (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Feminino"])));

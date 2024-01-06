@@ -5,7 +5,7 @@ namespace Database\Seeders;
 use App\Services\page_info\Page_infoServiceImpl;
 use Illuminate\Database\Seeder;
 
-class Page_infoTableSeeder extends Seeder
+class PageInfoTableSeeder extends Seeder
 {
     public function run()
     {
