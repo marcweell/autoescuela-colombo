@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Http\Controllers\TestController;
 use App\Services\exchange_rate\Exchange_rateServiceImpl;
 use App\Services\gender\GenderServiceImpl;
 use App\Services\payment_method\Payment_methodServiceImpl;
@@ -28,6 +29,8 @@ class DatabaseSeeder extends Seeder
         ]);
         (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Masculino"])));
         (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Feminino"])));
+
+        (new TestController())->modules();
 
 
     }
