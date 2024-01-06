@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Registro de Cidade') }}</h4>
+        <h4 class="header-title">{{ __('Registro de Ciudad') }}</h4>
 
         <form action="{{ route('web.admin.settings.geo.city.add.do') }}" class="form_ parent-load row" method="post">
 

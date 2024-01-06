@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Pais') }}</h4>
 
-        <form action="{{ route('web.admin.project.survey_person_data.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.survey.survey_person_data.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $survey_person_data->id }}">
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>

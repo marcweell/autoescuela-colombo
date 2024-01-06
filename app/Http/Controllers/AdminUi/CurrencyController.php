@@ -25,8 +25,8 @@ class CurrencyController extends Controller
         $data->code = code(null,__METHOD__);
         try {
             $this->currencyService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com sucesso"))->resync()->close_modal()->get();
-        } catch (\Exception $e) { 
+            return (new WebApi())->setSuccess()->notify(__("Registro efectuado com sucesso"))->resync()->close_modal()->get();
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -35,11 +35,11 @@ class CurrencyController extends Controller
         $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
-        } 
+        }
         try {
             $this->currencyService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -48,7 +48,7 @@ class CurrencyController extends Controller
         try {
             $this->currencyService->delete($request->get('id'));
             return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com sucesso"))->resync()->close_modal()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -61,7 +61,7 @@ class CurrencyController extends Controller
                 'currency' => $currency
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -71,20 +71,20 @@ class CurrencyController extends Controller
             $view = view('admin.fragments.currency.addForm', [
             ])->render();
             return (new WebApi())->setSuccess()->print($view,'modal')->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
     public function updateIndex(Request $request)
     {
-        
+
         try {
             $currency = $this->currencyServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.currency.editForm', [
                 'currency'=>$currency
             ])->render();
             return (new WebApi())->setSuccess()->print($view,'modal')->get();
-        } catch (\Exception $e) { 
+        } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }

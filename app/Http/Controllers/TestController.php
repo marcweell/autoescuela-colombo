@@ -20,33 +20,47 @@ class TestController extends Controller
 
     function test()
     {
-        #$this->modules();
+        $this->modules();
 
         //$userIp = getIp();
         //$locationData = \Location::get($userIp);
         //dd($locationData);
 
-        $page = _info("home.slider");
+        //$page = _info("home.slider");
 
-        dd($page);
+        //dd($page);
     }
 
     public function modules()
     {
 
+
+
         $routeCollection = Route::getRoutes();
 
         DB::table("permission")->delete();
         DB::table("module")->delete();
+        DB::statement('alter table module auto_increment = 1');
+        DB::statement('alter table permission auto_increment = 1');
+        DB::statement('alter table role_permission auto_increment = 1');
 
 
         $mods = [];
-        $pre = ["web.app.", "web.apps", "web.admin.", "api.", "web.api.", "web."];
+        $pre = ["web.admin.", "api.", "web.api."];
 
 
 
         foreach ($routeCollection as $value) {
+
             $name = $value->getName();
+
+            if (str_contains($name, "account") == true) {
+                continue;
+            }
+            if (str_contains($name, "profile") == true) {
+                continue;
+            }
+
             foreach ($pre as $key => $val) {
                 if (str_starts_with($name, $val)) {
 
@@ -54,11 +68,15 @@ class TestController extends Controller
                     if (str_contains($name, ".") == false) {
                         continue;
                     }
+
                     $name = substr($name, 0, strpos($name, "."));
+
                     if (empty($name) and str_contains($val, "web.admin")) {
                         $name = "admin";
                     }
-                    //  $name = $val . $name;
+
+                    //$name = $val . $name;
+
                     array_push(
                         $mods,
                         [
@@ -74,48 +92,64 @@ class TestController extends Controller
 
         $modules = DB::table('module')->get();
         $arr = [];
-
+        $permja = [];
 
         $permissions = [];
 
         foreach ($routeCollection as $value) {
             $name = $value->getName();
-            $name = str_replace('.do', '', $name);
-            $name = str_replace('.update.index', '.read', $name);
-            $name = str_replace('.add.index', '.read', $name);
+
+            if (str_ends_with($name, '.do') == true) {
+                $name = substr($name, 0, strlen($name) - 3);
+            }
+
+            $name = str_replace('.update.index', '.update', $name);
+            $name = str_replace('.add.index', '.add', $name);
+
             if (str_ends_with($name, ".")) {
                 continue;
             }
+
             if (empty($name)) {
                 continue;
             }
+
             if (str_starts_with($name, "ign")) {
                 continue;
             }
-
+            if (str_contains($name, "account") == true) {
+                continue;
+            }
+            if (str_contains($name, "profile") == true) {
+                continue;
+            }
 
             $use = $value->getAction()["uses"];
+
             $permit = [
-                "is_html" => false,
-                "is_prefix" => false,
+                "isview" => false,
+                "isgroup" => false,
                 "permission" => "admin.",
-                "require_master_key" => false,
             ];
 
 
             if (str_contains($name, ".index") == true) {
-                $permit["is_html"] = true;
+                $permit["isview"] = true;
             }
-            if (str_contains($name, ".developer") == true) {
-                $permit["require_master_key"] = true;
-            }
+
 
 
             $name = str_replace('index', 'read', $name);
             $name = str_replace('index', 'read', $name);
             $name = str_replace('web.', '', $name);
             $name = str_replace('.remove.read', '.read', $name);
+            $name = str_replace('.list', '.read', $name);
             $name = str_replace('reportwnload', 'report.download', $name);
+
+
+            if (str_starts_with($name, "app.")) {
+                continue;
+            }
 
             $permit["permission"] = $name;
 
@@ -128,19 +162,33 @@ class TestController extends Controller
             }
             $routeName = $value->getName();
             $module = 0;
+
+
             foreach ($modules as $key => $value) {
-                if (str_contains($name, $value->code)) {
+
+                if (str_contains($name, $value->code) and $value->code !== "admin") {
+                    $module = $value->id;
+                    break;
+                }
+
+                if (str_contains($name, "." . $value->code)) {
                     $module = $value->id;
                     break;
                 }
             }
 
             if (empty($module) and str_contains($name, ".")) {
-                dd($name);
                 continue;
             }
 
+            if (empty($module)) {
+                continue;
+            }
 
+            if (isset($permja[$name])) {
+                continue;
+            }
+            $permja[$name] = true;
             array_push($arr, [
                 'name' => $name,
                 'code' => $name,
@@ -169,7 +217,13 @@ class TestController extends Controller
         $json = str_replace(",", ",\n", $json);
 
 
+        $pr_json = json_encode($arr);
+        $md_json = json_encode($modules);
+
+
         tools()->write(base_path("config/permissions.php"), $pre . $json . ";");
-        die(json_encode($permissions));
+        tools()->write(base_path("database/json/permission.json"), $pr_json);
+        tools()->write(base_path("database/json/modules.json"), $md_json);
+        return $pr_json;
     }
 }

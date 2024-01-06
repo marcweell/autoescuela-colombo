@@ -73,7 +73,6 @@ class PermissionServiceImpl implements IPermissionService
 
 
         $payload = new stdClass();
-        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
       
       
         foreach ($data as $i => $value) {

@@ -62,8 +62,8 @@ class PermissionHandler implements IPermissionHandler
 
         $this->permissions = DB::table('permission')
             ->select("permission.*")
-            ->join("group_permission", "group_permission.permission_id", "permission.id")
-            ->where("group_permission.user_group_id", $user->user_group_id)
+            ->join("role_permission", "role_permission.permission_id", "permission.id")
+            ->where("role_permission.role_id", $user->role_id)
             ->get();
 
 

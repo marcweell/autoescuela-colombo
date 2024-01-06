@@ -2,8 +2,8 @@
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.bulk_message.sms.compose.index') }}" class="btn btn-primary mb-2 l14k"><i
-                        class="fa fa-plus-circle me-2"></i> {{ __('Adicionar Pais') }}</a>
+                <a data-href="{{ route('web.admin.bulk_message.sms.compose.index') }}" class="btn btn-primary mb-2 _link_"><i
+                        class="fa fa-plus-circle me-2"></i> {{ __('Agregar Pais') }}</a>
             </div>
             <div class="col-sm-7">
 
@@ -23,7 +23,7 @@
                         <th>{{ __('Banco') }}</th>
                         <th>{{ __('Numero de Conta') }}</th>
                         <th>{{ __('Tipo de Conta') }}</th>
-                        <th>{{ __('Moeda') }}</th>
+                        <th>{{ __('Moneda') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class="fa fa-cog"></i></th>
                     </tr>
@@ -43,10 +43,10 @@
                             <td class="table-action">
                                 <a href="javascript:void(0);" class="btn btn-secondary btn-sm"> <i class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.finance.bank_account.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k"><i
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.finance.bank_account.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm l14k prompt"
+                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
                                     data-title="Remover Conteudo"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

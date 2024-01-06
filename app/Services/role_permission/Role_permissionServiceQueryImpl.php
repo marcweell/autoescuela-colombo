@@ -26,49 +26,72 @@ class Role_permissionServiceQueryImpl implements IRole_permissionServiceQuery
     public function __construct()
     {
         $this->query = DB::table($this->table)
-        ->select('role_permission.*', 'module.name as module_name', 'permission.name as permission_name', 'module.code as module_code', 'permission.code as permission_code')
+        ->select(
+            'role_permission.*', 
+            'module.name as module_name',
+            'permission.name as permission_name',
+            'module.code as module_code',
+            'permission.code as permission_code')
         ->leftJoin('permission', 'permission.id', 'role_permission.permission_id')
+        ->leftJoin('role', 'role.id', 'role_permission.role_id')
         ->leftJoin('module', 'module.id', 'permission.module_id');
     }
-
-
-
-
-
+    
+    
+ 
 
     public function deleted($bool = true)
     {
-        if ($bool===true) {
+        if ($bool==true) {
             $this->query->where($this->table . '.deleted_at','!=',null);
         }else {
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }
+    }  
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
-
+ 
+    public function findById($id)
+    {
+        return $this->query->where($this->table . '.id', $id)->first();
+    }
+    
     public function findAll()
     {
         return $this->query->get();
     }
 
-    public function findById($id)
+    public function byModuleId($id)
     {
-        return $this->query->where($this->table . '.id', $id)->first();
+        $this->query->where('module.id', $id);
+        return $this;
     }
+    
+    public function byPermissionId($id)
+    {
+        $this->query->where('permission.id', $id);
+        return $this;
+    }
+    
+    public function byRoleId($id)
+    {
+        $this->query->where('role.id', $id);
+        return $this;
+    }
+    
     public function findByCode($id)
     {
         return $this->query->where($this->table . '.code', $id)->first();
     }
-
-    public function findByGroupId($id)
+    
+    public function findByRoleId($id)
     {
-        return $this->query->where($this->query.'.role_id', $id)->where($this->table . '.deleted_at', null)->get();
-
+        return $this->query->where($this->table.'.role_id', $id)->get();
+ 
     }
 }

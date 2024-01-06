@@ -36,7 +36,7 @@ class CheckPermission
 
         $credencial = $credencials->{Route::currentRouteAction()};
 
-        $check = scan($credencial->permission, $credencial->is_prefix);
+        $check = scan($credencial->permission, $credencial->isgroup);
 
         if ($check === false) {
             if ($credencial->is_html and $request->ajax() == false) {

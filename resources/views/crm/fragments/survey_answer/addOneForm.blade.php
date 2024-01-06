@@ -11,7 +11,7 @@
             <input type="hidden" name="survey_id" value="{{ $survey->id }}">
 
             <div class="col-md-12 mb-3">
-                <label for="city_id" class="form-label">{{ __('Cidade') }}</label>
+                <label for="city_id" class="form-label">{{ __('Ciudad') }}</label>
                 <select name="city_id" class="form-control">
                     @foreach ($city as $item)
                         <option value="{{ $item->id }}">{{ $item->name.' |'.$item->country_name  }}</option>

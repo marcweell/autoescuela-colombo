@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Vila') }}</h4>
+        <h4 class="header-title">{{ __('Editar Aldea') }}</h4>
 
         <form action="{{ route('web.admin.settings.geo.village.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $village->id }}">

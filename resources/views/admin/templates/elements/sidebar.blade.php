@@ -39,9 +39,9 @@
                           class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Preguntas</span><i
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.project.survey.add.index') }}"
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.survey.survey.add.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Examen</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.project.survey.index') }}"
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.survey.survey.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i> Lista de Examen</a></li>
                       <hr class="my-1">
                       <li><a class="treeview-item _link_"

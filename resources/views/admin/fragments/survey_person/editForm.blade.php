@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Inquerido') }}</h4>
 
-        <form action="{{ route('web.admin.project.survey_person.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.survey.survey_person.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $survey_person->id }}">
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Tag') }}</label>

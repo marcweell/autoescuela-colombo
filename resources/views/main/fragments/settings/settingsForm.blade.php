@@ -87,7 +87,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Moedas
+                                <div class="col ps-0">Monedas
 
                                 </div>
                             </div> <!-- end row -->
@@ -209,7 +209,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Cidades
+                                <div class="col ps-0">Ciudads
                                     <!--p class="mb-0 font-13">2.3 MB</p-->
                                 </div>
                             </div> <!-- end row -->

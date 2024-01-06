@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.project.survey.add.index') }}" data-id="-1"
+                <a data-href="{{ route('web.admin.survey.survey.add.index') }}" data-id="-1"
                     class="btn btn-primary mb-2 _link_"><i class="mdi mdi-plus-circle me-2"></i>
                     {{ __('Agregar Examen') }}</a>
             </div>
@@ -50,19 +50,19 @@
                                         Op&ccedil;&otilde;es
                                     </button>
                                     <div class="dropdown-menu">
-                                        <a data-href="{{ route('web.admin.project.survey.print') }}"
+                                        <a data-href="{{ route('web.admin.survey.survey.print') }}"
                                             class="dropdown-item _link_" data-id='{{ $item->id }}'> <i
                                                 class="fa fa-print"></i>Imprimir</a>
-                                        <a data-href="{{ route('web.admin.project.survey.question.add.index') }}"
+                                        <a data-href="{{ route('web.admin.survey.survey.question.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
                                                 class="fa fa-question"></i>Agregar Pergunta</a>
-                                        <a data-href="{{ route('web.admin.project.survey.answer.add.index') }}"
+                                        <a data-href="{{ route('web.admin.survey.survey.answer.add.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
                                                 class="fa fa-reply"></i>Agregar Resposta</a>
-                                        <a data-href="{{ route('web.admin.project.survey.update.index') }}"
+                                        <a data-href="{{ route('web.admin.survey.survey.update.index') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_"><i
                                                 class="fa fa-edit"></i>Editar</a>
-                                        <a data-href="{{ route('web.admin.project.survey.remove.do') }}"
+                                        <a data-href="{{ route('web.admin.survey.survey.remove.do') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_ prompt"
                                             data-title="Remover sector"><i class="fa fa-trash"></i>Remover</a>
                                     </div>

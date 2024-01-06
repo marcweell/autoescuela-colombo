@@ -18,7 +18,7 @@ use Flores;
 
 class RoleServiceImpl implements IRoleService
 {
-    private $insertFillables = ['name', 'description'];
+    private $insertFillables = ['name','code', 'description'];
     private $updateFillables = ['name', 'code', 'description'];
     private $table =  'role';
 

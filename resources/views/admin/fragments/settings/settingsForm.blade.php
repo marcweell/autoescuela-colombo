@@ -151,7 +151,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Moedas
+                                <div class="col ps-0">Monedas
 
                                 </div>
                             </div> <!-- end row -->
@@ -202,7 +202,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Cidades
+                                <div class="col ps-0">Ciudads
 
                                 </div>
                             </div> <!-- end row -->
@@ -224,7 +224,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Vilas
+                                <div class="col ps-0">Aldeas
 
                                 </div>
                             </div> <!-- end row -->

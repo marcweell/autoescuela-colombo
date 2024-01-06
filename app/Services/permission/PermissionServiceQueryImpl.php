@@ -33,12 +33,25 @@ class PermissionServiceQueryImpl implements IPermissionServiceQuery
     
     
 
+    public function byModuleId($id)
+    {
+        $this->query->where('module.id', $id);
+        return $this;
+    }
+    
+    public function byPermissionId($id)
+    {
+        $this->query->where('permission.id', $id);
+        return $this;
+    }
+    
+
  
      
 
     public function deleted($bool = true)
     {
-        if ($bool===true) {
+        if ($bool==true) {
             $this->query->where($this->table . '.deleted_at','!=',null);
         }else {
             $this->query->where($this->table . '.deleted_at',null);

@@ -7,14 +7,14 @@
             <p>{{ $survey->description }}</p>
         </div>
 
-        <form action="{{ route('web.admin.project.survey_answer.add.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.survey.survey_answer.add.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="survey_id" value="{{ $survey->id }}">
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Tag') }}</label>
                 <input type="text" name="tag" id="name" class="form-control" value="#{{ $count+1 }}">
             </div>
             <div class="col-md-6 mb-3">
-                <label for="city_id" class="form-label">{{ __('Cidade') }}</label>
+                <label for="city_id" class="form-label">{{ __('Ciudad') }}</label>
                 <select name="city_id" class="form-control">
                     @foreach ($city as $item)
                         <option value="{{ $item->id }}">{{ $item->name.' |'.$item->country_name  }}</option>

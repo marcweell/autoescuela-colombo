@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Registro de Pais') }}</h4>
 
-        <form action="{{ route('web.admin.project.survey_question.add.do') }}" class="form_ parent-load row"
+        <form action="{{ route('web.admin.survey.survey_question.add.do') }}" class="form_ parent-load row"
             method="post">
             <input type="hidden" name="survey_id" value="{{ $survey->id }}">
             <div class="col-md-9 mb-3">

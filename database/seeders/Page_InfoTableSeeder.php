@@ -2,11 +2,10 @@
 
 namespace Database\Seeders;
 
-use App\Models\Settings;
 use App\Services\page_info\Page_infoServiceImpl;
 use Illuminate\Database\Seeder;
 
-class SettingsTableSeeder extends Seeder
+class Page_infoTableSeeder extends Seeder
 {
     public function run()
     {

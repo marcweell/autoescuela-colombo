@@ -1,10 +1,11 @@
 <?php
 
+use App\Security\Permission\PermissionHandler;
 use Flores\HomePageInfo;
 use Flores\Tools;
 use Flores\FileManager;
 use Illuminate\Support\Carbon;
-
+use Illuminate\Support\Facades\Route;
 
 function tools()
 {
@@ -206,4 +207,48 @@ function hh($code, $msg = null)
 
 
     return response($msg, $code)->header('Content-Type', 'text/html');
+}
+
+
+/**
+ * Checks User Permissions
+ *
+ * @param string $permission
+ * @param bool $prefix - checks permissions tree
+ *
+ * @return bool
+ * @author  Nelson Flores
+ */
+function scan($permission, $prefix = false)
+{
+    if ($prefix === true) {
+        return PermissionHandler::getInstance()->checkPrefix($permission);
+    }
+    return PermissionHandler::getInstance()->check($permission);
+}
+
+
+/**
+ * Checks if User has Permissions to acess route
+ *
+ * @param string $permission
+ * @param bool $prefix - checks permissions tree
+ * @return bool
+ * @author  Nelson Flores
+ */
+function check_route($route, $prefix = false)
+{
+    $credencials = config("permissions");
+    foreach (Route::getRoutes() as $i => $route_) {
+        if (empty($credencials[$route_->getActionName()])) {
+            continue;
+        }
+        if ($route_->getName() !== $route) {
+            continue;
+        }
+
+        $credencial = $credencials[$route_->getActionName()];
+        return scan($credencial['permission'], $prefix);
+    }
+    return true;
 }

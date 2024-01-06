@@ -11,7 +11,7 @@
 
                 <div class="row">
                     <div class="col-md-3">
-                        <h6>Selecione Cidade</h6>
+                        <h6>Selecione Ciudad</h6>
                         <select name="settings-page-keywords" class="form-control" multiple>
                             <option value="1" selected>Nampula</option>
                         </select>

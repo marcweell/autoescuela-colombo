@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-header">
-        <div class="card-title"><h5>Cidades<h5></div>
+        <div class="card-title"><h5>Ciudads<h5></div>
     </div>
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.settings.geo.city.add.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Cidade') }}</a>
+                        class="mdi mdi-plus-circle me-2"></i> {{ __('Agregar Ciudad') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -24,7 +24,7 @@
                         </th>
                         <th>{{ __('Nombre') }}</th>
                         <th>{{ __('Codigo') }}</th>
-                        <th>{{ __('Cidade') }}</th>
+                        <th>{{ __('Ciudad') }}</th>
                         <th>{{ __('Data/Hora de Registo') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -46,7 +46,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.geo.city.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
-                                    data-title="Remover Cidade"><i class="fa fa-trash"></i></a>
+                                    data-title="Remover Ciudad"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

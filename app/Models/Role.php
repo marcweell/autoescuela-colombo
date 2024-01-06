@@ -6,12 +6,12 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 
-class Settings extends Model{
+class Role extends Model
+{  
     protected $fillable = [
         'name',
-        'code',
-        'active',
-    ];
-
-    protected $table = 'page_info';
+        'code', 
+    ]; 
+    
+    protected $table = 'role'; 
 }

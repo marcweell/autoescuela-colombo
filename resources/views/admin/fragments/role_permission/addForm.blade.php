@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Registro de Pais') }}</h4>
 
-        <form action="{{ route('web.admin.geo.group_permission.add.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.admin.geo.role_permission.add.do') }}" class="form_ parent-load row" method="post">
 
             <div class="col-12 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
