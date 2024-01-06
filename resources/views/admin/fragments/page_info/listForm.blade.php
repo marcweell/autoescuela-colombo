@@ -28,7 +28,7 @@
                                      <small class="mb-0 font-10">
                                          @if (empty($item->content))
                                              {{ '[' . __('No definido') . ']' }}
-                                         @elseif($item->content_type !== 'plain_text' or strlen($item->content) > 10)
+                                         @elseif($item->content_type !== 'plain_text' and strlen($item->content) > 10)
                                              {{ '[' . __('Ver detalles') . ']' }}
                                          @else
                                              {{ $item->content }}
