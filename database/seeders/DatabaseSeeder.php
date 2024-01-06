@@ -28,7 +28,5 @@ class DatabaseSeeder extends Seeder
         (new GenderServiceImpl())->add(json_decode(json_encode(['name'=>"Feminino"])));
 
         (new TestController())->modules();
-
-
     }
 }
