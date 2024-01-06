@@ -13,7 +13,7 @@
             </div>
 
             <div class="row gy-4">
-                <div class="col-lg-7 position-relative about-img" style="background-image: url('{{ url('storage/files/'._info('intro.image','#')) }}'); background-repeat: no-repeat; background-position:cover"
+                <div class="col-lg-7 position-relative about-img" style="background-image: url('{{ url('storage/files/'._info('intro.image','#')) }}'); background-repeat: no-repeat; background-position:center; background-size:cover"
                     data-aos="fade-up" data-aos-delay="150">
                     <div class="call-us position-absolute">
                         <h4>{{_info("company.name")}}</h4>
