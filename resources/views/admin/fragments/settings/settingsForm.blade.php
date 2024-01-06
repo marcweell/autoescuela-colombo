@@ -141,7 +141,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.currency.index') }}"
+                        <a data-href="{{ route('web.admin.settings.currency.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
