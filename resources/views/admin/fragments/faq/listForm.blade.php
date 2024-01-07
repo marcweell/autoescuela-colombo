@@ -38,7 +38,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.faq.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
-                                    data-title="Remover Preguntas frecuentes"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Preguntas frecuentes"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

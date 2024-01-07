@@ -48,7 +48,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.user.role.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary  _link_ prompt"
-                                    data-title="Remover Grupo de Usuarios"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Grupo de Usuarios"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

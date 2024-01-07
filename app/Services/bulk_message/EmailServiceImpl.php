@@ -4,7 +4,7 @@ namespace App\Services\bulk_message;
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-use App\Jobs\EmailSender; 
+use App\Jobs\EmailSender;
 use Illuminate\Support\Facades\DB;
 use PHPMailer\PHPMailer\SMTP;
 
@@ -29,10 +29,10 @@ class EmailServiceImpl implements IBulk_messageService
         try {
 
             $this->subject = $subject;
-            
+
             $this->provider = new PHPMailer(true);
             //Server settings
-            $this->provider->SMTPDebug = SMTP::DEBUG_OFF;
+            $this->provider->SMTPDebug = 2;//SMTP::DEBUG_OFF;
             $this->provider->isSMTP();
             $this->provider->CharSet = 'UTF-8';
             $this->provider->Host = env('MAIL_HOST');
@@ -88,7 +88,7 @@ class EmailServiceImpl implements IBulk_messageService
         $this->async = false;
 
         return $this;
-    } 
+    }
 
     private function queue()
     {
@@ -98,7 +98,7 @@ class EmailServiceImpl implements IBulk_messageService
 
         return true;
     }
- 
+
     public function send()
     {
         $data = [
@@ -140,7 +140,7 @@ class EmailServiceImpl implements IBulk_messageService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -152,7 +152,7 @@ class EmailServiceImpl implements IBulk_messageService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)

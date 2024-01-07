@@ -132,7 +132,7 @@
                                     <div class="card-body">
                                         <h4 class="header-title mb-3">Membros</h4>
 
-                                        <div class="table-responsive--">
+                                        <div class="table-responsive">
                                             <table class="table table_ table-sm table-smtable-hover table-centered mb-0">
                                                 <thead>
                                                     <tr>

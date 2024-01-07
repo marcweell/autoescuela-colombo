@@ -201,6 +201,7 @@ class AuthController extends Controller
         try {
 
             $data->email = strtolower($data->email);
+            $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
             $data->code = empty($data->code) ? null : strtolower($data->code);
 
 
@@ -230,8 +231,6 @@ class AuthController extends Controller
 
             $link = route('web.account.activation.index', $payload);
 
-
-
             $txt1 = __("Seja bem-vindo à nossa comunidade! Estamos empolgados em tê-lo a bordo. Este é o começo de uma jornada emocionante, onde você é o autor da sua história. Lembre-se sempre de que cada passo que você der aqui tem o poder de criar um impacto duradouro.");
             (new NotificationServiceImpl())->setUser($user)->setTitle("Whatsapp")->setMessage(__("Por favor, verifique o seu Whatsapp a partir das suas definicoes de conta."))->send();
 
@@ -240,6 +239,7 @@ class AuthController extends Controller
                 'user' => $user,
                 'otp' => $otp
             ])->render();
+
 
             (new EmailServiceImpl(__("Ativacao de Conta")))->addRecipient($data->email)->setBody($emailBody)->send();
 

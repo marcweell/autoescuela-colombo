@@ -44,7 +44,7 @@
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.paragraph.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover paragraph"><i
+                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar paragraph"><i
                                         class="fa fa-trash"></i></a>
 
                             </td>

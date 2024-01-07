@@ -20,7 +20,7 @@
             <a data-href="{{ route('web.admin.page.message.detail.index') }}" data-id='{{ $message->id }}'
                 class="btn btn-secondary btn-sm _link_"><i class="fa fa-eye"></i></a>
             <a data-href="{{ route('web.admin.page.message.remove.do') }}" data-id='{{ $message->id }}'
-                class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover Subscritor"><i
+                class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar Subscritor"><i
                     class="fa fa-trash"></i></a>
         </div>
 

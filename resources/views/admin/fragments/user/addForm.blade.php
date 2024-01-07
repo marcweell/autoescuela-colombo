@@ -52,7 +52,7 @@
                     <label for="type" class="form-label">{{ __('Tipo de Usuario') }}</label>
                     <select name="type" id="user_type" required class="form-control ">
                         <option>Seleccione el tipo de usuario</option>
-                        <option value="user">Aluno</option>
+                        <option value="user">Alumno</option>
                         <option value="admin">Admin</option>
                     </select>
                 </div>

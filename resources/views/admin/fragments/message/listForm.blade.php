@@ -41,7 +41,7 @@
                                                 class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.page.message.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
-                                    data-title="Remover Subscritor"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Subscritor"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

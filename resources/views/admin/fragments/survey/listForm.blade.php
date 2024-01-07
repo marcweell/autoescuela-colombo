@@ -16,7 +16,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive--">
+        <div class="table-responsive">
             <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap"
                 id="products-datatable">
                 <thead class="table-light">
@@ -64,7 +64,7 @@
                                                 class="fa fa-edit"></i>Editar</a>
                                         <a data-href="{{ route('web.admin.survey.survey.remove.do') }}"
                                             data-id='{{ $item->id }}' class="dropdown-item _link_ prompt"
-                                            data-title="Remover sector"><i class="fa fa-trash"></i>Remover</a>
+                                            data-title="Eliminar sector"><i class="fa fa-trash"></i>Eliminar</a>
                                     </div>
                                 </div>
                             </td>

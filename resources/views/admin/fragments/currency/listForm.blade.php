@@ -43,7 +43,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.currency.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary  _link_ prompt"
-                                    data-title="Remover Moneda"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Moneda"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

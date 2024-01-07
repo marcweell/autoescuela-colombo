@@ -36,6 +36,7 @@ return new class extends Migration
             $table->bigInteger('role_id')->nullable()->index('role_id');
             $table->enum('type', ['admin', 'user'])->default('user');
             $table->boolean('active')->default(true);
+            $table->boolean('approved')->default(false);
             $table->string('activation_token', 100)->nullable();
             $table->rememberToken();
             $table->dateTime('created_at')->nullable()->useCurrent();

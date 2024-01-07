@@ -136,4 +136,28 @@ class UserController extends Controller
 
         return (new WebApi())->setSuccess()->download(url('storage/files/' . $file))->get();
     }
+    public function aprove(Request $request)
+    {
+        $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+
+        $pdfCollection = new PdfCollection();
+        if (!empty($user->medical_evaluation_file) and is_file(storage_path("files/" . $user->medical_evaluation_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->medical_evaluation_file), PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
+        }
+
+        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
+        }
+
+
+        $fpdi = new Fpdi();
+        $merger = new PdfMerger($fpdi);
+
+        $file = code() . ".pdf";
+        $destination = storage_path('files/' . $file);
+
+        $merger->merge($pdfCollection, $destination, PdfMerger::MODE_FILE);
+
+        return (new WebApi())->setSuccess()->download(url('storage/files/' . $file))->get();
+    }
 }

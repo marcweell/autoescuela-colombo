@@ -164,7 +164,7 @@ class AccountController extends Controller
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
-    public function removeReminder(Request $request)
+    public function eliminareminder(Request $request)
     {
         try {
             $this->reminderService->delete($request->get('id'));

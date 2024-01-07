@@ -73,7 +73,7 @@
                             </div>
                             <div class="col-sm-9">
                                 <p class="text-muted mb-0">
-                                    {{ empty($user->phone) ? '' : "({$user->idd})" . $user->phone }}
+                                    {{ empty($user->phone) ? '' : "(".$user->idd.")" . $user->phone }}
                                 </p>
                             </div>
                         </div>

@@ -159,7 +159,7 @@
                                 dolore
                                 magna aliqua.
                             </p>
-                            <form class="form_">
+                            <form class="form_" action="{{route("web.account.signup.do")}}">
                                 <div class="row php-email-form">
                                     <div class="col-md-3">
                                         <label class="form-label">Apellido paterno</label>

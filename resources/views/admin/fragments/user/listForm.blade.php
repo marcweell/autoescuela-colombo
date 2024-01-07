@@ -18,7 +18,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive--">
+        <div class="table-responsive">
             <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap"
                 id="products-datatable">
                 <thead class="table-light">
@@ -62,9 +62,18 @@
                             </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
+
+                                @if ($item->type == 'user' and $item->approved == false)
+
+                                <a data-href="{{ route('web.admin.user.approve.do') }}"
+                                data-id='{{ $item->id }}' class="btn btn-success _link_ prompt" data-title="Aprobar registro de alumno"><i
+                                    class="fa fa-check"></i></a>
+                                @endif
+
+
                                 <a data-href="{{ route('web.admin.user.export.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
-                                        class="fa fa-print"></i></a>
+                                data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
+                                    class="fa fa-print"></i></a>
                                 <a data-href="{{ route('web.admin.user.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-eye"></i></a>
@@ -72,7 +81,7 @@
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.user.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-primary _link_ prompt" data-title="Remover usuario"><i
+                                    class="btn btn-primary _link_ prompt" data-title="Eliminar usuario"><i
                                         class="fa fa-trash"></i></a>
                             </td>
                         </tr>

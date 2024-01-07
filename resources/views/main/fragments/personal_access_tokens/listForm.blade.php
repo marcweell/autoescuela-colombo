@@ -44,7 +44,7 @@
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.personal_access_tokens.remove.do') }}" data-id='{{ $item->id }}'
-                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Remover personal_access_tokens"><i
+                                    class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar personal_access_tokens"><i
                                         class="fa fa-trash"></i></a>
 
                             </td>

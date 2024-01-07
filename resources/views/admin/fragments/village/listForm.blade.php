@@ -15,7 +15,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive--">
+        <div class="table-responsive">
             <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap" id="products-datatable">
                 <thead class="table-light">
                     <tr>
@@ -46,7 +46,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.geo.village.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
-                                    data-title="Remover Aldea"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Aldea"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor

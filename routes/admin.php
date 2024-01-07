@@ -227,6 +227,10 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'export'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
 
+        Route::prefix("/approve")->middleware([App\Http\Middleware\CheckPermission::class])->name("approve.")->group(function () {
+            Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'approve'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+
 
 
         #----------------------------------------------

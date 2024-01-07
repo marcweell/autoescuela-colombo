@@ -19,7 +19,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive--">
+        <div class="table-responsive">
             <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap"
                 id="products-datatable">
                 <thead class="table-light">
@@ -53,7 +53,7 @@
                                             class="fa fa-edit"></i></a>
                                     <a data-href="{{ route('web.admin.page.site_menu.remove.do') }}"
                                         data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt mx-1"
-                                        data-title="Remover Menu"><i class="fa fa-trash"></i></a>
+                                        data-title="Eliminar Menu"><i class="fa fa-trash"></i></a>
                                 </div>
                             </td>
                         </tr>
