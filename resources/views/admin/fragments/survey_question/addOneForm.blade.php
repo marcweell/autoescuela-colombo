@@ -7,7 +7,7 @@
             method="post">
             <input type="hidden" name="survey_id" value="{{ $survey->id }}">
             <div class="col-md-9 mb-3">
-                <label for="name" class="form-label">{{ __('Questao') }}</label>
+                <label for="name" class="form-label">{{ __('Pregunta') }}</label>
                 <input type="text" name="question" id="name" class="form-control"
                     placeholder="{{ __('Ingrese nombre...') }}">
             </div>
