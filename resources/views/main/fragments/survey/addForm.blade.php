@@ -14,7 +14,7 @@
                 </select>
             </div>
             <div class="col-md-6 mb-3">
-                <label for="project_id" class="form-label">{{ __('Projecto') }}</label>
+                <label for="project_id" class="form-label">{{ __('Categoria de Examen') }}</label>
                 <select name="survey_category_id" class="form-control">
                     @foreach ($survey_category as $item)
                         <option value="{{ $item->id }}">{{ $item->name }}</option>
