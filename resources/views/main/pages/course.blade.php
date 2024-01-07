@@ -1,4 +1,4 @@
-@extends('main.templates.inner', ['page_title' => 'Sobre'])
+@extends('main.templates.inner', ['page_title' => 'Cursos'])
 
 @section('content')
     <section class="inner-page">
