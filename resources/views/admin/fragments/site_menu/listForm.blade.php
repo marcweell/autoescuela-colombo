@@ -19,7 +19,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive">
+        <div class="table-responsive---">
             <table class="table table_ table-sm table-smtable-centered w-100 dt-responsive nowrap"
                 id="products-datatable">
                 <thead class="table-light">

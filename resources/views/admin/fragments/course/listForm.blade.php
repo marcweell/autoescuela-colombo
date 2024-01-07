@@ -15,7 +15,7 @@
             </div><!-- end col-->
         </div>
 
-        <div class="table-responsive">
+        <div class="table-responsive---">
             <table class="table table_ table-sm table-centered w-100 dt-responsive nowrap" data-method="post">
                 <thead class="table-light">
                     <tr>

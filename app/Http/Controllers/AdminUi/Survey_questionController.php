@@ -66,10 +66,17 @@ class Survey_questionController extends Controller
                     break;
             }
 
+            $webapi = (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"));
+
+            if ($request->has("more")) {
+               $webapi->redirect(route('web.admin.survey.survey.question.add.index'));
+            }else{
+                $webapi->resync()->close_modal();
+            }
 
 
 
-            return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
+            return $webapi->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

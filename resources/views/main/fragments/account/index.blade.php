@@ -170,7 +170,7 @@
                         <div class="card-title">Historial de inicio de sesión</div>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
+                        <div class="table-responsive---">
                             <table class="table table_ table-centered w-100 dt-responsive">
 
                                 <thead class="">

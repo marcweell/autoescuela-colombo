@@ -13,9 +13,9 @@
             </div>
             <div class="col-md-3">
                 <div class="form-group">
-                    <label class="form-label">{!! __('Opcoes de Respuesta') !!}</label>
+                    <label class="form-label">{!! __('Tipo de pregunta') !!}</label>
                     <select name="question_type" class="form-control" id="qt">
-                        <option value="">Selecione a opcoes</option>
+                        <option value="">Seleccione tipo</option>
                         <option value="open-ended-single">Texto Simples</option>
                         <option value="single-choice-radio">Escolha Unica</option>
                         <option value="multiple-choice">Escolha Multipla</option>
