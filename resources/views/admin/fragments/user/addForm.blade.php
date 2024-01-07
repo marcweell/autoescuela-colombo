@@ -8,22 +8,22 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}">
+                    placeholder="{{ __('Ingrese nombre...') }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="last_name" class="form-label">{{ __('Apellido') }}</label>
                 <input type="text" name="last_name" id="last_name" class="form-control"
-                    placeholder="{{ __('Digite o Apellido...') }}">
+                    placeholder="{{ __('Ingrese Apellido...') }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="code" class="form-label">{{ __('Nombre de Usuario') }}</label>
                 <input type="text" name="code" id="code" class="form-control"
-                    placeholder="{{ __('Digite o nombre de usuario...') }}" required>
+                    placeholder="{{ __('Ingrese nombre de usuario...') }}" required>
             </div>
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Email') }}</label>
                 <input type="text" name="email" id="email" class="form-control"
-                    placeholder="{{ __('Digite o Email...') }}">
+                    placeholder="{{ __('Ingrese Email...') }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
@@ -51,7 +51,7 @@
                 </div>
                 <div class="form-check form-check-inline">
                     <input type="checkbox" name="send-auth" class="form-check-input" id="customCheck4">
-                    <label class="form-check-label" for="customCheck4">Enviar Email de Autenticacao</label>
+                    <label class="form-check-label" for="customCheck4">Enviar correo electrónico de autenticación</label>
                 </div>
             </div>
             <div class="col-12 pt-2">

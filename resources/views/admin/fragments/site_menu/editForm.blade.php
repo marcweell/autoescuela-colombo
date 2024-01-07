@@ -10,7 +10,7 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $site_menu->name }}">
+                    placeholder="{{ __('Ingrese nombre...') }}" value="{{ $site_menu->name }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icone') }}</label>
@@ -55,7 +55,7 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Indice') }}</label>
                 <input type="number" step="0.0001" name="_index" id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $site_menu->order_index }}">
+                    placeholder="{{ __('Ingrese nombre...') }}" value="{{ $site_menu->order_index }}">
             </div>
 
 

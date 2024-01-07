@@ -2,7 +2,7 @@
 
      <div class="text-center w-75 m-auto">
          <h4 class="-50 text-center pb-0 fw-bold">Entrar</h4>
-         <p class="text-muted mb-4">Digite o seu Email ou Numero de Telefono para continuar.</p>
+         <p class="text-muted mb-4">Ingrese seu Email ou Numero de Telefono para continuar.</p>
      </div>
 
      <form action="{{ route('web.account.auth.reAuth') }}" class="form_ parent-load">

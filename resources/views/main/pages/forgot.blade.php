@@ -25,7 +25,7 @@
                                      class="form_ parent-load">
 
                                      <div class="form-group">
-                                         <label>{{ __('Digite o seu email') }}</label>
+                                         <label>{{ __('Ingrese seu email') }}</label>
                                          <input type="email" class="form-control" name="email">
                                      </div>
 

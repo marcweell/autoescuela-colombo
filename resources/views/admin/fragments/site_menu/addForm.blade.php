@@ -8,7 +8,7 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}">
+                    placeholder="{{ __('Ingrese nombre...') }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icone') }}</label>
@@ -52,7 +52,7 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Indice') }}</label>
                 <input type="number" name="_index" id="name" value="0" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}">
+                    placeholder="{{ __('Ingrese nombre...') }}">
             </div>
 
             <div class="col-md-12">

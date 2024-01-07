@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
 use App\Services\auth\AuthServiceImpl;
+use App\Services\survey\SurveyServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\admin_menu\Admin_menuServiceQueryImpl;
 use App\Services\administrative_act_type\Administrative_act_typeServiceQueryImpl;
@@ -12,6 +13,7 @@ use App\Services\client\ClientServiceQueryImpl;
 use App\Services\notification\NotificationServiceQueryImpl;
 use App\Services\project\ProjectServiceQueryImpl;
 use App\Services\session_history\Session_historyServiceQueryImpl;
+use App\Services\survey_person\Survey_personServiceQueryImpl;
 use App\Services\transaction\TransactionServiceQueryImpl;
 use App\Services\user\UserServiceQueryImpl;
 use Flores\Tools;
@@ -42,7 +44,10 @@ class IndexController extends Controller
         $user = (new AuthServiceImpl("admin"))->getUser();
         $view = view('admin.fragments.dashboard.index', [
             'request' => $request,
-            'user' => (new UserServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+            'user_count' => (new UserServiceQueryImpl())->count(),
+            'survey_count' => (new SurveyServiceQueryImpl())->count(),
+            'survey_person_count' => (new Survey_personServiceQueryImpl())->count(),
+            'session_history_count' => (new Session_historyServiceQueryImpl())->count(),
         ])->render();
 
         return (new WebApi())

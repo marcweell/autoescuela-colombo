@@ -20,7 +20,7 @@
             <div class="col-md-4 mb-3">
                 <label for="email" class="form-label">{{ __('Email') }}</label>
                 <input type="text" name="email" id="email" class="form-control"
-                    placeholder="{{ __('Digite o Email...') }}" value="{{  $user->email }}">
+                    placeholder="{{ __('Ingrese Email...') }}" value="{{  $user->email }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="phone" class="form-label">{{ __('Teléfono') }}</label>

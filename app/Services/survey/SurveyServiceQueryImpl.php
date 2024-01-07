@@ -21,7 +21,7 @@ class SurveyServiceQueryImpl implements ISurveyServiceQuery
 {
 
     private $table =  'survey';
-    
+
     private $query;
 
     public function __construct()
@@ -29,8 +29,8 @@ class SurveyServiceQueryImpl implements ISurveyServiceQuery
         $this->query = DB::table($this->table)
             ->select(
                 $this->table . '.*',
-                'course.name as course_name',  
-                'language.name as language_name',  
+                'course.name as course_name',
+                'language.name as language_name',
             )
             ->leftJoin('course as course', 'course.id', $this->table . '.course_id')
             ->leftJoin('language as language', 'language.id', $this->table . '.language_id');
@@ -53,12 +53,12 @@ class SurveyServiceQueryImpl implements ISurveyServiceQuery
         return $this;
     }
 
-    
-    
-    
 
- 
-     
+
+
+
+
+
 
     public function deleted($bool = true)
     {
@@ -68,14 +68,20 @@ class SurveyServiceQueryImpl implements ISurveyServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
+    public function count()
+    {
+        return $this->query->count();
+    }
+
+
     public function findAll()
     {
         return $this->query->get();
@@ -92,5 +98,5 @@ class SurveyServiceQueryImpl implements ISurveyServiceQuery
     public function findByCode($id)
     {
         return $this->query->where($this->table . '.code', $id)->first();
-    } 
+    }
 }

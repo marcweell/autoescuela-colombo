@@ -19,12 +19,11 @@ class UserServiceQueryImpl implements IUserServiceQuery
             ->select(
                 $this->table . '.*',
                 'country.name as country_name',
+                'country.code as country_code',
                 'idd_country.name as idd_country_name',
+                'idd_country.code as idd_country_code',
                 'idd_country.idd as idd',
                 DB::raw('concat(user.name," ",user.last_name) as full_name'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.created_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as created_at'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.updated_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as updated_at'),
-                DB::raw('CONVERT_TZ(' . $this->table . '.deleted_at,"' . getSystemTzOffset() . '","' . getTzOffset() . '") as deleted_at'),
             )
             ->leftJoin('country as idd_country', 'idd_country.id', $this->table . '.idd_country_id')
             ->leftJoin('country', 'country.id', $this->table . '.country_id');

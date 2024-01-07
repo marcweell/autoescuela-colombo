@@ -9,7 +9,7 @@
             <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12 col-12">
                 <form action="{{ route('web.admin.profile.update.do') }}" class="parent-load form_ prompt">
                     <div class="row">
-                        <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
+                        <div class="col-xl-4 col-lg-4 pt-2 col-md-4 col-sm-4 col-12">
                             <img src="{{ tools()->photo($user->photo) }}"
                                 class="img-fluid rounded-circle nf_picture my-3" alt="Image">
                         </div>
@@ -20,55 +20,118 @@
                                         class="fa fa-image p-2"></i>Cambiar foto de perfil</button>
                             </div>
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <!-- Field wrapper start -->
+                        <div class="col-md-6 col-lg-4 pt-2">
+
                             <div class="form-group">
                                 <label class="form-label">Nombre</label>
                                 <input type="text" class="form-control" name="name" value="{{ $user->name }}">
                             </div>
-                            <!-- Field wrapper end -->
+
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <!-- Field wrapper start -->
+                        <div class="col-md-6 col-lg-4 pt-2">
+
                             <div class="form-group">
                                 <label class="form-label">Apellido</label>
                                 <input type="text" class="form-control" name="last_name"
                                     value="{{ $user->last_name }}">
                             </div>
-                            <!-- Field wrapper end -->
+
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                            <!-- Field wrapper start -->
+                        <div class="col-md-6 col-lg-4 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Fecha de nacimiento</label>
+                                <input type="date" class="form-control" name="born_date"
+                                    value="{{ $user->born_date }}">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-2">
+                            <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
+                            <div class="input-group">
+                                <select class="form-control w-25" style="width: 25%" name="idd_country_id">
+                                    @foreach ($country as $item)
+                                        <option value="{{ $item->id }}"
+                                            {{ strtolower($item->code) == (empty($user->idd_country_id) ? 'bo' : strtolower($user->idd_country_code)) ? 'selected' : '' }}>
+                                            {{ $item->idd . '     (' . $item->name . ' - ' . $item->native_name . ')' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                                <input type="text" class="form-control w-75" placeholder="" aria-label=""
+                                    aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-4 pt-2">
+
                             <div class="form-group">
                                 <label class="form-label">Email</label>
                                 <input type="email" class="form-control" name="email" value="{{ $user->email }}">
                             </div>
-                            <!-- Field wrapper end -->
+
                         </div>
-                        <div class="col-md-6 col-lg-4">
-                                <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
-                                <div class="input-group">
-                                    <select class="form-control w-25" style="width: 25%" name="idd_country_id">
-                                        @foreach ($country as $item)
-                                            <option value="{{ $item->id }}" {{ (strtolower($item->code)=="br")?"selected":"" }}>{{ $item->idd . "     (".$item->name." - ".$item->native_name.")" }}</option>
-                                        @endforeach
-                                    </select>
-                                    <input type="text" class="form-control w-75" placeholder="" aria-label=""
-                                        aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
-                                </div>
+                        <div class="col-12 col-md-4 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Carnet de Identidad</label>
+                                <input type="text" class="form-control" name="national_id"
+                                    value="{{ $user->national_id }}">
                             </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Apellido paterno</label>
+                                <input type="text" class="form-control" name="father_name"
+                                    value="{{ $user->father_name }}">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Apellido materno</label>
+                                <input type="text" class="form-control" name="mother_name"
+                                    value="{{ $user->mother_name }}">
+                            </div>
+
+                        </div>
+                        <div class="col-md-6 col-lg-4 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Pais</label>
+                                <select class="form-control" name="country_id">
+                                    @foreach ($country as $item)
+                                        <option value="{{ $item->id }}"
+                                            {{ strtolower($item->code) == (empty($user->country_id) ? 'bo' : strtolower($user->country_code)) ? 'selected' : '' }}>
+                                            {{ $item->name . ' (' . $item->native_name . ')' }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="col-12 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Direccion</label>
+                                <textarea name="address" cols="3" class="form-control">{{ $user->address }}</textarea>
+                            </div>
+
+                        </div>
                         <div class="pt-3 col-12">
                             <button class="btn btn-secondary mb-3 chl_loader"><i
-                                    class="fa fa-save p-2"></i>{{ __("Salvar") }}</button>
-                            <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary mb-3 _link_"><i
-                                    class="fa fa-arrow-left p-2"></i>Volver al perfil</button>
+                                    class="fa fa-save p-2"></i>{{ __('Salvar') }}</button>
+                            <button data-href="{{ route('web.admin.profile.index') }}"
+                                class="btn btn-primary mb-3 _link_"><i class="fa fa-arrow-left p-2"></i>Volver al
+                                perfil</button>
 
                         </div>
                     </div>
                 </form>
             </div>
 
-            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+            <div class="col-xl-4 col-lg-4 pt-2 col-md-12 col-sm-12 col-12">
                 <div class="account-settings-block">
 
                     <div class="settings-block">
@@ -77,7 +140,8 @@
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
-                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i>Cambiar contraseña</button>
+                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i>Cambiar
+                                        contraseña</button>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +153,15 @@
     </div>
 </div>
 <!-- card end -->
+
+
+
+
+
+
+
+
+
 
 @include('profile-modal')
 

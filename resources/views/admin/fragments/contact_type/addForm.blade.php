@@ -8,7 +8,7 @@
             <div class="col-12 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}">
+                    placeholder="{{ __('Ingrese nombre...') }}">
             </div>
 
             <div class="col-md-12">

@@ -18,8 +18,8 @@ use Flores;
 
 class UserServiceImpl implements IUserService
 {
-    private $insertFillables = ['name', 'last_name', 'code', 'email', 'idd_country_id','phone','bio',];
-    private $updateFillables = ['name', 'last_name', 'code', 'email', 'idd_country_id','phone','bio',];
+    private $insertFillables = ["code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
+    private $updateFillables = ["code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
     private $table =  'user';
 
 
@@ -29,7 +29,6 @@ class UserServiceImpl implements IUserService
             throw new \Exception(__('Nome invalido'), 400);
         }
         $payload = new stdClass();
-
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
 
         foreach ($data as $i => $value) {
@@ -49,7 +48,7 @@ class UserServiceImpl implements IUserService
 
 
         $arr = json_decode(json_encode($payload), true);
-        
+
 
         DB::table($this->table)->insert($arr);
     }
@@ -93,7 +92,7 @@ class UserServiceImpl implements IUserService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -105,7 +104,7 @@ class UserServiceImpl implements IUserService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)

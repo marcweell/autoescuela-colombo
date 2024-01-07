@@ -252,3 +252,30 @@ function check_route($route, $prefix = false)
     }
     return true;
 }
+
+
+/**
+ * Convert BornDate to Years Old
+ * @param mixed $date
+ * @return int
+ *
+ * @author  Nelson Flores
+ */
+function yearsOld($date)
+{
+    $month = date('m', strtotime($date));
+    $year = date('Y', strtotime($date));
+    $day = date('d', strtotime($date));
+    $yearsOld = date('Y') - $year;
+
+    if (date('m') <= $month && $day > date('d')) {
+        --$yearsOld;
+    }
+
+    if ($yearsOld < 0) {
+        $yearsOld = 0;
+    }
+
+    return $yearsOld;
+}
+

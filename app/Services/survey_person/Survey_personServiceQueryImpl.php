@@ -21,7 +21,7 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
 {
 
     private $table =  'survey_person';
-    
+
     private $query;
 
     public function __construct()
@@ -29,8 +29,8 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
         $this->query = DB::table($this->table)
         ->select(
             $this->table . '.*',
-            'city.name as city_name',  
-            'survey.name as survey_name',  
+            'city.name as city_name',
+            'survey.name as survey_name',
             'course.name as course_name',
         )
         ->leftJoin('city as city', 'city.id', $this->table . '.city_id')
@@ -45,12 +45,18 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
     }
 
 
-    
-    
-    
 
- 
-     
+
+
+
+
+    public function count()
+    {
+        return $this->query->count();
+    }
+
+
+
 
     public function deleted($bool = true)
     {
@@ -60,14 +66,14 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
     public function findAll()
     {
         return $this->query->get();
@@ -80,5 +86,5 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
     public function findByCode($id)
     {
         return $this->query->where($this->table . '.code', $id)->first();
-    } 
-} 
+    }
+}

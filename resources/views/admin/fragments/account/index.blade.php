@@ -9,7 +9,9 @@
                         <h5 class="mt-3 mb-1">{{ $user->name . ' ' . $user->last_name }}</h5>
                         <p class="text-muted mb-3">{{ $user->code }}</p>
                         <div class="d-flex justify-content-center mb-2">
-                            <button type="button" role="button" class="btn btn-outline-primary ms-1 _link_" data-href="{{ route('web.admin.profile.update.index') }}">Configuraciones de la cuenta</button>
+                            <button type="button" role="button" class="btn btn-outline-primary ms-1 _link_"
+                                data-href="{{ route('web.admin.profile.update.index') }}">Configuraciones de la
+                                cuenta</button>
                         </div>
                     </div>
                 </div>
@@ -18,7 +20,8 @@
                         <ul class="list-group list-group-flush rounded-3">
                             <li class="list-group-item d-flex justify-content-between align-items-center p-3">
                                 <i class="fas fa-file fa-lg text-warning"></i>
-                                <p class="mb-0"><a href="https://mdbootstrap.com" class="text-info">https://mdbootstrap.com</a></p>
+                                <p class="mb-0"><a href="https://mdbootstrap.com"
+                                        class="text-info">https://mdbootstrap.com</a></p>
                             </li>
                         </ul>
                     </div>
@@ -27,6 +30,16 @@
             <div class="col-lg-8">
                 <div class="card mb-4">
                     <div class="card-body">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <p class="mb-0">Edad</p>
+                            </div>
+                            <div class="col-sm-9">
+                                <p class="text-muted mb-0">{{ empty($user->born_date) ? '' : yearsOld($user->born_date) }}
+                                </p>
+                            </div>
+                        </div>
+                        <hr>
                         <div class="row">
                             <div class="col-sm-3">
                                 <p class="mb-0">Full Name</p>
@@ -59,7 +72,8 @@
                                 <p class="mb-0">Phone</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ empty($user->phone) ? '' : "({$user->idd})" . $user->phone }}
+                                <p class="text-muted mb-0">
+                                    {{ empty($user->phone) ? '' : "({$user->idd})" . $user->phone }}
                                 </p>
                             </div>
                         </div>
@@ -93,13 +107,13 @@
                                 </div>
                                 <p class="mt-4 mb-1" style="font-size: .77rem;">One Page</p>
                                 <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 89%"
-                                        aria-valuenow="89" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 89%" aria-valuenow="89"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <p class="mt-4 mb-1" style="font-size: .77rem;">Mobile Template</p>
                                 <div class="progress rounded" style="height: 5px;">
-                                    <div class="progress-bar" role="progressbar" style="width: 55%"
-                                        aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"></div>
+                                    <div class="progress-bar" role="progressbar" style="width: 55%" aria-valuenow="55"
+                                        aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
                                 <p class="mt-4 mb-1" style="font-size: .77rem;">Backend API</p>
                                 <div class="progress rounded mb-2" style="height: 5px;">

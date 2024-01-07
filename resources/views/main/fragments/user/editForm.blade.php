@@ -107,7 +107,7 @@
                 </div>
                 <div class="form-check form-check-inline">
                     <input checked type="checkbox" name="send-auth" class="form-check-input" id="customCheck4">
-                    <label class="form-check-label" for="customCheck4">Enviar Email de Autenticacao</label>
+                    <label class="form-check-label" for="customCheck4">Enviar correo electrónico de autenticación</label>
                 </div>
             </div>
 

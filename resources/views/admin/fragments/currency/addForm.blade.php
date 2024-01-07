@@ -8,12 +8,12 @@
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Nome') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nome...') }}">
+                    placeholder="{{ __('Ingrese nome...') }}">
             </div>
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Simbolo') }}</label>
                 <input type="text" name="symbol" id="name" class="form-control"
-                    placeholder="{{ __('Digite o simobolo...') }}">
+                    placeholder="{{ __('Ingrese simobolo...') }}">
             </div>
 
             <div class="col-md-12">

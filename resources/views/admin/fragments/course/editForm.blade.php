@@ -18,7 +18,7 @@
             <div class="col-md-4 mb-3">
                 <label for="code" class="form-label">{{ __('Codigo') }}</label>
                 <input type="text" name="code" id="code" class="form-control"
-                    placeholder="{{ __('Digite o Codigo...') }}" value="{{ $course->code }}">
+                    placeholder="{{ __('Ingrese Codigo...') }}" value="{{ $course->code }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="course_category_id" class="form-label">{{ __('Categoria') }}</label>
@@ -33,17 +33,17 @@
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>
                 <input type="text" name="name" required id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}" value="{{ $course->name }}">
+                    placeholder="{{ __('Ingrese nombre...') }}" value="{{ $course->name }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="website" class="form-label">{{ __('Website') }}</label>
                 <input type="text" name="website" id="website" class="form-control"
-                    placeholder="{{ __('Digite o Website...') }}" value="{{ $course->website }}">
+                    placeholder="{{ __('Ingrese Website...') }}" value="{{ $course->website }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="postal_code" class="form-label">{{ __('Codigo Postal') }}</label>
                 <input type="text" name="postal_code" id="postal_code" class="form-control"
-                    placeholder="{{ __('Digite o Codigo Postal...') }}" value="{{ $course->postal_code }}">
+                    placeholder="{{ __('Ingrese Codigo Postal...') }}" value="{{ $course->postal_code }}">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="logo" class="form-label">{{ __('Logotipo') }}</label>
@@ -110,7 +110,7 @@
             <div class="col-md-4 mb-3">
                 <label for="permalink" class="form-label">{{ __('Codigo') }}</label>
                 <input type="text" name="permalink" id="permalink" class="form-control"
-                    placeholder="{{ __('Digite o Codigo...') }}" value="{{ $course->permalink }}">
+                    placeholder="{{ __('Ingrese Codigo...') }}" value="{{ $course->permalink }}">
             </div>
             <div class="col-12">
                 <div class="alert alert-info" role="info">

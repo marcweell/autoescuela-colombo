@@ -59,6 +59,11 @@ class Session_historyServiceQueryImpl implements ISession_historyServiceQuery
         return $this->query->get();
     }
 
+    public function count()
+    {
+        return $this->query->count();
+    }
+
     public function findById($id)
     {
         return $this->query->where($this->table . '.id', $id)->first();

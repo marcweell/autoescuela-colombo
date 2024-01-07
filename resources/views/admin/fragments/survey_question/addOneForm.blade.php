@@ -9,7 +9,7 @@
             <div class="col-md-9 mb-3">
                 <label for="name" class="form-label">{{ __('Questao') }}</label>
                 <input type="text" name="question" id="name" class="form-control"
-                    placeholder="{{ __('Digite o nombre...') }}">
+                    placeholder="{{ __('Ingrese nombre...') }}">
             </div>
             <div class="col-md-3">
                 <div class="form-group">
