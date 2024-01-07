@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row mx-n1 g-0">
 
-            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-file-tree-outline"></i> Geral</h4>
+            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-file-tree-outline"></i> General</h4>
 
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
