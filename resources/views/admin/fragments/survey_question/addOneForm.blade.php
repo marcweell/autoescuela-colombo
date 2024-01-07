@@ -146,7 +146,7 @@
         <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
-            <button class="btn btn-danger rmdad"><i class="fa fa-times"></i></button>
+            <button role="button" type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
 
         </div>
     </div>
@@ -186,7 +186,7 @@
         <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
-            <button class="btn btn-danger rmdad"><i class="fa fa-times"></i></button>
+            <button role="button" type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
         </div>
     </div>
 </div>
