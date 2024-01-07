@@ -23,11 +23,11 @@
             </div>
 
             <div class="col-md-6 mb-3">
-                <label for="start_date" class="form-label">{{ __('Data de Inicio') }}</label>
+                <label for="start_date" class="form-label">{{ __('Fecha de inicio') }}</label>
                 <input type="date" name="start_date" id="start_date" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
-                <label for="end_date" class="form-label">{{ __('Data de Termino') }}</label>
+                <label for="end_date" class="form-label">{{ __('Fecha de finalización') }}</label>
                 <input type="date" name="end_date" id="end_date" class="form-control">
             </div>
             <div class="col-md-6 mb-3">
