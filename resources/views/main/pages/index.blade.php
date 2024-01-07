@@ -88,31 +88,21 @@
                         <li data-aos="fade-up" data-aos-delay="{{ $delay }}">
                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
                                 data-bs-target="#_{{ $item->code }}">{{ $item->name }}<i
-                                    class="bx bx-chevron-down icon-show"></i><i
-                                    class="bx bx-chevron-up icon-close"></i></a>
+                                    class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
                             <div id="_{{ $item->code }}" class="{{ $show }}" data-bs-parent=".faq-list">
                                 <div class="row">
-                                    <div class="col-lg-8 details">
-                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila
-                                            parde
-                                            sonata raqer
-                                            a videna mareta paulona marka</p>
+                                    <div class="col-lg-12 details">
+                                        {!! $item->description !!}
 
                                     </div>
 
                                     <div class="col-lg-12">
-                                        <button type="button"
-                                            class="active animate__animated animate__fadeInUp scrollto">curso
-                                            1</button>
-                                        <button type="button"
-                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                            2</button>
-                                        <button type="button"
-                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                            3</button>
-                                        <button type="button"
-                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                            4</button>
+                                        @foreach ($course as $val)
+                                            @if ($item->id !== $course->course_category_id)
+                                                @continue
+                                            @endif
+                                            <button type="button"  class="active animate__animated animate__fadeInUp scrollto">{{ $val->name }}</button>
+                                        @endforeach
                                     </div>
                                 </div>
                             </div>

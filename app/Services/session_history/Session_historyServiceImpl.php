@@ -25,8 +25,8 @@ class Session_historyServiceImpl implements ISession_historyService
 
     public function add(int $user_id,bool $success = true)
     {
-        
-       
+
+
         DB::table($this->table)->insert([
             'user_id' => $user_id,
             'code'=>code(null, __METHOD__),
@@ -38,9 +38,9 @@ class Session_historyServiceImpl implements ISession_historyService
             'device' => Browser::platformName(),
             'created_at' => DB::raw('now()'),
         ]);
-        
+
     }
- 
+
     public function trash($id)
     {
         if (empty($id)) {
@@ -50,7 +50,7 @@ class Session_historyServiceImpl implements ISession_historyService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -62,7 +62,7 @@ class Session_historyServiceImpl implements ISession_historyService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -70,7 +70,7 @@ class Session_historyServiceImpl implements ISession_historyService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
