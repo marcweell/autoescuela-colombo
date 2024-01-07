@@ -70,7 +70,7 @@ class Survey_questionController extends Controller
 
             if ($request->has("more")) {
                $webapi->try(route('web.admin.survey.survey.question.add.index',[
-                'survey_id'=>$data->survey_id
+                'id'=>$data->survey_id
                ]));
             }else{
                 $webapi->resync()->close_modal();
