@@ -27,12 +27,6 @@
 
             </div>
 
-            <div class="col-md-4 mb-3">
-                <div class="form-check form-check-inline">
-                    <input checked type="checkbox" name="more" class="form-check-input" id="customCheck3">
-                    <label class="form-check-label" for="customCheck3">Sigue agregando</label>
-                </div>
-            </div>
 
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary chl_loader"><i
@@ -124,7 +118,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#choice-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opciones') }}</button>
             </div>
         </h4>
         <hr class="m-1">
@@ -163,7 +157,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#radio-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opciones') }}</button>
             </div>
         </h4>
         <hr class="m-1">

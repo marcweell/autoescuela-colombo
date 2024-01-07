@@ -27,6 +27,12 @@
 
             </div>
 
+            <div class="col-md-4 mb-3">
+                <div class="form-check form-check-inline">
+                    <input checked type="checkbox" name="more" class="form-check-input" id="customCheck3">
+                    <label class="form-check-label" for="customCheck3">Sigue agregando</label>
+                </div>
+            </div>
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary chl_loader"><i
                         class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
@@ -117,7 +123,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#choice-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opciones') }}</button>
             </div>
         </h4>
         <hr class="m-1">
@@ -140,7 +146,8 @@
         <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
-            <input type="checkbox" name="correct[]"><span class="mx-2">Correcto</span>
+            <button class="btn btn-danger rmdad"><i class="fa fa-times"></i></button>
+
         </div>
     </div>
 </div>
@@ -156,7 +163,7 @@
             <div class="col-12 text-end">
                 <button type="button" role="button" to="#contentId" elem-target="#radio-content"
                     class="clonehim btn btn-sm btn-secondary float-right chl_loader"><i
-                        class="fa fa-plus"></i>{{ __('Agregar Opcoes') }}</button>
+                        class="fa fa-plus"></i>{{ __('Agregar Opciones') }}</button>
             </div>
         </h4>
         <hr class="m-1">
@@ -179,7 +186,7 @@
         <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
-            <input type="radio" class="form-radio" name="correct[]"><span class="mx-2">Correcto</span>
+            <button class="btn btn-danger rmdad"><i class="fa fa-times"></i></button>
         </div>
     </div>
 </div>
