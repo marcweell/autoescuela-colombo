@@ -5,7 +5,7 @@
                   src="{{ tools()->photo($user->photo) }}" alt="User Image">
               <div>
                   <p class="app-sidebar__user-name">{{ $user->name . ' ' . $user->last_name }}</p>
-                  <p class="app-sidebar__user-designation">{{ $user->type }}</p>
+                  <p class="app-sidebar__user-designation">{{ $user->email }}</p>
               </div>
           </div>
           <ul class="app-menu">

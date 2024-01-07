@@ -5,7 +5,7 @@
                   src="{{ tools()->photo($user->photo) }}" alt="User Image">
               <div>
                   <p class="app-sidebar__user-name">{{ $user->name . ' ' . $user->last_name }}</p>
-                  <p class="app-sidebar__user-designation">{{ $user->type }}</p>
+                  <p class="app-sidebar__user-designation">{{ $user->email }}</p>
               </div>
           </div>
           <ul class="app-menu">
@@ -17,10 +17,10 @@
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
                       <li><a class="treeview-item _link_" data-href="{{ route('web.app.survey.survey.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> exámenes disponibles</a></li>
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> Exámenes disponibles</a></li>
                       <hr class="my-1">
                       <li><a class="treeview-item _link_"
-                              data-href="{{ route('web.app.settings.survey_category.index') }}"
+                              data-href="{{ route('web.app.survey.survey_answer.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Mi Respuestas</a></li>
                   </ul>
               </li>
