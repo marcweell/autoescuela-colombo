@@ -143,7 +143,7 @@
 
 <div class="d-none" id="choice-content">
     <div class="col-md-6 im_dad ">
-        <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
+        <label class="form-label">{{ __('Opción:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
             <button role="button" type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
@@ -183,7 +183,7 @@
 
 <div class="d-none" id="radio-content">
     <div class="col-md-6 im_dad ">
-        <label class="form-label">{{ __('Tipo de Respuesta:') }}</label>
+        <label class="form-label">{{ __('Opción:') }}</label>
         <div class="input-group">
             <input type="text" class="form-control" name="survey_question_option[]" value="">
             <button role="button" type="button" class="btn btn-danger rm_dad"><i class="fa fa-times"></i></button>
