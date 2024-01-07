@@ -33,7 +33,7 @@
          </div>
 
          <div class="mb-3 mb-0 text-center">
-             <button class="btn btn-secondary chl_loader" type="submit"> Autenticar </button>
+             <button class="btn btn-primary chl_loader" type="submit"> Autenticar </button>
          </div>
 
      </form>

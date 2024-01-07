@@ -16,11 +16,11 @@
         <div class="col-12">
             <hr>
             <a data-href="{{ route('web.admin.page.message.reply.index') }}" data-id='{{ $message->id }}'
-                class="btn btn-secondary btn-sm _link_"><i class="fa fa-reply"></i></a>
+                class="btn btn-primary btn-sm _link_"><i class="fa fa-reply"></i></a>
             <a data-href="{{ route('web.admin.page.message.detail.index') }}" data-id='{{ $message->id }}'
-                class="btn btn-secondary btn-sm _link_"><i class="fa fa-eye"></i></a>
+                class="btn btn-primary btn-sm _link_"><i class="fa fa-eye"></i></a>
             <a data-href="{{ route('web.admin.page.message.remove.do') }}" data-id='{{ $message->id }}'
-                class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar Subscritor"><i
+                class="btn btn-primary btn-sm _link_ prompt" data-title="Eliminar Subscritor"><i
                     class="fa fa-trash"></i></a>
         </div>
 

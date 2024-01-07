@@ -39,10 +39,10 @@
                          </div>
                          <div class="col-5 text-center mt-2">
                              <a data-href="{{ route('web.admin.page.page_info.detail.index') }}"
-                                 data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                 data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_"><i
                                      class="fa fa-eye"></i></a>
                              <a data-href="{{ route('web.admin.page.page_info.update.index') }}"
-                                 data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                 data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_"><i
                                      class="fa fa-pen-nib"></i></a>
                          </div>
                      </div> <!-- end row -->

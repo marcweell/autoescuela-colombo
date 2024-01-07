@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.settings.currency.add.index') }}" data-id="-1" class="btn btn-secondary  mb-2 _link_"><i
+                <a data-href="{{ route('web.admin.settings.currency.add.index') }}" data-id="-1" class="btn btn-primary  mb-2 _link_"><i
                         class="fa fa-plus-circle me-2"></i> {{ __('Agregar Moneda') }}</a>
             </div>
             <div class="col-sm-7">
@@ -37,12 +37,12 @@
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-secondary"> <i class="fa fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.settings.currency.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary  _link_"><i
+                                    data-id='{{ $item->id }}' class="btn btn-primary  _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.currency.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary  _link_ prompt"
+                                    data-id='{{ $item->id }}' class="btn btn-primary  _link_ prompt"
                                     data-title="Eliminar Moneda"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

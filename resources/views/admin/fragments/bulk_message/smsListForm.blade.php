@@ -41,12 +41,12 @@
                             <td> {{ $item->numero_conta }} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-secondary btn-sm"> <i class="fa fa-eye"></i></a>
+                                <a href="javascript:void(0);" class="btn btn-primary btn-sm"> <i class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.finance.bank_account.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                    data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.finance.bank_account.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
+                                    data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_ prompt"
                                     data-title="Eliminar Conteudo"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>

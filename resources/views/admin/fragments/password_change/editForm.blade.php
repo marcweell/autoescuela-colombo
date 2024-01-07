@@ -24,7 +24,7 @@
                     <div class="col-12">
 
 
-                        <button type="submit" class="btn btn-secondary chl_loader"><i
+                        <button type="submit" class="btn btn-primary chl_loader"><i
                                 class="fa fa-save p-2"></i>{{ __('Confirmar') }}</button>
 
                         <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary _link_"><i

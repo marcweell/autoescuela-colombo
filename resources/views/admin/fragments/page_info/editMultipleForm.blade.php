@@ -123,7 +123,7 @@
 
             <div class="col-md-3">
 
-                <button type="submit" class="btn btn-secondary"><i
+                <button type="submit" class="btn btn-primary"><i
                         class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>

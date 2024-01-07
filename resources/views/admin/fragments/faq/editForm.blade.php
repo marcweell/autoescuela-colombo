@@ -23,7 +23,7 @@
                 <textarea name="description" class="form-control textarea" rows="10">{!! $faq->description !!}</textarea>
             </div>
 
-            <button type="submit" class="btn btn-secondary chl_loader"><i class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
+            <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
         </form>
 
     </div> <!-- end card-body -->

@@ -25,7 +25,7 @@
 
 
             <div class="col-12 pr-5">
-                <button type="submit" class="btn btn-secondary chl_loader"><i
+                <button type="submit" class="btn btn-primary chl_loader"><i
                         class="fa fa-save p-1"></i>{{ __('Salvar') }}</button>
             </div>
         </form>

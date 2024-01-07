@@ -37,7 +37,7 @@
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <div class="dropdown">
-                                    <button class="btn btn-secondary dropdown-toggle" type="button"
+                                    <button class="btn btn-primary dropdown-toggle" type="button"
                                         data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Op&ccedil;&otilde;es
                                     </button>

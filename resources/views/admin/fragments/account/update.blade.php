@@ -128,7 +128,7 @@
 
                         </div>
                         <div class="pt-3 col-12">
-                            <button class="btn btn-secondary mb-3 chl_loader"><i
+                            <button class="btn btn-primary mb-3 chl_loader"><i
                                     class="fa fa-save p-2"></i>{{ __('Salvar') }}</button>
                             <button data-href="{{ route('web.admin.profile.index') }}"
                                 class="btn btn-primary mb-3 _link_"><i class="fa fa-arrow-left p-2"></i>Volver al
@@ -148,7 +148,7 @@
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
-                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i>Cambiar
+                                        class="btn btn-primary w-100 _link_"><i class="fa fa-key p-2"></i>Cambiar
                                         contraseña</button>
                                 </div>
                             </div>

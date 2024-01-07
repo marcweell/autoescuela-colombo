@@ -32,10 +32,10 @@
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a data-href="{{ route('web.admin.page.services.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
+                                    data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.page.services.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_ prompt"
+                                    data-id='{{ $item->id }}' class="btn btn-primary btn-sm _link_ prompt"
                                     data-title="Eliminar Servicios"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
