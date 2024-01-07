@@ -8,7 +8,7 @@
             </div>
             <div class="col-sm-7">
                 <div class="float-end">
-                    <button type="button" data-href="{{ route("web.admin.user.role.role_permission.update.index") }}" class="btn btn-sm btn-primary mb-2 _link_" data-id="{{ $role->id }}">{{ __('Gerir Permisos') }}</button>
+                    <button type="button" data-href="{{ route("web.admin.user.role.role_permission.update.index") }}" class="btn btn-sm btn-primary mb-2 _link_" data-id="{{ $role->id }}">{{ __('Administrar Permisos') }}</button>
                 </div>
             </div><!-- end col-->
         </div>

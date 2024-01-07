@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Gerir Permisos') }}</h4>
+        <h4 class="header-title">{{ __('Administrar Permisos') }}</h4>
 
         <form action="{{ route('web.admin.user.role.role_permission.update.do') }}" class="form_ --parent-load row"
             method="post">

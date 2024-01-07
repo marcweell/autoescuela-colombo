@@ -37,6 +37,16 @@ class IndexController extends Controller
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
+    public function courseIndex(Request $request)
+    {
+        return view('main.pages.course', [
+            'course'=>(new CourseServiceQueryImpl())->findAll(),
+            'course_category'=>(new Course_categoryServiceQueryImpl())->findAll(),
+            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq'=>(new FaqServiceQueryImpl())->findAll(),
+            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+        ])->render();
+    }
     public function aboutIndex(Request $request)
     {
         return view('main.pages.about', [

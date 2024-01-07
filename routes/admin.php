@@ -294,21 +294,6 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
         #---------------------------------------------------------------------------------------------------------------
 
 
-        Route::prefix("/subscriber")->middleware([App\Http\Middleware\CheckPermission::class])->name("subscriber.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-            Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
-            });
-            Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
-            });
-            Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
-                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
-            });
-        });
-
         Route::prefix("/message")->middleware([App\Http\Middleware\CheckPermission::class])->name("message.")->group(function () {
             Route::post("/", [App\Http\Controllers\AdminUi\MessageController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::post("/reply", [App\Http\Controllers\AdminUi\MessageController::class, 'replyIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("reply.index");
@@ -336,6 +321,24 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
                 Route::post("/do", [App\Http\Controllers\AdminUi\GalleryController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
+
+        /*
+
+        Route::prefix("/subscriber")->middleware([App\Http\Middleware\CheckPermission::class])->name("subscriber.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+            });
+            Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\SubscriberController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+            });
+            Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
+                Route::post("/do", [App\Http\Controllers\AdminUi\SubscriberController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+            });
+        });
+
         Route::prefix("/partner")->middleware([App\Http\Middleware\CheckPermission::class])->name("partner.")->group(function () {
             Route::post("/", [App\Http\Controllers\AdminUi\PartnerController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
@@ -347,7 +350,6 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
                 Route::post("/do", [App\Http\Controllers\AdminUi\PartnerController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
-
                 Route::post("/do", [App\Http\Controllers\AdminUi\PartnerController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
@@ -364,10 +366,13 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
                 Route::post("/do", [App\Http\Controllers\AdminUi\ServicesController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
-
                 Route::post("/do", [App\Http\Controllers\AdminUi\ServicesController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
+
+        */
+
+
     });
 
     #---------------------------------------------------------------------------------------------------------------
@@ -598,40 +603,23 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
     #---------------------------------------------------------------------------------------------------------------
 
     Route::prefix("/bulk_message")->middleware([App\Http\Middleware\CheckPermission::class])->name("bulk_message.")->group(function () {
-        Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        Route::post("/", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
 
         Route::prefix("/sms")->middleware([App\Http\Middleware\CheckPermission::class])->name("sms.")->group(function () {
-            Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'smsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'smsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/compose")->middleware([App\Http\Middleware\CheckPermission::class])->name("compose.")->group(function () {
-                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'composeSmsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/send", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'sendSms'])->middleware([App\Http\Middleware\CheckPermission::class])->name("send");
+                Route::post("/", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'composeSmsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/send", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'sendSms'])->middleware([App\Http\Middleware\CheckPermission::class])->name("send");
             });
         });
         Route::prefix("/email")->middleware([App\Http\Middleware\CheckPermission::class])->name("email.")->group(function () {
-            Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'emailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'emailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/compose")->middleware([App\Http\Middleware\CheckPermission::class])->name("compose.")->group(function () {
-                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'composeEmailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/send", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'sendEmail'])->middleware([App\Http\Middleware\CheckPermission::class])->name("send");
+                Route::post("/", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'composeEmailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/send", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'sendEmail'])->middleware([App\Http\Middleware\CheckPermission::class])->name("send");
             });
         });
 
-
-
-        Route::prefix("/statistics")->middleware([App\Http\Middleware\CheckPermission::class])->name("statistics.")->group(function () {
-            Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statisticsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-            Route::prefix("/report")->middleware([App\Http\Middleware\CheckPermission::class])->name("report.")->group(function () {
-                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statistisRepostIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/download", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'statisticsReportDownload'])->middleware([App\Http\Middleware\CheckPermission::class])->name("download");
-            });
-        });
-
-        Route::prefix("/settings")->middleware([App\Http\Middleware\CheckPermission::class])->name("settings.")->group(function () {
-            Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-            Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsUpdateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\UserUi\Bulk_messageController::class, 'settingsUpdate'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
-            });
-        });
     });
 
 
@@ -647,17 +635,6 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
 
                 Route::post("/do", [App\Http\Controllers\AdminUi\Session_historyController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
-            });
-        });
-
-        Route::prefix("/page_visit")->middleware([App\Http\Middleware\CheckPermission::class])->name("page_visit.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Page_visitController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-            Route::prefix("/detail")->middleware([App\Http\Middleware\CheckPermission::class])->name("detail.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Session_historyController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-            });
-            Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
-
-                Route::post("/do", [App\Http\Controllers\AdminUi\Page_visitController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
     });

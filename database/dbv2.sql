@@ -439,7 +439,7 @@ create table if not exists course_needed_doc(
     updated_at datetime default null,
     deleted_at datetime default null,
     foreign key(course_id) references course(id) on delete cascade,
-    foreign key(document_type_id) references document_type(id) on delete cascade,
+    foreign key(document_type_id) references document_type(id) on delete cascade
 );
 
 /** events */
