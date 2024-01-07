@@ -36,8 +36,6 @@
                         <tr>
                             <td> {{ $n }} </td>
                             <td> {{ $item->name }} </td>
-                            <td> {{ $item->language_name }} </td>
-                            <td> {{ $item->course_name }} </td>
                             <td> {{ Flores\Tools::date_convert($item->start_date, 'd-m-Y') }} </td>
                             <td> {{ Flores\Tools::date_convert($item->end_date, 'd-m-Y') }} </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
