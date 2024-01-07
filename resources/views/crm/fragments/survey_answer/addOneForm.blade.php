@@ -82,7 +82,7 @@
                                     @endphp
 
                                     <span class="d-inline m-1"><input type="radio" name="question_option[{{ $item->id }}]" value="{{$q->id}}">
-                                        {{ $q->answer }}</span>
+                                        {{ $q->option_ }}</span>
                                 @endforeach
                             </div>
                         @break

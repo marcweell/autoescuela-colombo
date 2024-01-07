@@ -53,8 +53,8 @@
                                         continue;
                                     }
                                 @endphp
-                                <span class="d-inline m-1"><input type="radio" name="question[{{ $item->id }}]" value="{{$q->answer}}">
-                                    {{ $q->answer }}</span>
+                                <span class="d-inline m-1"><input type="radio" name="question[{{ $item->id }}]" value="{{$q->option_}}">
+                                    {{ $q->option_ }}</span>
                             @endforeach
                         </div>
                     @break
@@ -67,8 +67,8 @@
                                         continue;
                                     }
                                 @endphp
-                                <span class="d-inline m-1"><input type="checkbox" name="question[{{ $item->id }}]" value="{{$q->answer}}">
-                                    {{ $q->answer }}</span>
+                                <span class="d-inline m-1"><input type="checkbox" name="question[{{ $item->id }}]" value="{{$q->option_}}">
+                                    {{ $q->option_ }}</span>
                             @endforeach
                         </div>
                     @break

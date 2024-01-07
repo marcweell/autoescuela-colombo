@@ -40,6 +40,9 @@
                             <td> {{ Flores\Tools::date_convert($item->end_date, 'd-m-Y') }} </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
+                                <a data-href="{{ route('web.app.survey.survey.print') }}"
+                                    class="btn btn-primary  _link_" data-id='{{ $item->id }}'> <i
+                                        class="fa fa-print"></i>Imprimir</a>
                                 <a data-href="{{ route('web.admin.survey.survey.answer.add.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-warning _link_"><i
                                         class="fa fa-reply"></i>Agregar Respuesta</a>

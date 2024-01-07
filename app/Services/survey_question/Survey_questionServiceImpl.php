@@ -37,8 +37,8 @@ class Survey_questionServiceImpl implements ISurvey_questionService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
@@ -53,7 +53,7 @@ class Survey_questionServiceImpl implements ISurvey_questionService
 
 
         $arr = json_decode(json_encode($payload), true);
-        
+
 
         DB::table($this->table)->insert($arr);
     }
@@ -67,8 +67,8 @@ class Survey_questionServiceImpl implements ISurvey_questionService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -78,7 +78,7 @@ class Survey_questionServiceImpl implements ISurvey_questionService
         if (empty($survey_question->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
- 
+
 
         $arr = json_decode(json_encode($payload), true);
 
@@ -95,7 +95,7 @@ class Survey_questionServiceImpl implements ISurvey_questionService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -107,7 +107,7 @@ class Survey_questionServiceImpl implements ISurvey_questionService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -115,11 +115,11 @@ class Survey_questionServiceImpl implements ISurvey_questionService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
-        } 
- 
+        }
+
         DB::table($this->table)->where($this->table.'.id', $id)->delete();
     }
 }
