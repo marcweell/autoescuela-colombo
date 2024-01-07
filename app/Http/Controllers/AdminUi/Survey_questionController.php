@@ -69,7 +69,7 @@ class Survey_questionController extends Controller
             $webapi = (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"));
 
             if ($request->has("more")) {
-               $webapi->redirect(route('web.admin.survey.survey.question.add.index'));
+               $webapi->try(route('web.admin.survey.survey.question.add.index'));
             }else{
                 $webapi->resync()->close_modal();
             }
