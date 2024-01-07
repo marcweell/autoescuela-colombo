@@ -28,8 +28,8 @@
                 <select class="form-control select2tg" name="route" id="">
 
                     @foreach (Route::getRoutes() as $item)
-                        @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !str_starts_with($item->getName(), 'web.public.') or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
-                            @php
+                    @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !str_starts_with($item->getName(), 'web.public.') or !str_starts_with($item->getName(), 'web.account.') or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
+                    @php
                                 continue;
                             @endphp
                         @endif
@@ -42,8 +42,8 @@
                 <select class="form-control select2tg" name="uri" id="">
 
                     @foreach (Route::getRoutes() as $item)
-                        @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !str_starts_with($item->getName(), 'web.public.') or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
-                            @php
+                    @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !str_starts_with($item->getName(), 'web.public.') or !str_starts_with($item->getName(), 'web.account.') or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
+                    @php
                                 continue;
                             @endphp
                         @endif
