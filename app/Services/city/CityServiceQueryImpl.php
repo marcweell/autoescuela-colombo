@@ -27,11 +27,13 @@ class CityServiceQueryImpl implements ICityServiceQuery
     {
         $this->query = DB::table($this->table)
         ->select('city.*', 'country.name as country_name')
-        ->leftJoin('country', 'country.id', 'city.country_id');
+        ->leftJoin('country', 'country.id', 'city.country_id')
+        ->where('country.code','BO')
+        ;
     }
 
 
-    
+
 
     public function deleted($bool = true)
     {
@@ -41,14 +43,14 @@ class CityServiceQueryImpl implements ICityServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
     public function findAll()
     {
         return $this->query->get();
@@ -62,5 +64,5 @@ class CityServiceQueryImpl implements ICityServiceQuery
     {
         return $this->query->where($this->table . '.code', $id)->first();
     }
-    
+
 }
