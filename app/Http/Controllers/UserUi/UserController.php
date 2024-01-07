@@ -1,17 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\userUi;
+namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
-use Flores\WebApi;
+use Flores\Regex;
 use Flores\Validator;
+use Flores\WebApi;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
 use stdClass;
 
 class UserController extends Controller
@@ -31,8 +28,11 @@ class UserController extends Controller
         }
 
         try {
+
+            (new Validator($request))->match(["code"], Regex::getInstance(true)->userName()->preg())->intercept();
+
             $this->userService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Cadastro efectuado com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -46,7 +46,7 @@ class UserController extends Controller
 
         try {
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -55,7 +55,7 @@ class UserController extends Controller
     {
         try {
             $this->userService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -65,7 +65,7 @@ class UserController extends Controller
     {
         try {
             $user = $this->userServiceQuery->findAll();
-            $view = view('user.fragments.user.listForm', [
+            $view = view('main.fragments.main.listForm', [
                 'user' => $user
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
@@ -76,7 +76,8 @@ class UserController extends Controller
     public function addIndex(Request $request)
     {
         try {
-            $view = view('user.fragments.user.addForm', [
+            $view = view('main.fragments.main.addForm', [
+                "regex" => new Regex()
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
@@ -88,10 +89,10 @@ class UserController extends Controller
 
         try {
             $user = $this->userServiceQuery->findById($request->get('id'));
-            $view = view('user.fragments.user.editForm', [
+            $view = view('main.fragments.main.editForm', [
                 'user' => $user
             ])->render();
-            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
+            return (new WebApi())->setSuccess()->print($view)->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

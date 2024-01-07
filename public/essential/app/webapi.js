@@ -711,6 +711,12 @@ const app = {
 
         setTimeout(function () {
             app.listenner.listen();
+
+
+            setInterval(function() {
+                app.listenner.listen('clickEvents');
+                app.listenner.listen('submitEvents');
+            }, 3000);
         }, 500);
 
 

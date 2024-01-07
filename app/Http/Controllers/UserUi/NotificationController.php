@@ -1,15 +1,13 @@
 <?php
 namespace App\Http\Controllers\UserUi;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
+use App\Services\auth\AuthServiceImpl;
 use App\Services\notification\NotificationServiceImpl;
 use App\Services\notification\NotificationServiceQueryImpl;
 use Flores\WebApi;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
-use stdClass;
+use Illuminate\Support\Facades\Auth;
+
 
 class NotificationController extends Controller
 {
@@ -20,39 +18,11 @@ class NotificationController extends Controller
         $this->notificationService = new NotificationServiceImpl();
         $this->notificationServiceQuery = new NotificationServiceQueryImpl();
     }
-    public function add(Request $request)
-    {
-        $data = new stdClass();
-        foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value;
-        }
-        $data->code = code(null,__METHOD__);
-        try {
-            $this->notificationService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
-    public function update(Request $request)
-    {
-        $data = new stdClass();
-        foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value;
-        }
-        $data->code = code(null,__METHOD__);
-        try {
-            $this->notificationService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
     public function remove(Request $request)
     {
         try {
-            $this->notificationService->byUserId(Auth::user()->id)->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify("Eliminación realizada con éxito")->resync()->get();
+            $this->notificationService->delete($request->get('id'));
+            return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com successo"))->reload()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -61,36 +31,17 @@ class NotificationController extends Controller
     public function index(Request $request)
     {
         try {
-            $notification = $this->notificationServiceQuery->byUserId(Auth::user()->id)->findAll();
-            $view = view('user.fragments.notification.listForm', [
+            $user = (new AuthServiceImpl())->getUser();
+
+            $notification = $this->notificationServiceQuery->byUserId($user->id)->deleted(false)->orderDesc()->findAll();
+            (new NotificationServiceImpl())->setUser(Auth::user())->refresh();
+            $view = view('main.fragments.notification.listForm', [
                 'notification' => $notification
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->save()->get();
+            return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
-    public function addIndex(Request $request)
-    {
-        try {
-            $view = view('user.fragments.notification.addForm', [
-            ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
-    public function updateIndex(Request $request)
-    {
 
-        try {
-            $notification = $this->notificationServiceQuery->findById($request->get('id'));
-            $view = view('user.fragments.notification.editForm', [
-                'notification'=>$notification
-            ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
 }

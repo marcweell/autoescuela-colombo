@@ -32,7 +32,7 @@
                         aria-label="Open Profile Menu"><i class="fa fa-user fs-4"></i></a>
                     <ul class="dropdown-menu settings-menu dropdown-menu-right">
                         <li><a class="dropdown-item _link_"
-                                data-href="{{ route('web.admin.profile.update.index') }}" href="#"><i
+                                data-href="{{ route('web.admin.profile.index') }}" href="#"><i
                                     class="fa fa-user-cog me-2 fs-5"></i>
                                 {{ __('Perfil') }}</a></li>
                         <li><a class="dropdown-item _link_ prompt"

@@ -6,16 +6,14 @@ use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Request as FacadesRequest;
-use Illuminate\Support\Facades\Session;
+
 
 
 use stdClass;
 use Flores;
 
 
-/** @author Nelson Flores | nelson.flores@live.com */
+
 
 class NotificationServiceQueryImpl implements INotificationServiceQuery
 {
@@ -31,7 +29,11 @@ class NotificationServiceQueryImpl implements INotificationServiceQuery
             $this->table . '.user_id'
         )
         ->orderByDesc($this->table.'.created_at')
-        ->select($this->table.'.*');
+        ->select($this->table.'.*',
+        DB::raw('CONVERT_TZ('.$this->table.'.created_at,"'.getSystemTzOffset().'","'.getTzOffset().'") as created_at'),
+        DB::raw('CONVERT_TZ('.$this->table.'.updated_at,"'.getSystemTzOffset().'","'.getTzOffset().'") as updated_at'),
+        DB::raw('CONVERT_TZ('.$this->table.'.deleted_at,"'.getSystemTzOffset().'","'.getTzOffset().'") as deleted_at'),
+       );
     }
 
     public function limit($limit = 100)
@@ -43,12 +45,13 @@ class NotificationServiceQueryImpl implements INotificationServiceQuery
     {
         $this->query->where($this->table . '.user_id', $user_id);
         return $this;
-    }
- 
-    
-
- 
-     
+    } 
+    public function isRead($bool = true)
+    { 
+        $this->query->where($this->table . '.isread',$bool);
+        
+        return $this;
+    }   
 
     public function deleted($bool = true)
     {

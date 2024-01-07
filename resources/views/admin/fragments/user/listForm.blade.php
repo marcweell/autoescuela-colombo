@@ -28,7 +28,7 @@
                         </th>
                         <th>{{ __('Usuario') }}</th>
                         <th>{{ __('Email') }}</th>
-                        <th>{{ __('Telefone') }}</th>
+                        <th>{{ __('Teléfono') }}</th>
                         <th>{{ __('Tipo') }}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
@@ -62,7 +62,7 @@
                             </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                <a data-href="{{ route('web.admin.user.export.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-print"></i></a>
                                 <a data-href="{{ route('web.admin.user.update.index') }}"

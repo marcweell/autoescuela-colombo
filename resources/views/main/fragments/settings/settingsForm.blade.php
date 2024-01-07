@@ -172,7 +172,7 @@
             <!-------------------------------------------------------------------------------------------------------->
 
 
-            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-globe"></i> Geo-Localizacao</h4>
+            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-globe"></i> Geolocalización</h4>
 
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">

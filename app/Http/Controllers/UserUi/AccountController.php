@@ -3,18 +3,19 @@
 namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use App\Services\auth\AuthServiceImpl;
+use App\Services\country\CountryServiceQueryImpl;
+use App\Services\session_history\Session_historyServiceQueryImpl;
 use App\Services\user\UserServiceImpl;
-use App\Services\auth\AuthServiceQueryImpl;
-use \Illuminate\Support\Facades\File;
-use Flores\WebApi;
+use App\Services\user\UserServiceQueryImpl;
+use App\Services\user_payment_method\User_payment_methodServiceQueryImpl;
+use App\Services\user_social_media\User_social_mediaServiceQueryImpl;
 use Flores\Tools;
+use Flores\WebApi;
 use Illuminate\Http\Request;
-use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
-use Illuminate\Foundation\Bus\DispatchesJobs;
-use Illuminate\Foundation\Validation\ValidatesRequests;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use \Illuminate\Support\Facades\File;
 use stdClass;
 
 class AccountController extends Controller
@@ -24,18 +25,18 @@ class AccountController extends Controller
     function __construct()
     {
         $this->authService = new AuthServiceImpl();
-        $this->userService = new UserServiceImpl(); 
+        $this->userService = new UserServiceImpl();
     }
     public function reAuth(Request $request)
     {
-        $data = new stdClass(); 
+        $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
         $data->code = code(null,__METHOD__);
         try {
             $this->authService->login($data);
-            return (new WebApi())->setSuccess()->notify('Sessao Iniciada com Sucesso')->get();
+            return (new WebApi())->setSuccess()->notify(__('Sessao Iniciada com Successo'))->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -46,7 +47,7 @@ class AccountController extends Controller
             $this->authService->logout();
             return  redirect()->route('web.account.auth.index');
         } catch (\Exception $e) {
-            return  redirect()->route('web.index');
+            return  redirect()->route('web.public.index');
         }
     }
     #indexes
@@ -54,7 +55,7 @@ class AccountController extends Controller
     {
         $filename = Tools::upload_base64(
             $request->get('foto'),
-            Tools::give_space(sha1('foto_' . time() . auth::user()->id), 14, '_'),
+            sha1('foto_' . time() . Auth::user()->id),
             storage_path('profile-pic/')
         );
 
@@ -69,25 +70,45 @@ class AccountController extends Controller
         );
 
         DB::table('user')
-            ->where('id', auth::user()->id)
+            ->where('id', Auth::user()->id)
             ->update([
                 'photo' => $filename,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        if (!empty(auth::user()->photo) & !str_starts_with(auth::user()->photo, "default")) {
-            File::delete(storage_path("profile-pic/" . auth::user()->photo));
+        if (!empty(Auth::user()->photo) & !str_starts_with(Auth::user()->photo, "default")) {
+            File::delete(storage_path("profile-pic/" . Auth::user()->photo));
         }
-        return (new WebApi())->notify('Foto de perfil alterada com sucesso!')->close_modal(0, true)->setAttr(Tools::fileTobase64('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
+        return (new WebApi())->notify(__('Foto de perfil alterada com successo'))->close_modal(0, true)->setAttr(url('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
     }
     public function index(Request $request)
     {
         try {
-            $view = view('user.fragments.account.index', [
-                'user' => auth::user()
+            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
+            $view = view('main.fragments.account.index', [
+                'user' => $user,
+                'session_history'=>(new Session_historyServiceQueryImpl())->byUserId($user->id)->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view)
-            ->require(url("public/assets/plugins/Croppie/croppie.js"))
-            ->require(url("public/assets/plugins/Croppie/croppie.css"),false,"text/css")
+            ->save()->get();
+        } catch (\Exception $e) {
+
+            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        }
+    }
+    public function updateIndex(Request $request)
+    {
+        try {
+            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
+            $timezones = tools()->getJsonObj(base_path('database/json/timezones.json'));
+            $country = (new CountryServiceQueryImpl())->findAll();
+
+
+            $view = view('main.fragments.account.update', [
+                'user' => $user,
+                'timezones'=>$timezones,
+                'country'=>$country,
+            ])->render();
+            return (new WebApi())->setSuccess()->print($view)
             ->save()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
@@ -95,64 +116,71 @@ class AccountController extends Controller
     }
     public function loginIndex(Request $request)
     {
-        return view('user.pages.login', []);
+        return view('main.pages.login', []);
     }
 
-
-    #User Settings
-
-    public function changeSettings(Request $request)
-    {
-        $reloadable = [
-            "current_course"
-        ];
-        $upsert = [];
-        $reload = false;
-        try {
-            $webapi = new WebApi();
-            
-            foreach ($request->all() ?? [] as $key => $value) {
-                $us = DB::table("user_settings")->where("code", $key)->first();
-                if (empty($us->id)) {
-                    continue;
-                }
-                array_push($upsert, [
-                    "code" => md5($us->id . auth::user()->id),
-                    "user_settings_id" => $us->id,
-                    "user_id" => auth::user()->id,
-                    "_value" => $value
-                ]);
-
-                if (in_array($key, $reloadable)) {
-                    $reload = true;
-                }
-            }
-
-            DB::table("user_settings_user")->upsert($upsert, ["code"]);
-
-            if ($reload) {
-                $webapi->reload(0);
-            }
-
-            return $webapi->setSuccess()->notify('Defincoes Alteradas com Sucesso...')->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }    public function update(Request $request)
+    public function update(Request $request)
     {
         $request->request->add([
-            "id"=>auth::user()->id
+            "id"=>Auth::user()->id
         ]);
         $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
 
+
         try {
+
+            $user = (new AuthServiceImpl())->getUser();
+
+            $data->user_id = $user->id;
+
+            $data->canjoin = $user->canjoin;
+            $data->level = $user->level;
+            $data->type = $user->type;
+
+            if (empty($request->has("change_user"))) {
+                unset($data->code);
+            }
+
+            unset($data->email);
+
+
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
+
+
+
+    public function updateLocale(Request $request)
+    {
+        $request->request->add([
+            "id"=>Auth::user()->id
+        ]);
+        $data = new stdClass();
+        foreach ($request->all() as $key => $value) {
+            $data->{$key} = $value;
+        }
+
+
+        try {
+
+            $_user = (new AuthServiceImpl())->getUser();
+            $user = (new UserServiceQueryImpl())->findById($_user->id);
+            $user->language = $request->get("locale");
+            $this->userService->update($user);
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->reload()->get();
+        } catch (\Exception $e) {
+            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        }
+    }
+
+
+
+
+
 }

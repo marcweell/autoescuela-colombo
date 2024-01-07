@@ -54,7 +54,7 @@ class AuthController extends Controller
         try {
             $this->authService->login($data);
             return (new WebApi())
-                ->setSuccess()->notify(__('Sessao Iniciada com Sucesso'))
+                ->setSuccess()->notify(__('Sessao Iniciada com Successo'))
                 ->close_modal(0, true)
                 ->try(route($handshake->route), $handshake->payloads)
                 ->get();

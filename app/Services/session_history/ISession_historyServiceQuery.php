@@ -6,11 +6,11 @@ use stdClass;
 use Flores;
 
 
-/** @author Nelson Flores | nelson.flores@live.com */
+
 interface ISession_historyServiceQuery {
 
     /**
-     * @return array
+     * @return \Illuminate\Support\Collection | null | stdClass
      * @throws \Exception
     */
 

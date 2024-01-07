@@ -124,7 +124,7 @@ create table if not exists email_template(
 );
 
 /* essenciais -*/
-/* geo-localizacao */
+/* Geolocalización */
 create table if not exists country(
     id bigint auto_increment not null primary key,
     code varchar(191) not null unique,

@@ -5,18 +5,38 @@ use stdClass;
 use Flores;
 
 
-/** @author Nelson Flores | nelson.flores@live.com */
+
 
 interface INotificationService {
 
     /**
     * @throws \Exception
     */
-    public function add(stdClass $data);
+    public function __construct(); 
+    /**
+    * @throws \Exception
+    * @return  INotificationService
+    */
+    public function setUser($user);
+    /**
+    * @throws \Exception
+    * @return  INotificationService
+    */
+    public function setTitle($title);
+    /**
+    * @throws \Exception
+    * @return  INotificationService
+    */
+    public function setMessage($message);
     /**
     * @throws \Exception
     */
-    public function update(stdClass $data);
+    public function send();
+    /**
+    * @throws \Exception
+    */
+    public function refresh();
+    
     /**
     * @throws \Exception
     */

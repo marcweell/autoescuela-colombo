@@ -10,7 +10,7 @@
                 <input type="text" name="name" required id="name" class="form-control" value="{{  $user->name }}">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="last_name" class="form-label">{{ __('Apelido') }}</label>
+                <label for="last_name" class="form-label">{{ __('Apellido') }}</label>
                 <input type="text" name="last_name" id="last_name" class="form-control" value="{{  $user->last_name }}">
             </div>
             <div class="col-md-4 mb-3">
@@ -23,7 +23,7 @@
                     placeholder="{{ __('Digite o Email...') }}" value="{{  $user->email }}">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="phone" class="form-label">{{ __('Telefone') }}</label>
+                <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
                 <div class="input-group">
                     <select class="form-control w-25" style="width: 25%" name="idd_country_id">
                         @foreach ($country as $item)
@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-4 mb-3">
-                <label for="type" class="form-label">{{ __('Telefone') }}</label>
+                <label for="type" class="form-label">{{ __('Teléfono') }}</label>
                 <select name="type" class="form-control">
                     <option value="user">Usuario Padrao</option>
                     <option value="support">Desenvolvedor</option>

@@ -25,7 +25,7 @@ class CurrencyController extends Controller
         $data->code = code(null,__METHOD__);
         try {
             $this->currencyService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Registro efectuado com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Registro efectuado com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -38,7 +38,7 @@ class CurrencyController extends Controller
         }
         try {
             $this->currencyService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -47,7 +47,7 @@ class CurrencyController extends Controller
     {
         try {
             $this->currencyService->delete($request->get('id'));
-            return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Remocao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

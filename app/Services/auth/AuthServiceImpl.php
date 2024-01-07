@@ -73,8 +73,11 @@ class AuthServiceImpl implements IAuthService
         $credentials['active'] = true;
         $result = Auth::guard($this->guard)->attempt($credentials, $data->remember);
         if ($result == false) {
+            (new Session_historyServiceImpl())->add(self::$user->id, false);
             throw new Exception(__('Erro de Autenticacao'));
         }
+
+        (new Session_historyServiceImpl())->add(self::$user->id);
     }
 
     public function logout()

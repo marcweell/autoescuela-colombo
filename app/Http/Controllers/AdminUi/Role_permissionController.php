@@ -23,29 +23,29 @@ class Role_permissionController extends Controller
     {
         $this->role_permissionService = new Role_permissionServiceImpl();
         $this->role_permissionServiceQuery = new Role_permissionServiceQueryImpl();
-    } 
+    }
     public function update(Request $request)
     {
         $data = new stdClass();
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        
+
         try {
 
             DB::table('role_permission')->delete();
-            
+
             foreach ($data->permission as $permission_id => $value) {
               $data->permission_id = $permission_id;
               $this->role_permissionService->add($data);
             }
 
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Throwable $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
- 
+
     #indexes
     public function index(Request $request)
     {
@@ -54,16 +54,16 @@ class Role_permissionController extends Controller
             $modules = (new ModuleServiceQueryImpl())->deleted(false)->orderDesc()->findAll();
 
             foreach ($modules as $x => $module) {
-           
-                $modules[$x]->permissions = (new Role_permissionServiceQueryImpl())->byRoleId($role->id)->byModuleId($module->id)->findAll()??[]; 
-           
+
+                $modules[$x]->permissions = (new Role_permissionServiceQueryImpl())->byRoleId($role->id)->byModuleId($module->id)->findAll()??[];
+
                 if(empty($modules[$x]->permissions[0])){
                     unset($modules[$x]);
                 }
-           
+
             }
-            
-            
+
+
 
             $view = view('admin.fragments.role_permission.listForm', [
                 'modules' => $modules,
@@ -74,7 +74,7 @@ class Role_permissionController extends Controller
         } catch (\Throwable $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
-    } 
+    }
     public function updateIndex(Request $request)
     {
         try {
@@ -83,9 +83,9 @@ class Role_permissionController extends Controller
             $modules = (new ModuleServiceQueryImpl())->deleted(false)->orderDesc()->findAll();
 
             foreach ($modules as $x => $module) {
-                $modules[$x]->permissions = (new PermissionServiceQueryImpl())->byModuleId($module->id)->findAll()??[]; 
+                $modules[$x]->permissions = (new PermissionServiceQueryImpl())->byModuleId($module->id)->findAll()??[];
             }
-            
+
             $permission_ids = [];
             $permissions = (new Role_permissionServiceQueryImpl())->byRoleId($role->id)->findAll()??[];
 
@@ -97,7 +97,7 @@ class Role_permissionController extends Controller
             $view = view('admin.fragments.role_permission.editForm', [
                 'modules' => $modules,
                 'permission_ids'=>$permission_ids,
-                'role' => $role, 
+                'role' => $role,
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Throwable $e) {

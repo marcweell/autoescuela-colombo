@@ -14,12 +14,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::prefix("/account")->middleware([App\Http\Middleware\UserLang::class, ])->name("web.account.")->group(function () {
+Route::prefix("/account")->middleware([App\Http\Middleware\UserLang::class,])->name("web.account.")->group(function () {
 
     Route::get("/", function () {
-        return redirect()->route("web.admin.index");
+        return redirect()->route("web.app.index");
     })->middleware(App\Http\Middleware\WebUserValidSession::class)->name("index");
-
 
     Route::get("/logout", [App\Http\Controllers\UserUi\AuthController::class, 'logout'])->name("auth.logout");
     Route::post("/logout", [App\Http\Controllers\UserUi\AuthController::class, 'postLogout'])->name("auth.logout.post");
@@ -81,11 +80,14 @@ Route::prefix("/")->name("web.")->group(function () {
         Route::prefix("/notification")->name("notification.")->group(function () {
             Route::post("/", [App\Http\Controllers\UserUi\NotificationController::class, 'index'])->name("index");
             Route::prefix("/remove")->name("remove.")->group(function () {
-                Route::post("/", [App\Http\Controllers\UserUi\NotificationController::class, 'removeIndex'])->name("index");
                 Route::post("/do", [App\Http\Controllers\UserUi\NotificationController::class, 'remove'])->name("do");
             });
         });
 
+
+        /**
+         * .APP
+         */
 
         Route::get('/{url}', [App\Http\Controllers\UserUi\IndexController::class, 'index'])->where('url', '.*');
     });

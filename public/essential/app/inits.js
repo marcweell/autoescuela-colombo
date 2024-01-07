@@ -43,6 +43,22 @@ app.listenner.add("pageInit", function () {
 
 }); //Listenner
 
+app.listenner.add("pw", function () {
+    $('#togglePassword').click(function () {
+        const type = $('#pwd').attr('type');
+        switch (type) {
+            case 'password':
+                $('#pwd').attr('type', "text");
+                break;
+            default:
+                $('#pwd').attr('type', "password");
+                break;
+        }
+    });
+
+
+
+});
 
 app.listenner.add("clickEvents", function () {
 
@@ -369,13 +385,13 @@ app.listenner.add("clickEvents", function () {
             return;
         }
 
-        var html =  $(this.getAttribute("elem-target")).html();
+        var html = $(this.getAttribute("elem-target")).html();
         var id = Date.now();
 
-        html = html.replaceAll("__CONTENT_ID__",id);
+        html = html.replaceAll("__CONTENT_ID__", id);
 
         $(this.getAttribute("to")).append(
-           html
+            html
         );
 
         cloning = true;

@@ -10,7 +10,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.survey_category.index') }}"
+                        <a data-href="{{ route('web.admin.settings.schedule.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -20,7 +20,7 @@
                                         </span>
                                     </div>
                                 </div>
-                                <div class="col ps-0">Categoria de Examen
+                                <div class="col ps-0">Horario
 
                                 </div>
                             </div> <!-- end row -->
@@ -28,6 +28,28 @@
                     </div> <!-- end .p-2-->
                 </div> <!-- end col -->
             </div> <!-- end col-->
+
+            <div class="col-xxl-3 col-lg-6">
+            <div class="card m-1 shadow-none border">
+                <div class="p-2">
+                    <a data-href="{{ route('web.admin.settings.survey_category.index') }}"
+                        class="text-muted fw-bold _link_">
+                        <div class="row align-items-center">
+                            <div class="col-auto">
+                                <div class="avatar-sm">
+                                    <span class="avatar-title bg-light text-secondary rounded">
+                                        <i class="fa fa-folder font-16"></i>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col ps-0">Categoria de Examen
+
+                            </div>
+                        </div> <!-- end row -->
+                    </a>
+                </div> <!-- end .p-2-->
+            </div> <!-- end col -->
+        </div> <!-- end col-->
 
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
@@ -165,7 +187,7 @@
             <!-------------------------------------------------------------------------------------------------------->
 
 
-            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-globe"></i> Geo-Localizacao</h4>
+            <h4 class="header-title pt-2 pb-2 col-12"><i class="fa fa-globe"></i> Geolocalización</h4>
 
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">

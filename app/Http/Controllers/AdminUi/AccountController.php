@@ -50,7 +50,7 @@ class AccountController extends Controller
         $data->code = code(null, __METHOD__);
         try {
             $this->authService->login($data);
-            return (new WebApi())->setSuccess()->notify(__('Sessao Iniciada com Sucesso'))->get();
+            return (new WebApi())->setSuccess()->notify(__('Sessao Iniciada com Successo'))->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -85,13 +85,13 @@ class AccountController extends Controller
         DB::table('user')
             ->where('id', $this->authService->getUser()->id)
             ->update([
-                'profile_picture' => $filename,
+                'photo' => $filename,
                 'updated_at' => date('Y-m-d H:i:s'),
             ]);
-        if (!empty($this->authService->getUser()->profile_picture) & !str_starts_with($this->authService->getUser()->profile_picture, "default")) {
-            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->profile_picture));
+        if (!empty($this->authService->getUser()->photo) & !str_starts_with($this->authService->getUser()->photo, "default")) {
+            File::delete(storage_path("profile-pic/" . $this->authService->getUser()->photo));
         }
-        return (new WebApi())->notify(__('Foto de perfil alterada com sucesso'))->close_modal(0, true)->setAttr(Tools::fileTobase64('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
+        return (new WebApi())->notify(__('Foto de perfil alterada com successo'))->close_modal(0, true)->setAttr(Tools::fileTobase64('storage/profile-pic/' . $filename), '.nf_picture', 'src')->get();
     }
     #indexes
     public function index(Request $request)
@@ -127,7 +127,7 @@ class AccountController extends Controller
         try {
 
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -159,7 +159,7 @@ class AccountController extends Controller
         $data->user_id = $this->authService->getUser()->id;
         try {
             $this->reminderService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -243,7 +243,7 @@ class AccountController extends Controller
                 $webapi->reload(0);
             }
 
-            return $webapi->setSuccess()->notify(__('Defincoes Alteradas com Sucesso'))->get();
+            return $webapi->setSuccess()->notify(__('Defincoes Alteradas com Successo'))->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

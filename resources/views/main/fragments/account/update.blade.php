@@ -1,7 +1,7 @@
 <!-- card start -->
 <div class="card">
     <div class="card-header">
-        <h4>Account Settings</h4>
+        <h4>Configuraciones de la cuenta</h4>
     </div>
     <div class="card-body">
 
@@ -17,8 +17,7 @@
                             <div class="col-12">
 
                                 <button type="button" class="btn btn-primary btn-sm btnpp"><i
-                                        class="fa fa-image p-2"></i>Alterar Foto de
-                                    Perfil</button>
+                                        class="fa fa-image p-2"></i>Cambiar foto de perfil</button>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -34,7 +33,7 @@
                             <div class="field-wrapper">
                                 <input type="text" class="form-control" name="last_name"
                                     value="{{ $user->father_name }}">
-                                <div class="field-placeholder">Apelido</div>
+                                <div class="field-placeholder">Apellido</div>
                             </div>
                             <!-- Field wrapper end -->
                         </div>
@@ -68,8 +67,7 @@
                                 <div class="list-group-itdm">
 
                                     <button data-href="{{ route('web.admin.profile.password.update.index') }}"
-                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i> Alterar
-                                        Senha</button>
+                                        class="btn btn-secondary w-100 _link_"><i class="fa fa-key p-2"></i>Cambiar contraseña</button>
                                 </div>
                             </div>
                         </div>

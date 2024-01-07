@@ -221,8 +221,10 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
         Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
-
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/export")->middleware([App\Http\Middleware\CheckPermission::class])->name("export.")->group(function () {
+            Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'export'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
 
 
@@ -463,19 +465,19 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
         });
 
         #----------------------------------------------
-        Route::prefix("/marital_status")->middleware([App\Http\Middleware\CheckPermission::class])->name("marital_status.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        Route::prefix("/schedule")->middleware([App\Http\Middleware\CheckPermission::class])->name("schedule.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\ScheduleController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\AdminUi\ScheduleController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\ScheduleController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\AdminUi\ScheduleController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\ScheduleController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
 
-                Route::post("/do", [App\Http\Controllers\AdminUi\Marital_statusController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/do", [App\Http\Controllers\AdminUi\ScheduleController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
 

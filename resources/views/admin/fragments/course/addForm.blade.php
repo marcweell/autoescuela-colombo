@@ -8,9 +8,9 @@
             <div class="col-md-4 mb-3">
                 <label for="course_category_id" class="form-label">{{ __('Categoria') }}</label>
                 <select name="course_category_id" class="form-control">
-                    @foreach ($course_category as $item)
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-                @endforeach
+                    @foreach ($course_category ?? [] as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
                 </select>
             </div>
             <div class="col-md-4 mb-3">
@@ -23,13 +23,30 @@
                 <input type="file" name="logo" id="logo" class="form-control">
             </div>
 
+            <div class="col-md-4 mb-3">
+                <label for="name" class="form-label">{{ __('Precio') }}</label>
+                <input type="number" name="price"  class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="name" class="form-label">{{ __('Precio Promo') }}</label>
+                <input type="number" name="price_promo" class="form-control">
+            </div>
+            <div class="col-md-4 mb-3">
+                <label for="document_type_id" class="form-label">{{ __('Documentos requeridos') }}</label>
+                <select name="document_type_id[]" class="form-control select2" multiple>
+                    @foreach ($document_type ?? [] as $item)
+                        <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="col-md-12 mb-3">
                 <label for="description" class="form-label">{{ __('Descripcion') }}</label>
                 <textarea name="description" class="w-100 form-control" rows="5"></textarea>
             </div>
 
             <div class="col-md-12">
-                <button type="submit" class="btn btn-primary chl_loader"><i class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
+                <button type="submit" class="btn btn-primary chl_loader"><i
+                        class="fa fa-save p-1"></i>{{ __('salvar') }}</button>
             </div>
         </form>
 

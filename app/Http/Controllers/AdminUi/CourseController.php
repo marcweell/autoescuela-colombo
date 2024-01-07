@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
+use App\Services\document_type\Document_typeServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\course\CourseServiceImpl;
 use App\Services\course\CourseServiceQueryImpl;
@@ -56,7 +57,7 @@ class CourseController extends Controller
         $data->contacts = $contacts;
         try {
             $this->courseService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -87,7 +88,8 @@ class CourseController extends Controller
     {
         try {
             $view = view('admin.fragments.course.addForm', [
-                'course_category' => (new Course_categoryServiceQueryImpl)->deleted(false)->orderDesc()->findAll()
+                'course_category' => (new Course_categoryServiceQueryImpl)->deleted(false)->orderDesc()->findAll(),
+                'document_type'=>(new Document_typeServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {

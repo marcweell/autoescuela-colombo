@@ -16,6 +16,11 @@ use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use stdClass;
 
+use setasign\Fpdi\Fpdi;
+use Tomsgu\PdfMerger\PdfCollection;
+use Tomsgu\PdfMerger\PdfFile;
+use Tomsgu\PdfMerger\PdfMerger;
+
 class UserController extends Controller
 {
     private $userService;
@@ -49,7 +54,7 @@ class UserController extends Controller
 
         try {
             $this->userService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com sucesso"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -102,5 +107,29 @@ class UserController extends Controller
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
+    }
+    public function export(Request $request)
+    {
+        $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+
+        $pdfCollection = new PdfCollection();
+        if (!empty($user->medical_evaluation_file) and is_file(storage_path("files/" . $user->medical_evaluation_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->medical_evaluation_file), PdfFile::ALL_PAGES, PdfFile::ORIENTATION_AUTO_DETECT);
+        }
+
+        if (!empty($user->passport_file) and is_file(storage_path("files/" . $user->passport_file))) {
+            $pdfCollection->addPdf(storage_path("files/" . $user->passport_file), PdfFile::ALL_PAGES,  PdfFile::ORIENTATION_AUTO_DETECT);
+        }
+
+
+        $fpdi = new Fpdi();
+        $merger = new PdfMerger($fpdi);
+
+        $file = code() . ".pdf";
+        $destination = storage_path('files/' . $file);
+
+        $merger->merge($pdfCollection, $destination, PdfMerger::MODE_FILE);
+
+        return (new WebApi())->setSuccess()->download(url('storage/files/' . $file))->get();
     }
 }
