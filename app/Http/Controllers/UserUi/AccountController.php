@@ -83,7 +83,7 @@ class AccountController extends Controller
     public function index(Request $request)
     {
         try {
-            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
+            $user = (new AuthServiceImpl())->getUser();
             $view = view('main.fragments.account.index', [
                 'user' => $user,
                 'session_history'=>(new Session_historyServiceQueryImpl())->byUserId($user->id)->findAll()
@@ -98,7 +98,7 @@ class AccountController extends Controller
     public function updateIndex(Request $request)
     {
         try {
-            $user = (new UserServiceQueryImpl())->findById(Auth::user()->id);
+            $user = (new AuthServiceImpl())->getUser();
             $timezones = tools()->getJsonObj(base_path('database/json/timezones.json'));
             $country = (new CountryServiceQueryImpl())->findAll();
 

@@ -5,7 +5,7 @@
 <body class="app sidebar-mini">
     @include('loader')
 
-    @include('admin.templates.elements.header')
+    @include('main.templates.elements.dashb-header')
     @include('main.templates.elements.sidebar')
 
 

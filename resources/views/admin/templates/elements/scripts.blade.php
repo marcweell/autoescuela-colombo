@@ -44,17 +44,6 @@
         };
         app.init(options);
 
-
-        function lic() {
-            setTimeout(function() {
-                app.listenner.listen("clickEvents");
-                lic();
-            }, 500);
-        };
-
-        lic();
-
-
     })
 </script>
 

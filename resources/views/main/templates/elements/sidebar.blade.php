@@ -12,65 +12,16 @@
 
 
 
-              <!-- ----------- -->
-
-
-              <li><a class="app-menu__item _link_" data-href="{{ route('web.admin.index') }}"
-                      href="javascript:void()"><i class="app-menu__icon fa fa-chart-bar"></i><span
-                          class="app-menu__label">Dashboard</span></a></li>
               <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
-                          class="app-menu__icon fa fa-users"></i><span class="app-menu__label">Usuarios</span><i
+                          class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Examen</span><i
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.index') }}"
-                              href="javascript:void()" target="_blank" rel="noopener"><i class="icon fa fa-circle"></i>
-                              Lista</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.add.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Agregar</a></li>
-                      <hr class="my-2">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.user.role.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Grupos</a></li>
-
-                  </ul>
-              </li>
-
-
-
-              <!-- ----------- -->
-
-
-              <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
-                          class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Preguntas</span><i
-                          class="treeview-indicator fa fa-chevron-right"></i></a>
-                  <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.survey.survey.add.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Examen</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.survey.survey.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Lista de Examen</a></li>
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.app.survey.survey.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i> exámenes disponibles</a></li>
                       <hr class="my-1">
                       <li><a class="treeview-item _link_"
-                              data-href="{{ route('web.admin.settings.survey_category.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Respuestas</a></li>
-                  </ul>
-              </li>
-
-
-
-              <!-- ----------- -->
-
-
-              <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
-                          class="app-menu__icon fa fa-globe"></i><span class="app-menu__label">Pagina</span><i
-                          class="treeview-indicator fa fa-chevron-right"></i></a>
-                  <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.page_info.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Variables de página</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.site_menu.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Menus de Pagina</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.gallery.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Galeria</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.page.message.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Mensajes</a></li>
+                              data-href="{{ route('web.app.settings.survey_category.index') }}"
+                              href="javascript:void()"><i class="icon fa fa-circle"></i>Mi Respuestas</a></li>
                   </ul>
               </li>
 
@@ -80,10 +31,10 @@
 
 
               <li>
-                  <a class="app-menu__item _link_" data-href="{{ route('web.admin.settings.index') }}"
+                  <a class="app-menu__item _link_" data-href="{{ route('web.app.profile.index') }}"
                       href="javascript:void()" target="_blank">
                       <i class="app-menu__icon fa fa-cog"></i>
-                      <span class="app-menu__label">Configuracion</span>
+                      <span class="app-menu__label">Cuenta</span>
                   </a>
               </li>
 
@@ -91,10 +42,10 @@
 
 
               <li>
-                  <a class="app-menu__item _link_" data-href="{{ route('web.admin.developer.index') }}"
+                  <a class="app-menu__item _link_ prompt" data-href="{{ route('web.account.auth.logout') }}"
                       href="javascript:void()" target="_blank">
-                      <i class="app-menu__icon fa fa-code"></i>
-                      <span class="app-menu__label"> Desarrollo</span>
+                      <i class="app-menu__icon fa fa-door-open"></i>
+                      <span class="app-menu__label"> Salir</span>
                   </a>
               </li>
 
