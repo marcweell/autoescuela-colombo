@@ -43,7 +43,7 @@ class Survey_question_optionController extends Controller
         $data->code = code(null,__METHOD__);
         try {
             $this->survey_question_optionService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

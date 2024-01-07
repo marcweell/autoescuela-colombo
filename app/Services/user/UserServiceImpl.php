@@ -18,8 +18,8 @@ use Flores;
 
 class UserServiceImpl implements IUserService
 {
-    private $insertFillables = ["code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
-    private $updateFillables = ["code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
+    private $insertFillables = ["approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
+    private $updateFillables = ["approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
     private $table =  'user';
 
 

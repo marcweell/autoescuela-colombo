@@ -46,7 +46,7 @@ class GalleryController extends Controller
         $data->code = code(null,__METHOD__);
         try {
             $this->galleryService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Atualizacao efectuada com successo"))->resync()->close_modal()->get();
+            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
