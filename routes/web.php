@@ -33,7 +33,7 @@ Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("we
 
     Route::get('account',function(){
         return route('web.account.index');
-    });
+    })->name("account.index");
 
 
     /**
