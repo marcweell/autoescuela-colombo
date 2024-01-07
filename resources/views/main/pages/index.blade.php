@@ -98,7 +98,7 @@
 
                                     <div class="col-lg-12">
                                         @foreach ($course as $val)
-                                            @if ($item->id !== $course->course_category_id)
+                                            @if ($item->id !== $val->course_category_id)
                                                 @continue
                                             @endif
                                             <button type="button"  class="active animate__animated animate__fadeInUp scrollto">{{ $val->name }}</button>
@@ -205,7 +205,7 @@
                                             @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-12">
+                                    <div class="col-md-12 pt-3">
                                         <button type="submit" class="btn btn-primary">Enviar</button>
                                     </div>
 
@@ -318,7 +318,7 @@
                                                 collar (Formato PNG o JPG) </li>
                                         </ul>
                                     </div>
-                                    <div class="col-md-3">
+                                    <div class="col-md-3 pt-3">
                                         <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
 
