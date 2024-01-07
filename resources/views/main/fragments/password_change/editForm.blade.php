@@ -7,7 +7,7 @@
             </div>
             <div class="card-body">
 
-                <form action="{{ route('web.admin.profile.password.update.do') }}" class="form_ parent-load row prompt"
+                <form action="{{ route('web.app.profile.password.update.do') }}" class="form_ parent-load row prompt"
                     method="post">
                     <div class="col-md-12 mb-3">
                         <label for="password" class="form-label">{{ __('Contraseña anterior') }}</label>
@@ -27,7 +27,7 @@
                         <button type="submit" class="btn btn-secondary chl_loader"><i
                                 class="fa fa-save p-2"></i>{{ __('Confirmar') }}</button>
 
-                        <button data-href="{{ route('web.admin.profile.index') }}" class="btn btn-primary _link_"><i
+                        <button data-href="{{ route('web.app.profile.index') }}" class="btn btn-primary _link_"><i
                                 class="fa fa-arrow-left p-2"></i> Volver al perfil</button>
                     </div>
                 </form>

@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Registro de Usuario') }}</h4>
 
-        <form action="{{ route('web.admin.page.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.app.page.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $page->id }}">
 
             <div class="col-md-12 mb-3">

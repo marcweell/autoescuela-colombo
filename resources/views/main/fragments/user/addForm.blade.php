@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Registro de Usuario') }}</h4>
 
-        <form action="{{ route('web.admin.user.add.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.app.user.add.do') }}" class="form_ parent-load row" method="post">
 
             <div class="col-md-4 mb-3">
                 <label for="last_name" class="form-label">{{ __('Apellido paterno') }}</label>

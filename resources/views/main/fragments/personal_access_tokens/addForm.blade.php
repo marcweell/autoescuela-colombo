@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Registro de Usuario') }}</h4>
 
-        <form action="{{ route('web.admin.personal_access_tokens.add.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.app.personal_access_tokens.add.do') }}" class="form_ parent-load row" method="post">
 
 
             <div class="col-md-12 mb-3">

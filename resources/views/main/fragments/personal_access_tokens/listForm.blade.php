@@ -8,7 +8,7 @@
     <div class="card-body">
         <div class="row mb-2">
             <div class="col-sm-5">
-                <a data-href="{{ route('web.admin.personal_access_tokens.add.index') }}" data-id="-1"
+                <a data-href="{{ route('web.app.personal_access_tokens.add.index') }}" data-id="-1"
                     class="btn btn-secondary  mb-2 _link_"><i class="fa fa-plus-circle me-2"></i>
                     {{ __('Agregar Usuario') }}</a>
             </div>
@@ -40,10 +40,10 @@
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a data-href="{{ route('web.admin.personal_access_tokens.update.index') }}"
+                                <a data-href="{{ route('web.app.personal_access_tokens.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                         class="fa fa-edit"></i></a>
-                                <a data-href="{{ route('web.admin.personal_access_tokens.remove.do') }}" data-id='{{ $item->id }}'
+                                <a data-href="{{ route('web.app.personal_access_tokens.remove.do') }}" data-id='{{ $item->id }}'
                                     class="btn btn-secondary btn-sm _link_ prompt" data-title="Eliminar personal_access_tokens"><i
                                         class="fa fa-trash"></i></a>
 

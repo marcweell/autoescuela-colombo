@@ -100,100 +100,100 @@ Route::prefix("/")->name("web.")->group(function () {
     Route::prefix("/survey")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey.")->group(function () {
 
         Route::prefix("/survey_question")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey_question.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/", [App\Http\Controllers\UserUi\Survey_questionController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_questionController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_questionController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_questionController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_questionController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
 
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_questionController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_questionController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
 
         Route::prefix("/survey_answer")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey_answer.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/", [App\Http\Controllers\UserUi\Survey_answerController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_answerController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_answerController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_answerController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_answerController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
 
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_answerController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_answerController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
 
         Route::prefix("/survey_answers")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey_person.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\Survey_personController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/", [App\Http\Controllers\UserUi\Survey_personController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_personController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_personController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_personController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_personController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\Survey_personController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_personController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\Survey_personController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_personController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
             Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
 
-                Route::post("/do", [App\Http\Controllers\AdminUi\Survey_personController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+                Route::post("/do", [App\Http\Controllers\UserUi\Survey_personController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
             });
         });
 
         Route::prefix("/survey")->name("survey.")->group(function () {
-            Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'index'])->name("index");
+            Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'index'])->name("index");
             Route::prefix("/add")->name("add.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'addIndex'])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'add'])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'addIndex'])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'add'])->name("do");
             });
             Route::prefix("/update")->name("update.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'updateIndex'])->name("index");
-                Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'update'])->name("do");
+                Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'updateIndex'])->name("index");
+                Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'update'])->name("do");
             });
             Route::prefix("/remove")->name("remove.")->group(function () {
-                Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'remove'])->name("do");
+                Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'remove'])->name("do");
             });
-            Route::post("/print", [App\Http\Controllers\AdminUi\SurveyController::class, 'print'])->name("print");
+            Route::post("/print", [App\Http\Controllers\UserUi\SurveyController::class, 'print'])->name("print");
 
             Route::prefix("/question")->name("question.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'index'])->name("index");
+                Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'index'])->name("index");
                 Route::prefix("/add")->name("add.")->group(function () {
-                    Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'addQuestionIndex'])->name("index");
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'addQuestion'])->name("do");
+                    Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'addQuestionIndex'])->name("index");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'addQuestion'])->name("do");
                 });
                 Route::prefix("/update")->name("update.")->group(function () {
-                    Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'updateIndex'])->name("index");
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'update'])->name("do");
+                    Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'updateIndex'])->name("index");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'update'])->name("do");
                 });
                 Route::prefix("/remove")->name("remove.")->group(function () {
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'remove'])->name("do");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'remove'])->name("do");
                 });
-                Route::post("/print", [App\Http\Controllers\AdminUi\SurveyController::class, 'print'])->name("print");
+                Route::post("/print", [App\Http\Controllers\UserUi\SurveyController::class, 'print'])->name("print");
             });
 
 
 
             Route::prefix("/answer")->name("answer.")->group(function () {
-                Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'index'])->name("index");
+                Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'index'])->name("index");
                 Route::prefix("/add")->name("add.")->group(function () {
-                    Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'addAnswerIndex'])->name("index");
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'addAnswer'])->name("do");
+                    Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'addAnswerIndex'])->name("index");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'addAnswer'])->name("do");
                 });
                 Route::prefix("/update")->name("update.")->group(function () {
-                    Route::post("/", [App\Http\Controllers\AdminUi\SurveyController::class, 'updateIndex'])->name("index");
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'update'])->name("do");
+                    Route::post("/", [App\Http\Controllers\UserUi\SurveyController::class, 'updateIndex'])->name("index");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'update'])->name("do");
                 });
                 Route::prefix("/remove")->name("remove.")->group(function () {
-                    Route::post("/do", [App\Http\Controllers\AdminUi\SurveyController::class, 'remove'])->name("do");
+                    Route::post("/do", [App\Http\Controllers\UserUi\SurveyController::class, 'remove'])->name("do");
                 });
-                Route::post("/print", [App\Http\Controllers\AdminUi\SurveyController::class, 'print'])->name("print");
+                Route::post("/print", [App\Http\Controllers\UserUi\SurveyController::class, 'print'])->name("print");
             });
         });
 
@@ -201,7 +201,7 @@ Route::prefix("/")->name("web.")->group(function () {
          * .ADMIN
          */
 
-        Route::get('/{url}', [App\Http\Controllers\AdminUi\IndexController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->where('url', '.*');
+        Route::get('/{url}', [App\Http\Controllers\UserUi\IndexController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->where('url', '.*');
     });
 
 

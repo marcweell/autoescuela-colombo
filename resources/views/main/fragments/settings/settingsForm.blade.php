@@ -10,7 +10,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.page_info.index') }}"
+                        <a data-href="{{ route('web.app.page_info.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -32,7 +32,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.faq.index') }}"
+                        <a data-href="{{ route('web.app.settings.faq.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -54,7 +54,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.gender.index') }}"
+                        <a data-href="{{ route('web.app.settings.gender.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -77,7 +77,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.currency.index') }}"
+                        <a data-href="{{ route('web.app.settings.currency.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -101,7 +101,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.payment_method.index') }}"
+                        <a data-href="{{ route('web.app.settings.payment_method.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -126,7 +126,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.plan.index') }}"
+                        <a data-href="{{ route('web.app.settings.plan.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -148,7 +148,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.social_media.index') }}"
+                        <a data-href="{{ route('web.app.settings.social_media.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -177,7 +177,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.geo.country.index') }}"
+                        <a data-href="{{ route('web.app.settings.geo.country.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">
@@ -199,7 +199,7 @@
             <div class="col-xxl-3 col-lg-6">
                 <div class="card m-1 shadow-none border">
                     <div class="p-2">
-                        <a data-href="{{ route('web.admin.settings.geo.city.index') }}"
+                        <a data-href="{{ route('web.app.settings.geo.city.index') }}"
                             class="text-muted fw-bold _link_">
                             <div class="row align-items-center">
                                 <div class="col-auto">

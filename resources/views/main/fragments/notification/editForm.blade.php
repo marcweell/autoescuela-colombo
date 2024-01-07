@@ -3,7 +3,7 @@
     <div class="card-body">
         <h4 class="header-title">{{ __('Editar Pais') }}</h4>
 
-        <form action="{{ route('web.admin.settings.notification.update.do') }}" class="form_ parent-load row" method="post">
+        <form action="{{ route('web.app.settings.notification.update.do') }}" class="form_ parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $notification->id }}">
             <div class="col-md-6 mb-3">
                 <label for="name" class="form-label">{{ __('Nombre') }}</label>

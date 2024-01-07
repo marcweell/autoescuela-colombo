@@ -32,10 +32,10 @@
                                 </div>
                              </div>
                              <div class="col text-center mt-2">
-                                 <a data-href="{{ route('web.admin.page_info.detail.index') }}"
+                                 <a data-href="{{ route('web.app.page_info.detail.index') }}"
                                      data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-eye"></i></a>
-                                 <a data-href="{{ route('web.admin.page_info.update.index') }}"
+                                 <a data-href="{{ route('web.app.page_info.update.index') }}"
                                      data-id='{{ $item->id }}' class="btn btn-secondary btn-sm _link_"><i
                                          class="fa fa-pen-nib"></i></a>
                              </div>
