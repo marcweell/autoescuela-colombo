@@ -9,7 +9,7 @@
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.settings.survey_category.add.index') }}" data-id="-1"
                     class="btn btn-primary mb-2 _link_"><i class="mdi mdi-plus-circle me-2"></i>
-                    {{ __('Agregar Categoria de Curso') }}</a>
+                    {{ __('Agregar Categoria de Examen') }}</a>
             </div>
             <div class="col-sm-7">
                 <div class="text-sm-end">
@@ -47,7 +47,7 @@
                                         class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.admin.settings.survey_category.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
-                                    data-title="Eliminar Categoria de Curso"><i class="fa fa-trash"></i></a>
+                                    data-title="Eliminar Categoria de Examen"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                     @endfor
