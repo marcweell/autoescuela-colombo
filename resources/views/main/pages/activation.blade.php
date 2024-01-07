@@ -25,7 +25,7 @@
 
 
                         <div class="form-group">
-                            <label>{{ __("Nova senha") }}</label>
+                            <label>{{ __("Nueva contraseña") }}</label>
 
 
                             <div class="input-group">

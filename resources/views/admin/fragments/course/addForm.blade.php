@@ -19,19 +19,28 @@
                     placeholder="{{ __('Ingrese nombre...') }}">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="logo" class="form-label">{{ __('Logotipo') }}</label>
+                <label for="logo" class="form-label">{{ __('Logo') }}</label>
                 <input type="file" name="logo" id="logo" class="form-control">
             </div>
 
             <div class="col-md-4 mb-3">
+                <label for="currency_id" class="form-label">{{ __('Moneda') }}</label>
+                <select name="currency_id" class="form-control">
+                    @foreach ($currency ?? [] as $item)
+                        <option {{ $item->code == 'BOB' ? 'selected' : '' }} value="{{ $item->id }}">
+                            {{ $item->name }}</option>
+                    @endforeach
+                </select>
+            </div>
+            <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Precio') }}</label>
-                <input type="number" name="price"  class="form-control">
+                <input type="number" name="price" class="form-control">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Precio Promo') }}</label>
                 <input type="number" name="price_promo" class="form-control">
             </div>
-            <div class="col-md-4 mb-3">
+            <div class="col-md-12 mb-3">
                 <label for="document_type_id" class="form-label">{{ __('Documentos requeridos') }}</label>
                 <select name="document_type_id[]" class="form-control select2" multiple>
                     @foreach ($document_type ?? [] as $item)

@@ -11,6 +11,11 @@
                 <input type="text" name="name" required id="name" class="form-control"
                     placeholder="{{ __('Ingrese nombre...') }}">
             </div>
+            <div class="col-md-12 mb-3">
+                <label for="description" class="form-label">{{ __('Descripcion') }}</label>
+                <textarea name="description" class="border w-100 textareaI" rows="15"></textarea>
+            </div>
+
 
             <div class="col-md-12">
                 <button type="submit" class="btn btn-primary chl_loader"><i

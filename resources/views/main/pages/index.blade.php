@@ -13,17 +13,18 @@
             </div>
 
             <div class="row gy-4">
-                <div class="col-lg-7 position-relative about-img" style="background-image: url('{{ url('storage/files/'._info('intro.image','#')) }}'); background-repeat: no-repeat; background-position:center; background-size:cover"
+                <div class="col-lg-7 position-relative about-img"
+                    style="background-image: url('{{ url('storage/files/' . _info('intro.image', '#')) }}'); background-repeat: no-repeat; background-position:center; background-size:cover"
                     data-aos="fade-up" data-aos-delay="150">
                     <div class="call-us position-absolute">
-                        <h4>{{_info("company.name")}}</h4>
+                        <h4>{{ _info('company.name') }}</h4>
                         <p>{{ _info('company.phone') }}</p>
                     </div>
                 </div>
                 <div class="col-lg-5 d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
                     <div class="content ps-0 ps-lg-5">
                         <p class="fst-italic">
-                            {!! nl2br(_info("about.min"))  !!}
+                            {!! nl2br(_info('about.min')) !!}
                         </p>
                     </div>
                 </div>
@@ -50,7 +51,8 @@
                 @foreach ($gallery ?? [] as $item)
                     <div class="col-lg-3 col-md-4">
                         <div class="gallery-item">
-                            <a href="{{ url('storage/files/gallery/original/' . $item->archive) }}" class="galelry-lightbox">
+                            <a href="{{ url('storage/files/gallery/original/' . $item->archive) }}"
+                                class="galelry-lightbox">
                                 <img src="{{ url('storage/files/gallery/square/' . $item->archive) }}" alt=""
                                     class="w-100">
                             </a>
@@ -78,354 +80,59 @@
         <div class="container">
             <div class="faq-list">
                 <ul>
-                    <li data-aos="fade-up">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                            data-bs-target="#faq-list-1">Motocicleta - M<i class="bx bx-chevron-down icon-show"></i><i
-                                class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                            <div class="row">
-                                <div class="col-lg-8 details">
-                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                        sonata raqer
-                                        a videna mareta paulona marka</p>
-                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                        ipsum ipsa
-                                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et
-                                        quis magni
-                                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                    @php
+                        $delay = 0;
+                        $show = 'collapse show';
+                    @endphp
+                    @foreach ($course_category ?? [] as $item)
+                        <li data-aos="fade-up" data-aos-delay="{{ $delay }}">
+                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
+                                data-bs-target="#_{{ $item->code }}">{{ $item->name }}<i
+                                    class="bx bx-chevron-down icon-show"></i><i
+                                    class="bx bx-chevron-up icon-close"></i></a>
+                            <div id="_{{ $item->code }}" class="{{ $show }}" data-bs-parent=".faq-list">
+                                <div class="row">
+                                    <div class="col-lg-8 details">
+                                        <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila
+                                            parde
+                                            sonata raqer
+                                            a videna mareta paulona marka</p>
 
-                                </div>
-                                <div class="col-lg-4 text-center">
-                                    <div class="portfolio-thumb">
-                                        <img src="assets/img/moto_t.jpg" alt="" class="img-fluid">
                                     </div>
 
-                                </div>
-
-
-                                <div class="col-lg-12">
-                                    <button type="button" class="active animate__animated animate__fadeInUp scrollto">curso
-                                        1</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        2</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        3</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        4</button>
-                                    <p>Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a
-                                        videna mareta
-                                        paulona marka</p>
-                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                        ipsum ipsa
-                                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et
-                                        quis magni
-                                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto"><a
-                                            href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox"><i
-                                                class="bi bi-file-pdf-fill"></i> Ver video </a></button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto"> <i
-                                            class="bi bi-journal-richtext"></i> Simulador de Examen Teórico</button>
+                                    <div class="col-lg-12">
+                                        <button type="button"
+                                            class="active animate__animated animate__fadeInUp scrollto">curso
+                                            1</button>
+                                        <button type="button"
+                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                                            2</button>
+                                        <button type="button"
+                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                                            3</button>
+                                        <button type="button"
+                                            class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
+                                            4</button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </li>
+                        </li>
 
-                    <li data-aos="fade-up" data-aos-delay="100">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-2" class="collapsed">Particular - P <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                                laoreet id
-                                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est
-                                pellentesque elit
-                                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                            </p>
-                        </div>
-                    </li>
 
-                    <li data-aos="fade-up" data-aos-delay="200">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-3" class="collapsed">Profesional – A<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
-                                elementum
-                                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu
-                                tincidunt.
-                                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed
-                                odio morbi
-                                quis
-                            </p>
-                        </div>
-                    </li>
+                        @php
+                            $delay += 100;
+                            $show = 'collapse collapsed';
+                        @endphp
+                    @endforeach
 
-                    <li data-aos="fade-up" data-aos-delay="300">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-4" class="collapsed">Profesional – B<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc
-                                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est.
-                                Purus
-                                gravida quis blandit turpis cursus in.
-                            </p>
-                        </div>
-                    </li>
 
-                    <li data-aos="fade-up" data-aos-delay="400">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-5" class="collapsed">Profesional – C<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-6" class="collapsed">Maquinaria Pesada – T<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-6" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-7" class="collapsed">Manejo Defensivo<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-7" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-8" class="collapsed">Mantenimiento de Mecánica Automotriz<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-8" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
+
+
                 </ul>
             </div>
 
         </div>
     </section><!-- End Frequently Asked Questions Section -->
-
-
-    <section class="section-medium section-arrow--bottom-center bg" id="section-medium">
-        <div class="container" data-aos="zoom-in">
-            <div class="row">
-                <div class="col-md-12 text-center section-title">
-                    <h5>Simulador de Examen Teórico</h5>
-                    <p>Con este simulador podrás practicar antes de enfrentar el examen teórico real, con el fin de que
-                        llegues
-                        bien preparado para rendir.
-                        (Actualizado Agosto 2022)</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ======= Features Section ======= -->
-    <section id="features" class="features section-bg">
-        <div class="container" data-aos="fade-up">
-
-            <ul class="nav nav-tabs row  g-2 d-flex">
-
-                <li class="nav-item col-2">
-                    <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-M">
-                        <h4>M</h4>
-                    </a>
-                </li><!-- End tab nav item -->
-
-                <li class="nav-item col-2">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-P">
-                        <h4>P</h4>
-                    </a>
-                </li>
-                <!-- End tab nav item -->
-
-                <li class="nav-item col-2">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-A">
-                        <h4>A</h4>
-                    </a>
-                </li><!-- End tab nav item -->
-
-                <li class="nav-item col-2">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
-                        <h4>B</h4>
-                    </a>
-                </li><!-- End tab nav item -->
-                <li class="nav-item col-2">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
-                        <h4>C</h4>
-                    </a>
-                </li><!-- End tab nav item -->
-                <li class="nav-item col-2">
-                    <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-d">
-                        <h4>T</h4>
-                    </a>
-                </li><!-- End tab nav item -->
-
-            </ul>
-
-            <div class="tab-content">
-
-                <div class="tab-pane active show" id="tab-M">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
-                            data-aos="fade-up" data-aos-delay="100">
-                            <h3>Motocicleta -M</h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</li>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
-                                    fugiat nulla
-                                    pariatur.</li>
-                            </ul>
-                            <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto">
-                                <i class="bi bi-journal-richtext"></i> Prueba Examen Teórico</button>
-                            <button type="button" class="btn-get-started animate__animated animate__fadeInUp scrollto">
-                                <i class="bi bi-journal-richtext"></i> Simulador de Examen Teórico completo</button>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                            <img src="assets/img/moto.jpg" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div><!-- End tab content item -->
-
-                <div class="tab-pane" id="tab-P">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                            <h3>Particular - P</h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</li>
-                                <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos
-                                    qui a.
-                                    Ipsum neque dolor voluptate nisi sed.</li>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
-                                    fugiat nulla
-                                    pariatur.</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="assets/img/particular.jpg" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div><!-- End tab content item -->
-
-                <div class="tab-pane" id="tab-A">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                            <h3>Profesional – A</h3>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</li>
-                                <li><i class="bi bi-check2-all"></i> Provident mollitia neque rerum asperiores dolores quos
-                                    qui a.
-                                    Ipsum neque dolor voluptate nisi sed.</li>
-                            </ul>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="assets/img/profesional.jpg" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div><!-- End tab content item -->
-
-                <div class="tab-pane" id="tab-d">
-                    <div class="row">
-                        <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center">
-                            <h3>Omnis fugiat ea explicabo sunt</h3>
-                            <p class="fst-italic">
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                                labore et
-                                dolore
-                                magna aliqua.
-                            </p>
-                            <ul>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat.</li>
-                                <li><i class="bi bi-check2-all"></i> Duis aute irure dolor in reprehenderit in voluptate
-                                    velit.</li>
-                                <li><i class="bi bi-check2-all"></i> Ullamco laboris nisi ut aliquip ex ea commodo
-                                    consequat. Duis
-                                    aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu
-                                    fugiat nulla
-                                    pariatur.</li>
-                            </ul>
-                        </div>
-                        <div class="col-lg-6 order-1 order-lg-2 text-center">
-                            <img src="assets/img/features-4.jpg" alt="" class="img-fluid">
-                        </div>
-                    </div>
-                </div><!-- End tab content item -->
-
-            </div>
-
-        </div>
-    </section><!-- End Features Section -->
 
 
     <!-- ======= Features Section ======= -->
@@ -435,12 +142,12 @@
             <ul class="nav nav-tabs row  g-2 d-flex">
 
                 <li class="nav-item col-6">
-                    <a class="nav-link active show" data-bs-toggle="tab" data-bs-target="#tab-curso">
+                    <a class="nav-link active show d-none" data-bs-toggle="tab" data-bs-target="#tab-curso">
                         <h4>Inscripción curso de conducción</h4>
                     </a>
                 </li><!-- End tab nav item -->
 
-                <li class="nav-item col-6">
+                <li class="nav-item col-6 d-none">
                     <a class="nav-link" data-bs-toggle="tab" data-bs-target="#tab-examen">
                         <h4>Inscripción examen de conducción</h4>
                     </a>
@@ -455,73 +162,61 @@
                     <div class="row">
                         <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
                             data-aos="fade-up" data-aos-delay="100">
-                            <h4>Inscripción curso</h4>
+                            <h4>Inscripción</h4>
                             <p class="fst-italic">
                                 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
                                 labore et
                                 dolore
                                 magna aliqua.
                             </p>
-                            <form>
+                            <form class="form_">
                                 <div class="row php-email-form">
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Apellido paterno</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Apellido paterno</label>
+                                        <input type="text" name="father_name" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Apellido materno</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" name="mother_name" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Nombre</label>
+                                        <input type="text" name="name" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Carnet de Identidad</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" name="national_id" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Celular</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Celular</label>
+                                        <input type="phone" name="phone" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="email" name="email" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Dirección</label>
+                                        <input type="text" name="address" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleFormControlSelect1" class="form-label">Categoría</label>
-                                        <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Categoría M</option>
-                                            <option>Categoría P</option>
-                                            <option>Categoría A</option>
-                                            <option>Categoría B</option>
-                                            <option>Categoría C</option>
-                                            <option>Categoría T</option>
+                                        <select class="form-control">
+                                            @foreach ($course_category as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleFormControlSelect1" class="form-label">Curso de
-                                            conducción</label>
+                                        <label for="exampleFormControlSelect1" class="form-label">Curso</label>
                                         <select class="form-control" id="exampleFormControlSelect1">
-                                            <option>Básico</option>
-                                            <option>Perfeccionamiento</option>
-                                            <option>Especializado para el examen</option>
+                                            @foreach ($course as $item)
+                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
-                                    <div class="col-md-3 form-check">
-                                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn btn-primary">Enviar</button>
                                     </div>
 
                                 </div>
@@ -531,7 +226,7 @@
                     </div>
                 </div><!-- End tab content item -->
 
-                <div class="tab-pane" id="tab-examen">
+                <div class="tab-pane d-none" id="tab-examen">
                     <div class="row">
                         <div class="col-lg-12 order-2 order-lg-1 mt-3 mt-lg-0 d-flex flex-column justify-content-center"
                             data-aos="fade-up" data-aos-delay="100">
@@ -555,36 +250,32 @@
                             <form>
                                 <div class="row php-email-form">
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Apellido paterno</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Apellido paterno</label>
+                                        <input type="email" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Apellido materno</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Nombre</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Nombre</label>
+                                        <input type="email" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Carnet de Identidad</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Celular</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Celular</label>
+                                        <input type="email" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleInputPassword1" class="form-label">Correo</label>
-                                        <input type="password" class="form-control" id="exampleInputPassword1">
+                                        <input type="text" class="form-control">
                                     </div>
                                     <div class="col-md-3">
-                                        <label for="exampleInputEmail1" class="form-label">Dirección</label>
-                                        <input type="email" class="form-control" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
+                                        <label class="form-label">Dirección</label>
+                                        <input type="email" class="form-control">
                                     </div>
                                     <div class="col-md-3">
                                         <label for="exampleFormControlSelect1" class="form-label">Categoría</label>
@@ -743,10 +434,4 @@
 
         </div>
     </section><!-- End Contact Section -->
-
-
-
-
-
-
 @endsection

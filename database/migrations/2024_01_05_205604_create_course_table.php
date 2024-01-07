@@ -23,7 +23,7 @@ return new class extends Migration
             $table->float('price', 10, 0)->nullable();
             $table->float('price_promo', 10, 0)->nullable();
             $table->bigInteger('currency_id')->nullable();
-            $table->text('description')->nullable();
+            $table->longtext('description')->nullable();
             $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();

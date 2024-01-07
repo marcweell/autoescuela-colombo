@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
+use App\Services\currency\CurrencyServiceQueryImpl;
 use App\Services\document_type\Document_typeServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\course\CourseServiceImpl;
@@ -88,6 +89,7 @@ class CourseController extends Controller
     {
         try {
             $view = view('admin.fragments.course.addForm', [
+                'currency'=>(new CurrencyServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'course_category' => (new Course_categoryServiceQueryImpl)->deleted(false)->orderDesc()->findAll(),
                 'document_type'=>(new Document_typeServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
             ])->render();
@@ -103,6 +105,9 @@ class CourseController extends Controller
 
             $view = view('admin.fragments.course.editForm', [
                 'course' => $course,
+                'currency'=>(new CurrencyServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+                'course_category' => (new Course_categoryServiceQueryImpl)->deleted(false)->orderDesc()->findAll(),
+                'document_type'=>(new Document_typeServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {

@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('faq_answer', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
-            $table->text('description')->nullable();
+            $table->longtext('description')->nullable();
             $table->bigInteger('user_id')->nullable()->index('user_id');
             $table->bigInteger('language_id')->nullable()->index('language_id');
             $table->dateTime('created_at')->nullable()->useCurrent();

@@ -20,6 +20,14 @@
                                         class="fa fa-image p-2"></i>Cambiar foto de perfil</button>
                             </div>
                         </div>
+                        <div class="col-12 pt-2">
+
+                            <div class="form-group">
+                                <label class="form-label">Nombre de Usuario</label>
+                                <input type="text" class="form-control" name="code" value="{{ $user->code }}">
+                            </div>
+
+                        </div>
                         <div class="col-md-6 col-lg-4 pt-2">
 
                             <div class="form-group">

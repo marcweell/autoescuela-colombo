@@ -46,7 +46,7 @@
                     placeholder="{{ __('Ingrese Codigo Postal...') }}" value="{{ $course->postal_code }}">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="logo" class="form-label">{{ __('Logotipo') }}</label>
+                <label for="logo" class="form-label">{{ __('Logo') }}</label>
                 <input type="file" name="logo" id="logo" class="form-control">
             </div>
             <div class="col-md-4 mb-3">
@@ -116,7 +116,7 @@
                 <div class="alert alert-info" role="info">
                     <h4 class="alert-heading">Importante!</h4>
                     <hr>
-                    <p>Se nao selecionar nenhuma foto de cap ou logotipo, estes nao serao alterados.</p>
+                    <p>Se nao selecionar nenhuma foto de cap ou logo, estes nao serao alterados.</p>
                 </div>
             </div>
 

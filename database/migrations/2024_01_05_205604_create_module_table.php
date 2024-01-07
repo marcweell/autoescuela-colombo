@@ -17,7 +17,7 @@ return new class extends Migration
             $table->bigInteger('id', true);
             $table->string('name', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->text('description')->nullable();
+            $table->longtext('description')->nullable();
             $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();

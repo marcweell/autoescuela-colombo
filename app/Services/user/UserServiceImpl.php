@@ -58,10 +58,7 @@ class UserServiceImpl implements IUserService
         if (empty($data->id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
-
-
         $payload = new stdClass();
-        $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
 
 
         foreach ($data as $i => $value) {

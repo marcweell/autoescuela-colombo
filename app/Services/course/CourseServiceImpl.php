@@ -19,16 +19,16 @@ use Flores;
 
 class CourseServiceImpl implements ICourseService
 {
-    private $insertFillables = ['name', 'code', 'postal_code', 'description', 'logo', 'course_category_id'];
-    private $updateFillables = ['name', 'code', 'postal_code', 'description', 'logo', 'code', 'course_category_id'];
+    private $insertFillables = ['name', 'currency_id','code', 'price','price_promo', 'description', 'logo', 'course_category_id'];
+    private $updateFillables = ['name', 'currency_id','code', 'price','price_promo', 'description', 'logo', 'code', 'course_category_id'];
     private $table =  'course';
- 
+
     public function add($data)
     {
         if (empty($data->name)) {
             throw new \Exception(__('Nome invalido'), 400);
         }
- 
+
         if (!empty($data->logo->file) and !empty($data->logo->filename)) {
             if (!str_ends_with($data->logo->file, ':')) {
                 $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(Auth::user()->id . $data->logo->filename), 'storage/files');
@@ -37,7 +37,7 @@ class CourseServiceImpl implements ICourseService
             }
         } else {
             $data->logo = null;
-        } 
+        }
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __method__);
@@ -52,22 +52,18 @@ class CourseServiceImpl implements ICourseService
 
         if (!empty($course->id)) {
             throw new \Exception(__('Codigo invalido'), 400);
-        } 
-
-
-
-
+        }
 
 
 
         $arr = json_decode(json_encode($payload), true);
 
         try {
-            
+
         } catch (\Throwable $th) {
         }
 
-        $arr['created_at'] = DB::raw('now()'); 
+        $arr['created_at'] = DB::raw('now()');
         DB::table($this->table)->insert($arr);
     }
 
@@ -78,8 +74,6 @@ class CourseServiceImpl implements ICourseService
         }
 
 
-
- 
         if (!empty($data->logo->file) and !empty($data->logo->filename)) {
             if (!str_ends_with($data->logo->file, ':')) {
                 $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(Auth::user()->id . $data->logo->filename), 'storage/files');
@@ -123,10 +117,10 @@ class CourseServiceImpl implements ICourseService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        $arr = json_decode(json_encode($payload), true); 
+        $arr = json_decode(json_encode($payload), true);
         $arr['updated_at'] = DB::raw('now()');
 
-        DB::table($this->table)->where('id', $data->id)->update($arr); 
+        DB::table($this->table)->where('id', $data->id)->update($arr);
     }
     public function trash($id)
     {
@@ -137,7 +131,7 @@ class CourseServiceImpl implements ICourseService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -149,7 +143,7 @@ class CourseServiceImpl implements ICourseService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -161,7 +155,7 @@ class CourseServiceImpl implements ICourseService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->delete();
     }
 }

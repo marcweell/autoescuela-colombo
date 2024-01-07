@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\AdminUi;
 
 use App\Http\Controllers\Controller;
+use App\Services\academic_degree\Academic_degreeServiceQueryImpl;
 use App\Services\city\CityServiceQueryImpl;
 use App\Services\country\CountryServiceQueryImpl;
+use App\Services\course\CourseServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
@@ -86,6 +88,8 @@ class UserController extends Controller
         try {
             $view = view('admin.fragments.user.addForm', [
                 'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+                'academic_degree'=>(new Academic_degreeServiceQueryImpl())->deleted(false)->findAll(),
+                'course'=>(new CourseServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();

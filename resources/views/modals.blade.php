@@ -1,5 +1,5 @@
 
-<div id="modal-d" class="modal" tabindex="-1">
+<div id="modal-d" class="modal"  role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-xl modal-dialog-fade modal-dialog-centered">
         <div class="modal-content shadow-none border-0">
             <div class="modal-header">
@@ -14,7 +14,7 @@
 </div>
 
 
-<div id="modal-d-sm" class="modal" tabindex="-1">
+<div id="modal-d-sm" class="modal"  role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-md modal-dialog-fade modal-dialog-centered">
         <div class="modal-content shadow-none border-0">
             <div class="modal-header">

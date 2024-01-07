@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Services\course\CourseServiceQueryImpl;
+use App\Services\course_category\Course_categoryServiceQueryImpl;
 use App\Services\faq\FaqServiceQueryImpl;
 use App\Services\gallery\GalleryServiceQueryImpl;
 use App\Services\site_menu\Site_menuServiceQueryImpl;
@@ -20,6 +22,8 @@ class IndexController extends Controller
         $slider = _info('home.slider');
         return view('main.pages.index', [
             'slider'=>$slider,
+            'course'=>(new CourseServiceQueryImpl())->findAll(),
+            'course_category'=>(new Course_categoryServiceQueryImpl())->findAll(),
             'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
             'faq'=>(new FaqServiceQueryImpl())->findAll(),
             'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()

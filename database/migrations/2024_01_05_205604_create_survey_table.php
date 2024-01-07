@@ -21,7 +21,7 @@ return new class extends Migration
             $table->bigInteger('course_id')->index('course_id');
             $table->bigInteger('language_id')->nullable()->index('language_id');
             $table->string('name', 191);
-            $table->text('description')->nullable();
+            $table->longtext('description')->nullable();
             $table->text('long_description')->nullable();
             $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
