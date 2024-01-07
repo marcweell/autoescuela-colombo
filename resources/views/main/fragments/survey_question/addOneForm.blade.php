@@ -16,10 +16,10 @@
                     <label class="form-label">{!! __('Tipo de pregunta') !!}</label>
                     <select name="question_type" class="form-control" id="qt">
                         <option value="">Seleccione tipo</option>
-                        <option value="open-ended-single">Texto Simples</option>
-                        <option value="single-choice-radio">Escolha Unica</option>
-                        <option value="multiple-choice">Escolha Multipla</option>
-                        <option value="best-worst">Verdadeiro Falso</option>
+                        <option value="open-ended-single">Texto</option>
+                        <option value="single-choice-radio">Elección única(Radio)</option>
+                        <option value="multiple-choice">Opción multiple</option>
+                        <option value="best-worst">Verdad o falso</option>
                     </select>
                 </div>
             </div>
@@ -98,7 +98,7 @@
             <div class="form-group">
                 <label class="form-label">{{ __('Tipo de Respuesta') }}</label>
                 <input type="hidden" name="survey_question_option[contentId][]" value="open-ended-single">
-                <input type="text" class="form-control" value="Texto Simples" disabled>
+                <input type="text" class="form-control" value="Texto" disabled>
             </div>
         </div>
         <div class="col-3">
