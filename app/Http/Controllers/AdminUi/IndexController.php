@@ -35,6 +35,7 @@ class IndexController extends Controller
         #$this->modules();
         return view('admin.pages.home', [
             'request' => $request,
+
             'user'=>$user,
             'notification' => (new NotificationServiceQueryImpl())->byUserId($user->id)->limit(10)->deleted(false)->orderDesc()->findAll()
         ])->render();

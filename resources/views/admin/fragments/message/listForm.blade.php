@@ -3,7 +3,7 @@
         <div class="row mb-2">
             <div class="col-sm-5">
                 <a data-href="{{ route('web.admin.page.message.compose.index') }}" data-id="-1" class="btn btn-primary mb-2 _link_"><i
-                                class="fa fa-envelope me-2"></i> {{ __('Compor Mensagem para Todos') }}</a>
+                                class="fa fa-envelope me-2"></i> {{ __('Redactar mensaje para todos') }}</a>
             </div>
             <div class="col-sm-7">
 

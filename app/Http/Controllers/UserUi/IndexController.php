@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
+use App\Services\auth\AuthServiceImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\administrative_act_type\Administrative_act_typeServiceQueryImpl;
 use App\Services\user_menu\user_menuServiceQueryImpl;
@@ -19,7 +20,7 @@ use Flores\UserConfig;
 use Flores\WebApi;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Route; 
+use Illuminate\Support\Facades\Route;
 use stdClass;
 
 class IndexController extends Controller
@@ -28,17 +29,13 @@ class IndexController extends Controller
     {
     }
     public function index(Request $request)
-    { 
+    {
 
-
-        if (empty(uconfig("current_course")->id)) {
-            return view("basic.pages.nocourse");
-        }
-
-
-        return view('user.pages.home', [
+        $user = (new AuthServiceImpl())->getUser();
+        #$this->modules();
+        return view('main.pages.dashboard', [
+            'user'=>$user,
             'request' => $request,
-            'admin_act' => (new Administrative_act_typeServiceQueryImpl())->findAll(),
             'course' => (new CourseServiceQueryImpl())->findAll(),
             'notification'=>(new NotificationServiceQueryImpl())->byUserId(Auth::user()->id)->limit(10)->findAll()
 

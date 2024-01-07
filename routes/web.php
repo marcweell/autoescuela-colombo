@@ -31,6 +31,10 @@ Route::prefix("/")->middleware([App\Http\Middleware\UserLang::class,])->name("we
         Route::post("/message/send", [App\Http\Controllers\WebApiController::class, 'sendMessage'])->name("message.send");
     });
 
+    Route::get('account',function(){
+        return route('web.account.index');
+    });
+
 
     /**
      * .ROOT

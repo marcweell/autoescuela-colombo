@@ -1,60 +1,53 @@
-@extends("main.templates.auth",['page_title'=>'Login'])
-
+@extends('main.templates.auth')
 @section('content')
 
-<section class="inner-page">
-    <div class="container">
-
-        <div class="row justify-content-center h-100 align-items-center">
-            <div class="col-xl-5 col-md-6">
-                <div class="auth-form card">
-                    <div class="card-body">
-                        <form action="{{ route('web.account.auth.login') }}" method="post" class="form_ parent-load">
-                            <div class="row">
-                                <div class="col-12 mb-3">
-                                    <label class="form-label">{{ __("Usuário") }}</label>
-                                    <input   type="text" class="form-control" name="user">
-                                </div>
-                                <div class="col-12 mb-3">
-                                    <label class="form-label">{{ __("Senha") }}</label>
-                                    <div class="input-group">
-                                        <input type="password" id="pwd" class="form-control" name="password">
-                                        <div class="input-group-append">
-                                            <button id="togglePassword" class="btn btn-dark btn-lg rounded-0" type="button"><i
-                                                    class="fa fa-eye"></i></button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                                <div class="col-6">
-                                    <div class="form-check">
-                                        <input name="remember" type="checkbox" class="form-check-input">
-                                        <label class="form-check-label">{{ __("Salvar Sessão") }}</label></div>
-                                </div>
-                                <div class="col-6 text-end"><a href="{{ route('web.account.forgot.index') }}">{{ __("Esqueceu sua senha?") }}</a></div>
-                            </div>
-                            <div class="mt-3 d-grid gap-2"><button type="submit" class="btn btn-dark mr-2 chl_loader">{{ __("Entrar") }}</button></div>
-                        </form>
-                    </div>
-                </div>
-                <div class="mt-4">
-                    <a class="text-primary p-2" href="{{ route('web.public.index') }}">{{ __("Página Inicial") }}</a>
-                    <a class="text-primary p-2" href="{{ route('web.account.signup.index') }}">{{ __("Criar Conta") }}</a>
-                    <a class="text-primary p-2" target="_blank" href="{{ route('web.public.terms.index') }}">{{ __("Termos de Uso") }}</a>
-                    <a class="text-primary p-2" target="_blank" href="{{ route('web.public.privacy.index') }}">{{ __("Políticas") }}</a>
-            </div>
+<div class="logo">
+    <img height="45px" src="{{ url("public/essential/img/logo.png") }}" alt="">
+  </div>
+  <div class="login-box">
+    <form class="login-form form_" action="{{ route('web.account.auth.login') }}">
+      <h3 class="login-head"><i class="bi bi-person me-2"></i>INICIAR SESIÓN</h3>
+      <div class="mb-3">
+        <label class="form-label">USUARIO/EMAIL</label>
+        <input class="form-control" name="user" type="text" placeholder="" autofocus>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">CONTRASEÑA</label>
+        <input class="form-control" type="password" name="password" placeholder="">
+      </div>
+      <div class="mb-3">
+        <div class="utility">
+          <div class="form-check">
+            <label class="form-check-label">
+              <input class="form-check-input" type="checkbox"><span class="label-text">Mantener sesión</span>
+            </label>
+          </div>
+          <p class="semibold-text mb-2"><a href="{{ route("web.account.forgot.index") }}" data-bs-toggle="flip">Has olvidado tu contraseña ?</a></p>
         </div>
+      </div>
+      <div class="mb-3 btn-container d-grid">
+        <button type="submit" class="btn btn-primary btn-block"><i class="bi bi-box-arrow-in-right me-2 fs-5"></i>INICIAR SESIÓN</button>
+      </div>
+    </form>
+    <form class="forget-form form_" action="{{ route("web.account.forgot.auth") }}">
+      <h3 class="login-head"><i class="bi bi-person-lock me-2"></i>Has olvidado tu contraseña ?</h3>
+      <div class="mb-3">
+        <label class="form-label">EMAIL</label>
+        <input class="form-control" type="text" name="email" placeholder="">
+      </div>
+      <div class="mb-3 btn-container d-grid">
+        <button class="btn btn-primary btn-block"><i class="bi bi-unlock me-2 fs-5"></i>Mandar</button>
+      </div>
+      <div class="mb-3 mt-3">
+        <p class="semibold-text mb-0"><a href="#" data-bs-toggle="flip"><i class="bi bi-chevron-left me-1"></i> Volver a iniciar sesión</a></p>
+      </div>
+    </form>
+  </div>
 
 
 
 
 
 
-
-
-    </div>
-</section>
-
-
-
-@endsection
+<a href="{{ route("web.public.index") }}" class="btn btn-primary mt-4"><i class="fa fa-home"></i></a>
+  @endsection
