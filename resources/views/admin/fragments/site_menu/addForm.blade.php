@@ -12,7 +12,8 @@
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Icone') }}</label>
-                <input type="text" name="icon_class" id="name" class="form-control iconpicker"  autocomplete="off">
+                <input type="text" name="icon_class" id="name" class="form-control iconpicker"
+                    autocomplete="off">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="name" class="form-label">{{ __('Preferir') }}</label>
@@ -26,12 +27,18 @@
                 <select class="form-control select2tg" name="route" id="">
 
                     @foreach (Route::getRoutes() as $item)
-                        @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !(str_starts_with($item->getName(), 'web.public.') or str_starts_with($item->getName(), 'web.account.')) or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
+                        @if (str_ends_with($item->getName(), '.do') or
+                                $item->methods[0] == 'POST' or
+                                str_ends_with($item->getName(), '.') or
+                                !(str_starts_with($item->getName(), 'web.public.') or str_starts_with($item->getName(), 'web.account.')) or
+                                str_starts_with($item->getName(), 'ignition.') or
+                                empty($item->getName()))
                             @php
                                 continue;
                             @endphp
                         @endif
-                        <option value="{{ $item->getName() }}">{{ $item->getName() . ' (' . $item->methods[0]. ')' }}</option>
+                        <option value="{{ $item->getName() }}">{{ $item->getName() . ' (' . $item->methods[0] . ')' }}
+                        </option>
                     @endforeach
                 </select>
             </div>
@@ -40,12 +47,18 @@
                 <select class="form-control select2tg" name="uri" id="">
 
                     @foreach (Route::getRoutes() as $item)
-                        @if (str_ends_with($item->getName(), '.do') or $item->methods[0] == 'POST' or str_ends_with($item->getName(), '.') or !str_starts_with($item->getName(), 'web.public.')  or !str_starts_with($item->getName(), 'web.account.')or str_starts_with($item->getName(), 'ignition.') or empty($item->getName()))
+                        @if (str_ends_with($item->getName(), '.do') or
+                                $item->methods[0] == 'POST' or
+                                str_ends_with($item->getName(), '.') or
+                                !(str_starts_with($item->getName(), 'web.public.') or str_starts_with($item->getName(), 'web.account.')) or
+                                str_starts_with($item->getName(), 'ignition.') or
+                                empty($item->getName()))
                             @php
                                 continue;
                             @endphp
                         @endif
-                        <option value="{{ $item->uri() }}">{{ $item->uri() . ' (' . $item->methods[0]. ')' }}</option>
+                        <option value="{{ $item->uri() }}">{{ $item->uri() . ' (' . $item->methods[0] . ')' }}
+                        </option>
                     @endforeach
                 </select>
             </div>
