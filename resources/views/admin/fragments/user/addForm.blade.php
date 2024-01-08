@@ -6,18 +6,21 @@
         <form action="{{ route('web.admin.user.add.do') }}" class="form_" method="post">
             <div class="row">
                 <div class="col-md-4 mb-3">
-                    <label for="name" class="form-label">{{ __('Nombre') }}</label>
+                    <label class="form-label">Apellido paterno</label>
+                    <input type="text" class="form-control" name="father_name" value="">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Apellido materno</label>
+                    <input type="text" class="form-control" name="mother_name" value="">
+                </div>
+                <div class="col-md-4 mb-3">
+                    <label for="name" class="form-label">{{ __('Nombres') }}</label>
                     <input type="text" name="name" required id="name" class="form-control"
                         placeholder="{{ __('Ingrese nombre...') }}">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="last_name" class="form-label">{{ __('Apellido') }}</label>
-                    <input type="text" name="last_name" required id="last_name" class="form-control"
-                        placeholder="{{ __('Ingrese Apellido...') }}">
-                </div>
-                <div class="col-md-4 mb-3">
                     <label for="code" class="form-label">{{ __('Nombre de Usuario') }}</label>
-                    <input type="text" name="code" id="code" class="form-control" >
+                    <input type="text" name="code" id="code" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
                     <label for="email" class="form-label">{{ __('Email') }}</label>
@@ -29,7 +32,8 @@
                     <div class="input-group">
                         <select class="form-control w-25 " required style="width: 25%" name="idd_country_id">
                             @foreach ($country as $item)
-                                <option {{ strtolower($item->code) == 'bo' ? 'selected' : '' }} value="{{ $item->id }}">{{ $item->idd . "({$item->name})" }}</option>
+                                <option {{ strtolower($item->code) == 'bo' ? 'selected' : '' }}
+                                    value="{{ $item->id }}">{{ $item->idd . "({$item->name})" }}</option>
                             @endforeach
                         </select>
                         <input type="text" required class="form-control w-75" placeholder="" aria-label=""
@@ -41,7 +45,8 @@
                     <div class="input-group">
                         <input type="password" id="pwd" class="form-control" name="password">
                         <div class="input-group-append">
-                            <button id="togglePassword" class="btn btn-dark btn-lg rounded-0" type="button"><i class="fa fa-eye"></i></button>
+                            <button id="togglePassword" class="btn btn-dark btn-lg rounded-0" type="button"><i
+                                    class="fa fa-eye"></i></button>
                         </div>
                     </div>
                 </div>
@@ -54,6 +59,16 @@
                         <option>Seleccione el tipo de usuario</option>
                         <option value="user">Alumno</option>
                         <option value="admin">Admin</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4 mb-3" style="display: none">
+                    <label for="type" class="form-label">{{ __('Nivel de Usuario') }}</label>
+                    <select name="role_id" id="role_id" required class="form-control ">
+                        <option>Seleccione el nivel</option>
+                        @foreach ($role as $item)
+                            <option value="{{ $item->name }}">{{ $item->id }}</option>
+                        @endforeach
                     </select>
                 </div>
             </div>
@@ -71,7 +86,7 @@
                     <select class="form-control " name="course_id">
                         @foreach ($course as $item)
                             <option value="{{ $item->id }}">
-                                {{ $item->name  }}
+                                {{ $item->name }}
                             </option>
                         @endforeach
                     </select>
@@ -83,14 +98,6 @@
                 <div class="col-md-4 mb-3">
                     <label class="form-label">Fecha de nacimiento</label>
                     <input type="date" class="form-control" name="born_date" value="">
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label class="form-label">Apellido paterno</label>
-                    <input type="text" class="form-control" name="father_name" value="">
-                </div>
-                <div class="col-md-4 mb-3">
-                    <label class="form-label">Apellido materno</label>
-                    <input type="text" class="form-control" name="mother_name" value="">
                 </div>
                 <div class="col-md-4 mb-3">
                     <label class="form-label">Pais</label>
@@ -158,12 +165,15 @@
     $('#user_type').on('change', function() {
 
         var val = $(this).val();
+        $("#role_id").val("");
 
         switch (val) {
             case 'user':
                 $("#user-container").show();
+                $("#role_id").hide();
                 break;
             default:
+                $("#role_id").show();
                 $("#user-container").hide();
                 break;
         }
