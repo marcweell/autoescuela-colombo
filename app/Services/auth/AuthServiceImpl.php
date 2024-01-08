@@ -54,6 +54,9 @@ class AuthServiceImpl implements IAuthService
 
         $credentials = [];
 
+        if ($this->guard == 'admin') {
+            $credentials['type'] = 'admin';
+        }
 
         if (filter_var($data->user, FILTER_VALIDATE_EMAIL) == true) {
             $credentials["email"] = $data->user;
