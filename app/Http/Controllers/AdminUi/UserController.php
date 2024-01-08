@@ -47,6 +47,7 @@ class UserController extends Controller
             $this->userService->add($data);
             return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
+            throw $e;
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }

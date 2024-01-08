@@ -23,12 +23,12 @@
                     <input type="text" name="code" id="code" class="form-control">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="email" class="form-label">{{ __('Email') }}</label>
+                    <label for="email" class="form-label">{{ __('Correo') }}</label>
                     <input type="text" name="email" id="email" required class="form-control"
                         placeholder="{{ __('Ingrese Email...') }}">
                 </div>
                 <div class="col-md-4 mb-3">
-                    <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
+                    <label for="phone" class="form-label">{{ __('Celular') }}</label>
                     <div class="input-group">
                         <select class="form-control w-25 " required style="width: 25%" name="idd_country_id">
                             @foreach ($country as $item)
@@ -45,7 +45,7 @@
                     <div class="input-group">
                         <input type="password" id="pwd" class="form-control" name="password">
                         <div class="input-group-append">
-                            <button id="togglePassword" class="btn btn-dark btn-lg rounded-0" type="button"><i
+                            <button id="togglePassword" class="btn btn-dark rounded-0" type="button"><i
                                     class="fa fa-eye"></i></button>
                         </div>
                     </div>
@@ -56,7 +56,7 @@
                 <div class="col-md-4 mb-3">
                     <label for="type" class="form-label">{{ __('Tipo de Usuario') }}</label>
                     <select name="type" id="user_type" required class="form-control ">
-                        <option>Seleccione el tipo de usuario</option>
+                        <option value="">Seleccione el tipo de usuario</option>
                         <option value="user">Alumno</option>
                         <option value="admin">Admin</option>
                     </select>
@@ -64,7 +64,7 @@
 
                 <div class="col-md-4 mb-3" style="display: none" id="role_container">
                     <label for="type" class="form-label">{{ __('Nivel de Usuario') }}</label>
-                    <select name="role_id" id="role_id" required class="form-control ">
+                    <select name="role_id" id="role_id" class="form-control ">
                         <option>Seleccione el nivel</option>
                         @foreach ($role as $item)
                             <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -78,11 +78,13 @@
 
 
             <div class="row" style="display: none" id="user-container">
+
                 <div class="col-12">
                     <hr>
                 </div>
+
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Curso</label>
+                    <label class="form-label">Categoria</label>
                     <select class="form-control " name="course_categoryid">
                         @foreach ($course_category??[] as $item)
                             <option value="{{ $item->id }}">
@@ -91,6 +93,8 @@
                         @endforeach
                     </select>
                 </div>
+
+
                 <div class="col-md-4 mb-3">
                     <label class="form-label">Curso</label>
                     <select class="form-control " name="course_id">
@@ -101,49 +105,52 @@
                         @endforeach
                     </select>
                 </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <label for="form_type" class="form-label">{{ __('Tipo de Formulario') }}</label>
+                    <select name="form_type" required class="form-control ">
+                        <option value="">Seleccione el tipo de usuario</option>
+                        <option value="examen">Examen</option>
+                        <option value="inscription">Inscription</option>
+                    </select>
+                </div>
+
                 <div class="col-12 col-md-4 mb-3">
                     <label class="form-label">Carnet de Identidad</label>
                     <input type="text" class="form-control" name="national_id" value="">
                 </div>
+
+
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Fecha de nacimiento</label>
-                    <input type="date" class="form-control" name="born_date" value="">
+                    <label class="form-label">Edad</label>
+                    <input type="number" step="1" class="form-control" name="age" value="">
                 </div>
+
+
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Pais</label>
-                    <select class="form-control " name="country_id">
-                        @foreach ($country as $item)
-                            <option value="{{ $item->id }}"
-                                {{ strtolower($item->code) == 'bo' ? 'selected' : '' }}>
-                                {{ $item->name . ' (' . $item->native_name . ')' }}
-                            </option>
-                        @endforeach
-                    </select>
-                </div>
-                <div class="col-md-8 mb-3">
                     <label class="form-label">Direccion</label>
                     <input type="text" name="address" cols="3" class="form-control" />
                 </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">PDF Evaluacion Medica Ambas Caras</label>
+                    <input type="file" class="form-control" name="medical_evaluation_file">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">PDF Carnet Ambas Caras</label>
+                    <input type="file" class="form-control" name="passport_file">
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Foto</label>
+                    <input type="file" class="form-control" name="photo">
+                </div>
+
+
             </div>
-
-
-
-
-            "medical_evaluation_file","passport_file",
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

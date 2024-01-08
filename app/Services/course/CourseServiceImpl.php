@@ -41,6 +41,7 @@ class CourseServiceImpl implements ICourseService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __method__);
+        $data->active = !empty($data->active);
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
