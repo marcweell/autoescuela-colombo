@@ -62,12 +62,12 @@
                     </select>
                 </div>
 
-                <div class="col-md-4 mb-3" style="display: none">
+                <div class="col-md-4 mb-3" style="display: none" id="role_container">
                     <label for="type" class="form-label">{{ __('Nivel de Usuario') }}</label>
                     <select name="role_id" id="role_id" required class="form-control ">
                         <option>Seleccione el nivel</option>
                         @foreach ($role as $item)
-                            <option value="{{ $item->name }}">{{ $item->id }}</option>
+                            <option value="{{ $item->id }}">{{ $item->name }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -81,10 +81,20 @@
                 <div class="col-12">
                     <hr>
                 </div>
-                <div class="col-md-8 mb-3">
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Curso</label>
+                    <select class="form-control " name="course_categoryid">
+                        @foreach ($course_category??[] as $item)
+                            <option value="{{ $item->id }}">
+                                {{ $item->name }}
+                            </option>
+                        @endforeach
+                    </select>
+                </div>
+                <div class="col-md-4 mb-3">
                     <label class="form-label">Curso</label>
                     <select class="form-control " name="course_id">
-                        @foreach ($course as $item)
+                        @foreach ($course??[] as $item)
                             <option value="{{ $item->id }}">
                                 {{ $item->name }}
                             </option>
@@ -119,7 +129,7 @@
 
 
 
-
+            "medical_evaluation_file","passport_file",
 
 
 
@@ -170,10 +180,10 @@
         switch (val) {
             case 'user':
                 $("#user-container").show();
-                $("#role_id").hide();
+                $("#role_container").hide();
                 break;
             default:
-                $("#role_id").show();
+                $("#role_container").show();
                 $("#user-container").hide();
                 break;
         }

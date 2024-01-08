@@ -7,6 +7,7 @@ use App\Services\academic_degree\Academic_degreeServiceQueryImpl;
 use App\Services\city\CityServiceQueryImpl;
 use App\Services\country\CountryServiceQueryImpl;
 use App\Services\course\CourseServiceQueryImpl;
+use App\Services\course_category\Course_categoryServiceQueryImpl;
 use App\Services\role\RoleServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\user\UserServiceImpl;
@@ -93,6 +94,7 @@ class UserController extends Controller
                 'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'academic_degree' => (new Academic_degreeServiceQueryImpl())->deleted(false)->findAll(),
                 'course' => (new CourseServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
+                'course_category'=>(new Course_categoryServiceQueryImpl())->deleted(false)->findAll(),
                 'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
             ])->render();
             return (new WebApi())->setSuccess()->print($view, 'modal')->get();
@@ -108,6 +110,7 @@ class UserController extends Controller
             $view = view('admin.fragments.user.editForm', [
                 'user' => $user,
                 'role' => (new RoleServiceQueryImpl())->findAll(),
+                'course_category'=>(new Course_categoryServiceQueryImpl())->deleted(false)->findAll(),
                 'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()
             ])->render();

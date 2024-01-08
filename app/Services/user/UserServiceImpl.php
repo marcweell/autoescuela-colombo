@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Session;
 use stdClass;
 use Flores;
 
-
 /** @author Nelson Flores | nelson.flores@live.com */
 
 class UserServiceImpl implements IUserService
 {
-    private $insertFillables = ["approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
-    private $updateFillables = ["approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
+    private $insertFillables = ["medical_evaluation_file","passport_file","approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
+    private $updateFillables = ["medical_evaluation_file","passport_file","approved","code", "password", "photo", "name", "last_name", "father_name", "mother_name", "country_id", "idd_country_id", "city_id", "phone", "email", "address", "born_date", "otp", "national_id", "course_id", "academic_degree_id", "role_id", "type", "active", "activation_token", "remember_token"];
     private $table =  'user';
 
 
@@ -30,6 +29,27 @@ class UserServiceImpl implements IUserService
         }
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+        if (!empty($data->medical_evaluation_file->file) and !empty($data->medical_evaluation_file->filename)) {
+            if (!str_ends_with($data->medical_evaluation_file->file, ':')) {
+                $data->medical_evaluation_file = tools()->upload_base64($data->medical_evaluation_file->file, md5(Auth::user()->id . $data->medical_evaluation_file->filename), 'storage/files');
+            } else {
+                $data->medical_evaluation_file = null;
+            }
+        } else {
+            $data->medical_evaluation_file = null;
+        }
+
+        if (!empty($data->passport_file->file) and !empty($data->passport_file->filename)) {
+            if (!str_ends_with($data->passport_file->file, ':')) {
+                $data->passport_file = tools()->upload_base64($data->passport_file->file, md5(Auth::user()->id . $data->passport_file->filename), 'storage/files');
+            } else {
+                $data->passport_file = null;
+            }
+        } else {
+            $data->passport_file = null;
+        }
+
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
