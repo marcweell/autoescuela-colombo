@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\UserUi;
 
 use App\Http\Controllers\Controller;
+use App\Services\auth\AuthServiceImpl;
 use App\Services\survey_person\Survey_personServiceImpl;
 use App\Services\survey_person_data\Survey_person_dataServiceImpl;
 use App\Services\survey_question\Survey_questionServiceQueryImpl;
@@ -35,6 +36,8 @@ class Survey_answerController extends Controller
         $data->code = code(null, __METHOD__);
         try {
 
+            $user = (new AuthServiceImpl())->getUser();
+            $data->user_id = $user->id;
             (new Survey_personServiceImpl())->add($data);
             $data->survey_person_id = (new Survey_personServiceQueryImpl())->deleted(false)->orderDesc()->findByCode($data->code)->id;
 
@@ -89,9 +92,10 @@ class Survey_answerController extends Controller
     public function index(Request $request)
     {
         try {
-            $survey_answer = $this->survey_answerServiceQuery->deleted(false)->orderDesc()->findAll();
-            $view = view('main.fragments.survey_answer.listForm', [
-                'survey_answer' => $survey_answer
+            $user = (new AuthServiceImpl())->getUser();
+            $survey_answer = (new Survey_personServiceQueryImpl())->deleted(false)->byUserId($user->id)->orderDesc()->findAll();
+            $view = view('main.fragments.survey_person.listForm', [
+                'survey_person' => $survey_answer
             ])->render();
             return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {

@@ -36,10 +36,8 @@
                             <td> {{ $item->course_name }}</td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
+                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-print"></i></a>
                                 <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
-                                <a data-href="{{ route('web.app.survey.survey_person.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
-                                        class="fa fa-edit"></i></a>
                                 <a data-href="{{ route('web.app.survey.survey_person.remove.do') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_ prompt"
                                     data-title="Eliminar Pais"><i class="fa fa-trash"></i></a>

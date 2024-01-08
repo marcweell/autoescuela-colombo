@@ -35,7 +35,8 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
         )
         ->leftJoin('city as city', 'city.id', $this->table . '.city_id')
         ->leftJoin('survey as survey', 'survey.id', $this->table . '.survey_id')
-        ->leftJoin('course', 'course.id', 'survey.course_id');
+        ->leftJoin('course', 'course.id', 'survey.course_id')
+        ->leftJoin('user', 'user.id', 'survey_person.user_id');
     }
 
 
@@ -44,6 +45,15 @@ class Survey_personServiceQueryImpl implements ISurvey_personServiceQuery
         return $this;
     }
 
+
+
+
+
+
+    public function byUserId($id){
+        $this->query->where('user.id',$id);
+        return $this;
+    }
 
 
 

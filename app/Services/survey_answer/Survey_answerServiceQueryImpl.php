@@ -21,7 +21,7 @@ class Survey_answerServiceQueryImpl implements ISurvey_answerServiceQuery
 {
 
     private $table =  'survey_answer';
-    
+
     private $query;
 
     public function __construct()
@@ -32,6 +32,7 @@ class Survey_answerServiceQueryImpl implements ISurvey_answerServiceQuery
         )
         ->leftJoin('survey_person as survey_person', 'survey_person.id', $this->table . '.survey_person_id')
         ->leftJoin('survey as survey', 'survey.id', 'survey_person.survey_id')
+        ->leftJoin('user', 'user.id', 'survey_person.user_id')
         ;
     }
 
@@ -42,17 +43,25 @@ class Survey_answerServiceQueryImpl implements ISurvey_answerServiceQuery
     }
 
 
-    
+
 
     public function bySurveyId($id){
         $this->query->where('survey.id',$id);
         return $this;
     }
-    
-    
 
- 
-     
+
+
+
+    public function byUserId($id){
+        $this->query->where('user.id',$id);
+        return $this;
+    }
+
+
+
+
+
 
     public function deleted($bool = true)
     {
@@ -62,14 +71,14 @@ class Survey_answerServiceQueryImpl implements ISurvey_answerServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
     public function findAll()
     {
         return $this->query->get();
@@ -87,5 +96,5 @@ class Survey_answerServiceQueryImpl implements ISurvey_answerServiceQuery
     public function findByCode($id)
     {
         return $this->query->where($this->table . '.code', $id)->first();
-    } 
+    }
 }
