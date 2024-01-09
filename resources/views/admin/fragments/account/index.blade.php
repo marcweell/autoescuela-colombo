@@ -24,7 +24,7 @@
                                 <p class="mb-0">Edad</p>
                             </div>
                             <div class="col-sm-9">
-                                <p class="text-muted mb-0">{{ $user->$age }}
+                                <p class="text-muted mb-0">{{ $user->age }}
                                 </p>
                             </div>
                         </div>
