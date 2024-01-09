@@ -20,113 +20,117 @@
                                         class="fa fa-image p-2"></i>Cambiar foto de perfil</button>
                             </div>
                         </div>
-                        <div class="col-12 pt-2">
 
-                            <div class="form-group">
-                                <label class="form-label">Nombre de Usuario</label>
-                                <input type="text" class="form-control" name="code" value="{{ $user->code }}">
+                        <div class="col-12">
+
+                            <div class="row">
+
+
+                                <div class="col-12 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Nombre de Usuario</label>
+                                        <input type="text" class="form-control" name="code" value="{{ $user->code }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Apellido paterno</label>
+                                        <input type="text" class="form-control" name="father_name"
+                                            value="{{ $user->father_name }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Apellido materno</label>
+                                        <input type="text" class="form-control" name="mother_name"
+                                            value="{{ $user->mother_name }}">
+                                    </div>
+
+                                </div>
+
+                                <div class="col-md-6 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Nombres</label>
+                                        <input type="text" class="form-control" name="name" value="{{ $user->name }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Carnet de Identidad</label>
+                                        <input type="text" class="form-control" name="national_id"
+                                            value="{{ $user->national_id }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Edad</label>
+                                        <input type="number" step="1" class="form-control" name="age"
+                                            value="{{ $user->age }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6 pt-2">
+                                    <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
+                                    <div class="input-group">
+                                        <select class="form-control w-25" style="width: 25%" name="idd_country_id">
+                                            @foreach ($country as $item)
+                                                <option value="{{ $item->id }}"
+                                                    {{ strtolower($item->code) == (empty($user->idd_country_id) ? 'bo' : strtolower($user->idd_country_code)) ? 'selected' : '' }}>
+                                                    {{ $item->idd . '     (' . $item->name . ' - ' . $item->native_name . ')' }}
+                                                </option>
+                                            @endforeach
+                                        </select>
+                                        <input type="text" class="form-control w-75" placeholder="" aria-label=""
+                                            aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
+                                    </div>
+                                </div>
+                                <div class="col-md-12 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Email</label>
+                                        <input type="email" class="form-control" name="email" value="{{ $user->email }}">
+                                    </div>
+
+                                </div>
+                                <div class="col-12 pt-2">
+
+                                    <div class="form-group">
+                                        <label class="form-label">Direccion</label>
+                                        <textarea name="address" cols="3" class="form-control">{{ $user->address }}</textarea>
+                                    </div>
+
+                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
                             </div>
 
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Nombre</label>
-                                <input type="text" class="form-control" name="name" value="{{ $user->name }}">
-                            </div>
 
                         </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
 
-                            <div class="form-group">
-                                <label class="form-label">Apellido</label>
-                                <input type="text" class="form-control" name="last_name"
-                                    value="{{ $user->last_name }}">
-                            </div>
 
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
 
-                            <div class="form-group">
-                                <label class="form-label">Fecha de nacimiento</label>
-                                <input type="date" class="form-control" name="born_date"
-                                    value="{{ $user->born_date }}">
-                            </div>
 
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
-                            <label for="phone" class="form-label">{{ __('Teléfono') }}</label>
-                            <div class="input-group">
-                                <select class="form-control w-25" style="width: 25%" name="idd_country_id">
-                                    @foreach ($country as $item)
-                                        <option value="{{ $item->id }}"
-                                            {{ strtolower($item->code) == (empty($user->idd_country_id) ? 'bo' : strtolower($user->idd_country_code)) ? 'selected' : '' }}>
-                                            {{ $item->idd . '     (' . $item->name . ' - ' . $item->native_name . ')' }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                                <input type="text" class="form-control w-75" placeholder="" aria-label=""
-                                    aria-describedby="basic-addon1" name="phone" value="{{ $user->phone }}">
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Email</label>
-                                <input type="email" class="form-control" name="email" value="{{ $user->email }}">
-                            </div>
-
-                        </div>
-                        <div class="col-12 col-md-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Carnet de Identidad</label>
-                                <input type="text" class="form-control" name="national_id"
-                                    value="{{ $user->national_id }}">
-                            </div>
-
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Apellido paterno</label>
-                                <input type="text" class="form-control" name="father_name"
-                                    value="{{ $user->father_name }}">
-                            </div>
-
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Apellido materno</label>
-                                <input type="text" class="form-control" name="mother_name"
-                                    value="{{ $user->mother_name }}">
-                            </div>
-
-                        </div>
-                        <div class="col-md-6 col-lg-4 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Pais</label>
-                                <select class="form-control" name="country_id">
-                                    @foreach ($country as $item)
-                                        <option value="{{ $item->id }}"
-                                            {{ strtolower($item->code) == (empty($user->country_id) ? 'bo' : strtolower($user->country_code)) ? 'selected' : '' }}>
-                                            {{ $item->name . ' (' . $item->native_name . ')' }}
-                                        </option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                        </div>
-                        <div class="col-12 pt-2">
-
-                            <div class="form-group">
-                                <label class="form-label">Direccion</label>
-                                <textarea name="address" cols="3" class="form-control">{{ $user->address }}</textarea>
-                            </div>
-
-                        </div>
                         <div class="pt-3 col-12">
                             <button class="btn btn-primary mb-3 chl_loader"><i
                                     class="fa fa-save p-2"></i>{{ __('Salvar') }}</button>
