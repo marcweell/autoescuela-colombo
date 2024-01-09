@@ -18,9 +18,9 @@ use Flores;
 
 class Survey_categoryServiceImpl implements ISurvey_categoryService
 {
-    private $insertFillables = ['name','code'];
-    private $updateFillables = ['name','code'];
-    private $table =  'survey_category';
+    private $insertFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'traffic_question', 'traffic_question_corrects', 'mechanics_question', 'mechanics_question_corrects', 'time_minute', 'active',];
+    private $updateFillables = ['code', 'name', 'icon_hex_color', 'icon_file', 'traffic_question', 'traffic_question_corrects', 'mechanics_question', 'mechanics_question_corrects', 'time_minute', 'active', 'updated_at', 'deleted_at'];
+      private $table =  'survey_category';
 
 
     public function add($data)
@@ -29,12 +29,11 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        
-
         $payload = new stdClass();
+        $data->active = !empty($data->active);
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
@@ -47,8 +46,8 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        
-        
+
+
         $survey_category = DB::table($this->table)->where('code', $data->code)->first();
 
         if (!empty($survey_category->id)) {
@@ -56,13 +55,13 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
         }
 
 
-        
+
         $arr = json_decode(json_encode($payload),true);
-        
+
 
         DB::table($this->table)->insert($arr);
 
-        
+
     }
 
     public function update($data)
@@ -74,8 +73,8 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -87,10 +86,10 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
-       
 
 
-        
+
+
         $arr = json_decode(json_encode($payload),true);
 
         $arr['updated_at'] = DB::raw('now()');
@@ -107,7 +106,7 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -119,7 +118,7 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -127,11 +126,11 @@ class Survey_categoryServiceImpl implements ISurvey_categoryService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->delete();
     }
 }
