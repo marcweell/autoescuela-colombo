@@ -220,13 +220,15 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
+        Route::prefix("/detail")->middleware([App\Http\Middleware\CheckPermission::class])->name("detail.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\UserController::class, 'detailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        });
         Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
         Route::prefix("/export")->middleware([App\Http\Middleware\CheckPermission::class])->name("export.")->group(function () {
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'export'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });
-
         Route::prefix("/approve")->middleware([App\Http\Middleware\CheckPermission::class])->name("approve.")->group(function () {
             Route::post("/do", [App\Http\Controllers\AdminUi\UserController::class, 'approve'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
         });

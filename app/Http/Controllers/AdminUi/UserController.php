@@ -120,6 +120,19 @@ class UserController extends Controller
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
+    public function detailIndex(Request $request)
+    {
+
+        try {
+            $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
+            $view = view('admin.fragments.user.detailForm', [
+                'user' => $user,
+            ])->render();
+            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
+        } catch (\Exception $e) {
+            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
+        }
+    }
     public function export(Request $request)
     {
         $user = $this->userServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));

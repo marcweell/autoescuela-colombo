@@ -74,7 +74,7 @@
                                 <a data-href="{{ route('web.admin.user.export.do') }}"
                                 data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                     class="fa fa-print"></i></a>
-                                <a data-href="{{ route('web.admin.user.update.index') }}"
+                                <a data-href="{{ route('web.admin.user.detail.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary _link_"><i
                                         class="fa fa-eye"></i></a>
                                 <a data-href="{{ route('web.admin.user.update.index') }}"
