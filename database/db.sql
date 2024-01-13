@@ -39,11 +39,11 @@ create table if not exists question_category(
     name varchar(191) not null,
     icon_hex_color varchar(191),
     icon_file varchar(191),
-    traffic_question varchar(191),
-    traffic_question_corrects varchar(191),
-    mechanics_question varchar(191),
-    mechanics_question_corrects varchar(191),
-    time_minute int,
+    alter table survey_category add traffic_question int null;
+    alter table survey_category add traffic_question_corrects int null;
+    alter table survey_category add mechanics_question int null;
+   alter table survey_category add mechanics_question_corrects int null;
+    time_minute int;
     active boolean not null default true,
     created_at datetime default current_timestamp,
     updated_at datetime default null,
@@ -119,12 +119,13 @@ create table if not exists paragraph(
     foreign key(page_id) references page(id) on delete cascade
 );
 
-create table if not exists page_subcategory(
+create table if not exists page_course(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
-    title text not null,
+    link_pdf varchar(191),
+    num_course varchar(191),
+    course_category varchar(191),
     description longtext not null,
-    image varchar(191),
     page_id bigint not null,
     created_at datetime default current_timestamp,
     updated_at datetime default null,
@@ -132,19 +133,7 @@ create table if not exists page_subcategory(
     foreign key(page_id) references page(id) on delete cascade
 );
 
-create table if not exists page_subcategory_course(
-    id bigint not null auto_increment primary key,
-    code varchar(191) not null unique,
-    link_pdf varchar(191),
-    num_course varchar(191),
-    course_category varchar(191),
-    description longtext not null,
-    page_subcategory_id bigint not null,
-    created_at datetime default current_timestamp,
-    updated_at datetime default null,
-    deleted_at datetime default null,
-    foreign key(page_subcategory_id) references page_subcategory(id) on delete cascade
-);
+
 
 create table if not exists user(
     id bigint auto_increment not null primary key,

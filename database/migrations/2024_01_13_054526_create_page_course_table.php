@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faq', function (Blueprint $table) {
+        Schema::create('page_course', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->string('title', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
-            $table->bigInteger('language_id')->nullable()->index('language_id');
+            $table->string('link_pdf', 191)->nullable();
+            $table->string('num_course', 191)->nullable();
+            $table->string('course_category', 191)->nullable();
+            $table->longText('description');
+            $table->bigInteger('page_id')->index('page_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq');
+        Schema::dropIfExists('page_course');
     }
 };

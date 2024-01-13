@@ -23,7 +23,7 @@
               </li>
               <!-- ----------- -->
 
-
+x
               <li>
                   <a class="app-menu__item _link_" data-href="{{ route('web.app.profile.index') }}" href="javascript:void()" target="_blank">
                       <i class="app-menu__icon fa fa-user-cog"></i>

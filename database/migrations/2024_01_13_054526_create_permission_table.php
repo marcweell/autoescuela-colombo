@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('module_id')->index('module_id');
             $table->string('name', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
+            $table->text('description')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();

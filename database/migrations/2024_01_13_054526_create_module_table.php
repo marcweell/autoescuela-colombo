@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('survey_category', function (Blueprint $table) {
+        Schema::create('module', function (Blueprint $table) {
             $table->bigInteger('id', true);
+            $table->string('name', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->string('name', 191);
+            $table->text('description')->nullable();
+            $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -30,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('survey_category');
+        Schema::dropIfExists('module');
     }
 };

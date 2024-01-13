@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('module', function (Blueprint $table) {
+        Schema::create('faq', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->string('name', 191)->nullable();
+            $table->string('title', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
-            $table->boolean('active')->default(true);
+            $table->text('description')->nullable();
+            $table->bigInteger('language_id')->nullable()->index('language_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -32,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('module');
+        Schema::dropIfExists('faq');
     }
 };

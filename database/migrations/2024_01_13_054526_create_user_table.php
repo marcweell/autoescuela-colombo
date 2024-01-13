@@ -42,6 +42,10 @@ return new class extends Migration
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
+            $table->string('medical_evaluation_file', 400)->nullable();
+            $table->string('passport_file', 400)->nullable();
+            $table->bigInteger('course_category_id')->nullable();
+            $table->integer('age')->nullable();
         });
     }
 

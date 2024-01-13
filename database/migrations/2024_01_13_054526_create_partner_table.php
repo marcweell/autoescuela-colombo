@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('role', function (Blueprint $table) {
+        Schema::create('partner', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->string('name', 191)->nullable();
             $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
+            $table->string('name', 800)->nullable();
+            $table->string('cover', 400)->nullable();
+            $table->longText('description')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -31,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('role');
+        Schema::dropIfExists('partner');
     }
 };

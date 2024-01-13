@@ -13,11 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('language', function (Blueprint $table) {
+        Schema::create('email_template', function (Blueprint $table) {
             $table->bigInteger('id', true);
-            $table->string('name', 191)->nullable();
-            $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
+            $table->string('name', 191);
+            $table->string('subject', 100);
+            $table->longText('body');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -31,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('language');
+        Schema::dropIfExists('email_template');
     }
 };

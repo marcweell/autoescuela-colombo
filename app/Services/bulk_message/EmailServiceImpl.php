@@ -16,7 +16,7 @@ class EmailServiceImpl implements IBulk_messageService
 
 
     private $provider;
-    private $async = true;
+    private $async = false;
     private $themed = false;
 
     private $recipients = [];
@@ -32,17 +32,17 @@ class EmailServiceImpl implements IBulk_messageService
 
             $this->provider = new PHPMailer(true);
             //Server settings
-            $this->provider->SMTPDebug = 2;//SMTP::DEBUG_OFF;
+            $this->provider->SMTPDebug = SMTP::DEBUG_OFF;
             $this->provider->isSMTP();
             $this->provider->CharSet = 'UTF-8';
             $this->provider->Host = env('MAIL_HOST');
-            $this->provider->Username = env('MAIL_USERNAME');
+            $this->provider->Username = env('MAILn_USERNAME');
             $this->provider->Password = env('MAIL_PASSWORD');
             $this->provider->Port = env('MAIL_PORT');
             $this->provider->SMTPAuth = true;
-            $this->provider->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            #$this->provider->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             //Recipients
-            $this->provider->setFrom(env('MAIL_USERNAME'), env('MAIL_FROM_NAME'));
+            $this->provider->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         } catch (Exception $e) {
             throw $e;
         }

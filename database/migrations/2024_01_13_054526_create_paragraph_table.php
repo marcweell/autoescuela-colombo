@@ -13,12 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('faq_answer', function (Blueprint $table) {
+        Schema::create('paragraph', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
-            $table->longtext('description')->nullable();
-            $table->bigInteger('user_id')->nullable()->index('user_id');
-            $table->bigInteger('language_id')->nullable()->index('language_id');
+            $table->text('title');
+            $table->longText('description');
+            $table->string('icon', 191)->nullable();
+            $table->string('image', 191)->nullable();
+            $table->bigInteger('page_id')->index('page_id');
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
@@ -32,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('faq_answer');
+        Schema::dropIfExists('paragraph');
     }
 };

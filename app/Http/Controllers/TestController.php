@@ -20,7 +20,11 @@ class TestController extends Controller
 
     function test()
     {
-        $this->modules();
+
+        (new EmailServiceImpl("testffe"))->setBody("dudy uigfduyd")->addRecipient("nelson.floreslenine@gmail.com")->send();
+
+
+        //$this->modules();
 
         //$userIp = getIp();
         //$locationData = \Location::get($userIp);
