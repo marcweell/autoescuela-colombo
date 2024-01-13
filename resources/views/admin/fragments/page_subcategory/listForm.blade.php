@@ -43,8 +43,8 @@
                                 style="{{ empty($item->icon_hex_color) ? '' : 'background: ' . $item->icon_hex_color . ';' }}">
                             </td>
                             <td>
-                                @if (empty($item->icon_file))
-                                    <img src="{{ tools()->file($item->icon_file) }}" alt="">
+                                @if (empty($item->icon))
+                                    <img src="{{ tools()->file($item->icon) }}" alt="">
                                 @endif
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>

@@ -32,14 +32,14 @@ class Page_categoryServiceImpl implements IPage_categoryService
         $data->active = !empty($data->active);
 
 
-        if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
-            if (!str_ends_with($data->icon_file['file'], ':')) {
-                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time() . $data->icon_file['filename']), 'storage/files');
+        if (!empty($data->icon['file']) and !empty($data->icon['filename'])) {
+            if (!str_ends_with($data->icon['file'], ':')) {
+                $data->icon = tools()->upload_base64($data->icon['file'], md5(time() . $data->icon['filename']), 'storage/files');
             } else {
-                $data->icon_file = null;
+                $data->icon = null;
             }
         } else {
-            $data->icon_file = null;
+            $data->icon = null;
         }
 
         foreach ($data as $i => $value) {
@@ -69,15 +69,15 @@ class Page_categoryServiceImpl implements IPage_categoryService
         $data->active = !empty($data->active);
 
 
-        if (!empty($data->icon_file['file']) and !empty($data->icon_file['filename'])) {
-            if (!str_ends_with($data->icon_file['file'], ':')) {
-                $data->icon_file = tools()->upload_base64($data->icon_file['file'], md5(time() . $data->icon_file['filename']), 'storage/files');
+        if (!empty($data->icon['file']) and !empty($data->icon['filename'])) {
+            if (!str_ends_with($data->icon['file'], ':')) {
+                $data->icon = tools()->upload_base64($data->icon['file'], md5(time() . $data->icon['filename']), 'storage/files');
             } else {
-                unset($data->icon_file);
+                unset($data->icon);
             }
         } else {
 
-            unset($data->icon_file);
+            unset($data->icon);
         }
 
 

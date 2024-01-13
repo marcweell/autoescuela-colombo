@@ -38,7 +38,7 @@ create table if not exists question_category(
     code varchar(191) not null unique,
     name varchar(191) not null,
     icon_hex_color varchar(191),
-    icon_file varchar(191),
+    icon varchar(191),
     alter table survey_category add traffic_question int null;
     alter table survey_category add traffic_question_corrects int null;
     alter table survey_category add mechanics_question int null;
@@ -77,7 +77,7 @@ create table if not exists page_category(
     code varchar(191) not null unique,
     name varchar(191) not null,
     icon_hex_color varchar(191),
-    icon_file varchar(191),
+    icon varchar(191),
     active boolean not null default true,
     created_at datetime default current_timestamp,
     updated_at datetime default null,

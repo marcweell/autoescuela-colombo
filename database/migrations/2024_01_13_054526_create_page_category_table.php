@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('code', 191)->unique('code');
             $table->string('name', 191);
             $table->string('icon_hex_color', 191)->nullable();
-            $table->string('icon_file', 191)->nullable();
+            $table->string('icon', 191)->nullable();
             $table->boolean('active')->default(true);
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
