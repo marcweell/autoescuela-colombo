@@ -42,11 +42,11 @@
             <div class="row" id="row-paragrafo">
 
             </div>
-            <div class="col-lg-12 mb-3">
+            <!--div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Subcategoria</label>
                 <button type="button" class="btn btn-primary clonehim-alt" to="#row-subcategories"
                     elem-target="#subcategories"><i class="fa fa-plus" aria-hidden="true"></i></button>
-            </div>
+            </div-->
 
             <div class="row" id="row-subcategories">
 
