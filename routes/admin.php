@@ -374,9 +374,43 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
 
         */
 
+        #---------------------------------------------------------------------------------------------------------------
+        Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'index'])->middleware([])->name("index");
+        Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'addIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'add'])->middleware([])->name("do");
+        });
+        Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\PageController::class, 'updateIndex'])->middleware([])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'update'])->middleware([])->name("do");
+        });
+        Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
 
+            Route::post("/do", [App\Http\Controllers\AdminUi\PageController::class, 'remove'])->middleware([])->name("do");
+        });
+
+        #----------------------------------------------
+
+        #---------------------------------------------------------------------------------------------------------------
+        Route::prefix("/category")->middleware([])->name("category.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'index'])->middleware([])->name("index");
+            Route::prefix("/add")->middleware([])->name("add.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'addIndex'])->middleware([])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'add'])->middleware([])->name("do");
+            });
+            Route::prefix("/update")->middleware([])->name("update.")->group(function () {
+                Route::post("/", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'updateIndex'])->middleware([])->name("index");
+                Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'update'])->middleware([])->name("do");
+            });
+            Route::prefix("/remove")->middleware([])->name("remove.")->group(function () {
+
+                Route::post("/do", [App\Http\Controllers\AdminUi\Page_categoryController::class, 'remove'])->middleware([])->name("do");
+            });
+
+            #----------------------------------------------
+
+        });
     });
-
     #---------------------------------------------------------------------------------------------------------------
     Route::prefix("/settings")->middleware([App\Http\Middleware\CheckPermission::class])->name("settings.")->group(function () {
         Route::post("/", [App\Http\Controllers\AdminUi\SettingsController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
@@ -621,7 +655,6 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
                 Route::post("/send", [App\Http\Controllers\AdminUi\Bulk_messageController::class, 'sendEmail'])->middleware([App\Http\Middleware\CheckPermission::class])->name("send");
             });
         });
-
     });
 
 
