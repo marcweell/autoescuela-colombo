@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('icon_hex_color', 191)->nullable();
             $table->string('icon', 191)->nullable();
             $table->boolean('active')->default(true);
+            $table->longText('description')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
             $table->dateTime('deleted_at')->nullable();
