@@ -5,15 +5,6 @@
 
         <form action="{{ route('web.admin.page.add.do') }}" class="form_ parent-load row" method="post">
 
-            <div class="col-lg-4 mb-3">
-                <label for="nombreTienda" class="form-label">Icono</label>
-                <input type="text" name="icon" class="form-control iconpicker">
-            </div>
-
-            <div class="col-lg-4 mb-3">
-                <label for="example-color" class="form-label">Color</label>
-                <input class="form-control  hex_color" type="text" name="color" value="#727cf5">
-            </div>
 
             <div class="col-md-4 mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
@@ -26,18 +17,6 @@
                 </select>
             </div>
             <div class="col-lg-4 mb-3">
-                <label class="form-label">Precio</label>
-                <input class="touchspin" type="text" value="0" name="price">
-            </div>
-            <div class="col-lg-4 mb-3">
-                <label class="form-label">Precio de promocion</label>
-                <input class="touchspin" type="text" value="0" name="price_promo">
-            </div>
-            <div class="col-lg-4 mb-3">
-                <label for="imagen" class="form-label">Foto</label>
-                <input class="form-control" type="file" name="image" accept="image/*">
-            </div>
-            <div class="col-lg-12 mb-3">
                 <label for="direccionTienda" class="form-label">Titulo</label>
                 <input type="text" name="title" class="form-control">
             </div>
@@ -45,13 +24,14 @@
                 <label for="pais" class="form-label">Subtitulo</label>
                 <input type="text" name="subtitle" class="form-control">
             </div>
-            <div class="col-lg-4 mb-3">
+            <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Prefacio</label>
                 <input type="text" name="preface" class="form-control">
             </div>
-            <div class="col-lg-4 mb-3">
+            <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Descripcion</label>
-                <input type="text" name="description" class="form-control">
+                <textarea cols="3" name="description" class="form-control textareaI">
+                </textarea>
             </div>
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Paragrafos</label>
