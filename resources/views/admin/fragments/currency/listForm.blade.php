@@ -37,13 +37,15 @@
                             </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>
+                                <div class="d-inline-flex">
+
                                 <a data-href="{{ route('web.admin.settings.currency.update.index') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-primary  _link_"><i
-                                        class="fa fa-edit"></i></a>
-                                <a data-href="{{ route('web.admin.settings.currency.remove.do') }}"
-                                    data-id='{{ $item->id }}' class="btn btn-primary  _link_ prompt"
-                                    data-title="Eliminar Moneda"><i class="fa fa-trash"></i></a>
+                                data-id='{{ $item->id }}' class="btn btn-primary mx-1 _link_"><i
+                                    class="fa fa-edit"></i></a>
+                            <a data-href="{{ route('web.admin.settings.currency.remove.do') }}"
+                                data-id='{{ $item->id }}' class="btn btn-primary mx-1 _link_ prompt"
+                                data-title="Eliminar Moneda"><i class="fa fa-trash"></i></a>
+                                </div>
                             </td>
                         </tr>
                     @endfor
