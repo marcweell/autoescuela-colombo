@@ -1,6 +1,9 @@
 <?php
+
 namespace App\Http\Controllers\AdminUi;
+
 use App\Http\Controllers\Controller;
+use App\Services\course\CourseServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\course_category\Course_categoryServiceImpl;
 use App\Services\course_category\Course_categoryServiceQueryImpl;
@@ -26,8 +29,15 @@ class Course_categoryController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        $data->code = code(null,__METHOD__);
+        $data->code = code(null, __METHOD__);
         try {
+
+
+            $data->courses = implode(
+                ",",
+                is_countable($request->get("course_ids")) ? $data->course_ids : []
+            );
+
             $this->course_categoryService->add($data);
             return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
@@ -40,7 +50,7 @@ class Course_categoryController extends Controller
         foreach ($request->all() as $key => $value) {
             $data->{$key} = $value;
         }
-        $data->code = code(null,__METHOD__);
+        $data->code = code(null, __METHOD__);
         try {
             $this->course_categoryService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
@@ -74,8 +84,9 @@ class Course_categoryController extends Controller
     {
         try {
             $view = view('admin.fragments.course_category.addForm', [
+                'course'=>(new CourseServiceQueryImpl())->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
+            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
@@ -86,9 +97,10 @@ class Course_categoryController extends Controller
         try {
             $course_category = $this->course_categoryServiceQuery->deleted(false)->orderDesc()->findById($request->get('id'));
             $view = view('admin.fragments.course_category.editForm', [
-                'course_category'=>$course_category
+                'course_category' => $course_category,
+                'course'=>(new CourseServiceQueryImpl())->findAll()
             ])->render();
-            return (new WebApi())->setSuccess()->print($view,'modal')->get();
+            return (new WebApi())->setSuccess()->print($view, 'modal')->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }

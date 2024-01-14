@@ -18,8 +18,8 @@ use Flores;
 
 class Course_categoryServiceImpl implements ICourse_categoryService
 {
-    private $insertFillables = ['name','code'];
-    private $updateFillables = ['name','code'];
+    private $insertFillables = ['name','code','courses'];
+    private $updateFillables = ['name','code','courses'];
     private $table =  'course_category';
 
 
@@ -29,12 +29,12 @@ class Course_categoryServiceImpl implements ICourse_categoryService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        
+
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
@@ -47,8 +47,8 @@ class Course_categoryServiceImpl implements ICourse_categoryService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        
-        
+
+
         $course_category = DB::table($this->table)->where('code', $data->code)->first();
 
         if (!empty($course_category->id)) {
@@ -56,13 +56,13 @@ class Course_categoryServiceImpl implements ICourse_categoryService
         }
 
 
-        
+
         $arr = json_decode(json_encode($payload),true);
-        
+
 
         DB::table($this->table)->insert($arr);
 
-        
+
     }
 
     public function update($data)
@@ -74,8 +74,8 @@ class Course_categoryServiceImpl implements ICourse_categoryService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -87,10 +87,10 @@ class Course_categoryServiceImpl implements ICourse_categoryService
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
-       
 
 
-        
+
+
         $arr = json_decode(json_encode($payload),true);
 
         $arr['updated_at'] = DB::raw('now()');
@@ -107,7 +107,7 @@ class Course_categoryServiceImpl implements ICourse_categoryService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -119,7 +119,7 @@ class Course_categoryServiceImpl implements ICourse_categoryService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -127,11 +127,11 @@ class Course_categoryServiceImpl implements ICourse_categoryService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->delete();
     }
 }

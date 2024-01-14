@@ -19,7 +19,7 @@ return new class extends Migration
             $table->text('title');
             $table->text('subtitle');
             $table->longText('preface');
-            $table->longText('description')->nullable();
+            $table->longText('description');
             $table->string('icon', 191)->nullable();
             $table->string('hex_color', 191)->nullable();
             $table->string('image', 191)->nullable();

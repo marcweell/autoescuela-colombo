@@ -10,6 +10,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Foundation\Validation\ValidatesRequests;
 use stdClass;
+use App\Services\auth\AuthServiceImpl;
+
+use Illuminate\Support\Facades\DB;
+use DateInterval;
+use DateTime;
+use DateTimeZone;
+
 
 class NotificationController extends Controller
 {
@@ -19,34 +26,6 @@ class NotificationController extends Controller
     {
         $this->notificationService = new NotificationServiceImpl();
         $this->notificationServiceQuery = new NotificationServiceQueryImpl();
-    }
-    public function add(Request $request)
-    {
-        $data = new stdClass();
-        foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value;
-        }
-        $data->code = code(null,__METHOD__);
-        try {
-            $this->notificationService->add($data);
-            return (new WebApi())->setSuccess()->notify(__("Operación realizada con éxito"))->resync()->close_modal()->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
-    }
-    public function update(Request $request)
-    {
-        $data = new stdClass();
-        foreach ($request->all() as $key => $value) {
-            $data->{$key} = $value;
-        }
-        $data->code = code(null,__METHOD__);
-        try {
-            $this->notificationService->update($data);
-            return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
-        } catch (\Exception $e) {
-            return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
-        }
     }
     public function remove(Request $request)
     {
@@ -92,5 +71,36 @@ class NotificationController extends Controller
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
+    }
+    public function getNotification(Request $request)
+    {
+        $tz = DB::select("SELECT @@global.time_zone AS time_zone");
+        $timezone = $tz[0]->time_zone;
+
+        if ($timezone == "SYSTEM") {
+            $timezone = SERVER_TIMEZONE;
+        }
+
+        $fusoHorario = new DateTimeZone($timezone);
+        $dataAtual = new DateTime('now', $fusoHorario);
+        $dataHaCincoMinutos = $dataAtual->sub(new DateInterval('PT5M'));
+        $dataFormatada = $dataHaCincoMinutos->format('Y-m-d H:i:s');
+
+
+        $user  = (new AuthServiceImpl())->getUser();
+        $notification = $this->notificationServiceQuery
+            ->byUserId($user->id)
+            ->laterThan($dataFormatada)
+            ->deleted(false)
+            ->orderDesc()
+            ->findAll();
+        return response()->json([
+            'notifications' => json_decode(
+                json_encode($notification),
+                true
+            )
+        ]);
+
+
     }
 }

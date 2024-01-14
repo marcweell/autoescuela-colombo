@@ -33,6 +33,26 @@
                 <textarea cols="3" name="description" class="form-control textareaI">
                 </textarea>
             </div>
+            <div class="col-md-4 mb-3">
+                <label for="pais" class="form-label">Foto</label>
+                <input type="file" name="image" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="pais" class="form-label">Video</label>
+                <input type="file" name="video" class="form-control">
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="pais" class="form-label">PDF</label>
+                <input type="file" name="file" class="form-control">
+            </div>
+
+
+
+
+
+
             <div class="col-lg-12 mb-3">
                 <label for="pais" class="form-label">Paragrafos</label>
                 <button type="button" class="btn btn-primary clonehim-alt" to="#row-paragrafo" elem-target="#paragrafos"><i

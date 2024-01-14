@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('page_category', function (Blueprint $table) {
+        Schema::create('course_category', function (Blueprint $table) {
             $table->bigInteger('id', true);
             $table->string('code', 191)->unique('code');
             $table->string('name', 191);
-            $table->string('icon_hex_color', 191)->nullable();
-            $table->string('icon', 191)->nullable();
-            $table->boolean('active')->default(true);
+            $table->text('courses')->nullable();
             $table->longText('description')->nullable();
             $table->dateTime('created_at')->nullable()->useCurrent();
             $table->dateTime('updated_at')->nullable();
@@ -34,6 +32,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('page_category');
+        Schema::dropIfExists('course_category');
     }
 };

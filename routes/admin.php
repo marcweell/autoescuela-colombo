@@ -55,6 +55,15 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
 
     #---------------------------------------------------------------------------------------------------------------
 
+    Route::prefix("/api")->name("api.")->middleware([])->group(function () {
+
+        Route::prefix("/listen")->name("listen.")->group(function () {
+            Route::post("/notification", [App\Http\Controllers\UserUi\NotificationController::class, 'getNotification'])->name("notification.index");
+        });
+
+    });
+
+
 
 
     Route::prefix("/profile")->middleware([])->name("profile.")->group(function () {
