@@ -9,6 +9,7 @@ use App\Services\country\CountryServiceQueryImpl;
 use App\Services\course\CourseServiceQueryImpl;
 use App\Services\course_category\Course_categoryServiceQueryImpl;
 use App\Services\role\RoleServiceQueryImpl;
+use App\Services\survey_category\Survey_categoryServiceQueryImpl;
 use Illuminate\Support\Facades\Auth;
 use App\Services\user\UserServiceImpl;
 use App\Services\user\UserServiceQueryImpl;
@@ -91,6 +92,7 @@ class UserController extends Controller
     {
         try {
             $view = view('admin.fragments.user.addForm', [
+                'survey_category'=>(new Survey_categoryServiceQueryImpl())->findAll(),
                 'role' => (new RoleServiceQueryImpl())->findAll(),
                 'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'academic_degree' => (new Academic_degreeServiceQueryImpl())->deleted(false)->findAll(),
@@ -111,6 +113,7 @@ class UserController extends Controller
             $view = view('admin.fragments.user.editForm', [
                 'user' => $user,
                 'role' => (new RoleServiceQueryImpl())->findAll(),
+                'survey_category'=>(new Survey_categoryServiceQueryImpl())->findAll(),
                 'course_category'=>(new Course_categoryServiceQueryImpl())->deleted(false)->findAll(),
                 'city' => (new CityServiceQueryImpl())->deleted(false)->orderDesc()->findAll(),
                 'country' => (new CountryServiceQueryImpl())->deleted(false)->orderDesc()->findAll()

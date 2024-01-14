@@ -84,9 +84,9 @@
                 </div>
 
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Categoria</label>
-                    <select class="form-control " name="course_categoryid">
-                        @foreach ($course_category??[] as $item)
+                    <label class="form-label">Categoria Examen</label>
+                    <select class="form-control " name="survey_category_id">
+                        @foreach ($survey_category ?? [] as $item)
                             <option value="{{ $item->id }}">
                                 {{ $item->name }}
                             </option>
@@ -96,13 +96,20 @@
 
 
                 <div class="col-md-4 mb-3">
-                    <label class="form-label">Curso</label>
-                    <select class="form-control " name="course_id">
-                        @foreach ($course??[] as $item)
-                            <option value="{{ $item->id }}">
+                    <label class="form-label">Categoria</label>
+                    <select class="form-control " name="course_category_id" id="course_category_id">
+                        @foreach ($course_category ?? [] as $item)
+                            <option data-courses="{{ $item->courses }}" value="{{ $item->id }}">
                                 {{ $item->name }}
                             </option>
                         @endforeach
+                    </select>
+                </div>
+
+
+                <div class="col-md-4 mb-3">
+                    <label class="form-label">Curso</label>
+                    <select class="form-control " name="course_id" id="course_id">
                     </select>
                 </div>
 
@@ -195,6 +202,27 @@
                 break;
         }
 
+
+
+    });
+
+
+    var COURSE = {!! json_encode($course) !!};
+
+    $("#course_category_id").on("change", function() {
+        var courses = $('option:selected', this).attr('data-courses');
+        courses = courses.replaceAll(" ","");
+        courses = courses.split(",");
+        $("#course_id").empty();
+        for (const value of COURSE) {
+            if(!courses.includes(value.id.toString())){
+               continue;
+            }
+            $('#course_id').append($('<option>', {
+                value: value.id,
+                text: value.name
+            }));
+        }
 
 
     });

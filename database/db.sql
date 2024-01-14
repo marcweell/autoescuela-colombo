@@ -72,7 +72,7 @@ create table if not exists question(
     foreign key(question_category_id) references question_category(id) on delete cascade
 );
 
-create table if not exists page_category(
+create table if not exists sur_category(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
     name varchar(191) not null,
