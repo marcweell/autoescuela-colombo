@@ -40,6 +40,21 @@
                                 <div class="row mb-3">
 
                                 <div class="col-md-4">
+                                    <div class="form-group p-1 bg-success text-white">
+                                        {{ $value->name }}
+                                    </div>
+                                    <div class="form-group my-1">
+                                        <input type="text" class="form-control" placeholder="Titulo">
+                                    </div>
+                                    <div class="form-group my-1">
+                                        <input type="file" class="form-control">
+                                    </div>
+                                    <div class="form-group my-1">
+                                        <input type="text" class="form-control" placeholder="URL VIDEO">
+                                    </div>
+                                    <div class="form-group my-1">
+                                        <input type="text" class="form-control" placeholder="URL FILE">
+                                    </div>
 
                                 </div>
 
@@ -74,6 +89,12 @@
 
 
 
+                            <hr>
+
+
+
+
+
                                 @endforeach
 
 
@@ -83,12 +104,6 @@
 
 
 
-
-
-
-
-
-                            <hr>
                         </div>
                     </div>
                 </div>
