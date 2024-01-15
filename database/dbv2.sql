@@ -23,11 +23,11 @@ create table if not exists site_menu(
     deleted_at datetime default null
 );
 
-create table if not exists language(
+create table if not exists distribution_percentage(
     id bigint auto_increment not null primary key,
-    name varchar(191),
     code varchar(191) not null unique,
-    description text,
+    level int not null,
+    percentage float not null,
     created_at datetime default current_timestamp(),
     updated_at datetime default null,
     deleted_at datetime
@@ -35,7 +35,6 @@ create table if not exists language(
 
 create table if not exists module(
     id bigint auto_increment not null primary key,
-    name varchar(191),
     code varchar(191) not null unique,
     description text,
     active boolean not null default true,
@@ -43,6 +42,7 @@ create table if not exists module(
     updated_at datetime default null,
     deleted_at datetime
 );
+
 
 create table if not exists gender(
     id bigint auto_increment not null primary key,
@@ -80,7 +80,6 @@ create table if not exists document_type(
     updated_at datetime default null,
     deleted_at datetime
 );
-
 
 /* course */
 create table if not exists academic_degree(
@@ -125,44 +124,7 @@ create table if not exists email_template(
 
 /* essenciais -*/
 /* Geolocalización */
-create table if not exists country(
-    id bigint auto_increment not null primary key,
-    code varchar(191) not null unique,
-    name varchar(100),
-    locale varchar(50),
-    country_code varchar(50),
-    phone_digits_num int default 9,
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime default null
-);
 
-create table if not exists city(
-    id bigint auto_increment not null primary key,
-    code varchar(191) not null unique,
-    name varchar(191) not null,
-    country_id bigint,
-    latitude float,
-    longitude float,
-    timezone int(6),
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime default null,
-    foreign key(country_id) references country(id) on delete cascade
-);
-
-create table if not exists village(
-    id bigint auto_increment not null primary key,
-    code varchar(191) not null unique,
-    name varchar(50),
-    latitude float,
-    longitude float,
-    city_id bigint not null,
-    created_at datetime default current_timestamp(),
-    updated_at datetime default null,
-    deleted_at datetime default null,
-    foreign key(city_id) references city(id) on delete cascade
-);
 
 /* geo-localizacao -- */
 /* user */
@@ -300,12 +262,6 @@ create table if not exists notification(
     foreign key(user_id) references user(id) on delete cascade
 );
 
-
-
-
-
-
-
 create table if not exists services(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
@@ -340,7 +296,6 @@ create table if not exists message(
     deleted_at datetime default null
 );
 
-
 create table if not exists gallery(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
@@ -352,7 +307,6 @@ create table if not exists gallery(
     deleted_at datetime default null
 );
 
-
 create table if not exists partner(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
@@ -363,14 +317,6 @@ create table if not exists partner(
     updated_at datetime default null,
     deleted_at datetime default null
 );
-
-
-
-
-
-
-
-
 
 create table if not exists password_change(
     id bigint auto_increment not null primary key,
@@ -399,7 +345,6 @@ create table if not exists session_history(
     deleted_at datetime default null,
     foreign key(user_id) references user(id) on delete cascade
 );
-
 
 /* course */
 create table if not exists course(

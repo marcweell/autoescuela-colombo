@@ -36,21 +36,15 @@
 
 
 
-              <!-- ----------- -->
+              <li>
+                <a class="app-menu__item _link_" data-href="{{ route('web.admin.course_container.index') }}"
+                    href="javascript:void()" target="_blank">
+                    <i class="app-menu__icon fa fa-book"></i>
+                    <span class="app-menu__label">Cursos</span>
+                </a>
+            </li>
 
-
-              <li class="treeview"><a class="app-menu__item" href="javascript:void()" data-toggle="treeview"><i
-                          class="app-menu__icon fa fa-file-alt"></i><span class="app-menu__label">Cursos</span><i
-                          class="treeview-indicator fa fa-chevron-right"></i></a>
-                  <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.course.add.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Curso</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.course.index') }}"
-                              href="javascript:void()"><i class="icon fa fa-circle"></i> Lista de Curso</a></li>
-                      <hr class="my-1">
-                  </ul>
-              </li>
-
+            <!-- ----------- -->
 
               <!-- ----------- -->
 
