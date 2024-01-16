@@ -44,6 +44,7 @@ class Course_containerController extends Controller
         }
         $data->code = code(null,__METHOD__);
         try {
+            dd($data);
             $this->Course_containerService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {

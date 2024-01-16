@@ -105,7 +105,6 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
         });
     });
 
-
     #---------------------------------------------------------------------------------------------------------------
     Route::prefix("/cursos")->middleware([App\Http\Middleware\CheckPermission::class])->name("course_container.")->group(function () {
         Route::post("/", [App\Http\Controllers\AdminUi\Course_containerController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
