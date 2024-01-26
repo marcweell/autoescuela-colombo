@@ -26,11 +26,11 @@ class Course_containerServiceQueryImpl implements ICourse_containerServiceQuery
     {
         $this->query = DB::table($this->table);
     }
-    
-    
 
- 
-     
+
+
+
+
 
     public function deleted($bool = true)
     {
@@ -40,14 +40,31 @@ class Course_containerServiceQueryImpl implements ICourse_containerServiceQuery
             $this->query->where($this->table . '.deleted_at',null);
         }
         return $this;
-    }  
+    }
+
+    public function byCourse($id)
+    {
+        $this->query->where($this->table . '.course_id',$id);
+        return $this;
+    }
+
+    public function byCourse_category($id)
+    {
+        $this->query->where($this->table . '.course_category_id',$id);
+        return $this;
+    }
 
     public function orderDesc()
     {
         $this->query->orderByDesc($this->table . '.created_at');
         return $this;
     }
- 
+
+    public function find()
+    {
+        return $this->query->first();
+    }
+
     public function findAll()
     {
         return $this->query->get();

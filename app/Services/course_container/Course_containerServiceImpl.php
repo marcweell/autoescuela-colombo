@@ -18,8 +18,8 @@ use Flores;
 
 class Course_containerServiceImpl implements ICourse_containerService
 {
-    private $insertFillables = ['name','code'];
-    private $updateFillables = ['name','code'];
+    private $insertFillables = ['code', 'title', 'description', 'url_video', 'url_file', 'file', 'course_id', 'course_category_id'];
+    private $updateFillables = ['code', 'title', 'description', 'url_video', 'url_file', 'file', 'course_id', 'course_category_id'];
     private $table =  'course_container';
 
 
@@ -29,26 +29,18 @@ class Course_containerServiceImpl implements ICourse_containerService
             throw new \Exception(__('Nome invalido'), 400);
         }
 
-        
+
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
             }
         }
 
-        $course_container = DB::table($this->table)->where('name', $data->name)->first();
-
-        if (!empty($course_container->id)) {
-            throw new \Exception(__('Nome invalido'), 400);
-        }
-
-        
-        
         $course_container = DB::table($this->table)->where('code', $data->code)->first();
 
         if (!empty($course_container->id)) {
@@ -56,13 +48,9 @@ class Course_containerServiceImpl implements ICourse_containerService
         }
 
 
-        
+
         $arr = json_decode(json_encode($payload),true);
-        
-
         DB::table($this->table)->insert($arr);
-
-        
     }
 
     public function update($data)
@@ -71,12 +59,12 @@ class Course_containerServiceImpl implements ICourse_containerService
             throw new \Exception(__('Entrada Invalida'), 400);
         }
 
-        
+
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -89,10 +77,10 @@ class Course_containerServiceImpl implements ICourse_containerService
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
 
-       
 
 
-        
+
+
         $arr = json_decode(json_encode($payload),true);
 
         $arr['updated_at'] = DB::raw('now()');
@@ -109,7 +97,7 @@ class Course_containerServiceImpl implements ICourse_containerService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -121,7 +109,7 @@ class Course_containerServiceImpl implements ICourse_containerService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -129,10 +117,10 @@ class Course_containerServiceImpl implements ICourse_containerService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
-        } 
+        }
 
         DB::table($this->table)->where('id', $id)->delete();
     }

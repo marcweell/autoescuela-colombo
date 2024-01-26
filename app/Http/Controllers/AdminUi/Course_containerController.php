@@ -44,7 +44,18 @@ class Course_containerController extends Controller
         }
         $data->code = code(null,__METHOD__);
         try {
-            dd($data);
+            foreach ($data->curso as $key => $value) {
+
+                $value = json_decode(json_encode($value));
+                $value->code = $data->code;
+                $container = (new Course_containerServiceQueryImpl())->byCourse($value->course_id)->byCourse_category($value->category_id)->find();
+
+
+                (new Course_containerServiceImpl())->add($value);
+
+
+            }
+
             $this->Course_containerService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {

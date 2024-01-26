@@ -8,7 +8,7 @@
         <div class="accordion" id="accordionExample">
 
 
-            @foreach ($course_category ?? [] as $item)
+            @foreach ($course_category ?? [] as $i => $item)
                 @php
                     $code = '_' . $item->code;
                     $courses_ = explode(',', $item->courses ?? '');
@@ -27,6 +27,52 @@
                     <div id="{{ $code }}" class="accordion-collapse collapse" aria-labelledby="headingTwo"
                         data-bs-parent="#accordionExample">
                         <div class="accordion-body">
+
+
+                            <div class="row mb-3">
+
+                                <div class="col-md-4">
+                                    <div class="form-group my-1">
+                                        <input type="text" name="container[{{$item->id}}][url_video]"
+                                            class="form-control" placeholder="URL VIDEO">
+                                    </div>
+                                    <div class="form-group my-1">
+                                        <input type="text" name="container[{{$item->id}}][url_file]"
+                                            class="form-control" placeholder="URL FILE">
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-8">
+
+
+                                    <textarea name="container[{{$item->id}}][description]" rows="3" class="form-control" placeholder="Descripcion"></textarea>
+
+
+                                </div>
+
+
+
+
+
+
+
+
+<div class="col-12">
+
+
+    <hr>
+</div>
+
+
+                            </div>
+
+
+
+
+
+
 
 
                             @foreach ($courses as $value)
