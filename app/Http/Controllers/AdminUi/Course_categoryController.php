@@ -52,6 +52,12 @@ class Course_categoryController extends Controller
         }
         $data->code = code(null, __METHOD__);
         try {
+
+            $data->courses = implode(
+                ",",
+                is_countable($request->get("course_ids")) ? $data->course_ids : []
+            );
+
             $this->course_categoryService->update($data);
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {

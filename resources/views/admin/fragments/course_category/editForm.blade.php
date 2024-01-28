@@ -1,3 +1,8 @@
+@php
+
+    $courses = explode(",",$course_category->courses);
+@endphp
+
 <div class="card">
 
     <div class="card-body">
@@ -10,8 +15,15 @@
                 <input type="text" name="name" required id="name" class="form-control" value="{{  $course_category->name }}">
             </div>
             <div class="col-md-6 mb-3">
-                <label for="code" class="form-label">{{ __('Codigo') }}</label>
-                <input type="text" name="code" id="code" class="form-control" value="{{  $course_category->code }}">
+                <label for="name" class="form-label">{{ __('Cursos') }}</label>
+                <select name="course_ids[]" class="form-control select2" multiple>
+
+                    @foreach ($course ?? [] as $item)
+                        <option {{ in_array($item->id,$courses)?"selected":"" }}  value="{{ $item->id }}">{{ $item->name }}</option>
+                    @endforeach
+
+
+                </select>
             </div>
 
 

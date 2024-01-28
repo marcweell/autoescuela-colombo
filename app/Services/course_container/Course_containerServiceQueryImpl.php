@@ -24,7 +24,14 @@ class Course_containerServiceQueryImpl implements ICourse_containerServiceQuery
 
     public function __construct()
     {
-        $this->query = DB::table($this->table);
+        $this->query = DB::table($this->table)
+            ->select(
+                $this->table . '.*',
+                'course_category.name as course_category_name',
+                'course.name as course_name'
+            )
+            ->leftJoin('course', 'course.id', $this->table . '.course_id')
+            ->leftJoin('course_category', 'course_category.id', $this->table . '.course_category_id') ;
     }
 
 

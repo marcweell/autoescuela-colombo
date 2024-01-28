@@ -33,12 +33,12 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group my-1">
-                                        <input type="text" name="container[{{$item->id}}][url_video]"
-                                            class="form-control" placeholder="URL VIDEO">
+                                        <input type="text" name="container[{{ $item->id }}][url_video]"
+                                            class="form-control" placeholder="URL VIDEO" value="{{ $item->url_video }}">
                                     </div>
                                     <div class="form-group my-1">
-                                        <input type="text" name="container[{{$item->id}}][url_file]"
-                                            class="form-control" placeholder="URL FILE">
+                                        <input type="text" name="container[{{ $item->id }}][url_file]"
+                                            class="form-control" placeholder="URL FILE" value="{{ $item->url_file }}">
                                     </div>
 
                                 </div>
@@ -47,7 +47,8 @@
                                 <div class="col-md-8">
 
 
-                                    <textarea name="container[{{$item->id}}][description]" rows="3" class="form-control" placeholder="Descripcion"></textarea>
+                                    <textarea name="container[{{ $item->id }}][description]" rows="3" class="form-control"
+                                        placeholder="Descripcion">{{ $item->description }}</textarea>
 
 
                                 </div>
@@ -55,46 +56,31 @@
 
 
 
-
-
-
-
-<div class="col-12">
-
-
-    <hr>
-</div>
-
-
                             </div>
 
 
 
-
-
-
-
-
-                            @foreach ($courses as $value)
-                                @if (!in_array($value->id, $courses_))
-                                    @continue
-                                @endif
+                            @foreach ($item->children??[] as $value)
                                 @php
                                     $id = md5($value->id . $item->id);
                                 @endphp
 
 
+                                <hr>
+
                                 <div class="row mb-3">
 
                                     <div class="col-md-4">
-                                        <input type="hidden" name="curso[{{ $id }}][category_id]" value="{{ $item->id }}">
-                                        <input type="hidden" name="curso[{{ $id }}][course_id]" value="{{ $value->id }}">
+                                        <input type="hidden" name="curso[{{ $id }}][category_id]"
+                                            value="{{ $value->course_category_id }}">
+                                        <input type="hidden" name="curso[{{ $id }}][course_id]"
+                                            value="{{ $value->course_id }}">
                                         <div class="form-group p-1 bg-success text-white">
-                                            {{ $value->name }}
+                                            {{ $value->course_name }}
                                         </div>
                                         <div class="form-group my-1">
                                             <input type="text" name="curso[{{ $id }}][titulo]"
-                                                class="form-control" placeholder="Titulo">
+                                                class="form-control" placeholder="Titulo" value="{{ $value->title }}">
                                         </div>
                                         <div class="form-group my-1">
                                             <input type="file" name="curso[{{ $id }}][file]"
@@ -102,11 +88,11 @@
                                         </div>
                                         <div class="form-group my-1">
                                             <input type="text" name="curso[{{ $id }}][url_video]"
-                                                class="form-control" placeholder="URL VIDEO">
+                                                class="form-control" placeholder="URL VIDEO"  value="{{ $value->url_video }}">
                                         </div>
                                         <div class="form-group my-1">
                                             <input type="text" name="curso[{{ $id }}][url_file]"
-                                                class="form-control" placeholder="URL FILE">
+                                                class="form-control" placeholder="URL FILE"  value="{{ $value->url_file }}">
                                         </div>
 
                                     </div>
@@ -116,7 +102,7 @@
 
 
                                         <label for="" class="form-label">Description</label>
-                                        <textarea name="curso[{{ $id }}][description]" cols="30" class="form-control textareaI"></textarea>
+                                        <textarea name="curso[{{ $id }}][description]" cols="30" class="form-control textareaI">{{ $value->description }}</textarea>
 
 
                                     </div>
@@ -132,17 +118,6 @@
 
 
                                 </div>
-
-
-
-
-
-
-
-
-
-
-                                <hr>
                             @endforeach
 
 

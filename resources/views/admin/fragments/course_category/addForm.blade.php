@@ -15,11 +15,8 @@
                 <label for="name" class="form-label">{{ __('Cursos') }}</label>
                 <select name="course_ids[]" class="form-control select2" multiple>
 
-                    @foreach ($course??[] as $item)
-
-<option value="{{ $item->id}}">{{ $item->name }}</option>
-
-
+                    @foreach ($course ?? [] as $item)
+                        <option   value="{{ $item->id }}">{{ $item->name }}</option>
                     @endforeach
 
 

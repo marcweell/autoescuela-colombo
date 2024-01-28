@@ -19,7 +19,7 @@ use Flores;
 class Course_categoryServiceImpl implements ICourse_categoryService
 {
     private $insertFillables = ['name','code','courses'];
-    private $updateFillables = ['name','code','courses'];
+    private $updateFillables = ['name','code','courses','description','url_video','url_file'];
     private $table =  'course_category';
 
 

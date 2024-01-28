@@ -23,7 +23,6 @@
                             #
                         </th>
                         <th>{{ __('Nombre') }}</th>
-                        <th>{{ __('Codigo') }}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -33,8 +32,6 @@
                         <tr>
                             <td> {{ $n }} </td>
                             <td> {{ $item->name }} </td>
-                            <td> {{ $item->code }}
-                            </td>
                             <td> {{ Flores\Tools::date_convert($item->created_at) }} </td>
                             <td class="table-action">
                                 <a href="javascript:void(0);" class="btn btn-primary"> <i class="fa fa-eye"></i></a>

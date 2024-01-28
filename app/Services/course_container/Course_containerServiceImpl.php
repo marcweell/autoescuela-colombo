@@ -23,9 +23,9 @@ class Course_containerServiceImpl implements ICourse_containerService
     private $table =  'course_container';
 
 
-    public function add($data)
+    public function add($data,$force = false)
     {
-        if (empty($data->name)) {
+        if (empty($data->title) and $force == false) {
             throw new \Exception(__('Nome invalido'), 400);
         }
 
@@ -63,6 +63,16 @@ class Course_containerServiceImpl implements ICourse_containerService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
+
+        if (!empty($data->file->file) and !empty($data->file->filename)) {
+            if (!str_ends_with($data->file->file, ':')) {
+                $data->file = tools()->upload_base64($data->file->file, md5(Auth::user()->id . $data->file->filename), 'storage/files');
+            } else {
+                unset($data->file);
+            }
+        } else {
+            unset($data->file);
+        }
 
 
         foreach ($data as $i => $value) {
