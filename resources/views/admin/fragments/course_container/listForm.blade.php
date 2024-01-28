@@ -33,12 +33,12 @@
 
                                 <div class="col-md-4">
                                     <div class="form-group my-1">
-                                        <input type="text" name="container[{{ $item->id }}][url_video]"
-                                            class="form-control" placeholder="URL VIDEO" value="{{ $item->url_video }}">
+                                        <input type="text" name="container[{{ $item->id }}][title]"
+                                            class="form-control" placeholder="Titulo" value="{{ $item->title }}">
                                     </div>
                                     <div class="form-group my-1">
-                                        <input type="text" name="container[{{ $item->id }}][url_file]"
-                                            class="form-control" placeholder="URL FILE" value="{{ $item->url_file }}">
+                                        <input type="file" name="container[{{ $item->id }}][image]"
+                                            class="form-control" placeholder="URL FILE" value="{{ $item->image }}">
                                     </div>
 
                                 </div>

@@ -19,7 +19,7 @@ use Flores;
 class Course_categoryServiceImpl implements ICourse_categoryService
 {
     private $insertFillables = ['name','code','courses'];
-    private $updateFillables = ['name','code','courses','description','url_video','url_file'];
+    private $updateFillables = ['name','code','courses','description','title','image'];
     private $table =  'course_category';
 
 
@@ -74,7 +74,15 @@ class Course_categoryServiceImpl implements ICourse_categoryService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-
+        if (!empty($data->image->file) and !empty($data->image->filename)) {
+            if (!str_ends_with($data->image->file, ':')) {
+                $data->image = tools()->upload_base64($data->image->file, md5(time() . $data->image->filename), 'storage/files');
+            } else {
+                unset($data->image);
+            }
+        } else {
+            unset($data->image);
+        }
 
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
