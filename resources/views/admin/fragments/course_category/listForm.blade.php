@@ -22,7 +22,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nombre') }}</th>
+                        <th>{{ __('Nombre') w}}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>

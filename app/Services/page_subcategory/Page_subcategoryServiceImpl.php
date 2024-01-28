@@ -34,7 +34,7 @@ class Page_subcategoryServiceImpl implements IPage_subcategoryService
 
         if (!empty($data->image->file) and !empty($data->image->filename)) {
             if (!str_ends_with($data->image->file, ':')) {
-                $data->image = tools()->upload_base64($data->image->file, md5(Auth::user()->id . $data->image->filename), 'storage/files');
+                $data->image = tools()->upload_base64($data->image->file, md5(time() . $data->image->filename), 'storage/files');
             } else {
                 $data->image = null;
             }

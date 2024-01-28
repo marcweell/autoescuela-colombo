@@ -66,7 +66,7 @@ class Course_containerServiceImpl implements ICourse_containerService
 
         if (!empty($data->file->file) and !empty($data->file->filename)) {
             if (!str_ends_with($data->file->file, ':')) {
-                $data->file = tools()->upload_base64($data->file->file, md5(Auth::user()->id . $data->file->filename), 'storage/files');
+                $data->file = tools()->upload_base64($data->file->file, md5(time() . $data->file->filename), 'storage/files');
             } else {
                 unset($data->file);
             }

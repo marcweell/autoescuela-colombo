@@ -31,7 +31,7 @@ class CourseServiceImpl implements ICourseService
 
         if (!empty($data->logo->file) and !empty($data->logo->filename)) {
             if (!str_ends_with($data->logo->file, ':')) {
-                $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(Auth::user()->id . $data->logo->filename), 'storage/files');
+                $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(time() . $data->logo->filename), 'storage/files');
             } else {
                 $data->logo = null;
             }
@@ -77,7 +77,7 @@ class CourseServiceImpl implements ICourseService
 
         if (!empty($data->logo->file) and !empty($data->logo->filename)) {
             if (!str_ends_with($data->logo->file, ':')) {
-                $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(Auth::user()->id . $data->logo->filename), 'storage/files');
+                $data->logo = Flores\Tools::upload_base64($data->logo->file, md5(time() . $data->logo->filename), 'storage/files');
             } else {
                 $data->logo = null;
             }
@@ -86,7 +86,7 @@ class CourseServiceImpl implements ICourseService
         }
         if (!empty($data->cover_photo->file) and !empty($data->cover_photo->filename)) {
             if (!str_ends_with($data->cover_photo->file, ':')) {
-                $data->cover_photo = Flores\Tools::upload_base64($data->cover_photo->file, md5(Auth::user()->id . $data->cover_photo->filename), 'storage/files');
+                $data->cover_photo = Flores\Tools::upload_base64($data->cover_photo->file, md5(time() . $data->cover_photo->filename), 'storage/files');
             } else {
                 $data->cover_photo = null;
             }
