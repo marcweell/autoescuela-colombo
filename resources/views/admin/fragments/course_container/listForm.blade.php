@@ -79,7 +79,7 @@
                                             {{ $value->course_name }}
                                         </div>
                                         <div class="form-group my-1">
-                                            <input type="text" name="curso[{{ $id }}][titulo]"
+                                            <input type="text" name="curso[{{ $id }}][title]"
                                                 class="form-control" placeholder="Titulo" value="{{ $value->title }}">
                                         </div>
                                         <div class="form-group my-1">
