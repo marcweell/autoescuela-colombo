@@ -23,7 +23,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Pregunta') }}</th>
+                        <th>{{ __('Titulo') }}</th>
                         <th>{{ __('Curso') }}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
@@ -32,7 +32,7 @@
                 <tbody>
                     @for ($i = 0, $n = 1; $i < count($role ?? []), ($item = @$role[$i]); $i++, $n++)
                         <tr>
-                            <td> {{ $n }} </td>
+                            <td> {{ $item->id }} </td>
                             <td> {{ $item->question }} </td>
                             <td> {{ $item->course_namej }} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
