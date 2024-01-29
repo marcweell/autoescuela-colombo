@@ -7,11 +7,11 @@ v<div class="card">
 
             <div class="col-md-4 mb-3">
                 <label for="categoria" class="form-label">Categoria</label>
-                <select class="form-select" name="course_category_id" id="id_categoria">
-                    <option value="">Selecciona una categoria</option>
+                <select class="form-select" name="course_category_id" id="course_category_id">
+                    <option  data-courses="" value="">Selecciona una categoria</option>
                     @foreach ($course_category ?? [] as $item)
 
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
+                    <option  data-courses="{{ $item->courses }}" value="{{ $item->id }}">{{ $item->name }}</option>
 
                     @endforeach
 
@@ -19,13 +19,8 @@ v<div class="card">
             </div>
             <div class="col-md-4 mb-3">
                 <label for="tipologia" class="form-label">Cursos</label>
-                <select class="form-select" name="course_id" id="tipologia">
-                    <option value="">Selecciona curso</option>
-                    @foreach ($course ?? [] as $item)
+                <select class="form-select" name="course_id" id="course_id" id="tipologia">
 
-                    <option value="{{ $item->id }}">{{ $item->name }}</option>
-
-                    @endforeach
                 </select>
             </div>
             <div class="col-md-4 mb-3">
@@ -89,4 +84,27 @@ v<div class="card">
 
 <script>
     $('.iconpicker').iconpicker();
+
+
+
+
+    var COURSE = {!! json_encode($course) !!};
+
+    $("#course_category_id").on("change", function() {
+        var courses = $('option:selected', this).attr('data-courses');
+        courses = courses.replaceAll(" ","");
+        courses = courses.split(",");
+        $("#course_id").empty();
+        for (const value of COURSE) {
+            if(!courses.includes(value.id.toString())){
+               continue;
+            }
+            $('#course_id').append($('<option>', {
+                value: value.id,
+                text: value.name
+            }));
+        }
+
+
+    });
 </script>
