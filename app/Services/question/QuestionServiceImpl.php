@@ -16,8 +16,8 @@ use Flores;
 
 class QuestionServiceImpl implements IQuestionService
 {
-    private $insertFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id',];
-    private $updateFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'question_category_id', 'updated_at', 'deleted_at'];
+    private $insertFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id',];
+    private $updateFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id', 'updated_at', 'deleted_at'];
     private $table = 'question';
 
     public function add($data)

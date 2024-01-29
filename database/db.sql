@@ -55,21 +55,21 @@ create table if not exists question(
     code varchar(191) not null unique,
     question text not null,
     answer text not null,
-    opt_a text,
-    opt_b text,
-    opt_c text,
-    opt_d text,
-    opt_e text,
+    opt_a text null,
+    opt_b text null,
+    opt_c text null,
+    opt_d text null,
+    opt_e text null,
     icon varchar(191),
     image varchar(191),
-    course varchar(191),
-    general_course varchar(191),
+    course_id bigint null,
+    general_course varchar(191) null,
     type varchar(191),
-    question_category_id bigint not null,
+    course_category_id bigint not null,
     created_at datetime default current_timestamp,
     updated_at datetime default null,
     deleted_at datetime default null,
-    foreign key(question_category_id) references question_category(id) on delete cascade
+    foreign key(course_category_id) references course_category(id) on delete cascade
 );
 
 create table if not exists sur_category(

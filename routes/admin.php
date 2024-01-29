@@ -124,6 +124,25 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
             Route::post("/", [App\Http\Controllers\AdminUi\Course_containerController::class, 'detailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
         });
     });
+    #---------------------------------------------------------------------------------------------------------------
+    Route::prefix("/question")->middleware([App\Http\Middleware\CheckPermission::class])->name("question.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
+
+            Route::post("/do", [App\Http\Controllers\AdminUi\QuestionController::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/detail")->middleware([App\Http\Middleware\CheckPermission::class])->name("detail.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\QuestionController::class, 'detailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        });
+    });
 
 
 
