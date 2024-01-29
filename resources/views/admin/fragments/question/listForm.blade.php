@@ -23,9 +23,7 @@
                         <th style="width: 20px;">
                             #
                         </th>
-                        <th>{{ __('Nome') }}</th>
-                        <th>{{ __('Codigo') }}</th>
-                        <th>{{ __('Descricao') }}</th>
+                        <th>{{ __('Pregunta') }}</th>
                         <th>{{ __('Fecha/hora de registro') }}</th>
                         <th style="width: 85px;"><i class='fa fa-cog'></i></th>
                     </tr>
@@ -34,15 +32,9 @@
                     @for ($i = 0, $n = 1; $i < count($role ?? []), ($item = @$role[$i]); $i++, $n++)
                         <tr>
                             <td> {{ $n }} </td>
-                            <td> {{ $item->name }} </td>
-                            <td> {{ $item->code }}
-                            </td>
-                            <td> {{ $item->description }}
-                            </td>
+                            <td> {{ $item->question }} </td>
                             <td> {{ tools()->date_convert($item->created_at) }} </td>
                             <td class="table-action">
-                                <a  data-href="{{ route('web.admin.question.role_permission.index') }}"
-                                data-id='{{ $item->id }}' class="btn btn-primary  _link_" class="btn btn-primary  _link_"> <i class="fa fa-shield-alt"></i></a>
                                 <a data-href="{{ route('web.admin.question.update.index') }}"
                                     data-id='{{ $item->id }}' class="btn btn-primary  _link_"><i
                                         class="fa fa-edit"></i></a>
