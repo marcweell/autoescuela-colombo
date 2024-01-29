@@ -1,7 +1,7 @@
 <div class="card">
 
     <div class="card-body">
-        <h4 class="header-title">{{ __('Editar Grupo de Usuarios') }}</h4>
+        <h4 class="header-title">{{ __('Editar Preguntas') }}</h4>
 
         <form action="{{ route('web.admin.question.update.do') }}" class="form_ --parent-load row" method="post">
             <input type="hidden" name="id" value="{{ $role->id }}">

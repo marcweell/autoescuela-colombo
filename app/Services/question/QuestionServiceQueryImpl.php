@@ -18,21 +18,23 @@ class QuestionServiceQueryImpl implements IQuestionServiceQuery
         $this->query = DB::table($this->table)
             ->select(
                 $this->table . '.*',
+                'course.name as course_name',
             )
-;    }
+            ->leftJoin('course as course', 'course.id', $this->table . '.course_id');
+    }
 
     public function exclude($ids = [])
     {
-        $this->query->whereNotIn($this->table.'.id', $ids);
+        $this->query->whereNotIn($this->table . '.id', $ids);
         return $this;
     }
 
- 
+
     public function count()
     {
         return $this->query->count();
     }
- 
+
 
 
     public function deleted($bool = true)
@@ -52,13 +54,13 @@ class QuestionServiceQueryImpl implements IQuestionServiceQuery
         $this->query->where($this->table . '.active', $bool);
         return $this;
     }
- 
+
     public function excludeIds($ids = [])
     {
         $this->query->whereNotIn($this->table . '.id', $ids);
         return $this;
     }
- 
+
     public function find()
     {
         return $this->query->first();
@@ -91,7 +93,7 @@ class QuestionServiceQueryImpl implements IQuestionServiceQuery
         }
 
         return $this;
-    } 
+    }
 
     public function byCode($code)
     {
@@ -113,5 +115,5 @@ class QuestionServiceQueryImpl implements IQuestionServiceQuery
     {
         $question = $this->query->where($this->table . '.code', $id)->first();
         return $question;
-    } 
+    }
 }
