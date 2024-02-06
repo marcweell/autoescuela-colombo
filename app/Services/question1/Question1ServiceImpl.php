@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Services\question;
+namespace App\Services\question1;
 
 use hisorange\BrowserDetect\Parser as Browser;
 use Illuminate\Http\Request;
@@ -14,7 +14,7 @@ use Flores;
 
 
 
-class Question1ServiceImpl implements IQuestionService
+class Question1ServiceImpl implements IQuestion1Service
 {
     private $insertFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id',];
     private $updateFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id', 'updated_at', 'deleted_at'];

@@ -1,5 +1,5 @@
 <?php
-namespace App\Services\question;
+namespace App\Services\question1;
 
 use stdClass;
 use Flores;

@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Services\question;
+namespace App\Services\question1;
 
 use Illuminate\Support\Facades\DB;
 
 
 
 
-class Question1ServiceQueryImpl implements IQuestionServiceQuery
+class Question1ServiceQueryImpl implements IQuestion1ServiceQuery
 {
 
     private $table = 'question1';
