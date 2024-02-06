@@ -21,7 +21,7 @@ class SurveyServiceImpl implements ISurveyService
 {
     private $insertFillables = ['code','logo','course_id','survey_category_id','project_id','start_date', 'end_date','language_id','name','description','long_description'];
     private $updateFillables = ['code','logo','course_id','survey_category_id','project_id','start_date', 'end_date','language_id','name','description','long_description'];
-    private $table =  'survey';
+    private $table =  'question_1';
     private $serviceQuery;
 
     public function __construct(){
@@ -37,8 +37,8 @@ class SurveyServiceImpl implements ISurveyService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->insertFillables)) {
                 $payload->{$i} = $value;
@@ -53,7 +53,7 @@ class SurveyServiceImpl implements ISurveyService
 
 
         $arr = json_decode(json_encode($payload), true);
-        
+
 
         DB::table($this->table)->insert($arr);
     }
@@ -67,8 +67,8 @@ class SurveyServiceImpl implements ISurveyService
 
         $payload = new stdClass();
         $data->code = code(empty($data->code) ? null : $data->code, __METHOD__);
-      
-      
+
+
         foreach ($data as $i => $value) {
             if (in_array($i, $this->updateFillables)) {
                 $payload->{$i} = $value;
@@ -80,7 +80,7 @@ class SurveyServiceImpl implements ISurveyService
         if (empty($survey->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);
         }
- 
+
 
         $arr = json_decode(json_encode($payload), true);
 
@@ -97,7 +97,7 @@ class SurveyServiceImpl implements ISurveyService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => DB::raw('now()')]);
     }
     public function restore($id)
@@ -109,7 +109,7 @@ class SurveyServiceImpl implements ISurveyService
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         DB::table($this->table)->where('id', $id)->update(['deleted_at' => null]);
     }
     public function delete($id)
@@ -117,11 +117,11 @@ class SurveyServiceImpl implements ISurveyService
         if (empty($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
         }
- 
+
         if (!is_numeric($id)) {
             throw new \Exception(__('Entrada Invalida'), 400);
-        } 
- 
+        }
+
         DB::table($this->table)->where($this->table.'.id', $id)->delete();
     }
 }

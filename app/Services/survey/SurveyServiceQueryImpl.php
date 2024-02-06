@@ -20,7 +20,7 @@ use Flores;
 class SurveyServiceQueryImpl implements ISurveyServiceQuery
 {
 
-    private $table =  'survey';
+    private $table =  'question_1';
 
     private $query;
 
