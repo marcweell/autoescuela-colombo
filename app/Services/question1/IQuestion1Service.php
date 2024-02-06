@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IQuestionService {
+interface IQuestion1Service {
 
     /**
     * @throws \Exception

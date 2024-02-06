@@ -7,7 +7,7 @@ use Illuminate\Support\Facades\DB;
 
 
 
-class QuestionServiceQueryImpl implements IQuestionServiceQuery
+class Question1ServiceQueryImpl implements IQuestionServiceQuery
 {
 
     private $table = 'question1';

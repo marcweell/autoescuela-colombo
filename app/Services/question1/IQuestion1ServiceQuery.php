@@ -7,7 +7,7 @@ use Flores;
 
 
 
-interface IQuestionServiceQuery {
+interface IQuestion1ServiceQuery {
 
     /**
      * @return \Illuminate\Support\Collection | null | stdClass
