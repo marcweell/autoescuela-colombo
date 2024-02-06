@@ -147,6 +147,28 @@ Route::prefix("/admin")->name("web.admin.")->middleware(App\Http\Middleware\WebA
 
 
     #---------------------------------------------------------------------------------------------------------------
+    Route::prefix("/question1")->middleware([App\Http\Middleware\CheckPermission::class])->name("question1.")->group(function () {
+        Route::post("/", [App\Http\Controllers\AdminUi\Question1Controller::class, 'index'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        Route::prefix("/add")->middleware([App\Http\Middleware\CheckPermission::class])->name("add.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Question1Controller::class, 'addIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question1Controller::class, 'add'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/update")->middleware([App\Http\Middleware\CheckPermission::class])->name("update.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Question1Controller::class, 'updateIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question1Controller::class, 'update'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/remove")->middleware([App\Http\Middleware\CheckPermission::class])->name("remove.")->group(function () {
+
+            Route::post("/do", [App\Http\Controllers\AdminUi\Question1Controller::class, 'remove'])->middleware([App\Http\Middleware\CheckPermission::class])->name("do");
+        });
+        Route::prefix("/detail")->middleware([App\Http\Middleware\CheckPermission::class])->name("detail.")->group(function () {
+            Route::post("/", [App\Http\Controllers\AdminUi\Question1Controller::class, 'detailIndex'])->middleware([App\Http\Middleware\CheckPermission::class])->name("index");
+        });
+    });
+
+
+
+    #---------------------------------------------------------------------------------------------------------------
     Route::prefix("/survey")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey.")->group(function () {
 
         Route::prefix("/survey_question")->middleware([App\Http\Middleware\CheckPermission::class])->name("survey_question.")->group(function () {
