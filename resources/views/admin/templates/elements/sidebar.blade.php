@@ -44,6 +44,10 @@
                   <ul class="treeview-menu">
                       <li><a class="treeview-item _link_" data-href="{{ route('web.admin.course_container.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Cursos</a></li>
+                              <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question1.add.do') }}"
+                                      href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Pregunta</a></li>
+                              <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question1.index') }}"
+                                      href="javascript:void()"><i class="icon fa fa-circle"></i>Lista de Preguntas</a></li>
                   </ul>
               </li>
 
@@ -56,9 +60,9 @@
                           class="app-menu__icon fa fa-newspaper"></i><span class="app-menu__label">Preguntas</span><i
                           class="treeview-indicator fa fa-chevron-right"></i></a>
                   <ul class="treeview-menu">
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question1.add.do') }}"
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question.add.do') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Agregar Pregunta</a></li>
-                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question1.index') }}"
+                      <li><a class="treeview-item _link_" data-href="{{ route('web.admin.question.index') }}"
                               href="javascript:void()"><i class="icon fa fa-circle"></i>Lista de Preguntas</a></li>
                   </ul>
               </li>
