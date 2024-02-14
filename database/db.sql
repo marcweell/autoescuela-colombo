@@ -1,5 +1,5 @@
 
-CREATE TABLE settings (
+CREATE TABLE promotion_history (
     id bigint(20) NOT NULL,
     name varchar(400) NOT NULL,
     code varchar(300) NOT NULL,
@@ -105,25 +105,18 @@ create table if not exists sur_category(
     deleted_at datetime default null
 );
 
-create table if not exists page(
+create table if not exists promotion_history(
     id bigint not null auto_increment primary key,
     code varchar(191) not null unique,
-    title text not null,
-    subtitle text not null,
-    preface longtext not null,
-    description longtext not null,
-    icon varchar(191),
-    hex_color varchar(191),
-    image varchar(191),
-    video varchar(191),
-    file varchar(191),
-    price float,
-    price_promo float,
-    page_category_id bigint not null,
+    price_promo float null,
+    stock int null,
+    item_id bigint not null,
+    admin_id bigint null,
     created_at datetime default current_timestamp,
     updated_at datetime default null,
     deleted_at datetime default null,
-    foreign key(page_category_id) references page_category(id) on delete cascade
+    foreign key(item_id) references item(id) on delete cascade,
+    foreign key(admin_id) references admin(id) on delete cascade,
 );
 
 create table if not exists paragraph(

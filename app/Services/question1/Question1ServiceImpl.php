@@ -18,7 +18,7 @@ class Question1ServiceImpl implements IQuestion1Service
 {
     private $insertFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id',];
     private $updateFillables = [ 'code','color', 'icon', 'question', 'answer', 'opt_a', 'opt_b', 'opt_c', 'opt_d', 'opt_e', 'icon', 'image', 'course', 'general_course', 'type', 'course_category_id', 'updated_at', 'deleted_at'];
-    private $table = 'question1';
+    private $table = 'question_1';
 
     public function add($data)
     {
@@ -49,7 +49,7 @@ class Question1ServiceImpl implements IQuestion1Service
             }
         }
 
-        $question = (new QuestionServiceQueryImpl())->findByCode($data->code);
+        $question = (new Question1ServiceQueryImpl())->findByCode($data->code);
 
         if (!empty($question->id)) {
             throw new \Exception(__('Nombre de usuario no válido'), 400);
@@ -91,7 +91,7 @@ class Question1ServiceImpl implements IQuestion1Service
         }
 
 
-        $question = (new QuestionServiceQueryImpl())->findById($data->id);
+        $question = (new Question1ServiceQueryImpl())->findById($data->id);
 
         if (empty($question->id)) {
             throw new \Exception(__('Conteudo nao encontrado'), 404);

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\DB;
 class Question1ServiceQueryImpl implements IQuestion1ServiceQuery
 {
 
-    private $table = 'question1';
+    private $table = 'question_1';
     private $query;
 
     public function __construct()
