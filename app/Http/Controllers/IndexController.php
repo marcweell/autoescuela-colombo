@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\AdminUi\Course_containerController;
 use App\Http\Controllers\Controller;
 use App\Services\course\CourseServiceQueryImpl;
 use App\Services\course_category\Course_categoryServiceQueryImpl;
+use App\Services\course_container\Course_containerServiceQueryImpl;
 use App\Services\faq\FaqServiceQueryImpl;
 use App\Services\gallery\GalleryServiceQueryImpl;
 use App\Services\site_menu\Site_menuServiceQueryImpl;
@@ -20,39 +22,64 @@ class IndexController extends Controller
     {
 
         $slider = _info('home.slider');
+
+
+
+
+
+        $cc =  (new Course_categoryServiceQueryImpl())->findAll();
+
+        foreach ($cc ?? [] as $key => $value) {
+
+            $value->children = [];
+            $courses = explode(",", $value->courses);
+            foreach ($courses ?? [] as $x => $course_id) {
+                if (empty($course_id)) {
+                    continue;
+                }
+                $c = (new Course_containerController())->getCourse($value->id, $course_id);
+                array_push($value->children, $c);
+            }
+            $cc[$key] = $value;
+        }
+
+
+
+
+
         return view('main.pages.index', [
-            'slider'=>$slider,
-            'course'=>(new CourseServiceQueryImpl())->findAll(),
-            'course_category'=>(new Course_categoryServiceQueryImpl())->findAll(),
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'slider' => $slider,
+            'course_category' => $cc,
+            'course' => (new CourseServiceQueryImpl())->findAll(),
+          #  'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function contactIndex(Request $request)
     {
         return view('main.pages.contact', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function courseIndex(Request $request)
     {
         return view('main.pages.course', [
-            'course'=>(new CourseServiceQueryImpl())->findAll(),
-            'course_category'=>(new Course_categoryServiceQueryImpl())->findAll(),
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'course' => (new CourseServiceQueryImpl())->findAll(),
+            'course_category' => (new Course_categoryServiceQueryImpl())->findAll(),
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function aboutIndex(Request $request)
     {
         return view('main.pages.about', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
 
@@ -60,27 +87,26 @@ class IndexController extends Controller
     public function faqIndex(Request $request)
     {
         return view('main.pages.faq', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function termsIndex(Request $request)
     {
 
         return view('main.pages.terms', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
     public function privacyIndex(Request $request)
     {
         return view('main.pages.privacy', [
-            'site_menu'=>(new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
-            'faq'=>(new FaqServiceQueryImpl())->findAll(),
-            'gallery'=>(new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
+            'site_menu' => (new Site_menuServiceQueryImpl())->orderbyId()->findAll(),
+            'faq' => (new FaqServiceQueryImpl())->findAll(),
+            'gallery' => (new GalleryServiceQueryImpl())->limit(12)->findAllShuffle()
         ])->render();
     }
-
 }

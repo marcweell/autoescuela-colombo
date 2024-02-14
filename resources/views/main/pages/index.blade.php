@@ -110,21 +110,16 @@
         <div class="container">
             <div class="faq-list">
                 <ul>
+@foreach ($course_category as $item)
+
                     <li data-aos="fade-up">
                         <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse" class="collapse"
-                            data-bs-target="#faq-list-1">Motocicleta - M<i class="bx bx-chevron-down icon-show"></i><i
+                            data-bs-target="#_{{$item->code}}">{{ $item->name }}<i class="bx bx-chevron-down icon-show"></i><i
                                 class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                        <div id="_{{$item->code}}" class="collapse show" data-bs-parent=".faq-list">
                             <div class="row">
                                 <div class="col-lg-8 details">
-                                    <p class="fst-italic">Qui laudantium consequatur laborum sit qui ad sapiente dila parde
-                                        sonata raqer
-                                        a videna mareta paulona marka</p>
-                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                        ipsum ipsa
-                                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et
-                                        quis magni
-                                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                                 {!! $item->description !!}
 
                                 </div>
                                 <div class="col-lg-4 text-center">
@@ -136,25 +131,11 @@
 
 
                                 <div class="col-lg-12">
+                                    @foreach ($item->children as $curso)
                                     <button type="button"
-                                        class="active animate__animated animate__fadeInUp scrollto">curso 1</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        2</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        3</button>
-                                    <button type="button"
-                                        class="btn-get-started animate__animated animate__fadeInUp scrollto">Curso
-                                        4</button>
-                                    <p>Qui laudantium consequatur laborum sit qui ad sapiente dila parde sonata raqer a
-                                        videna mareta
-                                        paulona marka</p>
-                                    <p>Et nobis maiores eius. Voluptatibus ut enim blanditiis atque harum sint. Laborum eos
-                                        ipsum ipsa
-                                        odit magni. Incidunt hic ut molestiae aut qui. Est repellat minima eveniet eius et
-                                        quis magni
-                                        nihil. Consequatur dolorem quaerat quos qui similique accusamus nostrum rem vero</p>
+                                        class="active animate__animated animate__fadeInUp scrollto">{{ $curso->course_name }}</button>
+
+                                    @endforeach
                                     <button type="button"
                                         class="btn-get-started animate__animated animate__fadeInUp scrollto"><a
                                             href="https://www.youtube.com/watch?v=LXb3EKWsInQ" class="glightbox"><i
@@ -167,109 +148,13 @@
                         </div>
                     </li>
 
-                    <li data-aos="fade-up" data-aos-delay="100">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-2" class="collapsed">Particular - P <i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit
-                                laoreet id
-                                donec ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est
-                                pellentesque elit
-                                ullamcorper dignissim. Mauris ultrices eros in cursus turpis massa tincidunt dui.
-                            </p>
-                        </div>
-                    </li>
 
-                    <li data-aos="fade-up" data-aos-delay="200">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-3" class="collapsed">Profesional – A<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Eleifend mi in nulla posuere sollicitudin aliquam ultrices sagittis orci. Faucibus pulvinar
-                                elementum
-                                integer enim. Sem nulla pharetra diam sit amet nisl suscipit. Rutrum tellus pellentesque eu
-                                tincidunt.
-                                Lectus urna duis convallis convallis tellus. Urna molestie at elementum eu facilisis sed
-                                odio morbi
-                                quis
-                            </p>
-                        </div>
-                    </li>
 
-                    <li data-aos="fade-up" data-aos-delay="300">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-4" class="collapsed">Profesional – B<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Molestie a iaculis at erat pellentesque adipiscing commodo. Dignissim suspendisse in est
-                                ante in. Nunc
-                                vel risus commodo viverra maecenas accumsan. Sit amet nisl suscipit adipiscing bibendum est.
-                                Purus
-                                gravida quis blandit turpis cursus in.
-                            </p>
-                        </div>
-                    </li>
+                    @endforeach
 
-                    <li data-aos="fade-up" data-aos-delay="400">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-5" class="collapsed">Profesional – C<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-6" class="collapsed">Maquinaria Pesada – T<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-6" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-7" class="collapsed">Manejo Defensivo<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-7" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
-                    <li data-aos="fade-up" data-aos-delay="500">
-                        <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                            data-bs-target="#faq-list-8" class="collapsed">Mantenimiento de Mecánica Automotriz<i
-                                class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-                        <div id="faq-list-8" class="collapse" data-bs-parent=".faq-list">
-                            <p>
-                                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris vitae ultricies leo integer
-                                malesuada
-                                nunc vel. Tincidunt eget nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed. Ut
-                                venenatis
-                                tellus in metus vulputate eu scelerisque.
-                            </p>
-                        </div>
-                    </li>
+
+
+
                 </ul>
             </div>
 

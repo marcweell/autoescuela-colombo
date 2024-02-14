@@ -68,7 +68,6 @@ class Course_containerController extends Controller
 
             return (new WebApi())->setSuccess()->notify(__("Actualización realizada con éxito"))->resync()->close_modal()->get();
         } catch (\Exception $e) {
-            throw $e;
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
         }
     }
@@ -82,7 +81,7 @@ class Course_containerController extends Controller
         }
     }
     #indexes
-    private function getCourse($category, $course_id)
+    public function getCourse($category, $course_id)
     {
         $course = (new Course_containerServiceQueryImpl())->byCourse_category($category)->byCourse($course_id)->find();
         if (!empty($course->id)) {
@@ -122,9 +121,13 @@ class Course_containerController extends Controller
                 }
                 $cc[$key] = $value;
             }
+
+
             $view = view('admin.fragments.course_container.listForm', [
                 'course_category' => $cc,
             ])->render();
+
+
             return (new WebApi())->setSuccess()->print($view)->save()->get();
         } catch (\Exception $e) {
             return (new WebApi())->setStatusCode($e->getCode())->alert($e->getMessage())->get();
